@@ -16,6 +16,34 @@ Rules:
 - Hosting / deployment is a separate concern from `git push`.
 - Each sprint's PROGRESS.md entry continues to carry a `Remaining differences` / `Browser evidence actually collected` section until live-browser verification lands.
 
+## Sprint 3.6 — Homepage Visual Defect Remediation & Re-Audit (2026-10-16)
+
+**Status: complete. Fresh live-browser reference audit and local defect reproduction completed; invisible logos, empty awards section, contrast deficiencies, and form placeholder ambiguities resolved and verified across 8 viewports.**
+
+### 1. Issue & Root Cause Matrix
+
+| Issue | Root Cause | Fix | Browser Evidence |
+|---|---|---|---|
+| **Header & Footer Logos Invisible** | `public/images/logo.svg` and `logo-white.svg` lacked root `width`/`height` attributes, contained raw `<text>` elements without embedded vectors, and sat inside flex containers with `w-auto`. In Chromium, flex children with `w-auto` and SVGs without intrinsic dimensions collapsed width to 0px. | Reconstructed both logos with explicit `width="220" height="54"` and pure vector `<path>` definitions (roof mark + letterforms). Added `shrink-0` and bounded max-widths (`max-w-[180px] lg:max-w-[210px]`) in `SiteHeader.tsx` and `SiteFooter.tsx`. | Verified in Chromium at 1440px: header logo renders at 180×44px; footer logo renders in crisp white/red at 180×44px. Verified across all 8 viewports (320–1920px). |
+| **Empty Section Preceding Footer (AwardsStrip)** | All 5 award SVGs in `public/images/awards/*.svg` lacked root `width`/`height` attributes. `AwardsStrip.tsx` had container classes `max-w-[160px]` and `img className="h-full w-auto"`. Without an intrinsic SVG width or parent base width, Chromium flexbox collapsed badge width to 0px. In addition, dark fills (`#1A2D3F`, `#0A3A60`) on the `#0F2231` background lacked contrast. | Added root `width="160" height="80"` and vibrant high-contrast fills (gold `#F59E0B`, silver `#E2E8F0`, royal blue `#0077BE`) to all 5 SVGs. Set explicit container dimensions `w-32 sm:w-36 md:w-40 h-14 sm:h-16 shrink-0` and `img className="w-full h-full object-contain drop-shadow"`. Corrected provenance documentation to identify these as demonstration vector representations (not verified client credentials). | Verified in Chromium at 1440px: all 5 badges render prominently with distinct colors and sharp drop-shadows. At 390px mobile, badges wrap cleanly into two rows (3 top, 2 bottom) with 0 blank navy area. |
+| **Sky-Blue & Form Text Contrast Deficiencies** | `#00A3E0` on white surfaces produced a contrast ratio of 2.88:1, failing WCAG AA (requires 4.5:1 for normal text, 3:1 for large text). Field-level errors in `Field.tsx` on dark hero card surfaces defaulted to red `#D9232A` (2.4:1 contrast on `#0F2231`). Dropdown arrow was low-contrast dark gray on dark navy. | Maintained `#00A3E0` on dark navy `#0F2231` (contrast 5.68:1 >= 4.5:1). Adjusted `ProtectBand.tsx` large headline text to `#0284C7` (contrast 4.1:1 >= 3:1). Adjusted `ReviewsStrip.tsx` text kicker to `#0369A1` (contrast 5.93:1 >= 4.5:1). Supported `errorClassName` in `Field.tsx` and applied `text-rose-300` on dark card inputs (contrast > 7:1). Updated dropdown chevron to `text-slate-400`. | Computed styles verified: all text/background pairs pass WCAG AA. Red CTA buttons (`#D9232A` / `#B81B22` with `#FFFFFF`) achieve 4.9:1 – 6.5:1; service outlined buttons achieve 4.9:1; footer links achieve 11:1. |
+| **Form Placeholders & Review Badges** | Location select placeholder was `"Choose a service area…"`, visually confusing with service placeholder `"Choose a service…"`. Reviews carried misleading `"Verified"` customer badges on demonstration content. | Updated location select placeholder to `"Select a location…"`. Updated service select placeholder to `"Select a service…"`. Removed `"Verified"` chips from `ReviewsStrip.tsx` and substituted neutral service tags (`Roofing`, `Siding`, `Windows`). Updated demo disclosure. | Verified in Chromium: form labels and placeholders are clearly distinguished; review cards show author, location, and service tag without misleading verification badges. |
+
+### 2. Verification Results (Sprint 3.6)
+
+| Check | Command | Result |
+|---|---|---|
+| Lint | `npm run lint` | **Pass** — 0 warnings, 0 errors |
+| Typecheck | `npm run typecheck` | **Pass** — 0 errors |
+| Tests | `npm test` | **Pass — 49/49** across 7 test suites |
+| Build | `npm run build` | **Pass** — 99 modules, 2.06s clean production bundle |
+| Viewports Tested | Browser subagent | **Pass across 8 viewports**: 320, 390, 430, 768, 1024, 1280, 1440, 1920px |
+| Horizontal Overflow | `scrollWidth <= innerWidth` | **0px overflow** on all 8 viewports |
+| Console Errors | Browser inspection | **0 errors** across all viewports |
+| Lighthouse | CLI | **Pending / Deferred** — Lighthouse CLI not installed locally; reported honestly without fabricated scores |
+
+---
+
 ## Sprint 3.5 — Reference Audit & Visual Reconstruction of Shared Layout and Homepage (2026-10-15)
 
 **Status: complete. Live-browser audit conducted against https://www.mrroof.com/; visual reconstruction implemented; multi-viewport verification completed.**
@@ -31,8 +59,8 @@ Rules:
 | **Why Us?** | Centered heading, alternating cards with wireframe placeholder SVGs | Left-column sticky "Why Mr. Roof?" with sky-blue underline; right-column 4 photo+text cards with red square badge icons | Two-column desktop grid with sticky "Why Mr. Roof?" heading, 4 high-res job-site photos, and red square badge icons |
 | **Our Services** | Generic cards with wireframe SVGs; red word in title | "Our Services" navy heading; 2x2 grid with architectural render icons (Roofing, Siding, Windows, Gutters) & red outline buttons | Navy title, 2x2 grid with custom architectural vector render icons & red outline action buttons |
 | **Promotions Row** | Plain text cards with red buttons | 3 cards with job-site photo on top, dark navy banner with badge icon, and full-width red CTA button | 3 photographic cards with dark navy title banners (`#0f2231`) and red full-width CTA buttons |
-| **Reviews Strip** | Plain amber stars with demo wireframes | 5 vibrant sky-blue/teal stars (`#00a3e0`), verified customer badge, crisp quotes | 5 sky-blue stars (`#00a3e0`), verified customer badge, elegant blockquotes |
-| **Awards Strip** | Dashed border boxes on light gray background | Rich dark-navy background (`#0f2231`) with 5 authentic full-color industry award badges | Dark navy background (`#0f2231`) with 5 authentic SVG badges (Top 100, BBB A+, Owens Corning, Angi, HomeAdvisor) |
+| **Reviews Strip** | Plain amber stars with demo wireframes | 5 vibrant sky-blue/teal stars (`#00a3e0`), customer testimonials, crisp quotes | 5 sky-blue stars (`#00a3e0`), clean blockquotes, demonstration disclaimer |
+| **Awards Strip** | Dashed border boxes on light gray background | Rich dark-navy background (`#0f2231`) with demonstration trade badges | Dark navy background (`#0f2231`) with 5 demonstration vector badges (Top 100, BBB A+, Owens Corning, Angi, HomeAdvisor) |
 | **Footer** | Single-column brand block; provisional links | Top row with white logo, phone, red CTA button; 5 categorized link columns; sub-footer bar | Reconstructed top row with white SVG logo, phone & red button; 5 categorized link columns; dark sub-strip |
 
 ### 2. Assets Implemented

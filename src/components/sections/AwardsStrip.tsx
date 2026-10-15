@@ -34,9 +34,9 @@ const awards = [
 ];
 
 /**
- * Reconstructed Awards & Certifications strip:
+ * Awards & Certifications strip:
  * - Rich dark navy background matching reference site (#0f2231).
- * - Full-vector authentic award badges replacing provisional dashed wireframe tiles.
+ * - Full-vector demonstration award badges approximating industry credentials.
  */
 export function AwardsStrip() {
   return (
@@ -49,11 +49,11 @@ export function AwardsStrip() {
           Awards and certifications
         </h2>
 
-        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-16">
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-14">
           {awards.map((badge) => (
             <div
               key={badge.name}
-              className="flex items-center justify-center h-16 sm:h-20 max-w-[160px] opacity-90 hover:opacity-100 transition-opacity"
+              className="flex items-center justify-center w-32 sm:w-36 md:w-40 h-14 sm:h-16 shrink-0 opacity-95 hover:opacity-100 transition-opacity"
             >
               <img
                 src={badge.src}
@@ -62,7 +62,7 @@ export function AwardsStrip() {
                 height={badge.height}
                 loading="lazy"
                 decoding="async"
-                className="h-full w-auto object-contain drop-shadow"
+                className="w-full h-full object-contain drop-shadow"
               />
             </div>
           ))}

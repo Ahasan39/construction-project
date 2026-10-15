@@ -2,6 +2,63 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 3.6 — Visual Defect Remediation & Full-Viewport QA (2026-10-16)
+
+### Static checks
+
+| Check | Command | Result |
+|---|---|---|
+| Lint | `npm run lint` | **Pass** — 0 warnings, 0 errors |
+| Typecheck | `npm run typecheck` | **Pass** — 0 errors |
+| Tests | `npm test` | **Pass — 49/49 passed** across 7 test suites |
+| Build | `npm run build` | **Pass** — 99 modules transformed in 2.06s. Entry 347.64 KB (109.17 KB gzip), CSS 35.08 KB (7.14 KB gzip) |
+
+### Browser verification actually completed (Chromium)
+
+| Viewport | Device Class | Horizontal Overflow? | Console Errors? | Header Logo | Awards Section | Footer Logo | Form / Reviews State |
+|---|---|---|---|---|---|---|---|
+| **320px** | Small Mobile | **None** (`scrollWidth: 320`) | 0 errors | Visible, responsive | 5 badges visible & wrapped | Visible in white/red | Disambiguated placeholders; no "Verified" badge |
+| **390px** | Standard Mobile (iPhone) | **None** (`scrollWidth: 390`) | 0 errors | Visible, responsive | 5 badges visible (3 top, 2 bottom) | Visible in white/red | Disambiguated placeholders; no "Verified" badge |
+| **430px** | Large Mobile (Max/Plus) | **None** (`scrollWidth: 430`) | 0 errors | Visible, responsive | 5 badges visible | Visible in white/red | Disambiguated placeholders; no "Verified" badge |
+| **768px** | Tablet Portrait (iPad) | **None** (`scrollWidth: 768`) | 0 errors | Visible, 180×44px | 5 badges visible in clean row | Visible in white/red | Disambiguated placeholders; no "Verified" badge |
+| **1024px** | Tablet Landscape | **None** (`scrollWidth: 1024`) | 0 errors | Visible, 180×44px | 5 badges visible in clean row | Visible in white/red | Disambiguated placeholders; no "Verified" badge |
+| **1280px** | Desktop standard | **None** (`scrollWidth: 1280`) | 0 errors | Visible, 180×44px | 5 badges visible in clean row | Visible in white/red | Disambiguated placeholders; no "Verified" badge |
+| **1440px** | Desktop wide (reference) | **None** (`scrollWidth: 1440`) | 0 errors | Visible, 180×44px | 5 badges visible in clean row | Visible in white/red | Disambiguated placeholders; no "Verified" badge |
+| **1920px** | Ultra-wide | **None** (`scrollWidth: 1920`) | 0 errors | Visible, 180×44px | 5 badges visible in clean row | Visible in white/red | Disambiguated placeholders; no "Verified" badge |
+
+### Defect fixes verified in browser
+
+1. **Header Logo**:
+   - Explicit 180×44px rendering with pure vector paths. Red roof eaves, dark navy wordmark, red accent dot rendered crisply against white background.
+2. **Pre-Footer Awards Section**:
+   - 0px collapse eliminated. All 5 badges (Roofing Contractor Top 100, BBB A+ Accredited, Owens Corning Platinum, Angi 2022 Super Service, Best of HomeAdvisor Winner) render with explicit width/height and vibrant, contrasting fills against `#0F2231`.
+3. **Footer Logo**:
+   - Explicit 180×44px rendering with pure vector paths. Crisp white wordmark with red roof and red accent dot rendered against `#0F2231`.
+4. **Form Placeholders & Contrast**:
+   - Location placeholder reads `"Select a location…"`.
+   - Service placeholder reads `"Select a service…"`.
+   - Dropdown chevron visible with `text-slate-400`. Field error text uses `text-rose-300` on dark hero card (contrast > 7:1 against `#0F2231`).
+5. **Review Cards**:
+   - Deceptive `"Verified"` badge removed from demo testimonials; replaced with neutral service category badges. Kicker text updated to accessible `#0369A1` (contrast 5.93:1 on white).
+6. **ProtectBand Highlights**:
+   - Blue phrase highlights updated to `#0284C7` (contrast 4.1:1 on white, satisfying WCAG AA 3:1 for large text).
+
+### Screenshots captured (Sprint 3.6)
+
+- **Diagnostic Before**:
+  - `header_closeup_1792087551701.png` (demonstrating 0px collapsed header logo)
+  - `footer_awards_view_1792087529658.png` (demonstrating collapsed awards badges and invisible footer logo)
+  - `homepage_lower_1792087795281.png` (empty navy pre-footer section)
+- **Remediated After**:
+  - `header_closeup_1440_1792088667909.png` (crisp visible header logo + disambiguated dropdown placeholders)
+  - `reviews_awards_1440_1792088692703.png` (clean customer testimonials without "Verified" badges + accessible kicker)
+  - `awards_footer_1440_1792088700257.png` (all 5 award badges rendering with high contrast + visible white/red footer logo)
+  - `viewport_320_1792088712079.png` (320px viewport layout & logo visibility)
+  - `fullpage_390_1792088718945.png` (390px mobile full-page with wrapped awards badges & 0 overflow)
+  - `fullpage_1440_1792088728207.png` (1440px desktop full-page with all sections fully rendered)
+
+---
+
 ## Sprint 3.5 — Reference Audit & Visual Reconstruction Verification (2026-10-15)
 
 ### Static checks

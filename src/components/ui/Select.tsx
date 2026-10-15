@@ -28,7 +28,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
       </select>
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[var(--color-ink-muted)]"
+        className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400"
       >
         ▾
       </span>

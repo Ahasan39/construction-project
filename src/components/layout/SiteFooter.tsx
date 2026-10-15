@@ -20,13 +20,13 @@ export function SiteFooter() {
       <div className="border-b border-slate-700/60 py-8">
         <Container width="wide">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-            <Link to="/" aria-label={`${brand.companyName} — Home`}>
+            <Link to="/" aria-label={`${brand.companyName} — Home`} className="shrink-0 inline-block">
               <img
                 src="/images/logo-white.svg"
                 alt={`${brand.companyName} Logo`}
                 width={180}
                 height={44}
-                className="h-10 lg:h-12 w-auto object-contain"
+                className="h-10 lg:h-11 w-auto max-w-[180px] lg:max-w-[210px] shrink-0 object-contain"
               />
             </Link>
 

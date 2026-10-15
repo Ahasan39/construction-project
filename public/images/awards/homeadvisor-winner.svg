@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" fill="none">
-  <!-- Best of HomeAdvisor Winner -->
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="80" viewBox="0 0 160 80" fill="none">
+  <!-- Best of HomeAdvisor Winner Demo Badge -->
   <!-- Red hanging ribbon -->
-  <path d="M72 40L65 74L80 67L95 74L88 40Z" fill="#C8102E"/>
+  <path d="M70 38L63 74L80 67L97 74L90 38Z" fill="#DC2626"/>
   <!-- Gold medallion -->
-  <circle cx="80" cy="34" r="28" fill="#DAA520" stroke="#B8860B" stroke-width="2"/>
-  <circle cx="80" cy="34" r="24" fill="#FFD700"/>
-  <circle cx="80" cy="34" r="21" fill="none" stroke="#B8860B" stroke-width="1" stroke-dasharray="2 2"/>
-  <text x="80" y="27" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" font-weight="900" fill="#663300" letter-spacing="0.5">BEST OF</text>
-  <text x="80" y="37" text-anchor="middle" font-family="system-ui, sans-serif" font-size="6" font-weight="800" fill="#333333">HomeAdvisor</text>
-  <text x="80" y="47" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="900" fill="#990000">WINNER</text>
+  <circle cx="80" cy="33" r="28" fill="#F59E0B" stroke="#B45309" stroke-width="2"/>
+  <circle cx="80" cy="33" r="24" fill="#FBBF24"/>
+  <circle cx="80" cy="33" r="21" fill="none" stroke="#B45309" stroke-width="1" stroke-dasharray="2 2"/>
+  <text x="80" y="25" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-weight="900" fill="#78350F" letter-spacing="0.5">BEST OF</text>
+  <text x="80" y="36" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="6.5" font-weight="800" fill="#1E293B">HomeAdvisor</text>
+  <text x="80" y="47" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="900" fill="#991B1B">WINNER</text>
 </svg>

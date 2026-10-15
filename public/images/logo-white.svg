@@ -1,12 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 54" fill="none">
-  <!-- Roof silhouette / hat accent -->
-  <path d="M12 28L32 10L52 28H44L32 17L20 28H12Z" fill="#D9232A"/>
-  <rect x="22" y="24" width="20" height="4" fill="#FFFFFF"/>
-  <rect x="29" y="19" width="6" height="5" fill="#D9232A"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="54" viewBox="0 0 220 54" fill="none">
+  <!-- Red Roof Eaves / Silhouette Mark -->
+  <path d="M6 30L30 8L54 30H44L30 17L16 30H6Z" fill="#D9232A"/>
+  <rect x="18" y="26" width="24" height="4" rx="1" fill="#FFFFFF"/>
+  <rect x="27" y="20" width="6" height="6" fill="#D9232A"/>
   
-  <!-- Mr. Roof typography in white -->
-  <text x="60" y="32" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" letter-spacing="-0.5">Mr.</text>
-  <text x="110" y="32" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" letter-spacing="-0.5">Roof</text>
+  <!-- "Mr." in pure vector paths for 100% reliable rendering without font dependencies -->
+  <!-- M -->
+  <path d="M64 34V14H69.5L75 25.5L80.5 14H86V34H81V21L76.5 30H73.5L69 21V34H64Z" fill="#FFFFFF"/>
+  <!-- r -->
+  <path d="M89 34V20H93.5V23.5C94.5 21 97 20 100 20.2V25C96.5 24.8 94 26.5 94 30V34H89Z" fill="#FFFFFF"/>
+  <!-- . -->
+  <rect x="101" y="29" width="4.5" height="5" rx="1" fill="#D9232A"/>
+  
+  <!-- "Roof" in pure vector paths -->
+  <!-- R -->
+  <path d="M112 34V14H122C126.5 14 129.5 16.5 129.5 20.5C129.5 23.5 127.5 25.5 125 26.5L130.5 34H124.5L119.5 27H117V34H112ZM117 23H121.5C123.5 23 124.5 22 124.5 20.5C124.5 19 123.5 18 121.5 18H117V23Z" fill="#FFFFFF"/>
+  <!-- o -->
+  <path d="M131.5 27C131.5 22.8 134.8 19.5 139.5 19.5C144.2 19.5 147.5 22.8 147.5 27C147.5 31.2 144.2 34.5 139.5 34.5C134.8 34.5 131.5 31.2 131.5 27ZM142.5 27C142.5 24.5 141.2 23.2 139.5 23.2C137.8 23.2 136.5 24.5 136.5 27C136.5 29.5 137.8 30.8 139.5 30.8C141.2 30.8 142.5 29.5 142.5 27Z" fill="#FFFFFF"/>
+  <!-- o -->
+  <path d="M149.5 27C149.5 22.8 152.8 19.5 157.5 19.5C162.2 19.5 165.5 22.8 165.5 27C165.5 31.2 162.2 34.5 157.5 34.5C152.8 34.5 149.5 31.2 149.5 27ZM160.5 27C160.5 24.5 159.2 23.2 157.5 23.2C155.8 23.2 154.5 24.5 154.5 27C154.5 29.5 155.8 30.8 157.5 30.8C159.2 30.8 160.5 29.5 160.5 27Z" fill="#FFFFFF"/>
+  <!-- f -->
+  <path d="M172 17C172 15.5 173 14.5 175 14.5C176.5 14.5 177.5 15 178 15.5L177 19C176.5 18.7 175.8 18.5 175 18.5C174.2 18.5 174 19 174 20V20.5H178V24H174V34H169V24H166V20.5H169V19C169 16 170.5 14 174 14C175 14 176.5 14.2 178 14.8V17H172Z" fill="#FFFFFF"/>
   <!-- Red dot accent -->
-  <circle cx="178" cy="30" r="3.5" fill="#D9232A"/>
+  <circle cx="184" cy="32" r="3.5" fill="#D9232A"/>
 </svg>

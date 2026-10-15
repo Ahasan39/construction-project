@@ -206,7 +206,12 @@ export function EstimateForm({
       ) : (
         <>
           <div className={labelTone}>
-            <Field label="Name" required error={errors.name}>
+            <Field
+              label="Name"
+              required
+              error={errors.name}
+              errorClassName={variant === "inverse" ? "text-rose-300 font-medium text-xs" : undefined}
+            >
               {({ id, describedBy, invalid }) => (
                 <Input
                   id={id}
@@ -225,7 +230,12 @@ export function EstimateForm({
           </div>
 
           <div className={labelTone}>
-            <Field label="Phone" required error={errors.phone}>
+            <Field
+              label="Phone"
+              required
+              error={errors.phone}
+              errorClassName={variant === "inverse" ? "text-rose-300 font-medium text-xs" : undefined}
+            >
               {({ id, describedBy, invalid }) => (
                 <Input
                   id={id}
@@ -246,7 +256,12 @@ export function EstimateForm({
           </div>
 
           <div className={labelTone}>
-            <Field label="Email" required error={errors.email}>
+            <Field
+              label="Email"
+              required
+              error={errors.email}
+              errorClassName={variant === "inverse" ? "text-rose-300 font-medium text-xs" : undefined}
+            >
               {({ id, describedBy, invalid }) => (
                 <Input
                   id={id}
@@ -268,7 +283,12 @@ export function EstimateForm({
 
           {!lockedRegion && (
             <div className={labelTone}>
-              <Field label="Select location" required error={errors.regionKey}>
+              <Field
+                label="Select location"
+                required
+                error={errors.regionKey}
+                errorClassName={variant === "inverse" ? "text-rose-300 font-medium text-xs" : undefined}
+              >
                 {({ id, describedBy, invalid }) => (
                   <Select
                     id={id}
@@ -283,7 +303,7 @@ export function EstimateForm({
                     required
                   >
                     <option value="" disabled className="text-gray-900 bg-white">
-                      Choose a service area…
+                      Select a location…
                     </option>
                     {serviceAreaRegions.map((r) => (
                       <option key={r.key} value={r.key} className="text-gray-900 bg-white">
@@ -298,7 +318,12 @@ export function EstimateForm({
 
           {!lockedService && (
             <div className={labelTone}>
-              <Field label="Select service" required error={errors.serviceKey}>
+              <Field
+                label="Select service"
+                required
+                error={errors.serviceKey}
+                errorClassName={variant === "inverse" ? "text-rose-300 font-medium text-xs" : undefined}
+              >
                 {({ id, describedBy, invalid }) => (
                   <Select
                     id={id}
@@ -313,7 +338,7 @@ export function EstimateForm({
                     required
                   >
                     <option value="" disabled className="text-gray-900 bg-white">
-                      Choose a service…
+                      Select a service…
                     </option>
                     {services.map((s) => (
                       <option key={s.key} value={s.key} className="text-gray-900 bg-white">
@@ -343,7 +368,7 @@ export function EstimateForm({
           </div>
 
           <p id={demoNoticeId} className={`text-xs ${noticeTone}`}>
-            Demo form — submissions are not delivered. By submitting you agree
+            Demo form — submissions are simulated for testing. By submitting you agree
             to contact by phone, email or text. See our{" "}
             <SmartLink to="/privacy-policy" className="underline">
               Privacy policy

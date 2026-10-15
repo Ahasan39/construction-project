@@ -25,7 +25,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           type="checkbox"
           aria-describedby={descId}
           aria-invalid={invalid || undefined}
-          className="mt-1 h-4 w-4 shrink-0 accent-[var(--color-brand-primary)]"
+          className="mt-1 h-4 w-4 shrink-0 accent-[var(--color-brand-accent)] cursor-pointer"
           {...rest}
         />
         <div className="flex flex-col">

@@ -6,6 +6,7 @@ export interface FieldProps {
   description?: string;
   error?: string;
   required?: boolean;
+  errorClassName?: string;
   /**
    * Render callback receives the ids to wire onto the control:
    *   `id` → label-for target,
@@ -24,6 +25,7 @@ export function Field({
   description,
   error,
   required,
+  errorClassName = "text-[var(--color-danger)]",
   children,
 }: FieldProps) {
   const id = useId();
@@ -55,7 +57,7 @@ export function Field({
         <p
           id={errId}
           role="alert"
-          className="text-sm text-[var(--color-danger)]"
+          className={`text-sm ${errorClassName}`}
         >
           {error}
         </p>

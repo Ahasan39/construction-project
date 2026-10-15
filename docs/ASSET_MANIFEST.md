@@ -6,7 +6,7 @@ Tracks every image, font, logo, icon, and media asset the frontend will need, it
 
 | Asset | Status | Source | Notes |
 |---|---|---|---|
-| Logo (wordmark + mark) | **Implemented** — `public/images/logo.svg` + `logo-white.svg` | Local custom vector | Clean red roof-hat mark + bold typography matching reference composition. |
+| Logo (wordmark + mark) | **Implemented (Demonstration Recreation)** — `public/images/logo.svg` + `logo-white.svg` | Local custom vector paths | Demonstration pure-vector recreation with explicit dimensions (220×54) and vector letterforms (`fill="#0F2231"` / `fill="#FFFFFF"`, red accent `#D9232A`), avoiding font dependencies. Not official client source assets; substituted for layout testing. |
 | Primary phone number | **Implemented** — `(877) 766-7663` | Reference observed | Centralized in `brand.ts`. |
 | Primary email | `info@mrroof.com` | Brand config | Centralized in `brand.ts`. |
 | Physical address(es) | `Columbus, OH (HQ)` | Regional hub | Configured. |
@@ -21,7 +21,7 @@ Tracks every image, font, logo, icon, and media asset the frontend will need, it
 | Primary body font (`.woff2`) | **Implemented** | Inter (Google Fonts / system fallback) | Loaded with `preconnect` in `index.html`. |
 | Display / heading font (`.woff2`) | **Implemented** | Inter | Same family with heavy 700/900 weights. |
 
-## 3. Service & Homepage Imagery (Sprint 3.5)
+## 3. Service & Homepage Imagery (Sprint 3.5 & 3.6)
 
 | Section | Needed assets | Status | Source / Notes |
 |---|---|---|---|
@@ -34,7 +34,7 @@ Tracks every image, font, logo, icon, and media asset the frontend will need, it
 | Promo card 1 | Offers & promotions photo | **Implemented** — `public/images/homepage/promo-offers.jpg` | High-res photography: exterior inspector checking roofline. |
 | Promo card 2 | Special financing photo | **Implemented** — `public/images/homepage/promo-financing.jpg` | High-res photography: financing/estimate consultation. |
 | Promo card 3 | Lifetime warranty photo | **Implemented** — `public/images/homepage/promo-warranty.jpg` | High-res photography: pristine craftsman home exterior. |
-| Awards / certification badges | 5 industry badges | **Implemented** — `public/images/awards/*.svg` | Full-vector authentic badges: Roofing Contractor Top 100, BBB A+ Accredited, Owens Corning Platinum Preferred Contractor, Angi 2022 Super Service, Best of HomeAdvisor Winner. |
+| Awards / certification badges | 5 industry badges | **Implemented (Demonstration Vectors)** — `public/images/awards/*.svg` | Demonstration vector approximations for layout testing: Roofing Contractor Top 100, BBB A+ Accredited, Owens Corning Platinum Preferred Contractor, Angi 2022 Super Service, Best of HomeAdvisor Winner. Each badge has explicit 160×80 dimensions and high-contrast fills against `#0F2231`. Not verified client credentials or official third-party seals; to be substituted with verified client licenses before production launch. |
 
 ## 4. Icons
 

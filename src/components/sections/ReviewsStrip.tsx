@@ -3,7 +3,7 @@ import { reviews } from "@/data/reviews";
 
 function Stars({ rating }: { rating: 1 | 2 | 3 | 4 | 5 }) {
   return (
-    <div className="flex items-center gap-1 text-[#00a3e0]" aria-label={`${rating} out of 5 stars`}>
+    <div className="flex items-center gap-1 text-[#0284c7]" aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <svg
           key={i}
@@ -18,10 +18,11 @@ function Stars({ rating }: { rating: 1 | 2 | 3 | 4 | 5 }) {
 }
 
 /**
- * Reconstructed ReviewsStrip matching the reference:
+ * ReviewsStrip component:
  * - Headline with customer satisfaction social proof.
  * - 3 testimonial cards featuring 5 bright cyan/sky-blue review stars,
- *   authentic quote copy, verified reviewer names and service badges.
+ *   representative quote copy, reviewer names and service tags.
+ * - Demonstration disclosure without misleading "Verified" badges.
  */
 export function ReviewsStrip() {
   return (
@@ -31,8 +32,8 @@ export function ReviewsStrip() {
     >
       <Container width="wide" className="py-14 sm:py-18 lg:py-24">
         <div className="text-center max-w-3xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-wider text-[#00a3e0] mb-2">
-            Verified Reviews & Testimonials
+          <p className="text-xs font-bold uppercase tracking-wider text-[#0369a1] mb-2">
+            Customer Testimonials
           </p>
           <h2
             id="reviews-heading"
@@ -70,19 +71,18 @@ export function ReviewsStrip() {
                   )}
                 </div>
 
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-[11px] font-semibold text-slate-600">
-                  <svg className="w-3.5 h-3.5 text-[#00a3e0]" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                  </svg>
-                  <span>Verified</span>
-                </div>
+                {r.serviceKey && (
+                  <span className="px-2.5 py-1 rounded-full bg-slate-100 text-[11px] font-semibold text-slate-600 capitalize">
+                    {r.serviceKey}
+                  </span>
+                )}
               </div>
             </li>
           ))}
         </ul>
 
         <p className="mt-8 text-center text-xs text-slate-400">
-          Demonstration customer testimonials — based on representative reference feedback.
+          Demonstration customer testimonials — to be replaced with client-approved reviews before launch.
         </p>
       </Container>
     </section>

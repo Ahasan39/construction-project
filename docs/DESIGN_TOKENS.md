@@ -30,17 +30,20 @@
 | `color.brand.primary-700` | `#0A1823` | Dark navy deep shade / sub-footer |
 | `color.brand.accent` | `#D9232A` | Vivid red for logo accent, CTA buttons, emergency callout |
 | `color.brand.accent-600` | `#B81B22` | Button hover |
-| `color.brand.blue` | `#00A3E0` | Vivid sky-blue for "lifetime." underline and review stars |
+| `color.brand.blue` | `#00A3E0` | Vivid sky-blue for "lifetime." underline and dark-surface accents (contrast on #0F2231: 5.68:1) |
+| `color.brand.blue.large-text` | `#0284C7` | Adjusted sky-blue for large bold text on white (ProtectBand, contrast 4.1:1 >= 3:1) |
+| `color.brand.blue.text` | `#0369A1` | Accessible sky-blue for normal text kickers on white (ReviewsStrip, contrast 5.93:1 >= 4.5:1) |
 | `color.ink` | `#0F2231` | Body and header copy |
 | `color.ink.muted` | `#4B5563` | Secondary text |
 | `color.surface` | `#FFFFFF` | Page surface |
 | `color.surface-alt` | `#F8FAFC` | Subtle section surface |
 | `color.border` | `#E2E8F0` | Dividers and card borders |
 | `color.success` | `#15803D` | Form success |
-| `color.danger` | `#D9232A` | Form errors |
+| `color.danger` | `#D9232A` | Form errors on light surfaces |
+| `color.danger.inverse` | `#FDA4AF` (rose-300) | Form errors on dark surfaces (contrast > 7:1 on #0F2231) |
 | `color.focus` | `#00A3E0` | Focus ring |
 
-Contrast rule: every text/background pair in the implementation must pass WCAG AA (4.5:1 for body, 3:1 for large text).
+Contrast rule: every text/background pair in the implementation strictly satisfies WCAG AA (>= 4.5:1 for normal text, >= 3:1 for large text / graphical controls). Reference colors that would fail WCAG AA on white (e.g., #00A3E0 normal text) are adjusted to accessible shades (#0369A1 / #0284C7) as documented above.
 
 ## 3. Spacing scale
 

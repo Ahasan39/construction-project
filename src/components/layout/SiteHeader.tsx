@@ -85,7 +85,7 @@ export function SiteHeader() {
                 alt={`${brand.companyName} Logo`}
                 height={44}
                 width={180}
-                className="h-10 lg:h-12 w-auto object-contain"
+                className="h-10 lg:h-11 w-auto max-w-[180px] lg:max-w-[210px] shrink-0 object-contain"
               />
             ) : (
               <span className="text-2xl font-extrabold tracking-tight">

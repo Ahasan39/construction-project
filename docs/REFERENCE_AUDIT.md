@@ -207,7 +207,38 @@ On 2026-10-15, live-browser automated inspection was conducted directly against 
    - 5 bright cyan/sky-blue review stars (`#00A3E0`), verified customer status, and clean blockquote card styling.
 
 8. **Awards & Certifications Bar**:
-   - Dark navy background (`#0F2231`) featuring 5 authentic industry award badges: Roofing Contractor Top 100, BBB A+ Accredited, Owens Corning Platinum Preferred Contractor, Angi 2022 Super Service, and Best of HomeAdvisor Winner.
+   - Dark navy background (`#0F2231`) featuring 5 demonstration industry award badges: Roofing Contractor Top 100, BBB A+ Accredited, Owens Corning Platinum Preferred Contractor, Angi 2022 Super Service, and Best of HomeAdvisor Winner.
 
 9. **Footer**:
    - Deep dark navy background (`#0F2231`). Top row features white logo, phone, and red estimate button. 5 categorized link columns (Services, Service Areas, Disclosures, Company, Recent Posts), with inset dark sub-footer bar.
+
+## 16. Sprint 3.6 Visual Defect Remediation & Re-Audit
+
+On 2026-10-16, a fresh live-browser reference audit and local defect reproduction were conducted to resolve visible defects identified after Sprint 3.5:
+
+1. **Header & Footer Logo Invisibility**:
+   - *Root cause*: `public/images/logo.svg` and `logo-white.svg` lacked root `width` and `height` attributes (only specified `viewBox="0 0 220 54"`), used raw `<text>` elements without embedded fonts, and were wrapped in flex containers with `w-auto`. In Chromium, flex children with `w-auto` and SVGs without intrinsic dimensions collapsed width to `0px`.
+   - *Remediation*: Reconstructed both `logo.svg` and `logo-white.svg` with explicit `width="220" height="54"` and pure vector `<path>` definitions (roof silhouette mark + letterforms), eliminating font dependencies. Updated `SiteHeader.tsx` and `SiteFooter.tsx` containers with `shrink-0` and bounded max-widths (`max-w-[180px] lg:max-w-[210px]`).
+   - *Browser Verification*: Header logo renders at 180×44px; footer logo renders at 180×44px with clear, legible branding at all 8 tested viewports.
+
+2. **Empty Awards Section Preceding Footer**:
+   - *Root cause*: All 5 award SVGs in `public/images/awards/*.svg` lacked root `width` and `height` attributes, and `AwardsStrip.tsx` had container classes `h-16 sm:h-20 max-w-[160px]` with `img className="h-full w-auto"`. In flexbox, lacking an intrinsic SVG width or parent base width caused the container and image to collapse to `0px` width, leaving only the navy section padding. Furthermore, dark navy fills (`#1A2D3F`, `#0A3A60`) on the dark navy `#0F2231` background lacked visual distinction.
+   - *Remediation*: Added root `width="160" height="80"` and high-contrast fills (vibrant gold `#F59E0B`, silver border `#E2E8F0`, bright royal blue `#0077BE`) to all 5 SVGs. Updated `AwardsStrip.tsx` to set explicit container dimensions (`w-32 sm:w-36 md:w-40 h-14 sm:h-16 shrink-0`) and `img className="w-full h-full object-contain drop-shadow"`. Corrected documentation to identify these as demonstration vector approximations rather than "authentic" client credentials.
+   - *Browser Verification*: All 5 badges render prominently with sharp contrast across desktop, tablet, and mobile (wrapping cleanly to 3 top / 2 bottom on 390px).
+
+3. **Button & Text Color Accessibility Audit**:
+   - *Root cause*: Sky-blue `#00A3E0` on white surfaces produced a contrast ratio of 2.88:1, failing WCAG AA (requires 4.5:1 for normal text, 3:1 for large text). Field-level errors in `Field.tsx` on dark hero card surfaces defaulted to red `#D9232A` (2.4:1 contrast on `#0F2231`).
+   - *Remediation*:
+     - Retained `#00A3E0` on dark navy `#0F2231` where contrast is 5.68:1 (exceeds WCAG AA 4.5:1).
+     - Adjusted `ProtectBand.tsx` large headline highlights to `#0284C7` (4.1:1 contrast, exceeding the 3:1 large-text requirement).
+     - Adjusted `ReviewsStrip.tsx` text kicker to `#0369A1` (5.93:1 contrast, exceeding the 4.5:1 normal text requirement).
+     - Added `errorClassName` to `Field.tsx` and used `text-rose-300` on dark hero card inputs (contrast > 7:1 against `#0F2231`).
+     - Verified all buttons: Red CTAs (`#D9232A` / `#B81B22` with `#FFFFFF` text) achieve 4.9:1 – 6.5:1 contrast; service outlined buttons achieve 4.9:1 normal and 4.9:1 hover; footer links (`#CBD5E1` on `#0F2231`) achieve 11:1.
+
+4. **Form & Review Content Corrections**:
+   - *Root cause*: Location select placeholder was `"Choose a service area…"`, which was easily confused with service placeholder `"Choose a service…"`. Reviews carried misleading `"Verified"` customer badges on demonstration content.
+   - *Remediation*:
+     - Updated location select placeholder to `"Select a location…"`.
+     - Updated service select placeholder to `"Select a service…"`.
+     - Removed misleading `"Verified"` customer chips and checkmark SVGs from `ReviewsStrip.tsx`. Substituted neutral service category tags (e.g. `Roofing`, `Siding`, `Windows`).
+     - Updated demo disclosure to concisely state that reviews are demonstration placeholders to be replaced before launch.
