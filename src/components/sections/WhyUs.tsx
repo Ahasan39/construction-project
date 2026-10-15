@@ -86,7 +86,7 @@ export function WhyUs() {
   return (
     <section
       aria-labelledby="why-us-heading"
-      className="bg-slate-50/70 border-b border-[var(--color-border)]"
+      className="bg-white border-b border-[var(--color-border)]"
     >
       <Container width="wide" className="py-14 sm:py-18 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-[1fr_2.5fr] items-start">
@@ -94,67 +94,48 @@ export function WhyUs() {
           <div className="lg:sticky lg:top-28">
             <h2
               id="why-us-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[var(--color-brand-primary)]"
+              className="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-[var(--color-brand-primary)] leading-tight"
             >
               Why{" "}
-              <span className="relative inline-block text-[var(--color-brand-primary)]">
+              <span className="inline-block bg-[#5BC2E7]/40 text-[var(--color-brand-primary)] px-2 py-0.5 rounded-sm">
                 Mr. Roof?
-                <svg
-                  className="absolute -bottom-2 left-0 w-full h-3 text-[#00a3e0]"
-                  viewBox="0 0 120 10"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M2 7.5C30 2.5 90 2.5 118 7.5"
-                    stroke="currentColor"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
               </span>
             </h2>
-            <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed hidden lg:block">
-              Proven craftsmanship, transparent communication, and industry-leading warranties
-              that give you complete confidence.
-            </p>
           </div>
 
           {/* Right vertical cards list */}
-          <ol className="flex flex-col gap-6 sm:gap-8">
+          <ol className="flex flex-col gap-8 sm:gap-10">
             {benefits.map((b) => (
               <li
                 key={b.title}
-                className="flex flex-col sm:flex-row gap-5 sm:gap-6 p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow"
+                className="flex flex-col md:flex-row rounded-sm overflow-hidden bg-[#F4F6F8] border border-slate-200/50"
               >
-                {/* Real photo on left */}
-                <div className="w-full sm:w-56 md:w-64 h-48 sm:h-44 shrink-0 rounded-xl overflow-hidden bg-slate-100 shadow-inner">
+                {/* Taller vertical/squared photo on left */}
+                <div className="w-full md:w-72 lg:w-80 min-h-[260px] md:min-h-[300px] shrink-0 bg-slate-200">
                   <img
                     src={b.imageSrc}
                     alt={b.imageAlt}
-                    width={500}
-                    height={380}
+                    width={600}
+                    height={600}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    className="w-full h-full object-cover"
                   />
                 </div>
 
-                {/* Content on right */}
-                <div className="flex flex-col justify-center">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span
-                      aria-hidden="true"
-                      className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-[var(--color-brand-accent)] text-white shadow-sm"
-                    >
-                      <BenefitIcon icon={b.icon} />
-                    </span>
-                  </div>
+                {/* Content on right with generous padding */}
+                <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center flex-1">
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex items-center justify-center w-8 h-8 rounded-sm bg-[var(--color-brand-accent)] text-white shadow-sm mb-4"
+                  >
+                    <BenefitIcon icon={b.icon} />
+                  </span>
 
-                  <h3 className="text-lg sm:text-xl font-bold tracking-tight text-[var(--color-brand-primary)] leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-black tracking-tight text-[var(--color-brand-primary)] leading-snug">
                     {b.title}
                   </h3>
-                  <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                  <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
                     {b.body}
                   </p>
                 </div>

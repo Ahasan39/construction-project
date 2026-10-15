@@ -28,9 +28,15 @@
 | `color.brand.primary` | `#0F2231` | Dark navy for utility strip, headings, form card, footer, awards strip |
 | `color.brand.primary-600` | `#17334A` | Dark navy hover |
 | `color.brand.primary-700` | `#0A1823` | Dark navy deep shade / sub-footer |
-| `color.brand.accent` | `#D9232A` | Vivid red for logo accent, CTA buttons, emergency callout |
+| `color.surface.awards` | `#0C1F33` | Awards strip surface and lead form card surface |
+| `color.surface.footer` | `#071524` | Distinct deeper dark navy footer surface |
+| `color.surface.footer-sub` | `#050E18` | Footer sub-bar dark tone |
+| `color.surface.flat-panel` | `#F4F6F8` | Flat light-gray panel surface for Why Us, Services, and Reviews sections |
+| `color.surface.input-dark` | `#10273D` | Dark input background on hero lead form (`border: #223E59`) |
+| `color.brand.accent` | `#D9232A` | Vivid red for logo accent, CTA buttons, emergency callout, footer group headings |
 | `color.brand.accent-600` | `#B81B22` | Button hover |
-| `color.brand.blue` | `#00A3E0` | Vivid sky-blue for "lifetime." underline and dark-surface accents (contrast on #0F2231: 5.68:1) |
+| `color.brand.blue` | `#00A3E0` | Vivid sky-blue for promotions lower accent line and dark-surface icons |
+| `color.brand.blue.stars` | `#59BBD7` | Reference star fill in customer reviews strip |
 | `color.brand.blue.large-text` | `#0284C7` | Adjusted sky-blue for large bold text on white (ProtectBand, contrast 4.1:1 >= 3:1) |
 | `color.brand.blue.text` | `#0369A1` | Accessible sky-blue for normal text kickers on white (ReviewsStrip, contrast 5.93:1 >= 4.5:1) |
 | `color.ink` | `#0F2231` | Body and header copy |
@@ -43,7 +49,7 @@
 | `color.danger.inverse` | `#FDA4AF` (rose-300) | Form errors on dark surfaces (contrast > 7:1 on #0F2231) |
 | `color.focus` | `#00A3E0` | Focus ring |
 
-Contrast rule: every text/background pair in the implementation strictly satisfies WCAG AA (>= 4.5:1 for normal text, >= 3:1 for large text / graphical controls). Reference colors that would fail WCAG AA on white (e.g., #00A3E0 normal text) are adjusted to accessible shades (#0369A1 / #0284C7) as documented above.
+Contrast rule: every text/background pair in the implementation strictly satisfies WCAG AA (>= 4.5:1 for normal text, >= 3:1 for large text / graphical controls). Reference colors that would fail WCAG AA on white (e.g., #00A3E0 normal text) are adjusted to accessible shades (#0369A1 / #0284C7) as documented above. Red CTA buttons are confirmed to have verified white foregrounds (`#FFFFFF`) across all components via `@layer base` CSS containment.
 
 ## 3. Spacing scale
 

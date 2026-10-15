@@ -16,6 +16,42 @@ Rules:
 - Hosting / deployment is a separate concern from `git push`.
 - Each sprint's PROGRESS.md entry continues to carry a `Remaining differences` / `Browser evidence actually collected` section until live-browser verification lands.
 
+## Sprint 3.7 — Reference Fidelity, Section Colours & Layout Corrections (2026-10-16)
+
+**Status: complete. Comprehensive visual fidelity reconstruction executed against live reference (https://www.mrroof.com/). Observable composition, section surfaces, squared geometry, and component treatments corrected across all homepage sections. Button colour cascade root cause fixed via CSS layer containment. Verified across 8 viewports with 0px overflow, 0 console errors, 49/49 tests passing, and production Lighthouse audited.**
+
+### 1. Section-by-Section Corrections
+
+| Section | Previous Local State | Reference State (mrroof.com) | Corrected Implementation (Sprint 3.7) |
+|---|---|---|---|
+| **Button Colour System** | Filled red buttons visibly retained dark text from unlayered `button { color: inherit }` / `a { color: inherit }` reset overriding utility classes. | Red CTA buttons visibly have crisp white text; outlined service buttons have dark text with red border. | Wrapped all base element resets (`button, input, textarea, select, a`) in `@layer base { ... }` in `globals.css`. Standard CSS cascade guarantees `@layer utilities` (`text-white`) naturally beats `@layer base`. Cleanly fixed across header, form, promotions, and footer without scattered `!important`. |
+| **Hero & Estimate Panel** | White page with floating rounded photo card under heading; bubbly form card with heavy drop shadow and visible field labels. | Integrated sky composition behind headline; suburban home photography flush with 2-cell emergency contact bar; rectangular navy estimate panel (`#0C1F33`) alongside with dark inputs (`#10273D`) and compact legal copy. | Reconstructed Hero in `Hero.tsx` with sky gradient background, `lifetime.` cyan highlight block (`#5BC2E7`), suburban home photography, flush 2-cell rectangular emergency contact bar (`Active Leak? Storm Damage?` / `(877) 766-7663`). Reconstructed `EstimateForm.tsx` with rectangular `#0C1F33` surface, `hideLabel` prop for compact screen-reader accessible fields (`sr-only` labels), clean placeholders (`Full Name`, `Phone`, `Email`, `Select location`, `Select service`), and verified white CTA text. |
+| **Why Us?** | Compact rounded cards with extra subtitles, light photography, and pill-like styling. | Left-aligned sticky heading with cyan highlight; tall squared image/text panels (`rounded-sm`), flat light-gray background (`#F4F6F8`), vertical photography (`min-h-[300px]`), red square badge icons. | Reconstructed `WhyUs.tsx` with flat light-gray panels (`#F4F6F8`), squared geometry (`rounded-sm`), vertical photographic scale (`w-full md:w-72 lg:w-80`), red square roof badge icons (`#D9232A`), and removed invented subtitle under left heading. |
+| **Our Services** | Tiny icon tiles in white rounded inset boxes with generic CTA labels (`Explore Siding`). | Flat light-gray panels (`#F4F6F8`), prominent architectural illustrations (~140–180px) directly on panel, squared geometry, outlined red-bordered CTAs with exact action verbs. | Reconstructed `ServiceCards.tsx` with flat `#F4F6F8` panels, direct illustration display (removed white tile container), and outlined red-bordered buttons (`h-12 border-2 border-[var(--color-brand-accent)] text-[var(--color-brand-primary)] hover:bg-[var(--color-brand-accent)] hover:text-white`). Matched exact reference action labels: `Replace My Roof` / `Repair My Roof`, `Replace My Siding`, `Replace My Windows`, `Replace My Gutters`. |
+| **Promotions** | Edge-to-edge full-width red bottom bars with rounded card corners. | Squared cards (`rounded-sm`), photography above, deep navy lower panel (`#0C1F33`), smaller red button inset within navy area with margins, thin blue lower accent line (`#00A3E0`). | Reconstructed `PromotionsRow.tsx` with squared `#0C1F33` cards, photography on top, deep navy panel below with inset red button (`w-full max-w-[280px] mx-auto py-3.5 px-6 rounded-sm bg-[#D9232A] text-white font-extrabold uppercase`), and thin cyan/blue bottom accent bar (`h-1 bg-[#00A3E0]`). Matched reference labels: `See Current Promotions`, `Learn About Financing`, `View Warranty Information`. |
+| **Reviews** | Centered kicker badge (`CUSTOMER TESTIMONIALS`), centered headings, amber/blue stars, short rounded cards. | Light-gray section background (`#F4F6F8`), bold left-aligned heading, tall rectangular white cards, sky-blue stars (`#59BBD7`), author area with customer category. | Reconstructed `ReviewsStrip.tsx` with `bg-[#F4F6F8]`, left-aligned heading (`We have over 500,000 satisfied customers who can vouch for our quality. Here's what our customers have to say.`), tall rectangular white cards (`rounded-sm min-h-[320px]`), sky-blue stars (`#59BBD7`), and preserved truthful demo disclosure. |
+| **Awards & Footer** | Single navy background for both sections; generic white group headers in footer; unboxed blog posts. | Distinct navy surfaces: Awards `#0C1F33`, Footer deeper/darker navy (`#071524`); red group headings (`#D9232A`); boxed recent post cards (`#0C1F33`); top contact row with white logo, phone, and red CTA button. | Updated `AwardsStrip.tsx` to `#0C1F33`. Updated `SiteFooter.tsx` to deeper navy `#071524`, red column headings (`text-[#D9232A]`), boxed recent posts in `#0C1F33` container cards with `Read More »` link, renamed "Disclosures" to reference "Resources", and top contact row with white logo, phone, and red filled button `Get a Free Estimate`. |
+
+### 2. Root Cause of Incorrect Button Text Colours
+
+- **Root Cause**: In Tailwind CSS v4, unlayered CSS rules in `globals.css` (specifically `button, input, textarea, select { font: inherit; color: inherit; }` and `a { color: inherit; }`) had higher priority in the standard CSS cascade than utility classes declared within `@layer utilities`. When `<button className="... text-white">` rendered inside any element with dark body text, the browser resolved `color: inherit` over `.text-white`.
+- **Permanent Solution**: Wrapped all global base element resets inside `@layer base { ... }` in `src/styles/globals.css`. In CSS cascade specifications, `@layer utilities` automatically overrides `@layer base` regardless of specificity, completely eliminating the conflict across the entire site without `!important` hacks.
+
+### 3. Verification & Quality Checks
+
+| Check | Command | Result |
+|---|---|---|
+| Lint | `npm run lint` | **Pass** — 0 warnings, 0 errors |
+| Typecheck | `npm run typecheck` | **Pass** — 0 errors |
+| Test suite | `npm test` | **Pass — 49/49 passed** across 7 test suites |
+| Production Build | `npm run build` | **Pass** — 99 modules transformed in 2.03s, clean bundles |
+| Viewport audit | Browser subagent | **Pass across 8 viewports**: 320, 390, 430, 768, 1024, 1280, 1440, 1920px |
+| Horizontal overflow | `scrollWidth <= innerWidth` | **0px overflow** on all 8 viewports |
+| Console errors | Browser logs | **0 console errors** |
+| Production Lighthouse | `npx lighthouse http://localhost:4173/` | **SEO: 100, Best Practices: 96, Accessibility: 93, Performance: 68** |
+
+---
+
 ## Sprint 3.6 — Homepage Visual Defect Remediation & Re-Audit (2026-10-16)
 
 **Status: complete. Fresh live-browser reference audit and local defect reproduction completed; invisible logos, empty awards section, contrast deficiencies, and form placeholder ambiguities resolved and verified across 8 viewports.**

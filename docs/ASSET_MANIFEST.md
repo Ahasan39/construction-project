@@ -21,20 +21,20 @@ Tracks every image, font, logo, icon, and media asset the frontend will need, it
 | Primary body font (`.woff2`) | **Implemented** | Inter (Google Fonts / system fallback) | Loaded with `preconnect` in `index.html`. |
 | Display / heading font (`.woff2`) | **Implemented** | Inter | Same family with heavy 700/900 weights. |
 
-## 3. Service & Homepage Imagery (Sprint 3.5 & 3.6)
+## 3. Service & Homepage Imagery (Sprint 3.5 – 3.7)
 
 | Section | Needed assets | Status | Source / Notes |
 |---|---|---|---|
-| Home hero | 1 wide hero (desktop/tablet/mobile crops) | **Implemented** — `public/images/homepage/hero-suburban-home.jpg` | Upscale residential suburban home exterior with architectural dark roof. LCP asset, `fetchpriority="high"`, explicit 1600×900 dimensions. |
-| Why-Us Benefit 1 | Roofer shingle installation | **Implemented** — `public/images/homepage/benefit-roofer-install.jpg` | High-res photography: roofer with pneumatic coil nailer. |
+| Home hero | 1 wide hero (desktop/tablet/mobile crops) | **Implemented** — `public/images/homepage/hero-suburban-home.jpg` | Upscale residential suburban home exterior with architectural dark roof. LCP asset, `fetchpriority="high"`, explicit 1600×900 dimensions. Rendered flush with 2-cell emergency contact bar in Sprint 3.7. |
+| Why-Us Benefit 1 | Roofer shingle installation | **Implemented** — `public/images/homepage/benefit-roofer-install.jpg` | High-res photography: roofer with pneumatic coil nailer. Rendered with tall vertical proportions (`min-h-[300px]`) in Sprint 3.7. |
 | Why-Us Benefit 2 | Project manager consultation | **Implemented** — `public/images/homepage/benefit-consultant-homeowner.jpg` | High-res photography: estimator with tablet and homeowner. |
 | Why-Us Benefit 3 | Roofing crew on pitched roof | **Implemented** — `public/images/homepage/benefit-crew-working.jpg` | High-res photography: crew working on sunny day. |
 | Why-Us Benefit 4 | Full exterior renovation | **Implemented** — `public/images/homepage/benefit-exterior-renovation.jpg` | High-res photography: completed home with new siding and roof. |
-| Service cards (grid) | 4 architectural icons | **Implemented** — `public/images/services/*.svg` | Precision vector architectural renders: `roofing-icon.svg`, `siding-icon.svg`, `windows-icon.svg`, `gutters-icon.svg`. |
+| Service cards (grid) | 4 architectural icons | **Implemented** — `public/images/services/*.svg` | Precision vector architectural renders: `roofing-icon.svg`, `siding-icon.svg`, `windows-icon.svg`, `gutters-icon.svg`. Displayed directly at prominent scale (~140–180px) on `#F4F6F8` flat panels in Sprint 3.7. |
 | Promo card 1 | Offers & promotions photo | **Implemented** — `public/images/homepage/promo-offers.jpg` | High-res photography: exterior inspector checking roofline. |
 | Promo card 2 | Special financing photo | **Implemented** — `public/images/homepage/promo-financing.jpg` | High-res photography: financing/estimate consultation. |
 | Promo card 3 | Lifetime warranty photo | **Implemented** — `public/images/homepage/promo-warranty.jpg` | High-res photography: pristine craftsman home exterior. |
-| Awards / certification badges | 5 industry badges | **Implemented (Demonstration Vectors)** — `public/images/awards/*.svg` | Demonstration vector approximations for layout testing: Roofing Contractor Top 100, BBB A+ Accredited, Owens Corning Platinum Preferred Contractor, Angi 2022 Super Service, Best of HomeAdvisor Winner. Each badge has explicit 160×80 dimensions and high-contrast fills against `#0F2231`. Not verified client credentials or official third-party seals; to be substituted with verified client licenses before production launch. |
+| Awards / certification badges | 5 industry badges | **Implemented (Demonstration Vectors)** — `public/images/awards/*.svg` | Demonstration vector approximations for layout testing: Roofing Contractor Top 100, BBB A+ Accredited, Owens Corning Platinum Preferred Contractor, Angi 2022 Super Service, Best of HomeAdvisor Winner. Each badge has explicit 160×80 dimensions and high-contrast fills against `#0C1F33`. Not verified client credentials or official third-party seals; to be substituted with verified client licenses before production launch. |
 
 ## 4. Icons
 

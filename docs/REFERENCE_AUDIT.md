@@ -56,19 +56,18 @@ Promo band pinned near the footer: **"0% Interest for 18 Months on Full Roofing,
 - Instagram: https://www.instagram.com/official_mrroof/?hl=en
 - LinkedIn: https://www.linkedin.com/company/mr.-roof/
 
-## 3. Homepage section order (verified from HTML; visual grid treatment unverified)
+## 3. Homepage section order & verified layout (Live-browser verified in Sprint 3.7)
 
-1. Header / top strip / nav.
-2. Hero — "Done in a day. Good for a lifetime." with service summary + "Replace My Roof / Repair My Roof / Replace My Siding / Replace My Windows / Replace My Gutters" CTA row.
-3. Emergency callout — "Active Leak? Storm Damage?" + Contact Us link + phone.
-4. Free Estimate form — Name, Phone, Email, Select Location, Select Service + two SMS consent checkboxes + submit.
-5. Value statement / short brand paragraph.
-6. "Why Mr. Roof" four-point benefits list (60+ years / 500k+ installs / direct answers / lifetime warranty / unified exterior).
-7. Our Services card grid — Roofing, Siding, Windows, Gutters, Offers & Promotions, Special Financing, Lifetime Warranty.
-8. Customer reviews / testimonials strip.
-9. Awards & badges row ("Consumer Choice Award Winner for 23 Years", service excellence badge, etc.).
-10. Promo banner — 0% interest for 18 months.
-11. Footer.
+1. **Header / top strip / nav**: Dark navy utility strip (`#0F2231`), location dropdown, phone number; main row with white logo, uppercase bold nav, phone number and red `FREE ESTIMATE` CTA button with verified white text.
+2. **Hero**: Sky background (`#EBF3FA` gradient), headline "Done in a day. Good for a lifetime." with cyan highlight `#5BC2E7` on `lifetime.`, supporting paragraph, full-width residential suburban home photography, and flush 2-cell emergency contact bar directly beneath (`Active Leak? Storm Damage? Contact Us` / `(877) 766-7663`).
+3. **Free Estimate Panel**: Rectangular navy panel (`#0C1F33`), "Peace of Mind Starts Here.", "Get a FREE estimate", compact fields with `sr-only` labels and clean placeholders (`Full Name`, `Phone`, `Email`, `Select location`, `Select service`), two consent checkboxes, compact legal disclaimer, and filled red CTA `GET A FREE ESTIMATE` with verified white text.
+4. **Value Statement**: Centered headline "Protect your home with industry-leading expertise and comprehensive home exterior services backed by a superior warranty." with blue bold keywords.
+5. **Why Mr. Roof**: Left-column sticky "Why Mr. Roof?" with cyan underline; right column 4 squared panels (`rounded-sm`, `#F4F6F8`), vertical photography (`min-h-[300px]`), red square badge icons (`#D9232A`), title and copy.
+6. **Our Services**: Flat light-gray panels (`#F4F6F8`), direct architectural illustrations (no white inset container), squared geometry, and outlined red-bordered CTAs with reference action labels (`Replace My Roof`, `Repair My Roof`, `Replace My Siding`, `Replace My Windows`, `Replace My Gutters`).
+7. **Promotions Row**: 3 squared cards with photography on top, deep navy panel below (`#0C1F33`), white icon + title, smaller red button inset within the navy panel with margins (`See Current Promotions`, `Learn About Financing`, `View Warranty Information`), and thin cyan/blue bottom accent line (`#00A3E0`).
+8. **Customer Reviews**: Flat light-gray background (`#F4F6F8`), bold left-aligned heading "We have over 500,000 satisfied customers who can vouch for our quality. Here's what our customers have to say.", tall rectangular white cards (`rounded-sm`), sky-blue stars (`#59BBD7`), author, customer category, and truthful demonstration disclosure.
+9. **Awards & Certifications Strip**: Rich dark navy background (`#0C1F33`), 5 demonstration vector trade badges with high-contrast fills.
+10. **Footer**: Distinct deeper dark navy background (`#071524`), top contact row with white logo, phone number, and filled red CTA button `Get a Free Estimate`, 5 column categories with red group headings (`#D9232A` — Services, Service Areas, Resources, Company, Recent Posts), boxed recent post container cards (`#0C1F33`), and bottom copyright bar (`#050E18`).
 
 ## 4. Service hub template (`/roofing/`)
 

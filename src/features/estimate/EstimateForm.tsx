@@ -171,7 +171,7 @@ export function EstimateForm({
       : "text-[var(--color-ink-muted)] text-xs";
   const inputClassName =
     variant === "inverse"
-      ? "!bg-[#132839] !border-slate-600 !text-white placeholder:!text-slate-400 focus:!border-[#00a3e0]"
+      ? "!bg-[#10273D] !border-[#223E59] !text-white placeholder:!text-slate-400 focus:!border-[#00a3e0] !rounded-sm"
       : "";
 
   return (
@@ -211,6 +211,7 @@ export function EstimateForm({
               required
               error={errors.name}
               errorClassName={variant === "inverse" ? "text-rose-300 font-medium text-xs" : undefined}
+              hideLabel={variant === "inverse"}
             >
               {({ id, describedBy, invalid }) => (
                 <Input
@@ -235,6 +236,7 @@ export function EstimateForm({
               required
               error={errors.phone}
               errorClassName={variant === "inverse" ? "text-rose-300 font-medium text-xs" : undefined}
+              hideLabel={variant === "inverse"}
             >
               {({ id, describedBy, invalid }) => (
                 <Input
@@ -243,7 +245,7 @@ export function EstimateForm({
                   type="tel"
                   autoComplete="tel"
                   inputMode="tel"
-                  placeholder="(555) 000-0000"
+                  placeholder="Phone"
                   className={inputClassName}
                   value={values.phone}
                   onChange={(e) => update("phone")(e.target.value)}
@@ -261,6 +263,7 @@ export function EstimateForm({
               required
               error={errors.email}
               errorClassName={variant === "inverse" ? "text-rose-300 font-medium text-xs" : undefined}
+              hideLabel={variant === "inverse"}
             >
               {({ id, describedBy, invalid }) => (
                 <Input
@@ -269,7 +272,7 @@ export function EstimateForm({
                   type="email"
                   autoComplete="email"
                   inputMode="email"
-                  placeholder="your.email@example.com"
+                  placeholder="Email"
                   className={inputClassName}
                   value={values.email}
                   onChange={(e) => update("email")(e.target.value)}
@@ -288,6 +291,7 @@ export function EstimateForm({
                 required
                 error={errors.regionKey}
                 errorClassName={variant === "inverse" ? "text-rose-300 font-medium text-xs" : undefined}
+                hideLabel={variant === "inverse"}
               >
                 {({ id, describedBy, invalid }) => (
                   <Select
@@ -303,7 +307,7 @@ export function EstimateForm({
                     required
                   >
                     <option value="" disabled className="text-gray-900 bg-white">
-                      Select a location…
+                      Select location
                     </option>
                     {serviceAreaRegions.map((r) => (
                       <option key={r.key} value={r.key} className="text-gray-900 bg-white">
@@ -323,6 +327,7 @@ export function EstimateForm({
                 required
                 error={errors.serviceKey}
                 errorClassName={variant === "inverse" ? "text-rose-300 font-medium text-xs" : undefined}
+                hideLabel={variant === "inverse"}
               >
                 {({ id, describedBy, invalid }) => (
                   <Select
@@ -338,7 +343,7 @@ export function EstimateForm({
                     required
                   >
                     <option value="" disabled className="text-gray-900 bg-white">
-                      Select a service…
+                      Select service
                     </option>
                     {services.map((s) => (
                       <option key={s.key} value={s.key} className="text-gray-900 bg-white">
@@ -367,13 +372,12 @@ export function EstimateForm({
             />
           </div>
 
-          <p id={demoNoticeId} className={`text-xs ${noticeTone}`}>
-            Demo form — submissions are simulated for testing. By submitting you agree
-            to contact by phone, email or text. See our{" "}
+          <p id={demoNoticeId} className={`text-xs ${noticeTone} leading-relaxed`}>
+            By clicking &ldquo;Submit,&rdquo; I authorize Mr. Roof to contact me via phone, email, or text. See our{" "}
             <SmartLink to="/privacy-policy" className="underline">
               Privacy policy
             </SmartLink>
-            .
+            . (Demo form &mdash; simulated for testing).
           </p>
 
           <div

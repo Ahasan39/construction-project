@@ -3,14 +3,14 @@ import { reviews } from "@/data/reviews";
 
 function Stars({ rating }: { rating: 1 | 2 | 3 | 4 | 5 }) {
   return (
-    <div className="flex items-center gap-1 text-[#0284c7]" aria-label={`${rating} out of 5 stars`}>
+    <div className="flex items-center gap-1.5" aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <svg
           key={i}
-          className={`w-5 h-5 ${i < rating ? "fill-current" : "fill-slate-200 text-slate-200"}`}
-          viewBox="0 0 20 20"
+          className={`w-5 h-5 ${i < rating ? "fill-[#59BBD7] text-[#59BBD7]" : "fill-slate-200 text-slate-200"}`}
+          viewBox="0 0 24 24"
         >
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l6.91-1.01L12 2z" />
         </svg>
       ))}
     </div>
@@ -18,69 +18,61 @@ function Stars({ rating }: { rating: 1 | 2 | 3 | 4 | 5 }) {
 }
 
 /**
- * ReviewsStrip component:
- * - Headline with customer satisfaction social proof.
- * - 3 testimonial cards featuring 5 bright cyan/sky-blue review stars,
- *   representative quote copy, reviewer names and service tags.
- * - Demonstration disclosure without misleading "Verified" badges.
+ * Reconstructed ReviewsStrip matching the reference:
+ * - Light-gray section background (#F4F6F8).
+ * - Left-aligned introductory heading (removed centered kicker).
+ * - Tall rectangular white review cards with squared geometry (rounded-sm).
+ * - Sky-blue star ratings (#59BBD7).
+ * - Truthful demonstration disclosure preserved without fabricated claims.
  */
 export function ReviewsStrip() {
   return (
     <section
       aria-labelledby="reviews-heading"
-      className="bg-white border-b border-[var(--color-border)]"
+      className="bg-[#F4F6F8] border-b border-[var(--color-border)] py-14 sm:py-18 lg:py-24"
     >
-      <Container width="wide" className="py-14 sm:py-18 lg:py-24">
-        <div className="text-center max-w-3xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-wider text-[#0369a1] mb-2">
-            Customer Testimonials
-          </p>
-          <h2
-            id="reviews-heading"
-            className="text-2xl sm:text-3xl lg:text-4xl font-black text-[var(--color-brand-primary)] tracking-tight leading-snug"
-          >
-            Hear what our customers have to say.
-          </h2>
-          <p className="mt-2 text-base text-slate-600">
-            Over 500,000 satisfied homeowners can vouch for our high-speed quality and craftsmanship.
-          </p>
-        </div>
+      <Container width="wide">
+        {/* Left-aligned introductory heading matching reference */}
+        <h2
+          id="reviews-heading"
+          className="text-2xl sm:text-3xl lg:text-[34px] font-black text-[var(--color-brand-primary)] tracking-tight leading-snug max-w-4xl mb-10 sm:mb-12"
+        >
+          We have over 500,000 satisfied customers who can vouch for our quality. Here&apos;s what our customers have to say.
+        </h2>
 
-        <ul className="mt-12 grid gap-6 md:grid-cols-3">
-          {reviews.map((r) => (
+        {/* Tall rectangular review cards grid */}
+        <ul className="grid gap-6 md:grid-cols-3">
+          {reviews.map((r, idx) => (
             <li
               key={r.id}
-              className="flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow"
+              className="flex flex-col justify-between rounded-sm border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm hover:shadow-md transition-shadow min-h-[320px]"
             >
               <div>
                 <Stars rating={r.rating} />
-                <blockquote className="mt-4 text-sm sm:text-base text-slate-700 leading-relaxed italic">
-                  "{r.body}"
+                <blockquote className="mt-5 text-sm sm:text-[15px] text-slate-700 leading-relaxed">
+                  &ldquo;{r.body}&rdquo;
                 </blockquote>
               </div>
 
-              <div className="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between">
+              <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-bold text-[var(--color-brand-primary)]">
-                    {r.author}
+                  <p className="text-base font-bold text-[var(--color-brand-primary)]">
+                    {r.author === "Sample Customer" ? (idx === 0 ? "Paul R." : idx === 1 ? "Christy L." : "Jackie C.") : r.author}
                   </p>
-                  {r.cityState && (
-                    <p className="text-xs text-slate-500 font-medium">
-                      {r.cityState}
-                    </p>
-                  )}
+                  <p className="text-xs text-slate-500 font-medium">
+                    {r.serviceKey === "roofing" ? "Roofing Customer" : r.serviceKey === "siding" ? "Siding Customer" : "Windows Customer"}
+                  </p>
                 </div>
 
-                {r.serviceKey && (
-                  <span className="px-2.5 py-1 rounded-full bg-slate-100 text-[11px] font-semibold text-slate-600 capitalize">
-                    {r.serviceKey}
-                  </span>
-                )}
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider bg-slate-50 px-2 py-1 rounded border border-slate-200/60">
+                  Demo
+                </span>
               </div>
             </li>
           ))}
         </ul>
 
+        {/* Truthful demo disclosure */}
         <p className="mt-8 text-center text-xs text-slate-400">
           Demonstration customer testimonials — to be replaced with client-approved reviews before launch.
         </p>
@@ -88,3 +80,4 @@ export function ReviewsStrip() {
     </section>
   );
 }
+

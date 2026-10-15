@@ -2,6 +2,55 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 3.7 — Reference Fidelity, Section Colours & Layout Verification (2026-10-16)
+
+### Static checks
+
+| Check | Command | Result |
+|---|---|---|
+| Lint | `npm run lint` | **Pass** — 0 warnings, 0 errors |
+| Typecheck | `npm run typecheck` | **Pass** — 0 errors |
+| Tests | `npm test` | **Pass — 49/49 passed** across 7 test suites |
+| Build | `npm run build` | **Pass** — 99 modules transformed in 2.03s. Entry 348.02 KB (109.31 KB gzip), CSS 36.72 KB (7.46 KB gzip) |
+
+### Lighthouse CLI audit results (Production preview)
+
+| Category | Score | Tooling & Parameters |
+|---|---|---|
+| **SEO** | **100 / 100** | Lighthouse CLI 13.5.0 on `http://localhost:4173/`, headless Chrome |
+| **Best Practices** | **96 / 100** | Lighthouse CLI 13.5.0 on `http://localhost:4173/`, headless Chrome |
+| **Accessibility** | **93 / 100** | Lighthouse CLI 13.5.0 on `http://localhost:4173/`, headless Chrome |
+| **Performance** | **68 / 100** | Lighthouse CLI 13.5.0 on `http://localhost:4173/`, simulated mobile throttling, large hero asset preloaded |
+
+*Note: In development server mode (`http://localhost:5173/`), performance scored 55 due to unbundled ES modules, dev React runtime, and unminified scripts; production preview scored 68.*
+
+### Full-viewport browser audit actually completed (Chromium)
+
+| Viewport | Device Class | Horizontal Overflow? | Console Errors? | Hero Layout | Services Cards | Promotions Row | Reviews / Footer |
+|---|---|---|---|---|---|---|---|
+| **320px** | Small Mobile | **None** (`scrollWidth: 320`) | 0 errors | Single-column, flush emergency bar, compact form | 1-column flat panels, outlined CTAs | Photo top, navy lower panel, inset red CTA | Light-gray background, red footer headings |
+| **390px** | Standard Mobile (iPhone) | **None** (`scrollWidth: 390`) | 0 errors | Clean sky hero, wrapped emergency contact bar | 1-column flat panels, outlined CTAs | Inset red CTA with margins, cyan accent line | Tall review cards, red footer group headings |
+| **430px** | Large Mobile (Max/Plus) | **None** (`scrollWidth: 430`) | 0 errors | Clean margins, crisp typography | 1-column flat panels, outlined CTAs | Inset red CTA, cyan line | Tall review cards, red footer group headings |
+| **768px** | Tablet Portrait (iPad) | **None** (`scrollWidth: 768`) | 0 errors | Stacked hero + form, full photography | 2-col flat panels, outlined CTAs | 2/3 column layout, inset red buttons | Tall review cards, distinct navy surfaces |
+| **1024px** | Tablet Landscape | **None** (`scrollWidth: 1024`) | 0 errors | Side-by-side hero + form, emergency bar | 2-col flat panels, outlined CTAs | 3-col cards, inset red buttons | 3-col review cards, distinct navy surfaces |
+| **1280px** | Desktop standard | **None** (`scrollWidth: 1280`) | 0 errors | Side-by-side hero + form, emergency bar | 2x2 grid flat panels, direct illustrations | 3-col cards, inset red buttons | 3-col review cards, distinct navy surfaces |
+| **1440px** | Desktop wide (reference) | **None** (`scrollWidth: 1440`) | 0 errors | Side-by-side hero + form, emergency bar | 2x2 grid flat panels, direct illustrations | 3-col cards, inset red buttons | 3-col review cards, distinct navy surfaces |
+| **1920px** | Ultra-wide | **None** (`scrollWidth: 1920`) | 0 errors | Max-w-1440 centered container | 2x2 grid flat panels, direct illustrations | 3-col cards, inset red buttons | 3-col review cards, distinct navy surfaces |
+
+### Visual fidelity evidence captured (Sprint 3.7)
+
+- `hero_section_viewport_1792091400530.png`: Hero desktop close-up showing sky background, "Done in a day. Good for a lifetime.", suburban home, and rectangular `#0C1F33` lead form.
+- `why_mr_roof_1440_1792091221037.png`: Why Us desktop close-up showing flat `#F4F6F8` panels, vertical photography, red square badges, and left sticky heading.
+- `services_promotions_1440_v2_1792091237886.png`: Our Services 2x2 flat light-gray panels with direct illustrations and outlined red-bordered CTAs.
+- `reviews_footer_1440_1792091246844.png`: Promotions with inset red buttons & cyan line + Reviews with flat light-gray background & left heading.
+- `footer_1440_1792091255427.png`: Awards strip in `#0C1F33` and Footer in deeper navy `#071524` with red column headings and white logo/CTA.
+- `full_page_1440_1792091405239.png`: Full desktop 1440px homepage comparison capture.
+- `hero_768_top_1792091275332.png`: Tablet 768px hero layout.
+- `hero_mobile_390_1792091283860.png`: Mobile 390px hero layout.
+- `mobile_menu_open_1792091300068.png`: Mobile drawer navigation open.
+
+---
+
 ## Sprint 3.6 — Visual Defect Remediation & Full-Viewport QA (2026-10-16)
 
 ### Static checks

@@ -7,6 +7,7 @@ export interface FieldProps {
   error?: string;
   required?: boolean;
   errorClassName?: string;
+  hideLabel?: boolean;
   /**
    * Render callback receives the ids to wire onto the control:
    *   `id` → label-for target,
@@ -26,6 +27,7 @@ export function Field({
   error,
   required,
   errorClassName = "text-[var(--color-danger)]",
+  hideLabel = false,
   children,
 }: FieldProps) {
   const id = useId();
@@ -35,7 +37,10 @@ export function Field({
 
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="text-sm font-medium">
+      <label
+        htmlFor={id}
+        className={hideLabel ? "sr-only" : "text-sm font-medium"}
+      >
         {label}
         {required && (
           <>

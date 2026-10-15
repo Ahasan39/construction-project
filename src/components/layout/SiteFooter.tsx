@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Button, Container, SmartLink } from "@/components/ui";
+import { Container, SmartLink } from "@/components/ui";
 import { services } from "@/data/services";
 import { locations } from "@/data/locations";
 import { brand } from "@/data/brand";
@@ -7,17 +7,19 @@ import { listArticleSummaries } from "@/data/articles";
 
 /**
  * Reconstructed dark-navy public footer matching mrroof.com:
- * - Top row: white Mr. Roof logo, bold phone number, and bright red "FREE ESTIMATE" CTA.
- * - Main grid: Services, Service Areas, Disclosures, Company, and Recent Posts.
- * - Bottom sub-strip: copyright notice, privacy policy, and crew portal.
+ * - Deeper dark navy background (#071524), distinct from Awards section navy (#0C1F33).
+ * - Top contact row with white logo, phone, and filled red CTA ("Get a Free Estimate").
+ * - Reference red group headings (#D9232A) for all column sections.
+ * - Distinct boxed container backgrounds for Recent Posts (#0C1F33).
+ * - Exact reference columns: Services, Service Areas, Resources, Company, Recent Posts.
  */
 export function SiteFooter() {
   const recent = listArticleSummaries().slice(0, 2);
 
   return (
-    <footer className="bg-[var(--color-brand-primary)] text-white">
+    <footer className="bg-[#071524] text-white">
       {/* Top footer row with logo, phone and CTA matching reference */}
-      <div className="border-b border-slate-700/60 py-8">
+      <div className="border-b border-slate-800/80 py-8">
         <Container width="wide">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <Link to="/" aria-label={`${brand.companyName} — Home`} className="shrink-0 inline-block">
@@ -39,10 +41,11 @@ export function SiteFooter() {
                 {brand.phoneDisplay}
               </SmartLink>
 
-              <Link to="/free-estimate">
-                <Button size="lg" className="whitespace-nowrap uppercase tracking-wider font-extrabold text-sm px-7 bg-[var(--color-brand-accent)] hover:bg-[var(--color-brand-accent-600)]">
-                  Free estimate
-                </Button>
+              <Link
+                to="/free-estimate"
+                className="inline-flex items-center justify-center h-11 px-6 rounded-sm bg-[#D9232A] hover:bg-[#B81B22] text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-colors shadow-sm"
+              >
+                Get a Free Estimate
               </Link>
             </div>
           </div>
@@ -76,14 +79,14 @@ export function SiteFooter() {
             </ul>
           </FooterColumn>
 
-          <FooterColumn title="Disclosures">
+          <FooterColumn title="Resources">
             <ul className="space-y-2.5 text-slate-300">
               <li><Link to="/special-offers" className="hover:text-white hover:underline transition-colors">Special Offers</Link></li>
+              <li><Link to="/billpay" className="hover:text-white hover:underline transition-colors">Pay My Bill</Link></li>
               <li><Link to="/financing" className="hover:text-white hover:underline transition-colors">Financing</Link></li>
               <li><Link to="/warranties" className="hover:text-white hover:underline transition-colors">Warranties</Link></li>
               <li><Link to="/refer-a-friend" className="hover:text-white hover:underline transition-colors">Refer a Friend</Link></li>
               <li><Link to="/commercial-projects" className="hover:text-white hover:underline transition-colors">Commercial Projects</Link></li>
-              <li><Link to="/billpay" className="hover:text-white hover:underline transition-colors">Pay My Bill</Link></li>
             </ul>
           </FooterColumn>
 
@@ -92,7 +95,7 @@ export function SiteFooter() {
               <li><Link to="/about" className="hover:text-white hover:underline transition-colors">About Us</Link></li>
               <li><Link to="/reviews" className="hover:text-white hover:underline transition-colors">Customer Reviews</Link></li>
               <li><Link to="/careers/sales" className="hover:text-white hover:underline transition-colors">Sales Careers</Link></li>
-              <li><Link to="/blog" className="hover:text-white hover:underline transition-colors">Blog & Resources</Link></li>
+              <li><Link to="/blog" className="hover:text-white hover:underline transition-colors">Blog</Link></li>
             </ul>
           </FooterColumn>
 
@@ -102,19 +105,28 @@ export function SiteFooter() {
                 Articles pending publication.
               </p>
             ) : (
-              <ul className="space-y-3 text-slate-300">
+              <ul className="space-y-3">
                 {recent.map((a) => (
-                  <li key={a.slug}>
-                    <Link to={`/blog/${a.slug}`} className="hover:text-white hover:underline transition-colors line-clamp-2">
+                  <li key={a.slug} className="bg-[#0C1F33] p-3 rounded-sm border border-slate-750">
+                    <Link
+                      to={`/blog/${a.slug}`}
+                      className="text-xs font-semibold text-white hover:text-[var(--color-brand-blue)] line-clamp-2 leading-snug mb-1.5 block"
+                    >
                       {a.title}
+                    </Link>
+                    <Link
+                      to={`/blog/${a.slug}`}
+                      className="text-[11px] font-bold text-slate-400 hover:text-white transition-colors"
+                    >
+                      Read More »
                     </Link>
                   </li>
                 ))}
               </ul>
             )}
             <p className="mt-3">
-              <Link to="/blog" className="text-xs font-bold text-[#00a3e0] hover:underline uppercase tracking-wider">
-                View all posts →
+              <Link to="/blog" className="text-xs font-bold text-[#00A3E0] hover:underline uppercase tracking-wider">
+                View Blog &gt;&gt;
               </Link>
             </p>
           </FooterColumn>
@@ -122,19 +134,19 @@ export function SiteFooter() {
       </Container>
 
       {/* Bottom bar */}
-      <div className="border-t border-slate-800 bg-[#0a1823]">
+      <div className="border-t border-slate-800/80 bg-[#050E18]">
         <Container width="wide" className="py-5">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-slate-400">
             <p>{brand.legalLine}</p>
             <ul className="flex items-center gap-6">
               <li>
                 <Link to="/privacy-policy" className="hover:text-white hover:underline transition-colors">
-                  Privacy policy
+                  Privacy Policy
                 </Link>
               </li>
               <li>
                 <Link to="/crew" className="hover:text-white hover:underline transition-colors">
-                  Crew portal
+                  Crew Portal
                 </Link>
               </li>
             </ul>
@@ -154,10 +166,11 @@ function FooterColumn({
 }) {
   return (
     <section>
-      <h3 className="text-xs font-black uppercase tracking-wider mb-4 text-white text-opacity-90">
+      <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-[#D9232A]">
         {title}
       </h3>
       {children}
     </section>
   );
 }
+

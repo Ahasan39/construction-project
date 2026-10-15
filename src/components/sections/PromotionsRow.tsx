@@ -15,7 +15,7 @@ const promos: Promo[] = [
     title: "Offers & Promotions",
     imageSrc: "/images/homepage/promo-offers.jpg",
     imageAlt: "Inspector checking roofline and gutters with safety gear",
-    ctaLabel: "Get Special Promotions",
+    ctaLabel: "See Current Promotions",
     ctaTo: "/special-offers",
     icon: "tag",
   },
@@ -31,7 +31,7 @@ const promos: Promo[] = [
     title: "Lifetime Warranty",
     imageSrc: "/images/homepage/promo-warranty.jpg",
     imageAlt: "Pronged residential exterior with premium architectural shingles",
-    ctaLabel: "View Warranty Protection",
+    ctaLabel: "View Warranty Information",
     ctaTo: "/warranties",
     icon: "shield",
   },
@@ -64,26 +64,28 @@ function PromoIcon({ icon }: { icon: Promo["icon"] }) {
 }
 
 /**
- * Reconstructed PromotionsRow matching the reference's 3-card photo + navy banner + red CTA:
- * - High-resolution job-site photography on top.
- * - Integrated dark navy banner with badge icon and promotion title.
- * - Full-width bright red call-to-action button pinned at the bottom.
+ * Reconstructed PromotionsRow matching the reference:
+ * - 3-card photo + navy panel + inset red button + cyan bottom accent:
+ * - Photography above.
+ * - Deep navy title & action area (#0C1F33).
+ * - Smaller red button inset within the navy area (not edge-to-edge).
+ * - Thin blue lower accent line (#00A3E0).
  */
 export function PromotionsRow() {
   return (
     <section
       aria-label="Offers, financing and warranty"
-      className="bg-slate-50/70 border-b border-[var(--color-border)]"
+      className="bg-white border-b border-[var(--color-border)]"
     >
       <Container width="wide" className="py-14 sm:py-18 lg:py-24">
         <ul className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {promos.map((p) => (
             <li
               key={p.title}
-              className="flex flex-col rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200/80 group hover:shadow-xl transition-all duration-300"
+              className="flex flex-col rounded-sm overflow-hidden bg-[#0C1F33] border border-slate-700/40 shadow-md group hover:shadow-xl transition-all duration-300"
             >
               {/* Photo top */}
-              <div className="h-52 sm:h-56 w-full overflow-hidden bg-slate-100">
+              <div className="h-56 sm:h-64 w-full overflow-hidden bg-slate-800">
                 <img
                   src={p.imageSrc}
                   alt={p.imageAlt}
@@ -95,21 +97,26 @@ export function PromotionsRow() {
                 />
               </div>
 
-              {/* Dark navy title banner */}
-              <div className="bg-[var(--color-brand-primary)] text-white py-3.5 px-4 flex items-center justify-center gap-2.5 font-black text-base sm:text-lg tracking-tight">
-                <span className="text-[#00a3e0]" aria-hidden="true">
-                  <PromoIcon icon={p.icon} />
-                </span>
-                <span>{p.title}</span>
+              {/* Deep navy lower panel with inset CTA */}
+              <div className="p-6 sm:p-7 flex flex-col justify-between items-center flex-1 text-white">
+                <div className="flex items-center justify-center gap-2.5 font-bold text-lg sm:text-xl tracking-tight text-white mb-6">
+                  <span className="text-[#00A3E0]" aria-hidden="true">
+                    <PromoIcon icon={p.icon} />
+                  </span>
+                  <span>{p.title}</span>
+                </div>
+
+                {/* Smaller red button inset within navy area */}
+                <Link
+                  to={p.ctaTo}
+                  className="w-full max-w-[280px] py-3.5 px-6 rounded-sm bg-[#D9232A] hover:bg-[#B81B22] text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider text-center transition-colors shadow-sm"
+                >
+                  {p.ctaLabel}
+                </Link>
               </div>
 
-              {/* Bright red button */}
-              <Link
-                to={p.ctaTo}
-                className="block w-full py-3.5 px-4 bg-[var(--color-brand-accent)] hover:bg-[var(--color-brand-accent-600)] text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider text-center transition-colors shadow-inner"
-              >
-                {p.ctaLabel}
-              </Link>
+              {/* Thin cyan/blue lower accent line */}
+              <div className="h-1 bg-[#00A3E0] w-full" aria-hidden="true" />
             </li>
           ))}
         </ul>
@@ -117,3 +124,4 @@ export function PromotionsRow() {
     </section>
   );
 }
+

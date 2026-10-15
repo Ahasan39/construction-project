@@ -42,7 +42,7 @@ export function AwardsStrip() {
   return (
     <section
       aria-labelledby="awards-heading"
-      className="bg-[var(--color-brand-primary)] border-t border-slate-800 text-white py-12 sm:py-14"
+      className="bg-[#0C1F33] border-t border-slate-800 text-white py-12 sm:py-14"
     >
       <Container width="wide">
         <h2 id="awards-heading" className="sr-only">
