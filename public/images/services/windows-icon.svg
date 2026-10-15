@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Arched multi-pane casement window -->
+  <!-- Outer wall frame -->
+  <path d="M25 100V55C25 35.67 40.67 20 60 20C79.33 20 95 35.67 95 55V100H25Z" fill="#F8FAFC" stroke="#0F2231" stroke-width="4"/>
+  <!-- Window sill -->
+  <rect x="20" y="98" width="80" height="8" rx="2" fill="#0F2231"/>
+  
+  <!-- Window glass background -->
+  <path d="M31 94V55C31 39 44 26 60 26C76 26 89 39 89 55V94H31Z" fill="#E0F2FE"/>
+  
+  <!-- Grids -->
+  <!-- Center vertical mullion -->
+  <line x1="60" y1="26" x2="60" y2="94" stroke="#0F2231" stroke-width="3"/>
+  <!-- Horizontal transoms -->
+  <line x1="31" y1="58" x2="89" y2="58" stroke="#0F2231" stroke-width="3"/>
+  <line x1="31" y1="76" x2="89" y2="76" stroke="#0F2231" stroke-width="3"/>
+
+  <!-- Glass shine reflection highlights -->
+  <path d="M40 38L52 30V48L40 56V38Z" fill="#FFFFFF" fill-opacity="0.6"/>
+  <path d="M36 64L52 64V70L36 70V64Z" fill="#FFFFFF" fill-opacity="0.5"/>
+</svg>

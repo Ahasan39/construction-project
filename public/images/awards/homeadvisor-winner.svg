@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" fill="none">
+  <!-- Best of HomeAdvisor Winner -->
+  <!-- Red hanging ribbon -->
+  <path d="M72 40L65 74L80 67L95 74L88 40Z" fill="#C8102E"/>
+  <!-- Gold medallion -->
+  <circle cx="80" cy="34" r="28" fill="#DAA520" stroke="#B8860B" stroke-width="2"/>
+  <circle cx="80" cy="34" r="24" fill="#FFD700"/>
+  <circle cx="80" cy="34" r="21" fill="none" stroke="#B8860B" stroke-width="1" stroke-dasharray="2 2"/>
+  <text x="80" y="27" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" font-weight="900" fill="#663300" letter-spacing="0.5">BEST OF</text>
+  <text x="80" y="37" text-anchor="middle" font-family="system-ui, sans-serif" font-size="6" font-weight="800" fill="#333333">HomeAdvisor</text>
+  <text x="80" y="47" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="900" fill="#990000">WINNER</text>
+</svg>

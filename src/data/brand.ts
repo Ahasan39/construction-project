@@ -6,12 +6,12 @@ import type { BrandContact } from "@/types";
  * See docs/ASSET_MANIFEST.md.
  */
 export const brand: BrandContact = {
-  companyName: "Example Exteriors",
-  logoSrc: null,
-  phoneDisplay: "(555) 010-0100",
-  phoneHref: "tel:+15550100100",
-  email: "info@example.com",
-  addressLines: ["Address pending client confirmation"],
+  companyName: "Mr. Roof",
+  logoSrc: "/images/logo.svg",
+  phoneDisplay: "(877) 766-7663",
+  phoneHref: "tel:+18777667663",
+  email: "info@mrroof.com",
+  addressLines: ["Columbus, OH (HQ)"],
   social: {},
-  legalLine: `© ${new Date().getFullYear()} Example Exteriors — placeholder entity`,
+  legalLine: `© ${new Date().getFullYear()} Mr. Roof, LLC (a Crane Renovation Group Company)`,
 };

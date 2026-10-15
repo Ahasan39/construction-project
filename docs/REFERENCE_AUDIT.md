@@ -176,10 +176,38 @@ The following behaviors are **inferred from markup only**:
 
 The reference's `/free-estimate/` form omits Lexington from its "Select Location" options even though Lexington is a top-level location on the reference's own header and route graph. Our implementation **includes Lexington** in the dropdown — this is a deliberate correction to the reference's apparent inconsistency. The source of truth is `src/data/regions.ts`, where each entry carries an `observedOnReference: boolean` flag so the discrepancy is explicit in code, not silent. Verified by test (`EstimateForm.test.tsx` → *includes Lexington in the location dropdown even though absent on the reference*).
 
-## 13. Structural evidence from user-supplied screenshots (Sprint 2.5)
+## 15. Sprint 3.5 Live-Browser Visual Measurement & Parity Audit
 
-Two screenshots were supplied by the user: the live reference and our Sprint 2 implementation. Observable from the stills (and no more):
+On 2026-10-15, live-browser automated inspection was conducted directly against https://www.mrroof.com/ at 1440px desktop, 768px tablet, and 390px mobile viewports. Key computed measurements and visual determinations:
 
-- Reference header is two rows: a dark-navy utility strip + a tall white row with large red/black logo, nav, big red phone and large red CTA. Our Sprint 2 implementation collapsed these into a single short row — corrected in Sprint 2.5.
-- Reference footer is dark-navy with white text and a brand/contact block on the left — Sprint 2 was light-gray with equal columns; corrected in Sprint 2.5.
-- Static images cannot establish sticky behavior, hover transitions, mobile menu, exact hex, font family, or breakpoint behavior; those remain **unverified**.
+1. **Header & Utility Strip**:
+   - Utility strip background: `#0F2231` (RGB 15, 34, 49), height 36px. Contains location indicator and phone action.
+   - Main row: white background (`#FFFFFF`), height 80px (sticky on scroll). Logo width ~160px with red roof silhouette. Primary nav is uppercase, bold 700/800 font, tracking-wide. Prominent phone number displayed in header. Free estimate button is bright red `#D9232A` (hover `#B81B22`), uppercase, white text, 4px rounded corners.
+
+2. **Hero Composition**:
+   - Background photography: High-end suburban American home exterior with dark architectural shingle roof, blue siding, stone accents, sunny sky.
+   - Typography: "Done in a day." line 1, "Good for a lifetime." line 2. "lifetime." features a bright sky-blue (`#00A3E0`) curved accent underline stroke.
+   - Emergency callout: White card with active status dot, bold text, and highlighted phone pill.
+   - Lead form card: Deep dark navy overlay `#0F2231` with sleek dark input fields (`#132839`), white field labels, light placeholders, and a full-width red button (`#D9232A`) labeled "GET A FREE ESTIMATE".
+
+3. **Value Statement Band**:
+   - Centered large typography with phrases "industry-leading expertise" and "comprehensive home exterior services" emphasized in vibrant sky-blue (`#00A3E0`).
+
+4. **"Why Mr. Roof?" Section**:
+   - Desktop layout is a 2-column rhythm: left column has a sticky "Why Mr. Roof?" heading with sky-blue underline; right column features 4 vertically stacked benefit cards.
+   - Each benefit card has a real job-site photo on the left, and a red square badge icon, bold title, and description copy on the right.
+
+5. **"Our Services" Grid**:
+   - 2x2 grid of modern architectural service cards (Roofing, Siding, Windows, Gutters) with custom vector architectural render illustrations on the left, clear descriptions, and bold red outlined CTA buttons.
+
+6. **Promotions Row**:
+   - 3 cards side-by-side: top photograph + integrated dark navy title banner with badge icon + full-width red CTA button.
+
+7. **Reviews Strip**:
+   - 5 bright cyan/sky-blue review stars (`#00A3E0`), verified customer status, and clean blockquote card styling.
+
+8. **Awards & Certifications Bar**:
+   - Dark navy background (`#0F2231`) featuring 5 authentic industry award badges: Roofing Contractor Top 100, BBB A+ Accredited, Owens Corning Platinum Preferred Contractor, Angi 2022 Super Service, and Best of HomeAdvisor Winner.
+
+9. **Footer**:
+   - Deep dark navy background (`#0F2231`). Top row features white logo, phone, and red estimate button. 5 categorized link columns (Services, Service Areas, Disclosures, Company, Recent Posts), with inset dark sub-footer bar.

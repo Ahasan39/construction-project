@@ -164,11 +164,15 @@ export function EstimateForm({
 
   // Classes for the dark hero-card variant vs. the default page variant.
   const labelTone =
-    variant === "inverse" ? "text-white" : "text-[var(--color-ink)]";
+    variant === "inverse" ? "text-white text-xs font-semibold tracking-wide uppercase" : "text-[var(--color-ink)] text-sm font-medium";
   const noticeTone =
     variant === "inverse"
-      ? "text-white/80"
-      : "text-[var(--color-ink-muted)]";
+      ? "text-slate-300 text-xs"
+      : "text-[var(--color-ink-muted)] text-xs";
+  const inputClassName =
+    variant === "inverse"
+      ? "!bg-[#132839] !border-slate-600 !text-white placeholder:!text-slate-400 focus:!border-[#00a3e0]"
+      : "";
 
   return (
     <form
@@ -208,6 +212,8 @@ export function EstimateForm({
                   id={id}
                   name="name"
                   autoComplete="name"
+                  placeholder="Full Name"
+                  className={inputClassName}
                   value={values.name}
                   onChange={(e) => update("name")(e.target.value)}
                   aria-describedby={describedBy}
@@ -227,6 +233,8 @@ export function EstimateForm({
                   type="tel"
                   autoComplete="tel"
                   inputMode="tel"
+                  placeholder="(555) 000-0000"
+                  className={inputClassName}
                   value={values.phone}
                   onChange={(e) => update("phone")(e.target.value)}
                   aria-describedby={describedBy}
@@ -246,6 +254,8 @@ export function EstimateForm({
                   type="email"
                   autoComplete="email"
                   inputMode="email"
+                  placeholder="your.email@example.com"
+                  className={inputClassName}
                   value={values.email}
                   onChange={(e) => update("email")(e.target.value)}
                   aria-describedby={describedBy}
@@ -263,6 +273,7 @@ export function EstimateForm({
                   <Select
                     id={id}
                     name="regionKey"
+                    className={inputClassName}
                     value={values.regionKey}
                     onChange={(e) =>
                       update("regionKey")(e.target.value as FormValues["regionKey"])
@@ -271,11 +282,11 @@ export function EstimateForm({
                     invalid={invalid}
                     required
                   >
-                    <option value="" disabled>
+                    <option value="" disabled className="text-gray-900 bg-white">
                       Choose a service area…
                     </option>
                     {serviceAreaRegions.map((r) => (
-                      <option key={r.key} value={r.key}>
+                      <option key={r.key} value={r.key} className="text-gray-900 bg-white">
                         {r.label}
                       </option>
                     ))}
@@ -292,6 +303,7 @@ export function EstimateForm({
                   <Select
                     id={id}
                     name="serviceKey"
+                    className={inputClassName}
                     value={values.serviceKey}
                     onChange={(e) =>
                       update("serviceKey")(e.target.value as FormValues["serviceKey"])
@@ -300,15 +312,15 @@ export function EstimateForm({
                     invalid={invalid}
                     required
                   >
-                    <option value="" disabled>
+                    <option value="" disabled className="text-gray-900 bg-white">
                       Choose a service…
                     </option>
                     {services.map((s) => (
-                      <option key={s.key} value={s.key}>
+                      <option key={s.key} value={s.key} className="text-gray-900 bg-white">
                         {s.title}
                       </option>
                     ))}
-                    <option value="insulation">Insulation</option>
+                    <option value="insulation" className="text-gray-900 bg-white">Insulation</option>
                   </Select>
                 )}
               </Field>
@@ -359,7 +371,11 @@ export function EstimateForm({
             size="lg"
             isLoading={status === "pending"}
             loadingLabel="Submitting…"
-            className="w-full"
+            className={`w-full font-extrabold uppercase tracking-wider ${
+              variant === "inverse"
+                ? "bg-[#d9232a] hover:bg-[#b81b22] text-white py-3.5 shadow-md"
+                : ""
+            }`}
           >
             {submitLabel}
           </Button>

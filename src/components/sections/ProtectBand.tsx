@@ -6,7 +6,8 @@ import { Container } from "@/components/ui";
  * "Protect your home with industry-leading expertise and comprehensive home
  *  exterior services backed by a superior warranty."
  *
- * Rendered as centered prose with two phrases emphasized in brand color.
+ * Rendered as large, centered bold typography with the two key phrases highlighted
+ * in vibrant cyan/sky-blue (#00a3e0) matching the reference site.
  */
 export function ProtectBand() {
   return (
@@ -14,14 +15,14 @@ export function ProtectBand() {
       aria-label="Value statement"
       className="bg-white border-b border-[var(--color-border)]"
     >
-      <Container className="py-10 md:py-14 text-center">
-        <p className="text-xl md:text-2xl font-semibold leading-snug max-w-4xl mx-auto">
+      <Container className="py-12 sm:py-16 md:py-20 text-center">
+        <p className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug tracking-tight text-[var(--color-brand-primary)] max-w-4xl mx-auto">
           Protect your home with{" "}
-          <span className="text-[var(--color-brand-primary)]">
+          <span className="text-[#00a3e0] font-black">
             industry-leading expertise
           </span>{" "}
           and{" "}
-          <span className="text-[var(--color-brand-primary)]">
+          <span className="text-[#00a3e0] font-black">
             comprehensive home exterior services
           </span>{" "}
           backed by a superior warranty.

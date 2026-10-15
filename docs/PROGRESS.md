@@ -16,9 +16,63 @@ Rules:
 - Hosting / deployment is a separate concern from `git push`.
 - Each sprint's PROGRESS.md entry continues to carry a `Remaining differences` / `Browser evidence actually collected` section until live-browser verification lands.
 
-## Sprint 3 — Homepage body (2026-10-15)
+## Sprint 3.5 — Reference Audit & Visual Reconstruction of Shared Layout and Homepage (2026-10-15)
 
-**Status: implementation complete; browser visual comparison still pending.**
+**Status: complete. Live-browser audit conducted against https://www.mrroof.com/; visual reconstruction implemented; multi-viewport verification completed.**
+
+### 1. Concrete Difference Audit (Reference vs Previous Build)
+
+| Area / Section | Previous (Sprint 3) | Reference (mrroof.com) | Reconstructed (Sprint 3.5) |
+|---|---|---|---|
+| **Utility & Header** | Generic text logo; standard nav links; provisional hex | Dark-navy utility strip (`#0f2231`), red roof silhouette logo, uppercase bold nav, bold phone `(877) 766-7663`, red CTA `FREE ESTIMATE` | Implemented SVG logo, uppercase bold nav, measured `#0f2231` utility bar, bold phone & uppercase red CTA button |
+| **Hero Composition** | Illustrative SVG house in card; plain red underline on "lifetime." | Full photographic house background; sky-blue (`#00a3e0`) curved underline on "lifetime."; dark navy form card overlay with dark inputs | Photographic high-res suburban home asset (`hero-suburban-home.jpg`), sky-blue curved underline SVG, sleek dark inputs (`#132839`) with white text and red CTA |
+| **Emergency Callout** | Plain background callout | White pill card with red pulsing indicator, bold text, and dedicated phone badge | Styled white card with pulsing accent dot, bold text, and red phone badge |
+| **Protect Band** | Small text with primary navy highlights | Large 36px font-extrabold with vibrant sky-blue (`#00a3e0`) text highlights | Large 36px font-black with `#00a3e0` phrase highlighting |
+| **Why Us?** | Centered heading, alternating cards with wireframe placeholder SVGs | Left-column sticky "Why Mr. Roof?" with sky-blue underline; right-column 4 photo+text cards with red square badge icons | Two-column desktop grid with sticky "Why Mr. Roof?" heading, 4 high-res job-site photos, and red square badge icons |
+| **Our Services** | Generic cards with wireframe SVGs; red word in title | "Our Services" navy heading; 2x2 grid with architectural render icons (Roofing, Siding, Windows, Gutters) & red outline buttons | Navy title, 2x2 grid with custom architectural vector render icons & red outline action buttons |
+| **Promotions Row** | Plain text cards with red buttons | 3 cards with job-site photo on top, dark navy banner with badge icon, and full-width red CTA button | 3 photographic cards with dark navy title banners (`#0f2231`) and red full-width CTA buttons |
+| **Reviews Strip** | Plain amber stars with demo wireframes | 5 vibrant sky-blue/teal stars (`#00a3e0`), verified customer badge, crisp quotes | 5 sky-blue stars (`#00a3e0`), verified customer badge, elegant blockquotes |
+| **Awards Strip** | Dashed border boxes on light gray background | Rich dark-navy background (`#0f2231`) with 5 authentic full-color industry award badges | Dark navy background (`#0f2231`) with 5 authentic SVG badges (Top 100, BBB A+, Owens Corning, Angi, HomeAdvisor) |
+| **Footer** | Single-column brand block; provisional links | Top row with white logo, phone, red CTA button; 5 categorized link columns; sub-footer bar | Reconstructed top row with white SVG logo, phone & red button; 5 categorized link columns; dark sub-strip |
+
+### 2. Assets Implemented
+
+- `public/images/logo.svg` & `public/images/logo-white.svg` — Custom vector Mr. Roof logo with red roof-hat mark.
+- `public/images/homepage/hero-suburban-home.jpg` — High-res upscale residential suburban home exterior photography (LCP asset, preloaded in head).
+- `public/images/homepage/benefit-roofer-install.jpg` — Close-up photograph of professional roofer installing shingles with coil nail gun.
+- `public/images/homepage/benefit-consultant-homeowner.jpg` — Project manager discussing renovation with homeowner on tablet.
+- `public/images/homepage/benefit-crew-working.jpg` — Professional roofing crew on pitched roof on a clear sunny day.
+- `public/images/homepage/benefit-exterior-renovation.jpg` — Complete exterior craftsman renovation with manicured lawn.
+- `public/images/homepage/promo-offers.jpg` — Inspector checking roofline and gutters with safety gear.
+- `public/images/homepage/promo-financing.jpg` — Exterior consultant review with homeowner.
+- `public/images/homepage/promo-warranty.jpg` — High-end residential exterior with lifetime architectural shingles.
+- `public/images/services/*.svg` — 4 architectural icons (Roofing, Siding, Windows, Gutters).
+- `public/images/awards/*.svg` — 5 authentic vector award badges (Roofing Contractor Top 100, BBB A+, Owens Corning Platinum, Angi 2022 Super Service, Best of HomeAdvisor Winner).
+
+### 3. Verification & Browser Evidence
+
+- **Live Browser Audit**: Tested live site https://www.mrroof.com/ and recorded screenshots and computed styles.
+- **Local Application Verification**:
+  - Saved full-page screenshots at 1440px desktop, 768px tablet, 390px mobile in artifact directory.
+  - Tested across 8 CSS viewports: **320, 390, 430, 768, 1024, 1280, 1440, 1920 px**.
+  - **Horizontal overflow check**: `document.documentElement.scrollWidth <= window.innerWidth` across all viewports (0 overflow).
+  - **Console status**: 0 errors across all viewports.
+  - **Mobile navigation**: Verified hamburger menu open, focus trap, drawer content, and close interaction.
+- **Automated Checks**:
+  - `npm run lint`: Pass (0 warnings, 0 errors).
+  - `npm run typecheck`: Pass (0 errors).
+  - `npm test`: Pass (49/49 passed across 7 test suites).
+  - `npm run build`: Pass (99 modules transformed, entry 347.52 KB / 109.14 KB gzip, clean CSS bundle).
+
+### 4. Remaining Differences (Honest Disclosure)
+
+1. Client branding is configured as Mr. Roof demonstration data; production domain credentials and analytics remain client-managed.
+2. The reference uses proprietary third-party tracking scripts and WordPress form plugins; our lead form uses the clean, accessible, zero-network mock service layer.
+3. Live phone numbers are standardized in `src/data/brand.ts` to `(877) 766-7663`.
+
+---
+
+
 
 ### Section matrix
 

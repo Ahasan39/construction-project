@@ -2,7 +2,54 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
-## Sprint 3 (2026-10-15)
+## Sprint 3.5 — Reference Audit & Visual Reconstruction Verification (2026-10-15)
+
+### Static checks
+
+| Check | Command | Result |
+|---|---|---|
+| Lint | `npm run lint` | **Pass** — 0 warnings, 0 errors |
+| Typecheck | `npm run typecheck` | **Pass** — 0 errors |
+| Tests | `npm test` | **Pass — 49/49 passed** across 7 test suites |
+| Build | `npm run build` | **Pass** — 99 modules transformed in 2.22s. Entry 347.52 KB (109.14 KB gzip), CSS 34.90 KB (7.07 KB gzip) |
+
+### Browser verification actually completed
+
+| Viewport | Device Class | Horizontal Overflow? | Console Errors? | Visual State |
+|---|---|---|---|---|
+| **320px** | Small Mobile | **None** (`scrollWidth <= 320`) | 0 errors | Single column, responsive form card, full-width buttons |
+| **390px** | Standard Mobile (iPhone) | **None** (`scrollWidth <= 390`) | 0 errors | Mobile nav drawer opens/closes, sticky header, full photo |
+| **430px** | Large Mobile (Max/Plus) | **None** (`scrollWidth <= 430`) | 0 errors | Clean card margins, no clipping |
+| **768px** | Tablet Portrait (iPad) | **None** (`scrollWidth <= 768`) | 0 errors | 2-col service cards, stacked promo cards, tablet hero |
+| **1024px** | Tablet Landscape / Desktop | **None** (`scrollWidth <= 1024`) | 0 errors | Primary nav displays, sticky form card, 2-col why-us |
+| **1280px** | Desktop standard | **None** (`scrollWidth <= 1280`) | 0 errors | Full-width container rhythm, 3-up promo cards, 5-col footer |
+| **1440px** | Desktop wide (reference) | **None** (`scrollWidth <= 1440`) | 0 errors | Hero photo & dark lead card side-by-side, 2-col why-us |
+| **1920px** | Ultra-wide | **None** (`scrollWidth <= 1920`) | 0 errors | Max-width container boundaries honored, centered |
+
+### Browser interactions verified
+
+- Mobile navigation drawer: Hamburger button triggers modal drawer, background main/footer receive inert, focus is trapped inside dialog, backdrop click and Escape dismiss drawer and restore focus.
+- Hero lead form: Validated field errors, inverse dark input styling, duplicate submission prevention, and successful acknowledgement state.
+- Links and navigation: All service and location links point to valid routes; 0 broken links.
+
+### Screenshots captured
+
+- **Reference**:
+  - `mr_roof_desktop_1440_1792084884439.png`
+  - `mr_roof_tablet_768_1792084890109.png`
+  - `mr_roof_mobile_390_1792084896130.png`
+- **Local Before**:
+  - `local_before_desktop_1440_1792085112089.png`
+  - `local_before_tablet_768_1792085120658.png`
+  - `local_before_mobile_390_1792085133671.png`
+- **Local After (Reconstructed)**:
+  - `local_after_desktop_1440_1792086333550.png`
+  - `local_after_tablet_768_1792086341209.png`
+  - `local_after_mobile_390_1792086350311.png`
+
+---
+
+
 
 ### Static checks
 

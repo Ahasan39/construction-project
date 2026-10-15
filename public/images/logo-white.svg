@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 54" fill="none">
+  <!-- Roof silhouette / hat accent -->
+  <path d="M12 28L32 10L52 28H44L32 17L20 28H12Z" fill="#D9232A"/>
+  <rect x="22" y="24" width="20" height="4" fill="#FFFFFF"/>
+  <rect x="29" y="19" width="6" height="5" fill="#D9232A"/>
+  
+  <!-- Mr. Roof typography in white -->
+  <text x="60" y="32" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" letter-spacing="-0.5">Mr.</text>
+  <text x="110" y="32" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" letter-spacing="-0.5">Roof</text>
+  <!-- Red dot accent -->
+  <circle cx="178" cy="30" r="3.5" fill="#D9232A"/>
+</svg>

@@ -82,11 +82,10 @@ export function SiteHeader() {
             {brand.logoSrc ? (
               <img
                 src={brand.logoSrc}
-                alt=""
-                aria-hidden="true"
-                height={40}
-                width={160}
-                className="h-10 w-auto"
+                alt={`${brand.companyName} Logo`}
+                height={44}
+                width={180}
+                className="h-10 lg:h-12 w-auto object-contain"
               />
             ) : (
               <span className="text-2xl font-extrabold tracking-tight">
@@ -104,12 +103,12 @@ export function SiteHeader() {
 
           {/* Desktop primary nav */}
           <nav aria-label="Primary" className="hidden lg:block flex-1">
-            <ul className="flex items-center justify-center gap-7 text-[15px] font-semibold">
+            <ul className="flex items-center justify-center gap-7 text-[14px] font-bold tracking-wide uppercase">
               {topLevelItems.map((item) => (
                 <li key={item.to}>
                   <Link
                     to={item.to}
-                    className="py-2 text-[var(--color-ink)] hover:text-[var(--color-brand-primary)]"
+                    className="py-2 text-[var(--color-ink)] hover:text-[var(--color-brand-accent)] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -125,11 +124,11 @@ export function SiteHeader() {
                       </span>
                     }
                     panelLabel={`${aboutItem.label} menu`}
-                    triggerClassName="py-2 inline-flex items-center font-semibold text-[var(--color-ink)] hover:text-[var(--color-brand-primary)]"
+                    triggerClassName="py-2 inline-flex items-center font-bold tracking-wide uppercase text-[14px] text-[var(--color-ink)] hover:text-[var(--color-brand-accent)] transition-colors"
                     align="right"
                   >
                     {({ close }) => (
-                      <ul className="flex flex-col min-w-56">
+                      <ul className="flex flex-col min-w-56 text-sm font-semibold normal-case">
                         {aboutItem.children!.map((child) => (
                           <li key={child.to}>
                             {child.external ? (
@@ -161,16 +160,16 @@ export function SiteHeader() {
           </nav>
 
           {/* Desktop actions */}
-          <div className="hidden lg:flex items-center gap-4 shrink-0">
+          <div className="hidden lg:flex items-center gap-5 shrink-0">
             <SmartLink
               to={phoneHref}
               external
-              className="text-xl font-extrabold text-[var(--color-brand-accent)] whitespace-nowrap hover:underline"
+              className="text-xl font-black text-[var(--color-brand-primary)] whitespace-nowrap hover:text-[var(--color-brand-accent)] transition-colors"
             >
               {phoneDisplay}
             </SmartLink>
             <Link to={estimateHref}>
-              <Button size="lg" className="whitespace-nowrap">
+              <Button size="lg" className="whitespace-nowrap uppercase tracking-wider font-extrabold text-sm px-6">
                 Free estimate
               </Button>
             </Link>

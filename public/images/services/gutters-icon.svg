@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Roof eave line -->
+  <path d="M15 35L85 35" stroke="#64748B" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Gutter profile trough -->
+  <path d="M15 40H80V54C80 57.31 77.31 60 74 60H65V90H55V60H20C17.24 60 15 57.76 15 55V40Z" fill="#38BDF8" fill-opacity="0.3" stroke="#0284C7" stroke-width="3"/>
+  
+  <!-- Downspout elbow and drop -->
+  <path d="M55 90V98L48 105" stroke="#0284C7" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Water droplets dripping -->
+  <path d="M72 75C72 72 75 68 75 68C75 68 78 72 78 75C78 76.66 76.66 78 75 78C73.34 78 72 76.66 72 75Z" fill="#0284C7"/>
+  <path d="M46 108C46 106 48 103 48 103C48 103 50 106 50 108C50 109.1 49.1 110 48 110C46.9 110 46 109.1 46 108Z" fill="#0284C7"/>
+</svg>

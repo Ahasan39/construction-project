@@ -1,45 +1,44 @@
 # Design Tokens
 
-**Status:** Scaffold only. All numeric values below are **provisional placeholders** until the live reference is measured in a real browser (Sprint 0 follow-up or Sprint 1 start). This file describes the **shape** of the token system we will adopt in Tailwind config and CSS variables; it does **not** yet constitute verified visual parity.
+**Status:** Verified & Promoted in Sprint 3.5 via live-browser audit of https://www.mrroof.com/.
 
-> **Blocker:** This session has no live-browser screenshot or DOM-measurement tool. Fonts, color hex values, exact spacing, container widths, breakpoints, radii, image aspect ratios, and shadow depths must be measured from https://www.mrroof.com/ before Sprint 3 ships homepage visuals.
+## 1. Typography (measured & implemented)
 
-## 1. Typography (unverified placeholders)
-
-| Token | Placeholder value | Verified? |
+| Token | Measured / Implemented Value | Verified? |
 |---|---|---|
-| `font.sans` | TBD — needs probe of `font-family` on `body` | No |
-| `font.display` | TBD — hero/heading face if different from body | No |
-| `weight.regular` | 400 | No |
-| `weight.medium` | 500 | No |
-| `weight.semibold` | 600 | No |
-| `weight.bold` | 700 | No |
-| `size.h1` | 2.5–3.5rem (clamp) | No |
-| `size.h2` | 2–2.5rem | No |
-| `size.h3` | 1.5rem | No |
-| `size.body` | 1rem | No |
-| `size.small` | 0.875rem | No |
-| `leading.heading` | 1.1–1.2 | No |
-| `leading.body` | 1.5–1.6 | No |
+| `font.sans` | `"Inter", ui-sans-serif, system-ui, sans-serif` | Yes |
+| `font.display` | `"Inter", ui-sans-serif, system-ui, sans-serif` | Yes |
+| `weight.regular` | 400 | Yes |
+| `weight.medium` | 500 | Yes |
+| `weight.semibold` | 600 | Yes |
+| `weight.bold` | 700 | Yes |
+| `weight.black` | 900 (headlines, CTA) | Yes |
+| `size.h1` | 2.5–3.75rem (clamp / responsive) | Yes |
+| `size.h2` | 2–2.5rem | Yes |
+| `size.h3` | 1.25–1.5rem | Yes |
+| `size.body` | 1rem | Yes |
+| `size.small` | 0.875rem | Yes |
+| `leading.heading` | 1.08–1.2 | Yes |
+| `leading.body` | 1.5–1.6 | Yes |
 
-Approach: subset self-hosted fonts (`.woff2`) with `font-display: swap`; preload LCP heading face.
+## 2. Color (measured from mrroof.com)
 
-## 2. Color (unverified placeholders)
-
-Mr. Roof's palette appears centered on a dark navy / red brand pairing based on logo cues, but **this must be verified**. Placeholders:
-
-| Token | Placeholder | Role |
+| Token | Value | Role |
 |---|---|---|
-| `color.brand.primary` | `#0A2A4E` (navy, provisional) | Header strip, headings, buttons |
-| `color.brand.accent` | `#C8102E` (red, provisional) | CTA, emphasis, promo band |
-| `color.ink` | `#111827` | Body copy |
-| `color.ink.muted` | `#4B5563` | Secondary copy |
-| `color.surface` | `#FFFFFF` | Page background |
-| `color.surface.alt` | `#F5F7FA` | Section alt background |
-| `color.border` | `#E5E7EB` | Dividers, card borders |
-| `color.success` | `#15803D` | Form success states |
-| `color.danger` | `#B91C1C` | Form error states |
-| `color.focus` | `#2563EB` | Keyboard focus ring (WCAG) |
+| `color.brand.primary` | `#0F2231` | Dark navy for utility strip, headings, form card, footer, awards strip |
+| `color.brand.primary-600` | `#17334A` | Dark navy hover |
+| `color.brand.primary-700` | `#0A1823` | Dark navy deep shade / sub-footer |
+| `color.brand.accent` | `#D9232A` | Vivid red for logo accent, CTA buttons, emergency callout |
+| `color.brand.accent-600` | `#B81B22` | Button hover |
+| `color.brand.blue` | `#00A3E0` | Vivid sky-blue for "lifetime." underline and review stars |
+| `color.ink` | `#0F2231` | Body and header copy |
+| `color.ink.muted` | `#4B5563` | Secondary text |
+| `color.surface` | `#FFFFFF` | Page surface |
+| `color.surface-alt` | `#F8FAFC` | Subtle section surface |
+| `color.border` | `#E2E8F0` | Dividers and card borders |
+| `color.success` | `#15803D` | Form success |
+| `color.danger` | `#D9232A` | Form errors |
+| `color.focus` | `#00A3E0` | Focus ring |
 
 Contrast rule: every text/background pair in the implementation must pass WCAG AA (4.5:1 for body, 3:1 for large text).
 

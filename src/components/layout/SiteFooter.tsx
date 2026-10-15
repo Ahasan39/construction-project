@@ -6,64 +6,57 @@ import { brand } from "@/data/brand";
 import { listArticleSummaries } from "@/data/articles";
 
 /**
- * Dark-navy public footer informed by the supplied reference screenshot:
- * brand/contact block on the left, four data-driven column groups
- * (Services, Service Areas, Company, Recent Posts), social + legal in the
- * bottom bar. Palette, column counts and vertical rhythm are provisional
- * until live measurement.
+ * Reconstructed dark-navy public footer matching mrroof.com:
+ * - Top row: white Mr. Roof logo, bold phone number, and bright red "FREE ESTIMATE" CTA.
+ * - Main grid: Services, Service Areas, Disclosures, Company, and Recent Posts.
+ * - Bottom sub-strip: copyright notice, privacy policy, and crew portal.
  */
 export function SiteFooter() {
   const recent = listArticleSummaries().slice(0, 2);
 
   return (
     <footer className="bg-[var(--color-brand-primary)] text-white">
-      <Container width="wide" className="py-14">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(4,minmax(0,1fr))]">
-          {/* Brand + CTA column */}
-          <section className="flex flex-col gap-4" aria-label="Contact">
-            <p className="text-2xl font-extrabold tracking-tight">
-              <span className="text-[var(--color-brand-accent)]">
-                {brand.companyName.split(" ")[0]}
-              </span>
-              {brand.companyName.split(" ").slice(1).join(" ") && (
-                <span className="text-white">
-                  {" " + brand.companyName.split(" ").slice(1).join(" ")}
-                </span>
-              )}
-            </p>
-            <p className="text-sm text-white/80">
-              Roofing, siding, windows, gutters, masonry.
-            </p>
-            <p className="text-sm">
+      {/* Top footer row with logo, phone and CTA matching reference */}
+      <div className="border-b border-slate-700/60 py-8">
+        <Container width="wide">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <Link to="/" aria-label={`${brand.companyName} — Home`}>
+              <img
+                src="/images/logo-white.svg"
+                alt={`${brand.companyName} Logo`}
+                width={180}
+                height={44}
+                className="h-10 lg:h-12 w-auto object-contain"
+              />
+            </Link>
+
+            <div className="flex flex-wrap items-center gap-6">
               <SmartLink
                 to={brand.phoneHref}
                 external
-                className="text-xl font-extrabold text-[var(--color-brand-accent)] hover:underline"
+                className="text-xl sm:text-2xl font-black text-white hover:text-[var(--color-brand-accent)] transition-colors"
               >
                 {brand.phoneDisplay}
               </SmartLink>
-            </p>
-            <p className="text-sm">
-              <SmartLink
-                to={`mailto:${brand.email}`}
-                external
-                className="underline text-white/90"
-              >
-                {brand.email}
-              </SmartLink>
-            </p>
-            <div>
+
               <Link to="/free-estimate">
-                <Button size="md">Free estimate</Button>
+                <Button size="lg" className="whitespace-nowrap uppercase tracking-wider font-extrabold text-sm px-7 bg-[var(--color-brand-accent)] hover:bg-[var(--color-brand-accent-600)]">
+                  Free estimate
+                </Button>
               </Link>
             </div>
-          </section>
+          </div>
+        </Container>
+      </div>
 
+      {/* Main column links grid */}
+      <Container width="wide" className="py-12 sm:py-16">
+        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 text-sm">
           <FooterColumn title="Services">
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2.5 text-slate-300">
               {services.map((s) => (
                 <li key={s.slug}>
-                  <Link to={`/${s.slug}`} className="text-white/85 hover:text-white hover:underline">
+                  <Link to={`/${s.slug}`} className="hover:text-white hover:underline transition-colors">
                     {s.title}
                   </Link>
                 </li>
@@ -72,10 +65,10 @@ export function SiteFooter() {
           </FooterColumn>
 
           <FooterColumn title="Service Areas">
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-slate-300">
               {locations.map((loc) => (
                 <li key={loc.slug}>
-                  <Link to={`/${loc.slug}`} className="text-white/85 hover:text-white hover:underline">
+                  <Link to={`/${loc.slug}`} className="hover:text-white hover:underline transition-colors">
                     {loc.city}, {loc.state}
                   </Link>
                 </li>
@@ -83,30 +76,36 @@ export function SiteFooter() {
             </ul>
           </FooterColumn>
 
+          <FooterColumn title="Disclosures">
+            <ul className="space-y-2.5 text-slate-300">
+              <li><Link to="/special-offers" className="hover:text-white hover:underline transition-colors">Special Offers</Link></li>
+              <li><Link to="/financing" className="hover:text-white hover:underline transition-colors">Financing</Link></li>
+              <li><Link to="/warranties" className="hover:text-white hover:underline transition-colors">Warranties</Link></li>
+              <li><Link to="/refer-a-friend" className="hover:text-white hover:underline transition-colors">Refer a Friend</Link></li>
+              <li><Link to="/commercial-projects" className="hover:text-white hover:underline transition-colors">Commercial Projects</Link></li>
+              <li><Link to="/billpay" className="hover:text-white hover:underline transition-colors">Pay My Bill</Link></li>
+            </ul>
+          </FooterColumn>
+
           <FooterColumn title="Company">
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/about" className="text-white/85 hover:text-white hover:underline">About</Link></li>
-              <li><Link to="/reviews" className="text-white/85 hover:text-white hover:underline">Customer Reviews</Link></li>
-              <li><Link to="/special-offers" className="text-white/85 hover:text-white hover:underline">Special Offers</Link></li>
-              <li><Link to="/financing" className="text-white/85 hover:text-white hover:underline">Financing</Link></li>
-              <li><Link to="/warranties" className="text-white/85 hover:text-white hover:underline">Warranties</Link></li>
-              <li><Link to="/refer-a-friend" className="text-white/85 hover:text-white hover:underline">Refer a Friend</Link></li>
-              <li><Link to="/commercial-projects" className="text-white/85 hover:text-white hover:underline">Commercial Projects</Link></li>
-              <li><Link to="/careers/sales" className="text-white/85 hover:text-white hover:underline">Sales Careers</Link></li>
-              <li><Link to="/billpay" className="text-white/85 hover:text-white hover:underline">Pay My Bill</Link></li>
+            <ul className="space-y-2.5 text-slate-300">
+              <li><Link to="/about" className="hover:text-white hover:underline transition-colors">About Us</Link></li>
+              <li><Link to="/reviews" className="hover:text-white hover:underline transition-colors">Customer Reviews</Link></li>
+              <li><Link to="/careers/sales" className="hover:text-white hover:underline transition-colors">Sales Careers</Link></li>
+              <li><Link to="/blog" className="hover:text-white hover:underline transition-colors">Blog & Resources</Link></li>
             </ul>
           </FooterColumn>
 
           <FooterColumn title="Recent Posts">
             {recent.length === 0 ? (
-              <p className="text-sm text-white/70">
-                Posts pending content delivery.
+              <p className="text-slate-400 text-xs">
+                Articles pending publication.
               </p>
             ) : (
-              <ul className="space-y-3 text-sm">
+              <ul className="space-y-3 text-slate-300">
                 {recent.map((a) => (
                   <li key={a.slug}>
-                    <Link to={`/blog/${a.slug}`} className="text-white/85 hover:text-white hover:underline">
+                    <Link to={`/blog/${a.slug}`} className="hover:text-white hover:underline transition-colors line-clamp-2">
                       {a.title}
                     </Link>
                   </li>
@@ -114,7 +113,7 @@ export function SiteFooter() {
               </ul>
             )}
             <p className="mt-3">
-              <Link to="/blog" className="text-sm font-medium underline">
+              <Link to="/blog" className="text-xs font-bold text-[#00a3e0] hover:underline uppercase tracking-wider">
                 View all posts →
               </Link>
             </p>
@@ -123,18 +122,18 @@ export function SiteFooter() {
       </Container>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/15 bg-black/15">
+      <div className="border-t border-slate-800 bg-[#0a1823]">
         <Container width="wide" className="py-5">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-white/75">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-slate-400">
             <p>{brand.legalLine}</p>
-            <ul className="flex items-center gap-5">
+            <ul className="flex items-center gap-6">
               <li>
-                <Link to="/privacy-policy" className="hover:text-white hover:underline">
+                <Link to="/privacy-policy" className="hover:text-white hover:underline transition-colors">
                   Privacy policy
                 </Link>
               </li>
               <li>
-                <Link to="/crew" className="hover:text-white hover:underline">
+                <Link to="/crew" className="hover:text-white hover:underline transition-colors">
                   Crew portal
                 </Link>
               </li>
@@ -155,7 +154,7 @@ function FooterColumn({
 }) {
   return (
     <section>
-      <h3 className="text-sm font-bold uppercase tracking-wider mb-3 text-white">
+      <h3 className="text-xs font-black uppercase tracking-wider mb-4 text-white text-opacity-90">
         {title}
       </h3>
       {children}

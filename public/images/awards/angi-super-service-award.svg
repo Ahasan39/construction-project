@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" fill="none">
+  <!-- Angi 2022 Super Service Award -->
+  <path d="M40 8L120 8L110 68L80 78L50 68L40 8Z" fill="#F4B400"/>
+  <path d="M46 14L114 14L105 63L80 72L55 63L46 14Z" fill="#E09B00"/>
+  <text x="80" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="900" fill="#0F2231" letter-spacing="1">Angi</text>
+  <text x="80" y="46" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#FFFFFF">2022</text>
+  <text x="80" y="58" text-anchor="middle" font-family="system-ui, sans-serif" font-size="7" font-weight="800" fill="#0F2231" letter-spacing="0.5">SUPER SERVICE</text>
+</svg>
