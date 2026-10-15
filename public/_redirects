@@ -1,0 +1,4 @@
+# Netlify / static-host SPA fallback: route all paths to index.html so direct
+# URL loads and refreshes work. Hosting platforms that do not use this file
+# (Apache, nginx, IIS) need an equivalent rewrite; see docs/PROGRESS.md.
+/*    /index.html   200

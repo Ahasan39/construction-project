@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /__preview
+
+# Sitemap: to be added once the canonical origin is configured.
