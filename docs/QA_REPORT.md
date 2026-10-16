@@ -2,6 +2,42 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 3.9 — Header location selector verification (2026-10-16)
+
+### Cause and correction
+
+Computed Chromium baseline: select foreground/background both `rgb(255, 255, 255)`; option foreground white/background transparent; appearance none; color-scheme normal; width 159px; height 44px inside a 36px strip; padding 0/40/0/12px; font 14px/20px. This confirmed inherited utility-bar colors, insufficient text space and inconsistent height rather than a URL-state defect. See [before](evidence/sprint-3.9/before-desktop.png).
+
+The scoped native picker now has navy `#0f2231` text and arrow on white (16.2:1 contrast), explicit light color-scheme and option colors, 208px width, 44px minimum height, 14px/21px text, 12px left/40px right padding, and a 3px blue keyboard outline. Current longest option measures about 105px versus 154px usable text space. Light utility label and dark drawer label are separate contexts. The strip accommodates the control. Desktop navigation breakpoint moved to 1280px after confirming 1024px CTA clipping; drawer cleanup uses the same breakpoint.
+
+Compared the live reference's `Select Location` label in its dark utility strip ([capture](evidence/sprint-3.9/reference.png)). Retained that clear intent with a bordered field and explicit chevron. No supplied screenshots were present to inspect.
+
+### Checks actually performed
+
+| Check | Result |
+|---|---|
+| `npm run lint` | Pass, no reported warnings/errors |
+| `npm run typecheck` | Pass |
+| `npm test` | Pass, 60 tests / 8 files |
+| `npm run build` | Pass, 99 modules; CSS 39.97 kB, entry JS 382.95 kB |
+| Chromium 153.0.8010.12 / Firefox 155.0 | Global route at all eight requested widths |
+| Both engines, `/grand-rapids` and `/nashville/roofing/commercial-roofing` | 16 route/width combinations per engine; correct selected values; drawer opened/closed below 1280px |
+| Closed, hover, focus | Navy-on-white control; hover `rgb(241,245,249)`; Tab reaches correctly named `Location` combobox with 3px visible outline |
+| Keyboard / navigation | ArrowDown and Enter select Ann Arbor; native change event navigates to hub; browser Back restores placeholder; no custom keyboard interception |
+| Mobile interaction | Select Grand Rapids, drawer closes after route change; reopening shows Grand Rapids; Escape dismisses drawer |
+| Escape/native popup | Chromium popup consumes Escape and leaves drawer open; Firefox automation delivered Escape to drawer, which closed and restored trigger focus. Native behavior was preserved |
+| 200% equivalent reflow | Both engines at 720x450 (half of 1440x900): header fits, drawer nav scrolls to selector, phone/estimate remain reachable. This is viewport reflow evidence, not browser-chrome zoom verification |
+
+### Rendered evidence
+
+[Desktop closed](evidence/sprint-3.9/width-1440.png), [Chromium expanded options](evidence/sprint-3.9/expanded.png), [selected nested route](evidence/sprint-3.9/chromium-selected-loaded.png), [320px drawer](evidence/sprint-3.9/width-320.png), [mobile expanded](evidence/sprint-3.9/mobile-expanded.png), [keyboard focus](evidence/sprint-3.9/keyboard-focus.png), [1024px header](evidence/sprint-3.9/width-1024.png), [reflow drawer](evidence/sprint-3.9/zoom-200-drawer.png). Width captures and computed measurements are saved for both engines; Firefox captures are in the `firefox/` subdirectory.
+
+The Chromium expanded screenshots show readable selectable location rows. Firefox's `expanded.png` is only an attempted popup capture: its native popup is absent from the page screenshot, so this is not proof of expanded-option readability. Computed option colors were checked separately. Native selection highlight and disabled placeholder rendering can override CSS; Chromium renders the disabled placeholder light on gray while all actionable locations remain navy on white. Real iOS/Android sheets and screen-reader announcements were not tested.
+
+Header controls stay within the viewport at every requested width. Whole-page scrollWidth equals viewport width at 390/430/768/1024/1280/1440/1920. At 320px, the review carousel pagination button reaches x=338, causing an existing 18px body overflow outside this sprint's header scope. This was not hidden with a global overflow rule or changed in an unrelated section.
+
+The earlier mobile Lighthouse Performance 78 is retained as an unresolved target. No claim that it is an unavoidable React/SPA limitation, and no new Lighthouse audit in this sprint.
+
 ## Sprint 3.8 — Performance, Accessibility, and Interaction Verification (2026-10-16)
 
 ### Static checks

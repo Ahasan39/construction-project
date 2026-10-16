@@ -179,3 +179,51 @@
 .skip-to-content:focus {
   transform: translateY(0);
 }
+
+/* Scoped native header picker: never inherit white utility-bar text into a
+ * white select/popup. Leave keyboard and platform popup behavior native. */
+.location-selector {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-ink);
+}
+.location-selector__label {
+  color: var(--color-ink-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+.location-selector--inverse .location-selector__label { color: #e2e8f0; }
+.location-selector__field { position: relative; width: 13rem; max-width: 100%; }
+.location-selector__select {
+  appearance: none;
+  color-scheme: light;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.625rem 2.5rem 0.625rem 0.75rem;
+  border: 1px solid #64748b;
+  border-radius: var(--radius-md);
+  background: #fff;
+  color: #0f2231;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.location-selector__select:hover { background: #f1f5f9; border-color: #334155; }
+.location-selector__select:focus-visible {
+  outline: 3px solid #0284c7;
+  outline-offset: 2px;
+}
+.location-selector__select option { color: #0f2231; background: #fff; }
+.location-selector__select option:disabled { color: #475569; }
+.location-selector__arrow {
+  pointer-events: none;
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #0f2231;
+}

@@ -77,9 +77,9 @@ export function MobileNav({
     }
 
     // Auto-close when the viewport grows past the hamburger breakpoint
-    // (Tailwind `lg` = 1024). Keeps the drawer and the desktop nav from both
+    // (Tailwind `xl` = 1280). Keeps the drawer and the desktop nav from both
     // claiming the viewport if the user rotates / resizes a tablet.
-    const mql = window.matchMedia("(min-width: 1024px)");
+    const mql = window.matchMedia("(min-width: 1280px)");
     const onBreakpoint = (e: MediaQueryListEvent | MediaQueryList) => {
       if ("matches" in e && e.matches) onClose();
     };

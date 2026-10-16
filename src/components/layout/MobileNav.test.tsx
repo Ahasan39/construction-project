@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { SiteHeader } from "./SiteHeader";
 
@@ -54,6 +54,18 @@ afterEach(() => {
 });
 
 describe("MobileNav drawer", () => {
+  it("navigates with the drawer selector, closes and reflects the URL when reopened", async () => {
+    renderAt("/nashville/siding");
+    fireEvent.click(screen.getByRole("button", { name: /open menu/i }));
+    const select = within(screen.getByRole("dialog")).getByRole("combobox", { name: "Location" }) as HTMLSelectElement;
+    expect(select.value).toBe("nashville");
+    fireEvent.change(select, { target: { value: "lexington" } });
+    await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
+    fireEvent.click(screen.getByRole("button", { name: /open menu/i }));
+    const dialog = within(screen.getByRole("dialog"));
+    expect((dialog.getByRole("combobox", { name: "Location" }) as HTMLSelectElement).value).toBe("lexington");
+    expect(dialog.getByRole("link", { name: /free estimate/i }).getAttribute("href")).toBe("/free-estimate");
+  });
   it("is closed by default", () => {
     renderAt("/");
     expect(screen.queryByRole("dialog")).toBeNull();
@@ -106,7 +118,7 @@ describe("MobileNav drawer", () => {
   });
 
   it("auto-closes if the viewport is already at the desktop breakpoint when opened", async () => {
-    setupMatchMedia(true); // (min-width: 1024px) matches
+    setupMatchMedia(true); // (min-width: 1280px) matches
     renderAt("/");
     fireEvent.click(screen.getByRole("button", { name: /open menu/i }));
     await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
@@ -118,7 +130,7 @@ describe("MobileNav drawer", () => {
     fireEvent.click(screen.getByRole("button", { name: /open menu/i }));
     expect(screen.getByRole("dialog")).toBeTruthy();
 
-    // Simulate a resize past lg.
+    // Simulate a resize past xl.
     await act(async () => {
       mqlMatches = true;
       registeredHandler?.({ matches: true } as MediaQueryListEvent);

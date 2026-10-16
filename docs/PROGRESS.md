@@ -6,7 +6,7 @@ The user authorized commits and pushes beginning after Sprint 3. From this point
 
 1. Verification: `npm run lint`, `npm run typecheck`, `npm test`, `npm run build` all green before staging.
 2. Review the staged diff and the list of staged files.
-3. One honest checkpoint commit per sprint (or per checkpoint) with a message describing the actual work. Attribution: `Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>`.
+3. One honest checkpoint commit per sprint (or per checkpoint) with a message describing the actual work. Use the repository-local author; do not add AI co-author trailers.
 4. Normal push to `origin main`. No force pushes. No history rewrites. If the remote diverges unexpectedly, stop and report rather than overwrite.
 5. Verify the remote commit SHA matches the local HEAD; verify upstream tracking.
 
@@ -16,9 +16,22 @@ Rules:
 - Hosting / deployment is a separate concern from `git push`.
 - Each sprint's PROGRESS.md entry continues to carry a `Remaining differences` / `Browser evidence actually collected` section until live-browser verification lands.
 
+## Sprint 3.9 — Header location selector (2026-10-16)
+
+Implemented the focused correction; no Sprint 4 work or deployment.
+
+- Baseline: clean `main`, HEAD `fd9bda253d403f8e32ca192c023f6a7da253dfd6`, origin `https://github.com/Ahasan39/construction-project.git`. Read CLAUDE.md and relevant header, theme, routing, availability, tests and project documentation. No AGENTS.md found in the workspace or its checked ancestors. Only the pasted request was attached, not the mentioned screenshots.
+- Browser-confirmed root cause: the shared Select supplied a white background without an explicit foreground, inheriting white utility-bar text. Options inherited white with a transparent background. Computed control width was only 159px, with 52px of horizontal padding, and its 44px height exceeded the 36px utility strip. The small slate arrow had weak contrast. The same pale label was unsuitable on the white drawer.
+- Kept a native select, now styled locally to LocationSelector so estimate forms are unaffected. Explicit navy-on-white control/options, light color scheme, visible SVG chevron with pointer events disabled, 40px arrow padding, 208px width, minimum 44px height, visible hover/focus and context-sensitive label. Global placeholder is `Select location`. Utility strip now accommodates the field and focus outline.
+- Header testing revealed the desktop estimate CTA overflowed at 1024px. Full navigation/actions now start at 1280px, with the drawer breakpoint synchronized. Phone remains in the utility bar and estimate action remains in the drawer.
+- URL-derived selection, navigation to location hubs, availability and phone/estimate fallbacks remain unchanged. Added six behavioral tests covering naming/placeholder, location and nested route values, external route changes, hub selection semantics and drawer navigation/reopening.
+- Verification: lint, typecheck, 60 tests across 8 files and production build passed. Chromium 153 and Firefox 155 checked at 320/390/430/768/1024/1280/1440/1920px. Global, selected, nested, hover, focus and drawer states checked; Chromium expanded desktop/mobile popups captured. Details and limitations are in QA_REPORT.md; evidence is in `docs/evidence/sprint-3.9/`.
+- Remaining limitations: Firefox native popup is omitted from browser screenshots; native disabled/selected option colors remain platform controlled. 200% equivalent reflow checked at 720x450, but browser-chrome zoom was not verified. An unrelated review-pagination control extends the homepage to 338px at a 320px viewport; header/drawer fit. No unrelated section was modified.
+- Performance: the previously measured mobile Lighthouse 78 remains an unresolved target, not a demonstrated React/SPA ceiling. No new performance audit or architecture change in this sprint.
+
 ## Sprint 3.8 — Homepage Performance, Accessibility, and Interaction Gaps (2026-10-16)
 
-**Status: complete. Performance, accessibility, and interaction gaps closed. Production Lighthouse median scores achieved: Desktop Performance 99, Desktop Accessibility 100, Desktop Best Practices 100, Desktop SEO 100; Mobile Accessibility 100, Mobile Best Practices 100, Mobile SEO 100, Mobile Performance 78 (up from 66). CLS reduced from 0.676 to 0.005 on desktop and 0.002 on mobile. Verified Review Carousel implemented and validated across viewports with zero visual regression.**
+**Status: implementation checkpoint complete. Mobile performance remains an unresolved target. Production Lighthouse median scores achieved: Desktop Performance 99, Desktop Accessibility 100, Desktop Best Practices 100, Desktop SEO 100; Mobile Accessibility 100, Mobile Best Practices 100, Mobile SEO 100, Mobile Performance 78 (up from 66). CLS reduced from 0.676 to 0.005 on desktop and 0.002 on mobile. Verified Review Carousel implemented and validated across viewports with zero visual regression.**
 
 ### 1. Lighthouse Before & After Audit Results
 

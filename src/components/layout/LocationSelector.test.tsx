@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import {
   MemoryRouter,
+  Link,
   Route,
   Routes,
   useLocation,
@@ -23,6 +24,8 @@ function renderAt(path: string) {
             <>
               <LocationSelector idPrefix="test" />
               <PathSpy />
+              <Link to="/grand-rapids/roofing">Change route</Link>
+              <Link to="/">Global home</Link>
             </>
           }
         />
@@ -34,6 +37,35 @@ function renderAt(path: string) {
 afterEach(() => cleanup());
 
 describe("LocationSelector", () => {
+  it("names the native control and displays the global placeholder", () => {
+    renderAt("/");
+    const select = screen.getByRole("combobox", { name: "Location" }) as HTMLSelectElement;
+    expect(select.selectedOptions[0].textContent).toBe("Select location");
+    expect(select.selectedOptions[0].disabled).toBe(true);
+  });
+
+  it.each(["/grand-rapids", "/grand-rapids/roofing"])("shows the location name from %s", (path) => {
+    renderAt(path);
+    const select = screen.getByRole("combobox", { name: "Location" }) as HTMLSelectElement;
+    expect(select.value).toBe("grand-rapids");
+    expect(select.selectedOptions[0].textContent).toBe("Grand Rapids, MI");
+  });
+
+  it("updates the same selector after external route changes and clears on global home", () => {
+    renderAt("/nashville");
+    const select = screen.getByRole("combobox", { name: "Location" }) as HTMLSelectElement;
+    fireEvent.click(screen.getByText("Change route"));
+    expect(select.value).toBe("grand-rapids");
+    fireEvent.click(screen.getByText("Global home"));
+    expect(select.value).toBe("");
+    expect(select.selectedOptions[0].textContent).toBe("Select location");
+  });
+
+  it("keeps selection navigation to a location hub from a nested service route", () => {
+    renderAt("/nashville/siding");
+    fireEvent.change(screen.getByRole("combobox"), { target: { value: "lexington" } });
+    expect(screen.getByTestId("path").textContent).toBe("/lexington");
+  });
   it("navigates to /<slug> when a location is picked", () => {
     renderAt("/");
     const select = screen.getByLabelText(/location/i) as HTMLSelectElement;

@@ -19,7 +19,7 @@ const aboutItem = primaryNav.find((i) => i.children);
 /**
  * Shared public header, informed by the supplied reference screenshot:
  *
- *   ┌─ Top strip (dark navy, h-9): Location selector · phone CTA ────────┐
+ *   ┌─ Top strip (dark navy, min-h-14): Location selector · phone CTA ────────┐
  *   │ Logo │  Primary nav · About ▾         │ Phone │ Free Estimate (lg) │ ← main row
  *   └────────────────────────────────────────────────────────────────────┘
  *
@@ -54,9 +54,9 @@ export function SiteHeader() {
       {/* Top utility strip */}
       <div className="bg-[var(--color-brand-primary)] text-white text-sm">
         <Container width="wide">
-          <div className="flex items-center justify-between h-9">
-            <div className="hidden sm:flex items-center gap-2 text-[13px]">
-              <LocationSelector idPrefix="top" />
+          <div className="flex items-center justify-between gap-4 min-h-11 sm:min-h-14 py-1">
+            <div className="hidden sm:flex items-center shrink-0 text-[13px]">
+              <LocationSelector idPrefix="top" inverse />
             </div>
             <SmartLink
               to={phoneHref}
@@ -103,7 +103,7 @@ export function SiteHeader() {
           </Link>
 
           {/* Desktop primary nav */}
-          <nav aria-label="Primary" className="hidden lg:block flex-1">
+          <nav aria-label="Primary" className="hidden xl:block flex-1">
             <ul className="flex items-center justify-center gap-7 text-[14px] font-bold tracking-wide uppercase">
               {topLevelItems.map((item) => (
                 <li key={item.to}>
@@ -161,7 +161,7 @@ export function SiteHeader() {
           </nav>
 
           {/* Desktop actions */}
-          <div className="hidden lg:flex items-center gap-5 shrink-0">
+          <div className="hidden xl:flex items-center gap-5 shrink-0">
             <SmartLink
               to={phoneHref}
               external
@@ -180,7 +180,7 @@ export function SiteHeader() {
           <button
             ref={hamburgerRef}
             type="button"
-            className="lg:hidden h-11 w-11 inline-flex items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border)] focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
+            className="xl:hidden h-11 w-11 inline-flex items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border)] focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
             aria-label="Open menu"
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
