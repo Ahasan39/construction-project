@@ -37,13 +37,9 @@ export function SiteHeader() {
       ? `/${activeLocation.slug}/free-estimate`
       : "/free-estimate";
 
-  const localPhone =
-    activeLocation?.phoneDisplay && activeLocation?.phoneHref
-      ? { display: activeLocation.phoneDisplay, href: activeLocation.phoneHref }
-      : null;
-
-  const phoneDisplay = localPhone?.display ?? brand.phoneDisplay;
-  const phoneHref = localPhone?.href ?? brand.phoneHref;
+  // Public demo contact is shared across locations; routing remains location-aware.
+  const phoneDisplay = brand.phoneDisplay;
+  const phoneHref = brand.phoneHref;
 
   return (
     <header className="sticky top-0 z-30 bg-white border-b border-[var(--color-border)]">

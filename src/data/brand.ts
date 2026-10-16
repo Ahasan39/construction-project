@@ -9,9 +9,10 @@ import type { BrandContact } from "@/types";
 export const brand: BrandContact = {
   companyName: "Mr. Roof",
   logoSrc: assetUrl("/images/logo.svg"),
-  phoneDisplay: "(877) 766-7663",
-  phoneHref: "tel:+18777667663",
-  email: "info@mrroof.com",
+  phoneDisplay: "+880 1842-299275",
+  phoneHref: "tel:+8801842299275",
+  email: "amamulahasan77@gmail.com",
+  emailHref: "mailto:amamulahasan77@gmail.com",
   addressLines: ["Columbus, OH (HQ)"],
   social: {},
   legalLine: `© ${new Date().getFullYear()} Mr. Roof, LLC (a Crane Renovation Group Company)`,

@@ -2,6 +2,14 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Published frontend contact update (2026-10-16)
+
+Lint, typecheck, all 67 tests and production build passed. Chromium 153.0.8010.12 and Firefox 155.0 checked the production build under `/construction-project/` at 320, 390, 768 and 1440px. Visible header controls remained within the viewport, no horizontal page overflow, and header top was zero after removal of the disclosure wrapper. Desktop and mobile screenshots were visually reviewed.
+
+Home, Nashville, Lexington and nested Nashville commercial-roofing routes expose only `tel:+8801842299275` and `mailto:amamulahasan77@gmail.com` contact destinations. No location phone overrides are present; location selection still navigates correctly. No addresses changed. The malformed requested email href was normalized to the valid mailto URL for the supplied address.
+
+The exact short form note is present, the large disclosure is absent, noindex remains, and the explicit demo success acknowledgment appears after synthetic input with zero non-GET requests or page errors. Existing reference labels remain unchanged. Local screenshots and measurements: `docs/evidence/contact-update/local-*` and [local results](evidence/contact-update/local.json). Live verification pending the authorized deployment. Prior actual-zoom/performance/audit limitations remain open.
+
 ## Sprint 3.10 — Static demo deployment QA (2026-10-16)
 
 ### Configuration and local checks

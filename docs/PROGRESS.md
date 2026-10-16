@@ -16,6 +16,16 @@ Rules:
 - Hosting / deployment is a separate concern from `git push`.
 - Each sprint's PROGRESS.md entry continues to carry a `Remaining differences` / `Browser evidence actually collected` section until live-browser verification lands.
 
+## Published frontend contact update (2026-10-16)
+
+- Baseline: clean main at `da9c1115d72580a406a6db516a072873aad567d3`; expected origin and repository-local author verified.
+- Removed the large disclosure aside including its spacing. Preserved noindex and concise reference testimonial/credential labels.
+- Centralized phone +880 1842-299275 and email amamulahasan77@gmail.com. Header/drawer, footer and emergency call actions share the demo phone; footer exposes the email. Interpreted the supplied `mailto@gmail.com` href typo as `mailto:amamulahasan77@gmail.com` to make the requested address actionable.
+- Location data has no phone overrides; header uses the shared demo contact while preserving URL-driven selection and availability-gated estimate routes. No addresses added or changed.
+- Short form note: “Demo form — submissions are not sent.” Existing explicit mock success acknowledgment and network-free service preserved.
+- Lint, typecheck, 67 tests and production build passed. Chromium 153 and Firefox 155 production-base checks passed at 320/390/768/1440px: header fits, starts at y=0, no page overflow; contact destinations checked on home and three location/nested routes. Mock submission generated no network writes. Evidence: `docs/evidence/contact-update/`. Live verification follows deployment.
+- No Sprint 4 work; prior zoom/performance and development dependency limitations remain unchanged.
+
 ## Sprint 3.10 — GitHub Pages demo deployment (2026-10-16)
 
 - Baseline: clean main at `15a9a3d6ad16dd9fc0241c34c6ab2aadbb75114a`, expected origin. GitHub API confirmed repository admin access; Pages was absent. Enabled Actions-based Pages with HTTPS, no custom domain. API-confirmed URL: https://ahasan39.github.io/construction-project/.

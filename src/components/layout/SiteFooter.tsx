@@ -35,13 +35,18 @@ export function SiteFooter() {
             </Link>
 
             <div className="flex flex-wrap items-center gap-6">
-              <SmartLink
-                to={brand.phoneHref}
-                external
-                className="text-xl sm:text-2xl font-black text-white hover:text-[var(--color-brand-accent)] transition-colors"
-              >
-                {brand.phoneDisplay}
-              </SmartLink>
+              <div className="flex flex-col gap-1">
+                <SmartLink
+                  to={brand.phoneHref}
+                  external
+                  className="text-xl sm:text-2xl font-black text-white hover:text-[var(--color-brand-accent)] transition-colors"
+                >
+                  {brand.phoneDisplay}
+                </SmartLink>
+                <SmartLink to={brand.emailHref} external className="text-sm hover:underline break-all">
+                  {brand.email}
+                </SmartLink>
+              </div>
 
               <Link
                 to="/free-estimate"

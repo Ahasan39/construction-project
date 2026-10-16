@@ -5,7 +5,6 @@ import {
   Field,
   Input,
   Select,
-  SmartLink,
 } from "@/components/ui";
 import { services } from "@/data/services";
 import { serviceAreaRegions } from "@/data/regions";
@@ -373,11 +372,7 @@ export function EstimateForm({
           </div>
 
           <p id={demoNoticeId} className={`text-xs ${noticeTone} leading-relaxed`}>
-            Demo only: estimates are not delivered and no phone, email or SMS contact is initiated. Use fictional details. See the demo{" "}
-            <SmartLink to="/privacy-policy" className="underline">
-              Privacy policy
-            </SmartLink>
-            .
+            Demo form — submissions are not sent.
           </p>
 
           <div

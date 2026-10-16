@@ -37,7 +37,7 @@ A custom `404.html` loads the same application at the original URL. Unknown dire
 
 Every HTML entry includes `noindex,nofollow`, retained by the client metadata manager on all route transitions. Robots.txt alone does not guarantee exclusion. No production canonical or Mr. Roof canonical is emitted.
 
-A visible disclosure identifies the independent demo and states that estimates are not delivered. Use fictional form values. Submission only calls an in-memory mock: no network request, personal-data storage, email, SMS or payment integration. Testimonials and credential artwork are visibly marked reference material, not verified claims about this demo's operator. Contact/branding and marketing content remain illustrative reference material; this is not a production contractor website.
+The form displays the concise note “Demo form — submissions are not sent.” and retains its explicit demo success acknowledgment. The previous large disclosure banner has been removed. Use fictional form values. Submission only calls an in-memory mock: no network request, personal-data storage, email, SMS or payment integration. Testimonials and credential artwork are visibly marked reference material, not verified claims about this demo's operator. Demo contact actions use +880 1842-299275 (`tel:+8801842299275`) and amamulahasan77@gmail.com (`mailto:amamulahasan77@gmail.com`); these links do not deliver form submissions. Location routes share these contacts, with no reference phone overrides. Branding and marketing content remain illustrative reference material; this is not a production contractor website.
 
 ## Repository workflow and local tooling
 

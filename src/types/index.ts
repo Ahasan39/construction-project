@@ -15,6 +15,7 @@ export interface BrandContact {
   phoneDisplay: string;
   phoneHref: string;
   email: string;
+  emailHref: string;
   addressLines: string[];
   social: {
     facebook?: string;
