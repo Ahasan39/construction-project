@@ -4,8 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { AppShell } from "@/components/layout/AppShell";
 import NotFoundPage from "@/pages/NotFoundPage";
 
-/* Route-level code splitting for every template family. */
-const HomePage = lazy(() => import("@/pages/HomePage"));
+import HomePage from "@/pages/HomePage";
 const TopLevelSlugPage = lazy(() => import("@/pages/TopLevelSlugPage"));
 const TwoSegmentPage = lazy(() => import("@/pages/TwoSegmentPage"));
 const LocationFreeEstimatePage = lazy(
@@ -56,7 +55,7 @@ export const router = createBrowserRouter([
     path: "/",
     element: <AppShell />,
     children: [
-      { index: true, element: <L><HomePage /></L> },
+      { index: true, element: <HomePage /> },
 
       /* Lead form */
       { path: "free-estimate", element: <L><FreeEstimatePage /></L> },

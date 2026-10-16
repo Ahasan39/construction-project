@@ -23,7 +23,7 @@ export function LocationSelector({ idPrefix }: { idPrefix: string }) {
       <label
         id={labelId}
         htmlFor={`${idPrefix}-location-select`}
-        className="text-xs uppercase tracking-wide text-[var(--color-ink-muted)]"
+        className="text-xs uppercase tracking-wide font-semibold text-slate-300"
       >
         Location
       </label>

@@ -44,15 +44,24 @@ export function Hero() {
 
             {/* Suburban home photography stretching across the lower hero */}
             <div className="w-full overflow-hidden bg-slate-200">
-              <img
-                src="/images/homepage/hero-suburban-home.jpg"
-                alt="Upscale residential suburban home exterior with dark architectural shingle roof, blue siding and stone facade"
-                width={1600}
-                height={900}
-                fetchPriority="high"
-                decoding="async"
-                className="w-full h-56 sm:h-72 md:h-80 lg:h-[340px] object-cover"
-              />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet="/images/homepage/hero-suburban-home-mobile.webp 480w, /images/homepage/hero-suburban-home.webp 960w"
+                  sizes="(max-width: 768px) 100vw, 680px"
+                />
+                <img
+                  src="/images/homepage/hero-suburban-home.webp"
+                  srcSet="/images/homepage/hero-suburban-home-mobile.webp 480w, /images/homepage/hero-suburban-home.webp 960w"
+                  sizes="(max-width: 768px) 100vw, 680px"
+                  alt="Upscale residential suburban home exterior with dark architectural shingle roof, blue siding and stone facade"
+                  width={1200}
+                  height={670}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full h-56 sm:h-72 md:h-80 lg:h-[340px] object-cover"
+                />
+              </picture>
             </div>
 
             {/* Emergency contact row flush beneath the hero photo */}

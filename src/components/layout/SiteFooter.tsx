@@ -28,6 +28,7 @@ export function SiteFooter() {
                 alt={`${brand.companyName} Logo`}
                 width={180}
                 height={44}
+                style={{ aspectRatio: "180 / 44" }}
                 className="h-10 lg:h-11 w-auto max-w-[180px] lg:max-w-[210px] shrink-0 object-contain"
               />
             </Link>
@@ -166,7 +167,7 @@ function FooterColumn({
 }) {
   return (
     <section>
-      <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-[#D9232A]">
+      <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-[#FF4D4D]">
         {title}
       </h3>
       {children}

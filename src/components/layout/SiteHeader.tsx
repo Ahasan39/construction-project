@@ -85,6 +85,7 @@ export function SiteHeader() {
                 alt={`${brand.companyName} Logo`}
                 height={44}
                 width={180}
+                style={{ aspectRatio: "180 / 44" }}
                 className="h-10 lg:h-11 w-auto max-w-[180px] lg:max-w-[210px] shrink-0 object-contain"
               />
             ) : (

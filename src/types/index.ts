@@ -111,7 +111,7 @@ export interface Review {
   cityState?: string;
   serviceKey?: ServiceKey;
   body: string;
-  isPlaceholder: true;
+  isPlaceholder?: boolean;
 }
 
 /* -------------------------------------------------------------------------

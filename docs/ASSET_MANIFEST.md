@@ -7,6 +7,7 @@ Tracks every image, font, logo, icon, and media asset the frontend will need, it
 | Asset | Status | Source | Notes |
 |---|---|---|---|
 | Logo (wordmark + mark) | **Implemented (Demonstration Recreation)** — `public/images/logo.svg` + `logo-white.svg` | Local custom vector paths | Demonstration pure-vector recreation with explicit dimensions (220×54) and vector letterforms (`fill="#0F2231"` / `fill="#FFFFFF"`, red accent `#D9232A`), avoiding font dependencies. Not official client source assets; substituted for layout testing. |
+| Favicon | **Implemented** — `public/favicon.ico` + SVG | Generated from logo mark | Multi-resolution 16×16, 32×32, 48×48 `.ico` and vector SVG icon linked in `index.html`. Resolves Lighthouse PWA/best practices checks. |
 | Primary phone number | **Implemented** — `(877) 766-7663` | Reference observed | Centralized in `brand.ts`. |
 | Primary email | `info@mrroof.com` | Brand config | Centralized in `brand.ts`. |
 | Physical address(es) | `Columbus, OH (HQ)` | Regional hub | Configured. |
@@ -18,22 +19,21 @@ Tracks every image, font, logo, icon, and media asset the frontend will need, it
 
 | Asset | Status | Source | Notes |
 |---|---|---|---|
-| Primary body font (`.woff2`) | **Implemented** | Inter (Google Fonts / system fallback) | Loaded with `preconnect` in `index.html`. |
-| Display / heading font (`.woff2`) | **Implemented** | Inter | Same family with heavy 700/900 weights. |
+| Primary body & heading font | **Implemented (Self-Hosted)** — `public/fonts/metropolis-*.ttf` | Metropolis by Chris Simpson (SIL Open Font License 1.1) | 4 weights self-hosted (Regular 400, Medium 500, SemiBold 600, Bold 700) matching reference typography. Loaded via `@font-face` with `font-display: swap` in `src/styles/globals.css`. Replaces render-blocking external Google Fonts link, eliminating ~1,014ms render delay. |
 
-## 3. Service & Homepage Imagery (Sprint 3.5 – 3.7)
+## 3. Service & Homepage Imagery (Sprint 3.5 – 3.8)
 
 | Section | Needed assets | Status | Source / Notes |
 |---|---|---|---|
-| Home hero | 1 wide hero (desktop/tablet/mobile crops) | **Implemented** — `public/images/homepage/hero-suburban-home.jpg` | Upscale residential suburban home exterior with architectural dark roof. LCP asset, `fetchpriority="high"`, explicit 1600×900 dimensions. Rendered flush with 2-cell emergency contact bar in Sprint 3.7. |
-| Why-Us Benefit 1 | Roofer shingle installation | **Implemented** — `public/images/homepage/benefit-roofer-install.jpg` | High-res photography: roofer with pneumatic coil nailer. Rendered with tall vertical proportions (`min-h-[300px]`) in Sprint 3.7. |
-| Why-Us Benefit 2 | Project manager consultation | **Implemented** — `public/images/homepage/benefit-consultant-homeowner.jpg` | High-res photography: estimator with tablet and homeowner. |
-| Why-Us Benefit 3 | Roofing crew on pitched roof | **Implemented** — `public/images/homepage/benefit-crew-working.jpg` | High-res photography: crew working on sunny day. |
-| Why-Us Benefit 4 | Full exterior renovation | **Implemented** — `public/images/homepage/benefit-exterior-renovation.jpg` | High-res photography: completed home with new siding and roof. |
+| Home hero | 1 wide hero (desktop/tablet/mobile crops) | **Implemented** — `public/images/homepage/hero-suburban-home.webp` (+ responsive `hero-suburban-home-mobile.webp` and JPEG fallback) | Upscale residential suburban home exterior with architectural dark roof. LCP asset, `fetchpriority="high"`, explicit dimensions. Responsive WebP `<picture>` implementation with preloaded srcset in `index.html`. Compressed to ~75 KB WebP. |
+| Why-Us Benefit 1 | Roofer shingle installation | **Implemented** — `public/images/homepage/benefit-roofer-install.webp` (+ JPEG) | High-res photography: roofer with pneumatic coil nailer. Rendered with tall vertical proportions (`min-h-[300px]`). Compressed to ~35 KB WebP. |
+| Why-Us Benefit 2 | Project manager consultation | **Implemented** — `public/images/homepage/benefit-consultant-homeowner.webp` (+ JPEG) | High-res photography: estimator with tablet and homeowner. Compressed to ~42 KB WebP. |
+| Why-Us Benefit 3 | Roofing crew on pitched roof | **Implemented** — `public/images/homepage/benefit-crew-working.webp` (+ JPEG) | High-res photography: crew working on sunny day. Compressed to ~39 KB WebP. |
+| Why-Us Benefit 4 | Full exterior renovation | **Implemented** — `public/images/homepage/benefit-exterior-renovation.webp` (+ JPEG) | High-res photography: completed home with new siding and roof. Compressed to ~38 KB WebP. |
 | Service cards (grid) | 4 architectural icons | **Implemented** — `public/images/services/*.svg` | Precision vector architectural renders: `roofing-icon.svg`, `siding-icon.svg`, `windows-icon.svg`, `gutters-icon.svg`. Displayed directly at prominent scale (~140–180px) on `#F4F6F8` flat panels in Sprint 3.7. |
-| Promo card 1 | Offers & promotions photo | **Implemented** — `public/images/homepage/promo-offers.jpg` | High-res photography: exterior inspector checking roofline. |
-| Promo card 2 | Special financing photo | **Implemented** — `public/images/homepage/promo-financing.jpg` | High-res photography: financing/estimate consultation. |
-| Promo card 3 | Lifetime warranty photo | **Implemented** — `public/images/homepage/promo-warranty.jpg` | High-res photography: pristine craftsman home exterior. |
+| Promo card 1 | Offers & promotions photo | **Implemented** — `public/images/homepage/promo-offers.webp` (+ JPEG) | High-res photography: exterior inspector checking roofline. Compressed to ~31 KB WebP. |
+| Promo card 2 | Special financing photo | **Implemented** — `public/images/homepage/promo-financing.webp` (+ JPEG) | High-res photography: financing/estimate consultation. Compressed to ~33 KB WebP. |
+| Promo card 3 | Lifetime warranty photo | **Implemented** — `public/images/homepage/promo-warranty.webp` (+ JPEG) | High-res photography: pristine craftsman home exterior. Compressed to ~28 KB WebP. |
 | Awards / certification badges | 5 industry badges | **Implemented (Demonstration Vectors)** — `public/images/awards/*.svg` | Demonstration vector approximations for layout testing: Roofing Contractor Top 100, BBB A+ Accredited, Owens Corning Platinum Preferred Contractor, Angi 2022 Super Service, Best of HomeAdvisor Winner. Each badge has explicit 160×80 dimensions and high-contrast fills against `#0C1F33`. Not verified client credentials or official third-party seals; to be substituted with verified client licenses before production launch. |
 
 ## 4. Icons

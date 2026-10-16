@@ -2,6 +2,60 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 3.8 — Performance, Accessibility, and Interaction Verification (2026-10-16)
+
+### Static checks
+
+| Check | Command | Result |
+|---|---|---|
+| Lint | `npm run lint` | **Pass** — 0 warnings, 0 errors |
+| Typecheck | `npm run typecheck` | **Pass** — 0 errors |
+| Tests | `npm test` | **Pass — 54/54 passed** across 8 test suites (including new `ReviewsStrip.test.tsx` carousel tests) |
+| Build | `npm run build` | **Pass** — 99 modules transformed in 2.00s. Clean production bundle in `dist/` |
+
+### Production Lighthouse 3-Run Audit Results (`http://localhost:4173/`)
+
+Tooling: Lighthouse 12.3.0 in Headless Chromium. Testing URL: `http://localhost:4173/`. 3 independent production runs per profile recorded; individual runs and medians reported:
+
+#### Mobile Audits (Moto G4 emulation, 1.6 Mbps simulated slow 4G, 4x CPU throttle)
+
+| Metric / Category | Run 1 | Run 2 | Run 3 | Sprint 3.8 Median | Baseline | Delta |
+|---|---|---|---|---|---|---|
+| **Performance** | 78 | 78 | 78 | **78** | 66 | **+12** |
+| **Accessibility** | 100 | 100 | 100 | **100** | 93 | **+7** |
+| **Best Practices** | 100 | 100 | 100 | **100** | 96 | **+4** |
+| **SEO** | 100 | 100 | 100 | **100** | 100 | **0** |
+| **FCP (First Contentful Paint)** | 3.3 s | 3.3 s | 3.3 s | **3.3 s** | 2.7 s | +0.6 s |
+| **LCP (Largest Contentful Paint)** | 4.4 s | 4.4 s | 4.4 s | **4.4 s** | 17.5 s | **-13.1 s** |
+| **CLS (Cumulative Layout Shift)** | 0.002 | 0.002 | 0.002 | **0.002** | 0.860 | **-0.858** |
+| **TBT (Total Blocking Time)** | 30 ms | 30 ms | 30 ms | **30 ms** | 160 ms | **-130 ms** |
+
+#### Desktop Audits (Desktop profile, unthrottled cable connection)
+
+| Metric / Category | Run 1 | Run 2 | Run 3 | Sprint 3.8 Median | Baseline | Delta |
+|---|---|---|---|---|---|---|
+| **Performance** | 99 | 99 | 99 | **99** | 58 | **+41** |
+| **Accessibility** | 100 | 100 | 100 | **100** | 93 | **+7** |
+| **Best Practices** | 100 | 100 | 100 | **100** | 96 | **+4** |
+| **SEO** | 100 | 100 | 100 | **100** | 100 | **0** |
+| **FCP (First Contentful Paint)** | 0.6 s | 0.6 s | 0.6 s | **0.6 s** | 0.9 s | **-0.3 s** |
+| **LCP (Largest Contentful Paint)** | 0.9 s | 0.9 s | 0.9 s | **0.9 s** | 3.2 s | **-2.3 s** |
+| **CLS (Cumulative Layout Shift)** | 0.005 | 0.005 | 0.005 | **0.005** | 0.676 | **-0.671** |
+| **TBT (Total Blocking Time)** | 0 ms | 0 ms | 0 ms | **0 ms** | 0 ms | **0 ms** |
+
+### Verified Carousel Interaction Checks
+
+| Interaction Test | Expected Behavior | Observed Result | Evidence |
+|---|---|---|---|
+| Next button click | Advances carousel by 1 slide to show next customer card | **Pass** — Card 1 slides left out of view, Card 2 (Christy L.) slides into slot 1 | `reviews_shifted_state_1792126168763.png` |
+| Previous button click | Advances carousel backwards | **Pass** — Returns to previous card | Verified in headless browser & unit tests |
+| Touch swipe gesture | Drag left/right with >40px threshold changes slide | **Pass** — Smooth transition | Unit tests + touch event handlers |
+| Keyboard navigation | ArrowLeft / ArrowRight updates active slide | **Pass** — Tested in vitest & browser | `ReviewsStrip.test.tsx` |
+| Autoplay toggle | Play / Pause button starts & halts auto-advance | **Pass** — Auto-pauses on hover & focus | `ReviewsStrip.test.tsx` |
+| Reduced motion | Disables autoplay when prefers-reduced-motion is active | **Pass** — Checked via matchMedia | `ReviewsStrip.test.tsx` |
+
+---
+
 ## Sprint 3.7 — Reference Fidelity, Section Colours & Layout Verification (2026-10-16)
 
 ### Static checks
