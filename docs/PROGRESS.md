@@ -16,6 +16,17 @@ Rules:
 - Hosting / deployment is a separate concern from `git push`.
 - Each sprint's PROGRESS.md entry continues to carry a `Remaining differences` / `Browser evidence actually collected` section until live-browser verification lands.
 
+## Sprint 3.9.1 — Review carousel responsive correction (2026-10-16)
+
+- Verified clean `main` at `10f37e4b9dc7648193473514a047e919c9667470`, expected origin and repository instructions. Changes are limited to ReviewsStrip, its regression tests and sprint evidence/documentation.
+- Reproduced 320px overflow in Chromium: nine minimum-36px pagination buttons plus eight 4px gaps occupied 356px in a 288px container. Centering placed buttons at x=-18 through x=338. The 288px slide window already correctly contained the intentional 2592px off-screen track; card percentages and border-box padding were not the page-overflow source.
+- Pagination now wraps with nonshrinking targets. Cards allow long words to wrap, and author/badge layout can wrap without collisions. No global overflow suppression, new carousel library or homepage redesign.
+- Verification exposed duplicate autoplay timers and failure to stop when reduced motion changed during playback. One effect now owns the timer, suspending it for hover/focus and responding to motion preference changes. Turning reduced motion off does not restart playback automatically. Fixed swipes with a start/end coordinate of zero. Existing slide counts, controls, inert slides, pagination and index clamping remain.
+- Chromium 153.0.8010.12 and Firefox 155.0: first/middle/last at 320/360/390/430/640/768/1024/1280/1440/1920/2560px; 4px resize sweeps near 640/1024/1280px; portrait/landscape transitions; long-token stress. All 78 layout samples per engine passed with no page-level overflow. Browser keyboard, synthetic swipe events, autoplay, runtime reduced motion, drawer/location navigation, editable estimate input and footer focus checks passed.
+- Actual 200% browser zoom remains unverified: the Windows native helper rejected the isolated Chrome test window with `window id 131272 no longer belongs to Chrome; current owner is Chrome`. Refresh/recovery returned the same error, preventing browser-control input. No viewport resize or device scale was labeled actual zoom.
+- Checks passed: lint, typecheck, 64 tests across 8 files, production build (99 modules). See QA_REPORT.md and `docs/evidence/sprint-3.9.1/` for measurements and screenshots.
+- Sprint 4 readiness: this responsive correction is ready for the next separately authorized sprint; actual browser zoom QA remains open. Mobile Performance 100 remains a target, last reported score 78. No new performance audit, backend work, deployment or Sprint 4 implementation.
+
 ## Sprint 3.9 — Header location selector (2026-10-16)
 
 Implemented the focused correction; no Sprint 4 work or deployment.

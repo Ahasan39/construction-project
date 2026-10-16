@@ -49,11 +49,13 @@ export function ReviewsStrip() {
     return 3;
   });
   const [isPlaying, setIsPlaying] = useState(false); // Paused by default for predictable accessibility
+  const [isHovered, setIsHovered] = useState(false);
+  const [hasFocus, setHasFocus] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
 
   const carouselRef = useRef<HTMLDivElement>(null);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const total = reviews.length;
 
@@ -92,30 +94,25 @@ export function ReviewsStrip() {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   }, [maxIndex]);
 
-  // Autoplay handler
+  // React to preference changes as well as the initial OS setting.
   useEffect(() => {
-    if (!isPlaying) {
-      if (timerRef.current) clearInterval(timerRef.current);
-      return;
-    }
-
-    // Check prefers-reduced-motion
-    if (
-      typeof window.matchMedia === "function" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      setIsPlaying(false);
-      return;
-    }
-
-    timerRef.current = setInterval(() => {
-      goNext();
-    }, 5000);
-
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
+    if (typeof window.matchMedia !== "function") return;
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => {
+      setReducedMotion(preference.matches);
+      if (preference.matches) setIsPlaying(false);
     };
-  }, [isPlaying, goNext]);
+    update();
+    preference.addEventListener("change", update);
+    return () => preference.removeEventListener("change", update);
+  }, []);
+
+  // One timer owner: hover/focus/resize cleanup cannot create duplicate timers.
+  useEffect(() => {
+    if (!isPlaying || isHovered || hasFocus || reducedMotion) return;
+    const timer = setInterval(goNext, 5000);
+    return () => clearInterval(timer);
+  }, [isPlaying, isHovered, hasFocus, reducedMotion, goNext]);
 
   // Keyboard navigation
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -139,7 +136,7 @@ export function ReviewsStrip() {
   };
 
   const handleTouchEnd = () => {
-    if (!touchStartX || !touchEndX) return;
+    if (touchStartX === null || touchEndX === null) return;
     const distance = touchStartX - touchEndX;
     const minSwipeDistance = 40;
     if (distance > minSwipeDistance) {
@@ -156,16 +153,11 @@ export function ReviewsStrip() {
       aria-roledescription="carousel"
       aria-label="Customer Reviews"
       className="bg-[#F4F6F8] border-b border-[var(--color-border)] py-14 sm:py-18 lg:py-24"
-      onMouseEnter={() => {
-        if (timerRef.current) clearInterval(timerRef.current);
-      }}
-      onMouseLeave={() => {
-        if (isPlaying) {
-          timerRef.current = setInterval(goNext, 5000);
-        }
-      }}
-      onFocus={() => {
-        if (timerRef.current) clearInterval(timerRef.current);
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onFocus={() => setHasFocus(true)}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) setHasFocus(false);
       }}
     >
       <Container width="wide">
@@ -182,10 +174,11 @@ export function ReviewsStrip() {
           <div className="flex items-center gap-3 shrink-0">
             <button
               type="button"
-              onClick={() => setIsPlaying((p) => !p)}
+              onClick={() => { if (!reducedMotion) setIsPlaying((p) => !p); }}
+              aria-disabled={reducedMotion}
               aria-label={isPlaying ? "Pause reviews autoplay" : "Start reviews autoplay"}
               className="p-2.5 rounded-sm border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 transition-colors focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
-              title={isPlaying ? "Pause" : "Play"}
+              title={reducedMotion ? "Autoplay disabled by reduced motion preference" : isPlaying ? "Pause" : "Play"}
             >
               {isPlaying ? (
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -253,7 +246,7 @@ export function ReviewsStrip() {
                   aria-hidden={!isVisible}
                   inert={!isVisible}
                   style={{ width: `${100 / visibleCount}%` }}
-                  className="shrink-0 p-2 sm:p-3"
+                  className="min-w-0 shrink-0 p-2 sm:p-3 [overflow-wrap:anywhere]"
                 >
                   <div className="flex flex-col justify-between rounded-sm border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm hover:shadow-md transition-shadow min-h-[340px] h-full">
                     <div>
@@ -263,8 +256,8 @@ export function ReviewsStrip() {
                       </blockquote>
                     </div>
 
-                    <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between">
-                      <div>
+                    <div className="mt-8 pt-5 border-t border-slate-100 flex flex-wrap gap-3 items-center justify-between">
+                      <div className="min-w-0">
                         <p className="text-base font-bold text-[var(--color-brand-primary)]">
                           {r.author}
                         </p>
@@ -285,7 +278,7 @@ export function ReviewsStrip() {
         </div>
 
         {/* Dots Pagination */}
-        <div className="flex justify-center items-center gap-1 mt-6" role="tablist" aria-label="Review pages">
+        <div className="flex flex-wrap justify-center items-center gap-1 mt-6" role="tablist" aria-label="Review pages">
           {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
             <button
               key={idx}
@@ -294,7 +287,7 @@ export function ReviewsStrip() {
               aria-selected={currentIndex === idx}
               aria-label={`Go to slide ${idx + 1}`}
               onClick={() => setCurrentIndex(idx)}
-              className="p-2 min-w-[36px] min-h-[36px] inline-flex items-center justify-center focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-full"
+              className="shrink-0 p-2 min-w-[36px] min-h-[36px] inline-flex items-center justify-center focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] rounded-full"
             >
               <span
                 className={`h-2.5 rounded-full transition-all duration-300 block ${

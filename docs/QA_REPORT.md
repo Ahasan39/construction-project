@@ -2,6 +2,62 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 3.9.1 — Carousel overflow and responsive QA (2026-10-16)
+
+### Diagnosis and correction
+
+Baseline `10f37e4b9dc7648193473514a047e919c9667470`, clean main, expected origin. [Before at 320px](evidence/sprint-3.9.1/before-320.png): pagination used `flex-wrap: nowrap`, centered nine 36px minimum targets and eight 4px gaps inside 288px of content width. Its first/last buttons extended from -18px to 338px; document scrollWidth was 338px. This was unintended page overflow. The slide window was correctly 288px with overflow containment, track scrollWidth 2592px (nine slides), percentage slide width 288px, border-box sizing and 8px slide padding. The off-screen track was intentional and did not escape its window.
+
+Fix: wrap pagination and prevent target shrinking. Keep its overflow visible so focus outlines are not clipped. Allow long tokens to wrap within slides (`min-width: 0`, `overflow-wrap: anywhere`) and author/badge rows to wrap with a gap. No html/body overflow hiding or changes to surrounding page sections.
+
+Additional existing behavior defects found while checking motion: starting playback and leaving hover could create two independent timers; enabling reduced motion during playback did not stop them (advanced from page 1 to page 3 during a 5.1-second browser-clock test). Autoplay now has one effect-owned timer and pauses on hover or focus. A media-query listener stops playback when reduced motion becomes active. Manual controls still work; autoplay remains off when the preference is later removed. Swipes starting/ending at x=0 now use explicit null checks instead of treating zero as missing.
+
+### Browser matrix and interactions
+
+Chromium 153.0.8010.12 and Firefox 155.0, local Vite app on `http://127.0.0.1:5173/`. Browser tests used rendered DOM geometry, computed styles and screenshots, not jsdom sizing.
+
+| Coverage | Result |
+|---|---|
+| 320, 360, 390, 430, 640, 768, 1024, 1280, 1440, 1920, 2560 CSS px | First, middle and last pagination positions in both engines; 33 samples each passed |
+| Continuous resize sequence near transitions | 4px steps from 600–664, 1000–1048 and 1260–1300; 41 samples each passed |
+| Orientation/reflow | 320x844 → 844x320 → 320x844; 3 samples each passed, no stale or empty visible range |
+| Long unbroken review/author stress | Temporary DOM-only text substitution at 320px; one sample each passed, text wraps without horizontal clipping |
+| Geometry | All 78 samples per engine: page scrollWidth <= viewport, expected 1/2/3 visible cards, visible cards inside window, all pagination targets within viewport with outline room; no horizontally clipped text |
+| Focus isolation | Inactive slides retain inert/aria-hidden; resizing mobile last page clamps to valid desktop index with three visible cards (regression test) |
+| Controls | Previous/next, first/middle/last pagination, ArrowLeft/ArrowRight and keyboard focus passed |
+| Swipe | Synthetic touch start/move/end events passed both directions, including x=0; physical touchscreen gestures not tested |
+| Autoplay | One advance per interval; focus inside carousel pauses even after pointer leaves; focus outside resumes; Pause stops (unit/browser checks) |
+| Reduced motion | Changing preference during playback stops advancement; CSS transform transition computes to 0.000001s; restoring preference does not resume automatically |
+| Other page controls | Drawer opens, location selection navigates to Nashville and closes drawer; estimate input accepts text without submission; footer link receives focus. Header/hero/form/footer reviewed in full-page captures |
+| Runtime | No pageerror events during either engine's matrix |
+
+Raw records: [Chromium geometry](evidence/sprint-3.9.1/chromium-measurements.json), [Firefox geometry](evidence/sprint-3.9.1/firefox-measurements.json). Track scrollWidth remains larger than its window by design; page scrollWidth is the overflow criterion.
+
+### Actual browser zoom limitation
+
+Opened a separate headed Chrome for Testing window for native Ctrl+plus zoom. Windows Computer Use listed `Sprint 3.9.1 Zoom QA - Google Chrome for Testing` (window 131272), but the first keyboard call was rejected with `window id 131272 no longer belongs to Chrome; current owner is Chrome`. A fresh `get_window` recovery failed identically. Thus browser controls could not be driven. The test browser remained at devicePixelRatio 1, inner viewport 1370x693 (outer 1386x788). Actual 200% browser zoom was **not verified** and no screenshot is presented as 200% zoom. Previous equivalent-reflow results remain distinct from actual browser zoom.
+
+### Screenshot evidence
+
+- [Chromium 320px first](evidence/sprint-3.9.1/chromium-320-first.png), [last](evidence/sprint-3.9.1/chromium-320-last.png), [focus](evidence/sprint-3.9.1/chromium-320-focus.png).
+- [Chromium desktop first](evidence/sprint-3.9.1/chromium-1440-first.png), [last](evidence/sprint-3.9.1/chromium-1440-last.png).
+- [Firefox 320px first](evidence/sprint-3.9.1/firefox-320-first.png), [last](evidence/sprint-3.9.1/firefox-320-last.png), [focus](evidence/sprint-3.9.1/firefox-320-focus.png).
+- [Firefox desktop first](evidence/sprint-3.9.1/firefox-1440-first.png), [last](evidence/sprint-3.9.1/firefox-1440-last.png).
+- [320px full page](evidence/sprint-3.9.1/chromium-320-page.png), [1440px full page](evidence/sprint-3.9.1/chromium-1440-page.png).
+
+Final evidence captures settle CSS transitions before capture. Carousel-only captures use a taller viewport to include the whole section; the geometry matrix used 900/1000px heights plus the separate orientation cases.
+
+### Required checks and remaining work
+
+| Command | Result |
+|---|---|
+| `npm run lint` | Pass, no warnings/errors reported |
+| `npm run typecheck` | Pass |
+| `npm test` | Pass, 64 tests across 8 files; four new carousel regression tests |
+| `npm run build` | Pass, 99 modules; CSS 40.05 kB, entry JS 383.27 kB |
+
+No known page-level overflow remains in the tested matrix. Actual 200% zoom and real mobile OS gesture verification remain open; this report does not claim universal responsive coverage. Mobile Performance 100 remains open (last reported 78); no Lighthouse rerun or unrelated architecture change. Sprint 4 may be planned separately with these QA limitations retained; no Sprint 4 work or deployment was performed.
+
 ## Sprint 3.9 — Header location selector verification (2026-10-16)
 
 ### Cause and correction

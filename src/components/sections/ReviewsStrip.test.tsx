@@ -1,13 +1,84 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { ReviewsStrip } from "./ReviewsStrip";
 
 afterEach(() => {
   cleanup();
+  vi.useRealTimers();
+  vi.unstubAllGlobals();
   vi.restoreAllMocks();
 });
 
 describe("ReviewsStrip Carousel", () => {
+  it("clamps the last mobile position when resized and keeps visible slides interactive", () => {
+    vi.stubGlobal("innerWidth", 320);
+    render(<ReviewsStrip />);
+    fireEvent.click(screen.getByRole("tab", { name: "Go to slide 9" }));
+    expect(screen.getAllByRole("group").length).toBe(1);
+    vi.stubGlobal("innerWidth", 1024);
+    fireEvent(window, new Event("resize"));
+    expect(screen.getByRole("tab", { selected: true }).getAttribute("aria-label")).toBe("Go to slide 7");
+    const slides = screen.getAllByRole("group", { hidden: true });
+    expect(slides.filter((slide) => !slide.hasAttribute("inert")).map((slide) => slide.getAttribute("aria-label"))).toEqual(["7 of 9", "8 of 9", "9 of 9"]);
+    vi.stubGlobal("innerWidth", 640);
+    fireEvent(window, new Event("resize"));
+    expect(screen.getAllByRole("group").length).toBe(2);
+    vi.stubGlobal("innerWidth", 320);
+    fireEvent(window, new Event("resize"));
+    expect(screen.getAllByRole("group").length).toBe(1);
+  });
+
+  it("accepts swipes starting or ending at screen coordinate zero", () => {
+    render(<ReviewsStrip />);
+    const window = screen.getByRole("region").querySelector("[tabindex='0']")!;
+    fireEvent.touchStart(window, { targetTouches: [{ clientX: 100 }] });
+    fireEvent.touchMove(window, { targetTouches: [{ clientX: 0 }] });
+    fireEvent.touchEnd(window);
+    expect(screen.getByRole("tab", { selected: true }).getAttribute("aria-label")).toBe("Go to slide 2");
+    fireEvent.touchStart(window, { targetTouches: [{ clientX: 0 }] });
+    fireEvent.touchMove(window, { targetTouches: [{ clientX: 100 }] });
+    fireEvent.touchEnd(window);
+    expect(screen.getByRole("tab", { selected: true }).getAttribute("aria-label")).toBe("Go to slide 1");
+  });
+
+  it("uses one autoplay timer and stays paused while focus remains inside", () => {
+    vi.useFakeTimers();
+    render(<ReviewsStrip />);
+    const region = screen.getByRole("region");
+    fireEvent.click(screen.getByRole("button", { name: /start reviews autoplay/i }));
+    fireEvent.mouseEnter(region);
+    fireEvent.mouseLeave(region);
+    act(() => vi.advanceTimersByTime(5000));
+    expect(screen.getByRole("tab", { selected: true }).getAttribute("aria-label")).toBe("Go to slide 2");
+    fireEvent.focus(screen.getByRole("tab", { selected: true }));
+    fireEvent.mouseEnter(region);
+    fireEvent.mouseLeave(region);
+    act(() => vi.advanceTimersByTime(10000));
+    expect(screen.getByRole("tab", { selected: true }).getAttribute("aria-label")).toBe("Go to slide 2");
+    fireEvent.blur(region, { relatedTarget: document.body });
+    act(() => vi.advanceTimersByTime(5000));
+    expect(screen.getByRole("tab", { selected: true }).getAttribute("aria-label")).toBe("Go to slide 3");
+    fireEvent.click(screen.getByRole("button", { name: /pause reviews autoplay/i }));
+    act(() => vi.advanceTimersByTime(10000));
+    expect(screen.getByRole("tab", { selected: true }).getAttribute("aria-label")).toBe("Go to slide 3");
+  });
+
+  it("stops active autoplay when reduced motion is enabled and does not restart automatically", () => {
+    vi.useFakeTimers();
+    const preference = Object.assign(new EventTarget(), { matches: false });
+    vi.stubGlobal("matchMedia", () => preference);
+    render(<ReviewsStrip />);
+    fireEvent.click(screen.getByRole("button", { name: /start reviews autoplay/i }));
+    act(() => { preference.matches = true; preference.dispatchEvent(new Event("change")); });
+    const play = screen.getByRole("button", { name: /start reviews autoplay/i });
+    expect(play.getAttribute("aria-disabled")).toBe("true");
+    fireEvent.click(play);
+    act(() => vi.advanceTimersByTime(10000));
+    expect(screen.getByRole("tab", { selected: true }).getAttribute("aria-label")).toBe("Go to slide 1");
+    act(() => { preference.matches = false; preference.dispatchEvent(new Event("change")); });
+    act(() => vi.advanceTimersByTime(10000));
+    expect(screen.getByRole("tab", { selected: true }).getAttribute("aria-label")).toBe("Go to slide 1");
+  });
   it("renders carousel landmark with accessible title and controls", () => {
     render(<ReviewsStrip />);
     expect(
