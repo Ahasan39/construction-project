@@ -30,7 +30,7 @@ describe("HomePage composition", () => {
     expect(screen.getByRole("heading", { name: /^why/i, level: 2 })).toBeTruthy();
     expect(screen.getByRole("heading", { name: /services/i, level: 2 })).toBeTruthy();
     expect(screen.getByRole("region", { name: /offers, financing/i })).toBeTruthy();
-    expect(screen.getByRole("heading", { name: /customers have to say/i })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: /reference testimonials/i })).toBeTruthy();
   });
 
   it("hero image is eager-loaded with explicit dimensions (LCP-friendly)", () => {

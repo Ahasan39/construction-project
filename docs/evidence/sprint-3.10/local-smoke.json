@@ -1,0 +1,56 @@
+[
+  {
+    "name": "chromium",
+    "version": "153.0.8010.12",
+    "base": "http://127.0.0.1:4175/construction-project/",
+    "assetErrors": [],
+    "errors": [],
+    "posts": [],
+    "fonts": [
+      {
+        "family": "Metropolis",
+        "status": "loaded"
+      },
+      {
+        "family": "Metropolis",
+        "status": "loaded"
+      },
+      {
+        "family": "Metropolis",
+        "status": "loaded"
+      },
+      {
+        "family": "Metropolis",
+        "status": "loaded"
+      }
+    ],
+    "status": "PASS"
+  },
+  {
+    "name": "firefox",
+    "version": "155.0",
+    "base": "http://127.0.0.1:4175/construction-project/",
+    "assetErrors": [],
+    "errors": [],
+    "posts": [],
+    "fonts": [
+      {
+        "family": "Metropolis",
+        "status": "loaded"
+      },
+      {
+        "family": "Metropolis",
+        "status": "loaded"
+      },
+      {
+        "family": "Metropolis",
+        "status": "loaded"
+      },
+      {
+        "family": "Metropolis",
+        "status": "loaded"
+      }
+    ],
+    "status": "PASS"
+  }
+]

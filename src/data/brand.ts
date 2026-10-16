@@ -1,3 +1,4 @@
+import { assetUrl } from "@/app/assets";
 import type { BrandContact } from "@/types";
 
 /**
@@ -7,7 +8,7 @@ import type { BrandContact } from "@/types";
  */
 export const brand: BrandContact = {
   companyName: "Mr. Roof",
-  logoSrc: "/images/logo.svg",
+  logoSrc: assetUrl("/images/logo.svg"),
   phoneDisplay: "(877) 766-7663",
   phoneHref: "tel:+18777667663",
   email: "info@mrroof.com",

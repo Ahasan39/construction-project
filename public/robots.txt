@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /__preview
-
-# Sitemap: to be added once the canonical origin is configured.
+# Public demo: every HTML entry and client route has noindex,nofollow metadata.
+# Allow crawling so compliant crawlers can read that metadata. This file is
+# served below the repository base; it is not an origin-wide indexing control.

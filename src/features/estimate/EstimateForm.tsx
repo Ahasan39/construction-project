@@ -373,11 +373,11 @@ export function EstimateForm({
           </div>
 
           <p id={demoNoticeId} className={`text-xs ${noticeTone} leading-relaxed`}>
-            By clicking &ldquo;Submit,&rdquo; I authorize Mr. Roof to contact me via phone, email, or text. See our{" "}
+            Demo only: estimates are not delivered and no phone, email or SMS contact is initiated. Use fictional details. See the demo{" "}
             <SmartLink to="/privacy-policy" className="underline">
               Privacy policy
             </SmartLink>
-            . (Demo form &mdash; simulated for testing).
+            .
           </p>
 
           <div

@@ -1,3 +1,4 @@
+import { assetUrl } from "@/app/assets";
 import { Link } from "react-router-dom";
 import { Container } from "@/components/ui";
 
@@ -13,7 +14,7 @@ const cards: ServiceCard[] = [
   {
     title: "Roofing",
     body: "We treat your emergency like our own—dispatching a local expert within 24 hours and standing behind the work for life, so your family stays protected without the stress.",
-    iconSrc: "/images/services/roofing-icon.svg",
+    iconSrc: assetUrl("/images/services/roofing-icon.svg"),
     iconAlt: "Roofing architectural illustration",
     actions: [
       { label: "Replace My Roof", to: "/roofing/roof-replacement" },
@@ -23,21 +24,21 @@ const cards: ServiceCard[] = [
   {
     title: "Siding",
     body: "We pair performance siding with a neighborly design consult that makes choosing the appearance of your home easy, so you’ll love pulling into your driveway again.",
-    iconSrc: "/images/services/siding-icon.svg",
+    iconSrc: assetUrl("/images/services/siding-icon.svg"),
     iconAlt: "Siding architectural panel illustration",
     actions: [{ label: "Replace My Siding", to: "/siding" }],
   },
   {
     title: "Windows",
     body: "We evaluate your home exterior envelope to specify high-performance windows that slash energy bills, so you see savings in the first season.",
-    iconSrc: "/images/services/windows-icon.svg",
+    iconSrc: assetUrl("/images/services/windows-icon.svg"),
     iconAlt: "Window architectural illustration",
     actions: [{ label: "Replace My Windows", to: "/windows" }],
   },
   {
     title: "Gutters",
     body: "We install new gutters and downspouts that will keep the rain where it’s supposed to be and your basement dry.",
-    iconSrc: "/images/services/gutters-icon.svg",
+    iconSrc: assetUrl("/images/services/gutters-icon.svg"),
     iconAlt: "Seamless gutter and downspout illustration",
     actions: [{ label: "Replace My Gutters", to: "/gutters" }],
   },

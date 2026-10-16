@@ -1,3 +1,4 @@
+import { assetUrl } from "@/app/assets";
 import { Link } from "react-router-dom";
 import { Container, SmartLink } from "@/components/ui";
 import { brand } from "@/data/brand";
@@ -47,12 +48,12 @@ export function Hero() {
               <picture>
                 <source
                   type="image/webp"
-                  srcSet="/images/homepage/hero-suburban-home-mobile.webp 480w, /images/homepage/hero-suburban-home.webp 960w"
+                  srcSet={`${assetUrl("/images/homepage/hero-suburban-home-mobile.webp")} 480w, ${assetUrl("/images/homepage/hero-suburban-home.webp")} 960w`}
                   sizes="(max-width: 768px) 100vw, 680px"
                 />
                 <img
-                  src="/images/homepage/hero-suburban-home.webp"
-                  srcSet="/images/homepage/hero-suburban-home-mobile.webp 480w, /images/homepage/hero-suburban-home.webp 960w"
+                  src={assetUrl("/images/homepage/hero-suburban-home.webp")}
+                  srcSet={`${assetUrl("/images/homepage/hero-suburban-home-mobile.webp")} 480w, ${assetUrl("/images/homepage/hero-suburban-home.webp")} 960w`}
                   sizes="(max-width: 768px) 100vw, 680px"
                   alt="Upscale residential suburban home exterior with dark architectural shingle roof, blue siding and stone facade"
                   width={1200}
@@ -111,7 +112,7 @@ export function Hero() {
             </div>
 
             <div className="mt-4 pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
-              <span>Fast 24-hr response</span>
+              <span>Demo only — no response sent</span>
               <Link
                 to="/free-estimate"
                 className="text-slate-300 hover:text-white underline underline-offset-2 font-medium"

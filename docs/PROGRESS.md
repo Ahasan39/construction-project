@@ -16,6 +16,17 @@ Rules:
 - Hosting / deployment is a separate concern from `git push`.
 - Each sprint's PROGRESS.md entry continues to carry a `Remaining differences` / `Browser evidence actually collected` section until live-browser verification lands.
 
+## Sprint 3.10 — GitHub Pages demo deployment (2026-10-16)
+
+- Baseline: clean main at `15a9a3d6ad16dd9fc0241c34c6ab2aadbb75114a`, expected origin. GitHub API confirmed repository admin access; Pages was absent. Enabled Actions-based Pages with HTTPS, no custom domain. API-confirmed URL: https://ahasan39.github.io/construction-project/.
+- Workflow builds with Node 24 and npm ci, lint/typecheck/tests/build, then official Pages artifact/deployment actions. Current action majors verified against official Vite/GitHub documentation and action releases. Build and deploy permissions are scoped separately; serialized deployments; no gh-pages branch.
+- Vite production/preview base and router basename use `/construction-project/`; local dev remains `/`. Shared asset helper, HTML BASE_URL and Vite CSS rewriting cover images, responsive sources, preloads, fonts and favicon without double prefixes.
+- Generates 82 supported static HTML route entry files from current route data and explicit availability. These are client-rendered shells, not full prerendering. Supported direct requests return 200; custom 404 shell preserves the original path/query/hash and unknown direct requests remain 404. No redirect workaround, HashRouter or unsupported combinations. `/__preview` stays DEV-only.
+- Public independent-demo banner; mock-form disclosure says no delivery/contact; testimonials and credential artwork marked reference content. Every initial HTML and route transition is noindex,nofollow; no production/reference canonical emitted.
+- Root-only ignores added for CLAUDE.md, CLAUDE.local.md and .claude/. Removed tracked CLAUDE.md and .claude/settings.json from index only, preserving local contents and includeCoAuthoredBy:false. CLAUDE.local.md absent. Essential project rules retained in README and this log. Historical commits are unchanged.
+- Local verification: npm ci succeeded after releasing a Windows native-module lock from dev servers. Lint/typecheck/67 tests/build passed. Chromium and Firefox static-host smoke checks passed, including nested refresh, query/hash, unknown route, images/fonts/icons, location/drawer, carousel and mock submission with zero POST requests. Live deployment verification follows after pushing.
+- Open: actual 200% browser zoom; mobile Performance 100 target (last localhost 78). npm audit reports three existing dev-tool findings in Vitest/mocker/tinypool; these are not shipped in the static artifact and upgrading the test toolchain is deferred. No Sprint 4/backend work.
+
 ## Sprint 3.9.1 — Review carousel responsive correction (2026-10-16)
 
 - Verified clean `main` at `10f37e4b9dc7648193473514a047e919c9667470`, expected origin and repository instructions. Changes are limited to ReviewsStrip, its regression tests and sprint evidence/documentation.

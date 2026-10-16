@@ -1,3 +1,4 @@
+import { assetUrl } from "@/app/assets";
 import { Link } from "react-router-dom";
 import { Container, SmartLink } from "@/components/ui";
 import { services } from "@/data/services";
@@ -24,7 +25,7 @@ export function SiteFooter() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <Link to="/" aria-label={`${brand.companyName} — Home`} className="shrink-0 inline-block">
               <img
-                src="/images/logo-white.svg"
+                src={assetUrl("/images/logo-white.svg")}
                 alt={`${brand.companyName} Logo`}
                 width={180}
                 height={44}

@@ -173,11 +173,13 @@
   background: var(--color-brand-primary);
   color: #fff;
   transform: translateY(-200%);
+  clip-path: inset(50%);
   transition: transform 150ms ease-out;
   z-index: 1000;
 }
 .skip-to-content:focus {
   transform: translateY(0);
+  clip-path: none;
 }
 
 /* Scoped native header picker: never inherit white utility-bar text into a

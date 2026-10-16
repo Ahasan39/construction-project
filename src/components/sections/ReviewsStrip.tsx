@@ -167,7 +167,7 @@ export function ReviewsStrip() {
             id="reviews-heading"
             className="text-2xl sm:text-3xl lg:text-[34px] font-black text-[var(--color-brand-primary)] tracking-tight leading-snug max-w-3xl"
           >
-            We have over 500,000 satisfied customers who can vouch for our quality. Here&apos;s what our customers have to say.
+            Reference testimonials — displayed for this frontend demo.
           </h2>
 
           {/* Carousel Controls */}
@@ -267,7 +267,7 @@ export function ReviewsStrip() {
                       </div>
 
                       <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider bg-slate-100 px-2 py-1 rounded border border-slate-300">
-                        Verified
+                        Reference
                       </span>
                     </div>
                   </div>
@@ -302,7 +302,7 @@ export function ReviewsStrip() {
 
         {/* Demo disclosure note */}
         <p className="mt-8 text-center text-xs text-slate-600">
-          Customer testimonials transcribed from verified submissions to Mr. Roof.
+          Testimonials reproduced from the reference website for layout demonstration. Not verified reviews of this demo or its operator.
         </p>
       </Container>
     </section>

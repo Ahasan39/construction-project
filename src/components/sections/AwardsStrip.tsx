@@ -1,33 +1,34 @@
+import { assetUrl } from "@/app/assets";
 import { Container } from "@/components/ui";
 
 const awards = [
   {
     name: "Roofing Contractor Top 100",
-    src: "/images/awards/roofing-contractor-top-100.svg",
+    src: assetUrl("/images/awards/roofing-contractor-top-100.svg"),
     width: 160,
     height: 80,
   },
   {
     name: "BBB Accredited Business A+",
-    src: "/images/awards/bbb-accredited-a-plus.svg",
+    src: assetUrl("/images/awards/bbb-accredited-a-plus.svg"),
     width: 160,
     height: 80,
   },
   {
     name: "Owens Corning Platinum Preferred Contractor",
-    src: "/images/awards/owens-corning-platinum.svg",
+    src: assetUrl("/images/awards/owens-corning-platinum.svg"),
     width: 160,
     height: 80,
   },
   {
     name: "Angi 2022 Super Service Award",
-    src: "/images/awards/angi-super-service-award.svg",
+    src: assetUrl("/images/awards/angi-super-service-award.svg"),
     width: 160,
     height: 80,
   },
   {
     name: "Best of HomeAdvisor Winner",
-    src: "/images/awards/homeadvisor-winner.svg",
+    src: assetUrl("/images/awards/homeadvisor-winner.svg"),
     width: 160,
     height: 80,
   },
@@ -45,8 +46,8 @@ export function AwardsStrip() {
       className="bg-[#0C1F33] border-t border-slate-800 text-white py-12 sm:py-14"
     >
       <Container width="wide">
-        <h2 id="awards-heading" className="sr-only">
-          Awards and certifications
+        <h2 id="awards-heading" className="text-sm text-center mb-6">
+          Reference credential artwork — illustrative only, not credentials held by this demo
         </h2>
 
         <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-14">

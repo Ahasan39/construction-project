@@ -1,3 +1,4 @@
+import { assetUrl } from "@/app/assets";
 import { Link } from "react-router-dom";
 import { Container } from "@/components/ui";
 
@@ -13,7 +14,7 @@ interface Promo {
 const promos: Promo[] = [
   {
     title: "Offers & Promotions",
-    imageSrc: "/images/homepage/promo-offers.webp",
+    imageSrc: assetUrl("/images/homepage/promo-offers.webp"),
     imageAlt: "Inspector checking roofline and gutters with safety gear",
     ctaLabel: "See Current Promotions",
     ctaTo: "/special-offers",
@@ -21,7 +22,7 @@ const promos: Promo[] = [
   },
   {
     title: "Special Financing",
-    imageSrc: "/images/homepage/promo-financing.webp",
+    imageSrc: assetUrl("/images/homepage/promo-financing.webp"),
     imageAlt: "Consultant showing project estimate on tablet to homeowner",
     ctaLabel: "Learn About Financing",
     ctaTo: "/financing",
@@ -29,7 +30,7 @@ const promos: Promo[] = [
   },
   {
     title: "Lifetime Warranty",
-    imageSrc: "/images/homepage/promo-warranty.webp",
+    imageSrc: assetUrl("/images/homepage/promo-warranty.webp"),
     imageAlt: "Pronged residential exterior with premium architectural shingles",
     ctaLabel: "View Warranty Information",
     ctaTo: "/warranties",

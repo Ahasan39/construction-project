@@ -2,6 +2,43 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 3.10 — Static demo deployment QA (2026-10-16)
+
+### Configuration and local checks
+
+API confirmed Pages was not previously enabled. Created Pages with build_type=workflow; confirmed public HTTPS URL https://ahasan39.github.io/construction-project/ and no custom domain. Authorization used existing Git credentials without recording secrets. The workflow uses official actions: checkout/setup-node v7, configure-pages v6, upload-pages-artifact/deploy-pages v5; Node 24, locked npm ci and all required gates. See [Vite guide](https://vite.dev/guide/static-deploy.html) and [GitHub workflow guide](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+
+| Check | Result |
+|---|---|
+| npm ci | Pass after stopping dev servers that held a Windows native-module lock |
+| npm run lint | Pass |
+| npm run typecheck | Pass |
+| npm test | Pass: 67 tests, 9 files; new asset-prefix, route-manifest and noindex/canonical regressions |
+| npm run build | Pass: 100 modules, 82 supported static route entries plus custom 404.html |
+| Production assets | JS/images/preloads/favicon and CSS font URLs use /construction-project/; no FoundationPreview production chunk |
+| Local static-host browser smoke | Chromium 153 and Firefox 155 pass; actual base-path hosting without generic SPA rewrite |
+| Direct nested route + refresh | /nashville/roofing/commercial-roofing/ returns 200; query `?qa=a%26b&value=one%20two` and fragment #main retained |
+| Unknown route | HTTP 404 and in-app Not Found; query/fragment retained |
+| Navigation/location | Homepage to Nashville; mobile drawer to Grand Rapids; selection follows URL |
+| Carousel/mock form | Next advances; fictional input produces demo acknowledgment; no submission/network POST |
+| Asset/runtime checks | All images loaded, fonts inspected, both favicon URLs 200; no asset 404s or pageerror events |
+| Responsive | 320/390/1440px, no horizontal page overflow in smoke checks |
+| Local Claude files | CLAUDE.md and .claude/settings.json preserved and ignored; attribution false; CLAUDE.local.md absent; index removals only |
+
+Local browser evidence: `docs/evidence/sprint-3.10/local-smoke.json` and `local-{chromium,firefox}-{320,390,1440,nested}.png`.
+
+### Routing and public-demo limits
+
+Each supported route gets a copy of the built HTML shell. This is static route output, **not server rendering/prerendered content**: page content/metadata need JavaScript. No redirect script is used, so path, query and fragment remain intact (Pages may append a directory slash). Existing explicit availability controls generation; unavailable services/variants/capabilities are excluded. GitHub Pages ignores public/_redirects. Unknown direct loads receive the custom HTML with HTTP 404; client navigation to an unknown route has no new document status.
+
+Initial HTML and client transitions retain noindex,nofollow, with no canonical to mrroof.com. Public banner identifies the independent demo, nondelivery and no payment/email/SMS integrations. Reference testimonials/credential artwork no longer appear as verified demo-operator claims. Mock service performs no network request or data persistence. Robots.txt is supplementary and not an indexing guarantee.
+
+Root-only Claude ignores do not affect other Markdown/agent instructions and do not erase prior Git history. README now contains identity, no-AI-attribution, checks, safe Git workflow and hosting instructions.
+
+### Publication status
+
+Code/workflow locally verified; live run and smoke results will be recorded after push. Do not infer deployed performance from localhost. Actual 200% browser zoom and mobile Performance 100 remain open; last reported localhost mobile score 78. Existing npm audit findings are dev-only Vitest/mocker/tinypool issues (1 moderate, 2 critical), not runtime dependencies in the Pages artifact; no force/major dependency upgrade was performed in this hosting sprint.
+
 ## Sprint 3.9.1 — Carousel overflow and responsive QA (2026-10-16)
 
 ### Diagnosis and correction

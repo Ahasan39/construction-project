@@ -44,3 +44,8 @@ coverage/
 *.local
 tsconfig.tsbuildinfo
 *.tsbuildinfo
+
+# Project-local Claude instructions and attribution preferences
+/CLAUDE.md
+/CLAUDE.local.md
+/.claude/

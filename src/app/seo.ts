@@ -15,7 +15,7 @@ export const CANONICAL_ORIGIN = ""; // e.g. "https://www.client-site.example"
 export function applyRouteMeta(meta: RouteMeta): void {
   if (typeof document === "undefined") return;
 
-  document.title = meta.title;
+  document.title = `${meta.title} | Frontend demo`;
 
   ensureMeta("name", "description", meta.description);
 
@@ -25,8 +25,8 @@ export function applyRouteMeta(meta: RouteMeta): void {
     : null;
   ensureLink("canonical", canonicalHref);
 
-  // Robots: honor noindex flag.
-  ensureMeta("name", "robots", meta.noindex ? "noindex,nofollow" : "index,follow");
+  // Every route belongs to a public demo, including client-side transitions.
+  ensureMeta("name", "robots", "noindex,nofollow");
 }
 
 function ensureMeta(attr: "name" | "property", key: string, value: string) {
