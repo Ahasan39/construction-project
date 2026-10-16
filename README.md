@@ -2,7 +2,7 @@
 
 React + TypeScript + Vite + Tailwind CSS + React Router reproduction inspired by Mr. Roof. This is an independent demonstration, not the official company site. Laravel/MySQL integration is not implemented.
 
-Demo URL: https://ahasan39.github.io/construction-project/ (Pages source: GitHub Actions; see docs/QA_REPORT.md for deployment verification).
+Live demo: https://ahasan39.github.io/construction-project/ (deployed through GitHub Actions; verified in Chromium and Firefox). See [QA results](docs/QA_REPORT.md) for live evidence and limitations.
 
 ## Local development and checks
 
@@ -51,4 +51,4 @@ Root-only ignore rules exclude `/CLAUDE.md`, `/CLAUDE.local.md` and `/.claude/`.
 
 See [progress](docs/PROGRESS.md), [QA report](docs/QA_REPORT.md), [route inventory](docs/ROUTE_INVENTORY.md) and [asset manifest](docs/ASSET_MANIFEST.md).
 
-Sprint 3.10 covers hosting and demo safeguards only. Actual 200% browser zoom remains unverified. Mobile Performance 100 remains an open target; the last reported localhost score was 78. Live performance must be measured independently. No Sprint 4, Laravel or MySQL work is included.
+Sprint 3.10 covers hosting and demo safeguards only. Actual 200% browser zoom remains unverified. Mobile Performance 100 remains an open target; the last reported localhost score was 78. Deployed mobile/desktop PageSpeed Insights requests returned HTTP 429 quota exceeded, so live scores remain pending. No Sprint 4, Laravel or MySQL work is included.

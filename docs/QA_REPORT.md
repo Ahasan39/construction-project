@@ -37,7 +37,15 @@ Root-only Claude ignores do not affect other Markdown/agent instructions and do 
 
 ### Publication status
 
-Code/workflow locally verified; live run and smoke results will be recorded after push. Do not infer deployed performance from localhost. Actual 200% browser zoom and mobile Performance 100 remain open; last reported localhost mobile score 78. Existing npm audit findings are dev-only Vitest/mocker/tinypool issues (1 moderate, 2 critical), not runtime dependencies in the Pages artifact; no force/major dependency upgrade was performed in this hosting sprint.
+Published at [the actual Pages URL](https://ahasan39.github.io/construction-project/). [Actions run 38910725469](https://github.com/Ahasan39/construction-project/actions/runs/38910725469) successfully built and deployed implementation commit `742cb7d0f469bce01d70dc6de1c3ac4b59a8974f`, including all CI verification gates.
+
+Live Chromium 153.0.8010.12 and Firefox 155.0 passed homepage, header location selection, mobile drawer navigation, valid location and nested routes, refresh, carousel and mock estimate submission. Nested direct requests returned 200; Firefox's cached refresh returned 304. Query strings and fragments survived navigation/refresh. Unknown routes, unavailable `/lexington/roofing/` and `/__preview` returned HTTP 404; the unknown-route shell rendered Not Found at the original URL.
+
+Live 320/390/1440px screenshots and geometry checks showed no page overflow. Images, fonts, favicon and preloads loaded without asset 404s. No pageerror events or unexpected console errors on normal routes. Synthetic form submission produced the demo acknowledgment and no non-GET requests. Initial HTML and route metadata retained noindex. Separately, all 82 generated routes were checked in local Chromium on a static server, and local development navigation remained root-relative.
+
+Evidence: [live smoke results](evidence/sprint-3.10/live-smoke.json), [Chromium mobile](evidence/sprint-3.10/live-chromium-390.png), [Chromium desktop](evidence/sprint-3.10/live-chromium-1440.png), [nested route](evidence/sprint-3.10/live-chromium-nested.png), and corresponding Firefox captures in the same directory.
+
+PageSpeed Insights was attempted against the deployed URL for both mobile and desktop. Both returned HTTP 429 (daily API quota exceeded), so there are **no deployed performance scores**. See [mobile response](evidence/sprint-3.10/pagespeed-mobile.json) and [desktop response](evidence/sprint-3.10/pagespeed-desktop.json). Do not infer deployed performance from localhost. Actual 200% browser zoom and mobile Performance 100 remain open; last reported localhost mobile score 78. Existing npm audit findings are dev-only Vitest/mocker/tinypool issues (1 moderate, 2 critical), not runtime dependencies in the Pages artifact; no force/major dependency upgrade was performed in this hosting sprint.
 
 ## Sprint 3.9.1 — Carousel overflow and responsive QA (2026-10-16)
 
