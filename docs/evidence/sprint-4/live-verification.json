@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-18",
+  "assetMatch": "/construction-project/assets/index-uZt4hnLz.js",
+  "unknownStatus": 404,
+  "viewports": [
+    {
+      "page": "roofing",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "page": "roofing",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "page": "siding",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "page": "siding",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "page": "windows",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "page": "windows",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "page": "gutters",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "page": "gutters",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "page": "masonry",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "page": "masonry",
+      "width": 1440,
+      "scrollWidth": 1440
+    }
+  ]
+}

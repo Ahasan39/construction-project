@@ -585,3 +585,11 @@ Initial Roofing run: Performance 41, Accessibility 97, CLS 0.851. It identified 
 ### Unfinished destinations and scope
 
 The four Roofing detail routes remain Sprint 4.5 shells. Locations, `/free-estimate/`, `/financing/`, `/visualizer/` remain future-sprint shells; the working mock form remains on the homepage. Product/insulation actions use the existing estimate shell instead of fabricated detail routes. Exact imagery, product swatches, badge equivalence, original photo licensing documentation, actual zoom and live Performance 100 remain open. No Laravel/MySQL work performed.
+
+### Live deployment verification — 2026-10-18
+
+Implementation commit `2d4853f203acab76a33b34f57d3d251c9a7cd598` pushed normally to origin main; remote SHA matched. [Pages run 39141654673](https://github.com/Ahasan39/construction-project/actions/runs/39141654673) completed **success**, including npm ci, lint, typecheck, tests, build and deploy.
+
+Both Chromium and Firefox repeated the successful production smoke against `https://ahasan39.github.io/construction-project/`: five direct loads and refreshes, one H1/noindex, all image loads, all header service links, mobile drawer, service location selector, disclosure keyboard toggles, style/review controls, reduced-motion guard, related/estimate actions and homepage note. Zero page errors, failed assets or non-GET requests. [Live interaction records](evidence/sprint-4/live-interactions.json).
+
+All five pages additionally checked live at 390×900 and 1440×900 with no horizontal overflow; ten full-page captures stored as `live-{service}-{width}.webp`. Mobile Siding capture visually reviewed after deployment. Live HTML points to the same `/construction-project/assets/index-uZt4hnLz.js` as the local production build. A direct unknown path returned HTTP 404. [Fingerprint and geometry](evidence/sprint-4/live-verification.json). This evidence does not claim deployed Lighthouse scores or actual 200% zoom.
