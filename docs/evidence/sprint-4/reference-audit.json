@@ -1,0 +1,2695 @@
+[
+  {
+    "slug": "roofing",
+    "status": 200,
+    "url": "https://www.mrroof.com/roofing/",
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 5810,
+        "headings": [
+          {
+            "text": "Roofing Services",
+            "tag": "H1",
+            "x": 110,
+            "y": 502,
+            "width": 745,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 1031,
+            "y": 575,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Award-Winning Roofing Contractors",
+            "tag": "H2",
+            "x": 374,
+            "y": 1823,
+            "width": 692,
+            "font": "40px"
+          },
+          {
+            "text": "Making Customers Smile Since 1962",
+            "tag": "H2",
+            "x": 780,
+            "y": 2437,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "",
+            "tag": "H4",
+            "x": 30,
+            "y": 3355,
+            "width": 1380,
+            "font": "48px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 30,
+            "y": 3854,
+            "width": 1380,
+            "font": "40px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 355,
+            "y": 4552,
+            "width": 730,
+            "font": "48px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 938,
+            "y": 5318,
+            "width": 452,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 938,
+            "y": 5452,
+            "width": 452,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Roofing Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roofing-bg-1-1536x958.webp",
+            "w": 1440,
+            "h": 320
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2024/01/53890-green-lawn-in-front-of-country-house-2023-11-27-05-12-25-utc-1024x683.jpg",
+            "w": 375,
+            "h": 150
+          },
+          {
+            "alt": "Roof Replacement Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-service.jpg",
+            "w": 330,
+            "h": 250
+          },
+          {
+            "alt": "Roof Repair Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-repair-services.jpg",
+            "w": 330,
+            "h": 250
+          },
+          {
+            "alt": "Metal Roofing Installers",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofing-installers.jpg",
+            "w": 330,
+            "h": 250
+          },
+          {
+            "alt": "Commercial Roofing Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/commercial-roofing-services.jpg",
+            "w": 330,
+            "h": 250
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Awards_Roofer-of-the-Year.png",
+            "w": 177,
+            "h": 250
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Guildmaster-Roofers.png",
+            "w": 115,
+            "h": 160
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Awards_BBB-Accredited.png",
+            "w": 177,
+            "h": 250
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/07/best-of-houzz-service-2022.png",
+            "w": 104,
+            "h": 250
+          },
+          {
+            "alt": "Consumer Choice Awards Winners for over 22 years.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/ConsumerAward2023.png",
+            "w": 138,
+            "h": 160
+          },
+          {
+            "alt": "Owens Corning Platinum Preferred Contractors",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/owens-corning-platinum-preferred-contractor.png",
+            "w": 184,
+            "h": 250
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 630,
+            "h": 421
+          },
+          {
+            "alt": "New Siding Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Replacement Window Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Gutter Replacement Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Masonry & Chimney Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Attic Insulation Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 1201,
+            "h": 209
+          }
+        ]
+      },
+      {
+        "width": 768,
+        "height": 7402,
+        "headings": [
+          {
+            "text": "Roofing Services",
+            "tag": "H1",
+            "x": 75,
+            "y": 472,
+            "width": 618,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 91,
+            "y": 913,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Award-Winning Roofing Contractors",
+            "tag": "H2",
+            "x": 38,
+            "y": 2380,
+            "width": 692,
+            "font": "40px"
+          },
+          {
+            "text": "Making Customers Smile Since 1962",
+            "tag": "H2",
+            "x": 15,
+            "y": 3400,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "",
+            "tag": "H4",
+            "x": 15,
+            "y": 4129,
+            "width": 738,
+            "font": "44px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 4599,
+            "width": 738,
+            "font": "44px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 69,
+            "y": 5974,
+            "width": 630,
+            "font": "42px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 40,
+            "y": 7002,
+            "width": 693,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 40,
+            "y": 7118,
+            "width": 693,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Roofing Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roofing-bg-1-1536x958.webp",
+            "w": 768,
+            "h": 320
+          },
+          {
+            "alt": "Roof Replacement Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-service.jpg",
+            "w": 359,
+            "h": 170
+          },
+          {
+            "alt": "Roof Repair Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-repair-services.jpg",
+            "w": 359,
+            "h": 170
+          },
+          {
+            "alt": "Metal Roofing Installers",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofing-installers.jpg",
+            "w": 359,
+            "h": 170
+          },
+          {
+            "alt": "Commercial Roofing Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/commercial-roofing-services.jpg",
+            "w": 359,
+            "h": 170
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Awards_Roofer-of-the-Year.png",
+            "w": 95,
+            "h": 130
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Guildmaster-Roofers.png",
+            "w": 62,
+            "h": 130
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Awards_BBB-Accredited.png",
+            "w": 95,
+            "h": 130
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/07/best-of-houzz-service-2022.png",
+            "w": 55,
+            "h": 130
+          },
+          {
+            "alt": "Consumer Choice Awards Winners for over 22 years.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/ConsumerAward2023.png",
+            "w": 74,
+            "h": 130
+          },
+          {
+            "alt": "Owens Corning Platinum Preferred Contractors",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/owens-corning-platinum-preferred-contractor.png",
+            "w": 98,
+            "h": 130
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 738,
+            "h": 493
+          },
+          {
+            "alt": "New Siding Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Replacement Window Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Gutter Replacement Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Masonry & Chimney Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Attic Insulation Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 738,
+            "h": 128
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "height": 10257,
+        "headings": [
+          {
+            "text": "Roofing Services",
+            "tag": "H1",
+            "x": 15,
+            "y": 459,
+            "width": 360,
+            "font": "36px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 51,
+            "y": 818,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Award-Winning Roofing Contractors",
+            "tag": "H2",
+            "x": 15,
+            "y": 3464,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Making Customers Smile Since 1962",
+            "tag": "H2",
+            "x": 15,
+            "y": 4659,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "",
+            "tag": "H4",
+            "x": 20,
+            "y": 5729,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 6430,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 50,
+            "y": 8419,
+            "width": 290,
+            "font": "32px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 55,
+            "y": 9741,
+            "width": 285,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 55,
+            "y": 9893,
+            "width": 285,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Roofing Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roofing-bg-1-1536x958.webp",
+            "w": 390,
+            "h": 200
+          },
+          {
+            "alt": "Roof Replacement Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-service.jpg",
+            "w": 360,
+            "h": 170
+          },
+          {
+            "alt": "Roof Repair Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-repair-services.jpg",
+            "w": 360,
+            "h": 170
+          },
+          {
+            "alt": "Metal Roofing Installers",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofing-installers.jpg",
+            "w": 360,
+            "h": 170
+          },
+          {
+            "alt": "Commercial Roofing Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/commercial-roofing-services.jpg",
+            "w": 360,
+            "h": 170
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Awards_Roofer-of-the-Year.png",
+            "w": 139,
+            "h": 130
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Guildmaster-Roofers.png",
+            "w": 108,
+            "h": 130
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Awards_BBB-Accredited.png",
+            "w": 139,
+            "h": 130
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/07/best-of-houzz-service-2022.png",
+            "w": 90,
+            "h": 130
+          },
+          {
+            "alt": "Consumer Choice Awards Winners for over 22 years.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/ConsumerAward2023.png",
+            "w": 108,
+            "h": 130
+          },
+          {
+            "alt": "Owens Corning Platinum Preferred Contractors",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/owens-corning-platinum-preferred-contractor.png",
+            "w": 144,
+            "h": 130
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 360,
+            "h": 240
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "siding",
+    "status": 200,
+    "url": "https://www.mrroof.com/siding/",
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 8306,
+        "headings": [
+          {
+            "text": "Siding Installation and Repair Services",
+            "tag": "H3",
+            "x": 110,
+            "y": 502,
+            "width": 745,
+            "font": "28px"
+          },
+          {
+            "text": "Total Exterior Protection with Industry-Leading Siding Solutions",
+            "tag": "H1",
+            "x": 110,
+            "y": 550,
+            "width": 745,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 1031,
+            "y": 575,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Elevate Your Curb Appeal with Premium Siding Styles",
+            "tag": "H2",
+            "x": 780,
+            "y": 1961,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Precision Siding Repair & Professional Restoration",
+            "tag": "H2",
+            "x": 30,
+            "y": 2461,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Complete Your Exterior with Premium Accents and Trim",
+            "tag": "H2",
+            "x": 780,
+            "y": 3223,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Expert Exterior Color Consultation & Custom Siding Design",
+            "tag": "H2",
+            "x": 30,
+            "y": 4133,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Siding Color Visualizer",
+            "tag": "H2",
+            "x": 780,
+            "y": 4753,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Frequently Asked Questions",
+            "tag": "H2",
+            "x": 447,
+            "y": 5500,
+            "width": 545,
+            "font": "40px"
+          },
+          {
+            "text": "How do I know if I need new siding?",
+            "tag": "H3",
+            "x": 310,
+            "y": 5616,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "What siding materials do you install?",
+            "tag": "H3",
+            "x": 310,
+            "y": 5722,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "How long does a siding installation take?",
+            "tag": "H3",
+            "x": 310,
+            "y": 5827,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "How much does new siding cost?",
+            "tag": "H3",
+            "x": 310,
+            "y": 5933,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "Do you offer financing?",
+            "tag": "H3",
+            "x": 310,
+            "y": 6039,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "Do you offer a warranty?",
+            "tag": "H3",
+            "x": 310,
+            "y": 6144,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 30,
+            "y": 6350,
+            "width": 1380,
+            "font": "40px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 355,
+            "y": 7048,
+            "width": 730,
+            "font": "48px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 938,
+            "y": 7814,
+            "width": 452,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 938,
+            "y": 7948,
+            "width": 452,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Siding Services by Mr. Roof. We are local siding installers near you.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/siding-service-1536x764.jpg",
+            "w": 1440,
+            "h": 320
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2024/01/53890-green-lawn-in-front-of-country-house-2023-11-27-05-12-25-utc-1024x683.jpg",
+            "w": 375,
+            "h": 150
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/03/sidingcraneboard.webp",
+            "w": 330,
+            "h": 250
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/03/sidingexteriorportfolio.webp",
+            "w": 330,
+            "h": 250
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/03/sidingportsmouth.webp",
+            "w": 330,
+            "h": 250
+          },
+          {
+            "alt": "",
+            "src": "",
+            "w": 330,
+            "h": 250
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 630,
+            "h": 421
+          },
+          {
+            "alt": "Benefits of new siding installed by Mr. Roof.",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 630,
+            "h": 420
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 630,
+            "h": 421
+          },
+          {
+            "alt": "Siding Visualizer",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 600,
+            "h": 338
+          },
+          {
+            "alt": "New Roof Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Replacement Window Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Gutter Installation Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Masonry & Chimney Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Attic Insulation Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 1201,
+            "h": 209
+          }
+        ]
+      },
+      {
+        "width": 768,
+        "height": 11394,
+        "headings": [
+          {
+            "text": "Siding Installation and Repair Services",
+            "tag": "H3",
+            "x": 75,
+            "y": 472,
+            "width": 618,
+            "font": "28px"
+          },
+          {
+            "text": "Total Exterior Protection with Industry-Leading Siding Solutions",
+            "tag": "H1",
+            "x": 75,
+            "y": 520,
+            "width": 618,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 91,
+            "y": 1061,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Elevate Your Curb Appeal with Premium Siding Styles",
+            "tag": "H2",
+            "x": 15,
+            "y": 3076,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Precision Siding Repair & Professional Restoration",
+            "tag": "H2",
+            "x": 15,
+            "y": 3957,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Complete Your Exterior with Premium Accents and Trim",
+            "tag": "H2",
+            "x": 15,
+            "y": 5102,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Expert Exterior Color Consultation & Custom Siding Design",
+            "tag": "H2",
+            "x": 15,
+            "y": 6436,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Siding Color Visualizer",
+            "tag": "H2",
+            "x": 15,
+            "y": 7208,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Frequently Asked Questions",
+            "tag": "H2",
+            "x": 111,
+            "y": 7846,
+            "width": 545,
+            "font": "40px"
+          },
+          {
+            "text": "How do I know if I need new siding?",
+            "tag": "H3",
+            "x": 15,
+            "y": 7922,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "What siding materials do you install?",
+            "tag": "H3",
+            "x": 15,
+            "y": 8025,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "How long does a siding installation take?",
+            "tag": "H3",
+            "x": 15,
+            "y": 8128,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "How much does new siding cost?",
+            "tag": "H3",
+            "x": 15,
+            "y": 8231,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Do you offer financing?",
+            "tag": "H3",
+            "x": 15,
+            "y": 8335,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Do you offer a warranty?",
+            "tag": "H3",
+            "x": 15,
+            "y": 8438,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 8601,
+            "width": 738,
+            "font": "44px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 69,
+            "y": 9966,
+            "width": 630,
+            "font": "42px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 40,
+            "y": 10994,
+            "width": 693,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 40,
+            "y": 11110,
+            "width": 693,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Siding Services by Mr. Roof. We are local siding installers near you.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/siding-service-1536x764.jpg",
+            "w": 768,
+            "h": 320
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/03/sidingcraneboard.webp",
+            "w": 359,
+            "h": 170
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/03/sidingexteriorportfolio.webp",
+            "w": 359,
+            "h": 170
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/03/sidingportsmouth.webp",
+            "w": 359,
+            "h": 170
+          },
+          {
+            "alt": "",
+            "src": "",
+            "w": 359,
+            "h": 170
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 738,
+            "h": 493
+          },
+          {
+            "alt": "Benefits of new siding installed by Mr. Roof.",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 738,
+            "h": 492
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 738,
+            "h": 493
+          },
+          {
+            "alt": "Siding Visualizer",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 600,
+            "h": 338
+          },
+          {
+            "alt": "New Roof Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Replacement Window Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Gutter Installation Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Masonry & Chimney Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Attic Insulation Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 738,
+            "h": 128
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "height": 13939,
+        "headings": [
+          {
+            "text": "Siding Installation and Repair Services",
+            "tag": "H3",
+            "x": 15,
+            "y": 459,
+            "width": 360,
+            "font": "28px"
+          },
+          {
+            "text": "Total Exterior Protection with Industry-Leading Siding Solutions",
+            "tag": "H1",
+            "x": 15,
+            "y": 535,
+            "width": 360,
+            "font": "36px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 51,
+            "y": 921,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Elevate Your Curb Appeal with Premium Siding Styles",
+            "tag": "H2",
+            "x": 15,
+            "y": 4194,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Precision Siding Repair & Professional Restoration",
+            "tag": "H2",
+            "x": 15,
+            "y": 4859,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Complete Your Exterior with Premium Accents and Trim",
+            "tag": "H2",
+            "x": 15,
+            "y": 5989,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Expert Exterior Color Consultation & Custom Siding Design",
+            "tag": "H2",
+            "x": 15,
+            "y": 7553,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Siding Color Visualizer",
+            "tag": "H2",
+            "x": 15,
+            "y": 8283,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Frequently Asked Questions",
+            "tag": "H2",
+            "x": 20,
+            "y": 9219,
+            "width": 351,
+            "font": "32px"
+          },
+          {
+            "text": "How do I know if I need new siding?",
+            "tag": "H3",
+            "x": 20,
+            "y": 9321,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "What siding materials do you install?",
+            "tag": "H3",
+            "x": 20,
+            "y": 9449,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "How long does a siding installation take?",
+            "tag": "H3",
+            "x": 20,
+            "y": 9577,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "How much does new siding cost?",
+            "tag": "H3",
+            "x": 20,
+            "y": 9705,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "Do you offer financing?",
+            "tag": "H3",
+            "x": 20,
+            "y": 9805,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "Do you offer a warranty?",
+            "tag": "H3",
+            "x": 20,
+            "y": 9905,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 10135,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 50,
+            "y": 12100,
+            "width": 290,
+            "font": "32px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 55,
+            "y": 13422,
+            "width": 285,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 55,
+            "y": 13574,
+            "width": 285,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Siding Services by Mr. Roof. We are local siding installers near you.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/siding-service-1536x764.jpg",
+            "w": 390,
+            "h": 200
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/03/sidingcraneboard.webp",
+            "w": 360,
+            "h": 170
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/03/sidingexteriorportfolio.webp",
+            "w": 360,
+            "h": 170
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/03/sidingportsmouth.webp",
+            "w": 360,
+            "h": 170
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/03/sidinglpsmartside.webp",
+            "w": 360,
+            "h": 170
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "Benefits of new siding installed by Mr. Roof.",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "Siding Visualizer",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 360,
+            "h": 203
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "windows",
+    "status": 200,
+    "url": "https://www.mrroof.com/windows/",
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 7931,
+        "headings": [
+          {
+            "text": "Window Installation by Mr. Roof",
+            "tag": "H1",
+            "x": 110,
+            "y": 502,
+            "width": 745,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 1031,
+            "y": 575,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Why Homeowners Choose Mr. Roof for Replacement Windows",
+            "tag": "H2",
+            "x": 30,
+            "y": 1020,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Window Installation in Your Area",
+            "tag": "H2",
+            "x": 780,
+            "y": 1906,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "The Windows We Install: Provia",
+            "tag": "H2",
+            "x": 30,
+            "y": 2973,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Not sure which window is right for your home?",
+            "tag": "H2",
+            "x": 345,
+            "y": 3527,
+            "width": 750,
+            "font": "40px"
+          },
+          {
+            "text": "Bundle and Save on Additional Services",
+            "tag": "H2",
+            "x": 30,
+            "y": 4045,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Flexible Financing Available",
+            "tag": "H2",
+            "x": 452,
+            "y": 4697,
+            "width": 536,
+            "font": "40px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 345,
+            "y": 5127,
+            "width": 750,
+            "font": "40px"
+          },
+          {
+            "text": "Frequently Asked Questions about Window Replacement",
+            "tag": "H2",
+            "x": 310,
+            "y": 5629,
+            "width": 820,
+            "font": "40px"
+          },
+          {
+            "text": "What factors should I consider when choosing new windows?",
+            "tag": "H3",
+            "x": 310,
+            "y": 5789,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "What are the benefits of professional window installation versus DIY?",
+            "tag": "H3",
+            "x": 310,
+            "y": 5928,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "How long does a professional window installation take?",
+            "tag": "H3",
+            "x": 310,
+            "y": 6067,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "What is the diﬀerence between argon and krypton gas fills, and which do I need?",
+            "tag": "H3",
+            "x": 310,
+            "y": 6173,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "Why are energy-efficient windows worth the cost?",
+            "tag": "H3",
+            "x": 310,
+            "y": 6312,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "Ready to get started?",
+            "tag": "H2",
+            "x": 472,
+            "y": 6634,
+            "width": 495,
+            "font": "48px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 938,
+            "y": 7439,
+            "width": 452,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 938,
+            "y": 7573,
+            "width": 452,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/07/Window-Installation-by-Mr.-Roof-1536x512.webp",
+            "w": 1440,
+            "h": 320
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2024/01/53890-green-lawn-in-front-of-country-house-2023-11-27-05-12-25-utc-1024x683.jpg",
+            "w": 375,
+            "h": 150
+          },
+          {
+            "alt": "",
+            "src": "",
+            "w": 630,
+            "h": 420
+          },
+          {
+            "alt": "",
+            "src": "",
+            "w": 600,
+            "h": 800
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 630,
+            "h": 421
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 630,
+            "h": 421
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 1201,
+            "h": 209
+          }
+        ]
+      },
+      {
+        "width": 768,
+        "height": 10013,
+        "headings": [
+          {
+            "text": "Window Installation by Mr. Roof",
+            "tag": "H1",
+            "x": 75,
+            "y": 472,
+            "width": 618,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 91,
+            "y": 886,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Why Homeowners Choose Mr. Roof for Replacement Windows",
+            "tag": "H2",
+            "x": 15,
+            "y": 1655,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Window Installation in Your Area",
+            "tag": "H2",
+            "x": 15,
+            "y": 3588,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "The Windows We Install: Provia",
+            "tag": "H2",
+            "x": 15,
+            "y": 4770,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Not sure which window is right for your home?",
+            "tag": "H2",
+            "x": 30,
+            "y": 5148,
+            "width": 708,
+            "font": "40px"
+          },
+          {
+            "text": "Bundle and Save on Additional Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 6265,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Flexible Financing Available",
+            "tag": "H2",
+            "x": 116,
+            "y": 6797,
+            "width": 536,
+            "font": "40px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 30,
+            "y": 7207,
+            "width": 708,
+            "font": "40px"
+          },
+          {
+            "text": "Frequently Asked Questions about Window Replacement",
+            "tag": "H2",
+            "x": 15,
+            "y": 7669,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "What factors should I consider when choosing new windows?",
+            "tag": "H3",
+            "x": 15,
+            "y": 7789,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "What are the benefits of professional window installation versus DIY?",
+            "tag": "H3",
+            "x": 15,
+            "y": 7923,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "How long does a professional window installation take?",
+            "tag": "H3",
+            "x": 15,
+            "y": 8058,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "What is the diﬀerence between argon and krypton gas fills, and which do I need?",
+            "tag": "H3",
+            "x": 15,
+            "y": 8161,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Why are energy-efficient windows worth the cost?",
+            "tag": "H3",
+            "x": 15,
+            "y": 8295,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Ready to get started?",
+            "tag": "H2",
+            "x": 167,
+            "y": 8464,
+            "width": 433,
+            "font": "42px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 40,
+            "y": 9613,
+            "width": 693,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 40,
+            "y": 9729,
+            "width": 693,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/07/Window-Installation-by-Mr.-Roof-768x256.webp",
+            "w": 768,
+            "h": 320
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/07/Why-Homeowners-Choose-Mr.-Roof-for-Replacement-Windows-768x512.webp",
+            "w": 738,
+            "h": 492
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/07/Window-Installation-in-Your-Area.webp",
+            "w": 738,
+            "h": 984
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 738,
+            "h": 493
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 738,
+            "h": 493
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 738,
+            "h": 128
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "height": 10528,
+        "headings": [
+          {
+            "text": "Window Installation by Mr. Roof",
+            "tag": "H1",
+            "x": 15,
+            "y": 459,
+            "width": 360,
+            "font": "36px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 51,
+            "y": 785,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Why Homeowners Choose Mr. Roof for Replacement Windows",
+            "tag": "H2",
+            "x": 15,
+            "y": 1283,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Window Installation in Your Area",
+            "tag": "H2",
+            "x": 15,
+            "y": 3174,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "The Windows We Install: Provia",
+            "tag": "H2",
+            "x": 15,
+            "y": 4176,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Not sure which window is right for your home?",
+            "tag": "H2",
+            "x": 30,
+            "y": 4688,
+            "width": 330,
+            "font": "32px"
+          },
+          {
+            "text": "Bundle and Save on Additional Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 5611,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Flexible Financing Available",
+            "tag": "H2",
+            "x": 20,
+            "y": 6386,
+            "width": 351,
+            "font": "32px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 30,
+            "y": 6947,
+            "width": 330,
+            "font": "32px"
+          },
+          {
+            "text": "Frequently Asked Questions about Window Replacement",
+            "tag": "H2",
+            "x": 20,
+            "y": 7526,
+            "width": 351,
+            "font": "32px"
+          },
+          {
+            "text": "What factors should I consider when choosing new windows?",
+            "tag": "H3",
+            "x": 20,
+            "y": 7664,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "What are the benefits of professional window installation versus DIY?",
+            "tag": "H3",
+            "x": 20,
+            "y": 7792,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "How long does a professional window installation take?",
+            "tag": "H3",
+            "x": 20,
+            "y": 7948,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "What is the diﬀerence between argon and krypton gas fills, and which do I need?",
+            "tag": "H3",
+            "x": 20,
+            "y": 8076,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "Why are energy-efficient windows worth the cost?",
+            "tag": "H3",
+            "x": 20,
+            "y": 8232,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "Ready to get started?",
+            "tag": "H2",
+            "x": 50,
+            "y": 8471,
+            "width": 290,
+            "font": "32px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 55,
+            "y": 10011,
+            "width": 285,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 55,
+            "y": 10163,
+            "width": 285,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/07/Window-Installation-by-Mr.-Roof-768x256.webp",
+            "w": 390,
+            "h": 200
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/07/Why-Homeowners-Choose-Mr.-Roof-for-Replacement-Windows-768x512.webp",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/07/Window-Installation-in-Your-Area.webp",
+            "w": 360,
+            "h": 480
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 360,
+            "h": 240
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "gutters",
+    "status": 200,
+    "url": "https://www.mrroof.com/gutters/",
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 5124,
+        "headings": [
+          {
+            "text": "Gutters & Downspouts",
+            "tag": "H1",
+            "x": 110,
+            "y": 502,
+            "width": 745,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 1031,
+            "y": 575,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Affordable Gutter Installation",
+            "tag": "H2",
+            "x": 30,
+            "y": 1013,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Benefits of New Seamless Gutters",
+            "tag": "H2",
+            "x": 780,
+            "y": 1855,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Gutter Guards",
+            "tag": "H2",
+            "x": 30,
+            "y": 2547,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 30,
+            "y": 3167,
+            "width": 1380,
+            "font": "40px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 355,
+            "y": 3866,
+            "width": 730,
+            "font": "48px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 938,
+            "y": 4632,
+            "width": 452,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 938,
+            "y": 4765,
+            "width": 452,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Gutter & Downspout Installation Services by Mr. Roof.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/gutters-downspouts-1536x636.jpg",
+            "w": 1440,
+            "h": 320
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2024/01/53890-green-lawn-in-front-of-country-house-2023-11-27-05-12-25-utc-1024x683.jpg",
+            "w": 375,
+            "h": 150
+          },
+          {
+            "alt": "Gutter Installers - \" Gutter Installation Companies Near Me\".",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/gutter-installers.jpg",
+            "w": 630,
+            "h": 420
+          },
+          {
+            "alt": "Benefits of our services.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/benefits.jpg",
+            "w": 630,
+            "h": 420
+          },
+          {
+            "alt": "Gutter Guard Installers Near You.",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 630,
+            "h": 420
+          },
+          {
+            "alt": "New Roof Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "New Siding Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Replacement Window Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Masonry & Chimney Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Attic Insulation Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 1201,
+            "h": 209
+          }
+        ]
+      },
+      {
+        "width": 768,
+        "height": 7478,
+        "headings": [
+          {
+            "text": "Gutters & Downspouts",
+            "tag": "H1",
+            "x": 75,
+            "y": 472,
+            "width": 618,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 91,
+            "y": 913,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Affordable Gutter Installation",
+            "tag": "H2",
+            "x": 15,
+            "y": 1721,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Benefits of New Seamless Gutters",
+            "tag": "H2",
+            "x": 15,
+            "y": 3090,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Gutter Guards",
+            "tag": "H2",
+            "x": 15,
+            "y": 4159,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 4699,
+            "width": 738,
+            "font": "44px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 69,
+            "y": 6050,
+            "width": 630,
+            "font": "42px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 40,
+            "y": 7078,
+            "width": 693,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 40,
+            "y": 7194,
+            "width": 693,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Gutter & Downspout Installation Services by Mr. Roof.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/gutters-downspouts-1536x636.jpg",
+            "w": 768,
+            "h": 320
+          },
+          {
+            "alt": "Gutter Installers - \" Gutter Installation Companies Near Me\".",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/gutter-installers.jpg",
+            "w": 738,
+            "h": 492
+          },
+          {
+            "alt": "Benefits of our services.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/benefits.jpg",
+            "w": 738,
+            "h": 492
+          },
+          {
+            "alt": "Gutter Guard Installers Near You.",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 735,
+            "h": 490
+          },
+          {
+            "alt": "New Roof Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "New Siding Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Replacement Window Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Masonry & Chimney Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Attic Insulation Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 738,
+            "h": 128
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "height": 8560,
+        "headings": [
+          {
+            "text": "Gutters & Downspouts",
+            "tag": "H1",
+            "x": 15,
+            "y": 459,
+            "width": 360,
+            "font": "36px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 51,
+            "y": 854,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Affordable Gutter Installation",
+            "tag": "H2",
+            "x": 15,
+            "y": 1391,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Benefits of New Seamless Gutters",
+            "tag": "H2",
+            "x": 15,
+            "y": 3037,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Gutter Guards",
+            "tag": "H2",
+            "x": 15,
+            "y": 4073,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 4757,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 50,
+            "y": 6722,
+            "width": 290,
+            "font": "32px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 55,
+            "y": 8043,
+            "width": 285,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 55,
+            "y": 8195,
+            "width": 285,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Gutter & Downspout Installation Services by Mr. Roof.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/gutters-downspouts-1536x636.jpg",
+            "w": 390,
+            "h": 200
+          },
+          {
+            "alt": "Gutter Installers - \" Gutter Installation Companies Near Me\".",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/gutter-installers.jpg",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "Benefits of our services.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/benefits.jpg",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "Gutter Guard Installers Near You.",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 360,
+            "h": 240
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "masonry",
+    "status": 200,
+    "url": "https://www.mrroof.com/masonry/",
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 5902,
+        "headings": [
+          {
+            "text": "Masonry & Chimney Services",
+            "tag": "H1",
+            "x": 110,
+            "y": 502,
+            "width": 745,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 1031,
+            "y": 575,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Professional Masonry and Chimney Repair",
+            "tag": "H2",
+            "x": 30,
+            "y": 1690,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Stone Veneer Siding",
+            "tag": "H2",
+            "x": 780,
+            "y": 2692,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "3D Home Exterior Visualizer",
+            "tag": "H2",
+            "x": 780,
+            "y": 3311,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 30,
+            "y": 3946,
+            "width": 1380,
+            "font": "40px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 355,
+            "y": 4644,
+            "width": 730,
+            "font": "48px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 938,
+            "y": 5410,
+            "width": 452,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 938,
+            "y": 5544,
+            "width": 452,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Masonry Services by our Masonry Contractors",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/masonry-chimney-services-1536x707.jpg",
+            "w": 1440,
+            "h": 320
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2024/01/53890-green-lawn-in-front-of-country-house-2023-11-27-05-12-25-utc-1024x683.jpg",
+            "w": 375,
+            "h": 150
+          },
+          {
+            "alt": "Masonry & Chimney Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-mason.png",
+            "w": 200,
+            "h": 200
+          },
+          {
+            "alt": "Chimney Reline & Resleeve Services by our Masonry Contractors.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-lining.png",
+            "w": 200,
+            "h": 200
+          },
+          {
+            "alt": "Tuckpointing services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-tuck.png",
+            "w": 200,
+            "h": 200
+          },
+          {
+            "alt": "New Windows installed by Mr. Roof's Window Installers.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-roofing-1.png",
+            "w": 200,
+            "h": 200
+          },
+          {
+            "alt": "Masonry Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/masonry-services.jpg",
+            "w": 630,
+            "h": 420
+          },
+          {
+            "alt": "Benefits of new siding installed by Mr. Roof.",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 630,
+            "h": 420
+          },
+          {
+            "alt": "3D Exterior Visualization Tool.",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 600,
+            "h": 338
+          },
+          {
+            "alt": "New Roof Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Siding",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Local Window Installation Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Gutter Installation Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Attic Insulation Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 1201,
+            "h": 209
+          }
+        ]
+      },
+      {
+        "width": 768,
+        "height": 8476,
+        "headings": [
+          {
+            "text": "Masonry & Chimney Services",
+            "tag": "H1",
+            "x": 75,
+            "y": 472,
+            "width": 618,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 91,
+            "y": 969,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Professional Masonry and Chimney Repair",
+            "tag": "H2",
+            "x": 15,
+            "y": 2837,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Stone Veneer Siding",
+            "tag": "H2",
+            "x": 15,
+            "y": 4364,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "3D Home Exterior Visualizer",
+            "tag": "H2",
+            "x": 15,
+            "y": 5105,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 5659,
+            "width": 738,
+            "font": "44px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 69,
+            "y": 7048,
+            "width": 630,
+            "font": "42px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 40,
+            "y": 8076,
+            "width": 693,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 40,
+            "y": 8192,
+            "width": 693,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Masonry Services by our Masonry Contractors",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/masonry-chimney-services-1536x707.jpg",
+            "w": 768,
+            "h": 320
+          },
+          {
+            "alt": "Masonry & Chimney Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-mason.png",
+            "w": 200,
+            "h": 200
+          },
+          {
+            "alt": "Chimney Reline & Resleeve Services by our Masonry Contractors.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-lining.png",
+            "w": 200,
+            "h": 200
+          },
+          {
+            "alt": "Tuckpointing services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-tuck.png",
+            "w": 200,
+            "h": 200
+          },
+          {
+            "alt": "New Windows installed by Mr. Roof's Window Installers.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-roofing-1.png",
+            "w": 200,
+            "h": 200
+          },
+          {
+            "alt": "Masonry Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/masonry-services.jpg",
+            "w": 738,
+            "h": 492
+          },
+          {
+            "alt": "Benefits of new siding installed by Mr. Roof.",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 738,
+            "h": 492
+          },
+          {
+            "alt": "3D Exterior Visualization Tool.",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 600,
+            "h": 338
+          },
+          {
+            "alt": "New Roof Installation",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Siding",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Local Window Installation Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Gutter Installation Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Attic Insulation Services",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 738,
+            "h": 128
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "height": 10147,
+        "headings": [
+          {
+            "text": "Masonry & Chimney Services",
+            "tag": "H1",
+            "x": 15,
+            "y": 459,
+            "width": 360,
+            "font": "36px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 51,
+            "y": 881,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Professional Masonry and Chimney Repair",
+            "tag": "H2",
+            "x": 15,
+            "y": 3016,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Stone Veneer Siding",
+            "tag": "H2",
+            "x": 15,
+            "y": 4891,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "3D Home Exterior Visualizer",
+            "tag": "H2",
+            "x": 15,
+            "y": 5563,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 6354,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 50,
+            "y": 8309,
+            "width": 290,
+            "font": "32px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 55,
+            "y": 9631,
+            "width": 285,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 55,
+            "y": 9783,
+            "width": 285,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Masonry Services by our Masonry Contractors",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/masonry-chimney-services-1536x707.jpg",
+            "w": 390,
+            "h": 200
+          },
+          {
+            "alt": "Tuckpointing services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-tuck.png",
+            "w": 118,
+            "h": 118
+          },
+          {
+            "alt": "New Windows installed by Mr. Roof's Window Installers.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-roofing-1.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Masonry Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/masonry-services.jpg",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "Benefits of new siding installed by Mr. Roof.",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "3D Exterior Visualization Tool.",
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==",
+            "w": 360,
+            "h": 203
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -537,3 +537,51 @@ Covered:
 2. Lansing absent from reference footer; Lexington absent from reference lead-form dropdown.
 3. Footer `/free%20estimate` likely 404s.
 4. `/nashville/roofing/commercial-roofing/` exists in sitemap but Nashville nav uses `/nashville/commercial/`.
+
+## Sprint 4 — Service hub verification (2026-10-17)
+
+Baseline clean main/origin `66e90f515523fe6b2106f1065877785a4df137b3`; repository-local identity retained. Scope: five service bodies only. Full per-page audit: [SERVICE_PAGES_AUDIT.md](SERVICE_PAGES_AUDIT.md).
+
+| Page | Reference sections | Implemented sections | Browser verification | Remaining differences |
+|---|---|---|---|---|
+| Roofing | Panorama/intro/specials, trust, 4 photo cards, awards, history/3 benefits, single review, related cards, estimate | All, in observed order | Chromium + Firefox matrix, navigation/refresh, disclosure/review/related actions | Substitute roof photos and existing badge artwork; original shorter prose; explicit review controls |
+| Siding | Intro/eyebrow, trust, 4 products, 6-style selector, repair, trim, colors, visualizer, 6 FAQs, related, estimate | All, in observed order | Both engines; keyboard disclosure and next/previous style wrap; location action | Illustrative repeated photos rather than product swatches; product/color CTA adapted to estimate shell |
+| Windows | Intro, reasons, trust, local list, ProVia, visualizer CTA, related list, financing, estimate, 5 FAQs, final CTA | All, in observed order | Both engines; direct loads/refresh and header/mobile navigation | Regional-hub fallbacks for unconfirmed window routes; product/visualizer photos substituted |
+| Gutters | Intro, installation/checklist, trust, seamless benefits, guards, related, estimate | All; no invented FAQs/reviews | Both engines and width matrix | Substitute inspection/consultation photos, shorter prose |
+| Masonry | Intro, 4 white cards, repair/checklist, trust, stone veneer, visualizer, related, estimate | All; no invented FAQs/reviews | Both engines and width matrix | Numbered markers replace reference icons; no exact chimney/stone photos |
+
+### Checks actually run
+
+- `npm run lint`: pass, no warnings/errors.
+- `npm run typecheck`: pass.
+- `npm test`: **77/77**, 10 files. Added content/action resolution, availability fallback, single H1/priority image, no unintended forms, style wrap, location navigation, observed-composition and single-review tests. Existing homepage, picker, drawer and mock form suites pass.
+- `npm run build`: pass, 103 modules; 82 clean-route entries plus custom 404. Main JS 384.37kB / 119.27kB gzip; service dispatcher chunk 26.39kB / 8.73kB gzip; route CSS 10.39kB / 2.43kB gzip.
+- Built HTML checked: only each hub's current hero is preloaded; homepage entry retains its homepage preload; custom 404 has no hero preload; noindex retained.
+- `git diff --check`: pass before staging. Claude files remain ignored.
+
+### Browser coverage and evidence
+
+Chromium **153.0.8010.12** and Firefox **155.0**, production static server at `/construction-project/` (no SPA fallback for supported route checks). All five pages at 320, 360, 390, 430, 640, 768, 1024, 1280, 1440, 1920 and 2560 CSS px, plus 844×390 landscape: **60 samples per engine**, zero page-level horizontal overflow, zero clipped measured headings/buttons/selects, one H1 each, zero runtime/console errors. This finite set is not an all-device claim.
+
+[Geometry records](evidence/sprint-4/browser-matrix.json) and [production interactions](evidence/sprint-4/production-interactions.json). Both engines verified direct HTTP 200 entry loads, refresh, all five primary navigation links, mobile drawer navigation/close, availability-gated service picker, related-service links, estimate-shell destination, homepage form note, all images loaded, noindex and zero non-GET requests during smoke checks. Native disclosure Enter/Space toggling, siding next/previous, Roofing reviews and reduced-motion autoplay guard passed. Existing mock submission behavior is covered by its unchanged unit tests; this sprint's browser smoke did not re-submit the form.
+
+Reference/local comparisons: `reference-{service}-{1440|768|390}.webp` and `local-{service}-{1440|768|390}.webp` in [evidence](evidence/sprint-4/). Full-page captures use identical 900px viewport heights and are stored as quality-82 WebP to limit repository size. All five desktop compositions and tablet/mobile hero contact sheets were visually inspected; representative final corrections were re-inspected. Reference lazy-loading failures are documented rather than treated as missing required content. No screenshot proves identical photographs or exact typography/content height.
+
+Keyboard focus uses the existing visible focus treatment; native details and manual buttons remain usable without hover. No animated entrance gate. Reduced-motion computed disclosure duration <0.01s; inherited carousel disables autoplay. Image dimensions/aspect ratios reserve space. Actual 200% zoom was attempted in headed Chromium with Control+0 and five Control++ commands: DPR stayed 1 and viewport width stayed 1034, so **actual zoom is unverified**, not substituted with resizing. [Attempt record](evidence/sprint-4/zoom-attempt.json). Physical touch, screen-reader output and exhaustive intermediate-width/slow-network scenarios remain unverified.
+
+### Lighthouse — production build, localhost static server
+
+Lighthouse reports are stored in `evidence/sprint-4/lighthouse-{roofing|windows}-{mobile|desktop}.json`; [summary](evidence/sprint-4/lighthouse-summary.json). These are local production audits, **not live PageSpeed Insights results**. The test static server has no gzip/cache headers, so transfer/cache findings can differ from Pages.
+
+| Page | Mobile performance | Desktop performance | Accessibility | Best Practices | CLS mobile / desktop |
+|---|---:|---:|---:|---:|---:|
+| Roofing | 71 | 97 | 100 both | 100 both | 0 / 0.001 |
+| Windows | 71 | 98 | 100 both | 100 both | 0 / 0.001 |
+
+Initial Roofing run: Performance 41, Accessibility 97, CLS 0.851. It identified the footer appearing while a lazy route had an empty fallback, plus the dark review-note contrast problem. Reserved loading space, a light review-note color and WOFF2 fonts corrected those issues. Existing font payload reduced from 281,160 bytes TTF to 82,680 bytes WOFF2. Route-specific hero preloads were then added; final scores above retain this change. The initial CLI audit wrote a valid report but returned a Windows temporary-profile cleanup EPERM; subsequent audits used a managed browser connection and completed normally.
+
+**Performance 100 remains open.** Remaining actionable findings: render-blocking shared CSS, large common JS/unused code, delayed route content/LCP, image delivery and hosting cache policy. Consider further route payload separation and image sizing after measuring deployed performance. No React/SPA performance ceiling is claimed. SEO scores are intentionally affected by noindex; indexing must not be enabled to improve a demo score.
+
+### Unfinished destinations and scope
+
+The four Roofing detail routes remain Sprint 4.5 shells. Locations, `/free-estimate/`, `/financing/`, `/visualizer/` remain future-sprint shells; the working mock form remains on the homepage. Product/insulation actions use the existing estimate shell instead of fabricated detail routes. Exact imagery, product swatches, badge equivalence, original photo licensing documentation, actual zoom and live Performance 100 remain open. No Laravel/MySQL work performed.

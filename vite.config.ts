@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "node:path";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { staticRoutes } from "./src/app/staticRoutes";
+import { servicePages, type ServiceHubKey } from "./src/data/servicePages";
 
 export default defineConfig(({ command, isPreview }) => ({
   base: command === "build" || isPreview ? "/construction-project/" : "/",
@@ -16,10 +17,17 @@ export default defineConfig(({ command, isPreview }) => ({
       for (const route of staticRoutes().filter((route) => route !== "/")) {
         const directory = path.join(output, route.slice(1));
         await mkdir(directory, { recursive: true });
-        await writeFile(path.join(directory, "index.html"), html);
+        const service = servicePages[route.slice(1) as ServiceHubKey];
+        const hero = service?.hero.file;
+        const preload = hero ? `<link rel="preload" as="image" type="image/webp" href="/construction-project/images/services/photos/${hero}-900.webp" imagesrcset="/construction-project/images/services/photos/${hero}-480.webp 480w, /construction-project/images/services/photos/${hero}-900.webp 900w" imagesizes="100vw" fetchpriority="high">` : "";
+        await writeFile(path.join(directory, "index.html"), preload ? html.replace("</head>", `${preload}\n</head>`) : html);
       }
       // Pages serves this shell with HTTP 404, keeping path, query and hash intact.
       await writeFile(path.join(output, "404.html"), html);
+      // Only the homepage entry preloads the homepage image. Other clean-route
+      // entries and 404 keep their own route's high-priority image discovery.
+      const homePreload = '<link rel="preload" as="image" type="image/webp" href="/construction-project/images/homepage/hero-suburban-home.webp" imagesrcset="/construction-project/images/homepage/hero-suburban-home-mobile.webp 480w, /construction-project/images/homepage/hero-suburban-home.webp 960w" imagesizes="(max-width: 768px) 100vw, 680px" fetchpriority="high">';
+      await writeFile(path.join(output, "index.html"), html.replace("</head>", `${homePreload}\n</head>`));
       await writeFile(path.join(output, ".nojekyll"), "");
       console.log(`Generated ${staticRoutes().length} supported static route entries and 404.html`);
     },

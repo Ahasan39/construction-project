@@ -51,4 +51,4 @@ Root-only ignore rules exclude `/CLAUDE.md`, `/CLAUDE.local.md` and `/.claude/`.
 
 See [progress](docs/PROGRESS.md), [QA report](docs/QA_REPORT.md), [route inventory](docs/ROUTE_INVENTORY.md) and [asset manifest](docs/ASSET_MANIFEST.md).
 
-Sprint 3.10 covers hosting and demo safeguards only. Actual 200% browser zoom remains unverified. Mobile Performance 100 remains an open target; the last reported localhost score was 78. Deployed mobile/desktop PageSpeed Insights requests returned HTTP 429 quota exceeded, so live scores remain pending. No Sprint 4, Laravel or MySQL work is included.
+Sprint 4 implements the five global service hubs; see the [service-page audit](docs/SERVICE_PAGES_AUDIT.md) for page-specific sections and local asset substitutions. Service-detail routes remain Sprint 4.5 shells. Actual 200% browser zoom remains unverified. Production-local Lighthouse Performance: Roofing 71 mobile / 97 desktop; Windows 71 mobile / 98 desktop. Performance 100 and deployed PageSpeed scores remain open. No Laravel or MySQL work is included.

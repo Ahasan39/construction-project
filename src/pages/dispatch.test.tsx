@@ -24,7 +24,7 @@ afterEach(() => cleanup());
 describe("top-level slug dispatcher", () => {
   it("renders a service hub for a known service slug", () => {
     renderAt("/roofing");
-    expect(screen.getByRole("heading", { name: /roofing/i })).toBeTruthy();
+    expect(screen.getByRole("heading", { level: 1, name: /roofing/i })).toBeTruthy();
   });
 
   it("renders a location hub for a known location slug", () => {

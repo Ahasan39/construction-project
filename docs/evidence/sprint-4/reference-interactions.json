@@ -1,0 +1,118 @@
+[
+  {
+    "slug": "roofing",
+    "disclosures": [
+      {
+        "tag": "DIV",
+        "role": "button",
+        "text": "\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tTransferable Lifetime Warranty\n\t\t\t\t\t",
+        "expanded": "false",
+        "class": "elementor-tab-title"
+      },
+      {
+        "tag": "DIV",
+        "role": "button",
+        "text": "\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tConvenient Financing Options\n\t\t\t\t\t",
+        "expanded": "false",
+        "class": "elementor-tab-title"
+      },
+      {
+        "tag": "DIV",
+        "role": "button",
+        "text": "\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t100% Accountability\n\t\t\t\t\t",
+        "expanded": "false",
+        "class": "elementor-tab-title"
+      }
+    ]
+  },
+  {
+    "slug": "siding",
+    "disclosures": [
+      {
+        "tag": "H3",
+        "role": "button",
+        "text": "\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tHow do I know if I need new siding?\n\t\t\t\t\t",
+        "expanded": "false",
+        "class": "elementor-tab-title"
+      },
+      {
+        "tag": "H3",
+        "role": "button",
+        "text": "\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tWhat siding materials do you install?\n\t\t\t\t\t",
+        "expanded": "false",
+        "class": "elementor-tab-title"
+      },
+      {
+        "tag": "H3",
+        "role": "button",
+        "text": "\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tHow long does a siding installation take?\n\t\t\t\t\t",
+        "expanded": "false",
+        "class": "elementor-tab-title"
+      },
+      {
+        "tag": "H3",
+        "role": "button",
+        "text": "\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tHow much does new siding cost?\n\t\t\t\t\t",
+        "expanded": "false",
+        "class": "elementor-tab-title"
+      },
+      {
+        "tag": "H3",
+        "role": "button",
+        "text": "\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tDo you offer financing?\n\t\t\t\t\t",
+        "expanded": "false",
+        "class": "elementor-tab-title"
+      },
+      {
+        "tag": "H3",
+        "role": "button",
+        "text": "\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tDo you offer a warranty?\n\t\t\t\t\t",
+        "expanded": "false",
+        "class": "elementor-tab-title"
+      }
+    ]
+  },
+  {
+    "faqOpen": "<h3 id=\"elementor-tab-title-1171\" class=\"elementor-tab-title\" data-tab=\"1\" role=\"button\" aria-controls=\"elementor-tab-content-1171\" aria-expanded=\"false\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"elementor-toggle-icon elementor-toggle-icon-right\" aria-hidden=\"true\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"elementor-toggle-icon-closed\"><svg class=\"e-font-icon-svg e-fas-plus\" viewBox=\"0 0 448 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z\"></path></svg></span>\n\t\t\t\t\t\t\t\t<span class=\"elementor-toggle-icon-opened\"><svg class=\"elementor-toggle-icon-opened e-font-icon-svg e-fas-minus\" viewBox=\"0 0 448 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z\"></path></svg></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<a class=\"elementor-toggle-title\" tabindex=\"0\">How do I know if I need new siding?</a>\n\t\t\t\t\t</h3>"
+  },
+  {
+    "slug": "windows",
+    "disclosures": [
+      {
+        "tag": "H3",
+        "role": "button",
+        "text": "\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tWhat factors should I consider when choosing new windows?\n\t\t\t\t\t",
+        "expanded": "false",
+        "class": "elementor-tab-title"
+      },
+      {
+        "tag": "H3",
+        "role": "button",
+        "text": "\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tWhat are the benefits of professional window installation versus DIY?\n\t\t\t\t\t",
+        "expanded": "false",
+        "class": "elementor-tab-title"
+      },
+      {
+        "tag": "H3",
+        "role": "button",
+        "text": "\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tHow long does a professional window installation take?\n\t\t\t\t\t",
+        "expanded": "false",
+        "class": "elementor-tab-title"
+      },
+      {
+        "tag": "H3",
+        "role": "button",
+        "text": "\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tWhat is the diﬀerence between argon and krypton gas fills, and which do I need?\n\t\t\t\t\t",
+        "expanded": "false",
+        "class": "elementor-tab-title"
+      },
+      {
+        "tag": "H3",
+        "role": "button",
+        "text": "\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\tWhy are energy-efficient windows worth the cost?\n\t\t\t\t\t",
+        "expanded": "false",
+        "class": "elementor-tab-title"
+      }
+    ]
+  }
+]

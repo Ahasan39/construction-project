@@ -38,9 +38,10 @@ function Stars({ rating }: { rating: 1 | 2 | 3 | 4 | 5 }) {
  * - Auto-pauses on hover and focus.
  * - Fully respects prefers-reduced-motion.
  */
-export function ReviewsStrip() {
+export function ReviewsStrip({ single = false }: { single?: boolean }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(() => {
+    if (single) return 1;
     if (typeof window !== "undefined") {
       const w = window.innerWidth;
       if (w < 640) return 1;
@@ -63,7 +64,7 @@ export function ReviewsStrip() {
   useEffect(() => {
     function updateVisibleCount() {
       const width = window.innerWidth;
-      if (width < 640) {
+      if (single || width < 640) {
         setVisibleCount(1);
       } else if (width < 1024) {
         setVisibleCount(2);
@@ -75,7 +76,7 @@ export function ReviewsStrip() {
     updateVisibleCount();
     window.addEventListener("resize", updateVisibleCount);
     return () => window.removeEventListener("resize", updateVisibleCount);
-  }, []);
+  }, [single]);
 
   const maxIndex = Math.max(0, total - visibleCount);
 

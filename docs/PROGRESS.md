@@ -541,3 +541,17 @@ Original Sprint 0 entry preserved below.
 - Git identity verified: `Ahasan39 <154082038+Ahasan39@users.noreply.github.com>`.
 - `.gitignore` added. Reference audit performed via HTML fetch (no live browser). Template families and representative URLs catalogued; see `REFERENCE_AUDIT.md` and `ROUTE_INVENTORY.md`.
 - No npm install, no components, no commits.
+
+## Sprint 4 — Service hubs (2026-10-17)
+
+Implemented only the five global service hub bodies. [Reference checklist](SERVICE_PAGES_AUDIT.md) records the actual live URLs, 1440/768/390 captures, section order, page-specific differences and limitations. Typed content and reusable sections remain separate. Roofing detail shells are ready for Sprint 4.5; no detail/location/backend bodies were added.
+
+Preserved the existing AppShell, location availability gates, mock homepage form, contact destinations, 82 clean-route entries, custom 404, noindex, Pages workflow and Claude ignores. The removed disclosure banner remains absent. Existing destination shells at free-estimate, financing and visualizer remain unfinished. The homepage form is still the working mock form.
+
+Added native disclosures for observed sections, a manual six-style siding selector, single-slide mode for the existing review carousel on Roofing, fluid grids and 180ms transitions honoring reduced motion. No new runtime dependency. Existing photographs supply local substitutes; exact product/masonry imagery and original licensing provenance remain open. WOFF2 conversion preserves existing font glyphs and weights. Hero preloads are scoped per generated hub/home entry. A nonempty Suspense placeholder prevents the footer loading shift.
+
+Verification: lint/typecheck pass; 77 tests in 10 files pass; build passes (103 modules, 82 entries). Chromium and Firefox each passed 60 geometry samples (all five pages at eleven widths plus landscape) and production interaction smoke tests. Paired reference/local screenshots were reviewed and the tablet hero breakpoint, intro proportions, related-card order, masonry image direction and review-note contrast corrected. See [QA](QA_REPORT.md) and `evidence/sprint-4/`.
+
+Production localhost Lighthouse: Roofing 71 mobile / 97 desktop; Windows 71 mobile / 98 desktop. Accessibility and Best Practices 100 in all four runs. Mobile CLS 0, desktop CLS 0.001 after correction (initial Roofing CLS 0.851). Performance 100 remains open; these are not deployed PageSpeed scores. Actual 200% browser zoom could not be confirmed; the attempted shortcuts did not change DPR/viewport. No claim of all-device coverage or pixel-perfect imagery.
+
+Publication: implementation commit and Pages run will be recorded after the authorized push and live verification.

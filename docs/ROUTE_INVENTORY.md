@@ -143,3 +143,15 @@ Explicit location-service availability is the single source of truth in [`src/da
 - Exhaustive list of every `/service-area/<slug>/` child — truncated by fetch tool size limits; we have the pattern and ~90 slugs sampled, which is sufficient to drive a data-driven template. Full enumeration can be re-fetched later if the client provides a slug list.
 - Any gated / member / crew-only URLs behind `/crew/`.
 - Any URLs we have not yet discovered (e.g. legal pages beyond `/privacy-policy/`, such as a terms & conditions page referenced by the free-estimate disclaimer). The reference links "Terms & Conditions" from the lead-form disclaimer — URL target not captured; **TODO: fetch and confirm.**
+
+## Sprint 4 route status (2026-10-17)
+
+| Routes | Current status |
+|---|---|
+| `/roofing/`, `/siding/`, `/windows/`, `/gutters/`, `/masonry/` | Complete service hub bodies; reference-informed compositions, local demo asset substitutions. See SERVICE_PAGES_AUDIT.md for differences. |
+| `/roofing/roof-replacement/`, `/roofing/roof-repair/`, `/roofing/metal-roofing/`, `/roofing/commercial-roofing/` | Existing route shells only; unfinished Sprint 4.5 destinations. |
+| Location hubs and location-service routes | Existing shells retained. `serviceLocationLinks` uses explicit availability and regional-hub fallback; no combinations added. |
+| `/free-estimate/`, `/financing/`, `/visualizer/` | Existing future-sprint destination shells, not newly completed pages. The working mock estimate form remains on the homepage. |
+| Global insulation / new product detail routes | Not added. Insulation and unimplemented product detail actions use the existing estimate destination. |
+
+All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.

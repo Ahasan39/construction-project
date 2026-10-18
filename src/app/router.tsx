@@ -38,7 +38,7 @@ const FoundationPreview = import.meta.env.DEV
 
 // eslint-disable-next-line react-refresh/only-export-components
 function L({ children }: { children: ReactNode }) {
-  return <Suspense fallback={null}>{children}</Suspense>;
+  return <Suspense fallback={<div className="min-h-screen bg-slate-50 px-6 py-20" role="status"><p className="mx-auto max-w-7xl text-lg">Loading page…</p></div>}>{children}</Suspense>;
 }
 
 /**

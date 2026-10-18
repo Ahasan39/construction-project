@@ -51,3 +51,22 @@ Use Lucide or Heroicons (MIT-licensed) via tree-shakeable imports. No icon-font.
 
 - All third-party icons / fonts / stock images used in the demo must be MIT, CC0, CC-BY (with attribution recorded here), or purchased with a license certificate stored outside the repo.
 - Reference testimonials, awards, and company statistics (e.g. "500,000+ customers", "60+ years") visible on mrroof.com are **not transferable** to our build and will be replaced with clearly placeholder content.
+## Sprint 4 assets (2026-10-17)
+
+No new third-party or reference-site photographs downloaded. Sources below are the existing local Sprint 3 demonstration JPEGs under `public/images/homepage/`. Their original stock/license provenance was not supplied in the baseline manifest; reuse does not establish a new license or production approval. All are **substitutes**, not exact reference assets or photographs of actual projects. Product-specific and masonry photo replacement remains open. No credentials were created; existing labeled award artwork is reused on Roofing only.
+
+Each source below is cropped to 3:2 and encoded as `public/images/services/photos/{name}-480.webp` (480×320) and `{name}-900.webp` (900×600), quality 78, with explicit dimensions, srcset/sizes and lazy loading below the hero. Small originals may be upscaled for consistent dimensions; this does not add detail. Only the current route's hero is eager/high priority. The 900px maximum can appear soft on large displays.
+
+| Source filename (existing JPEG) | Usage | Status |
+|---|---|---|
+| hero-suburban-home | Roofing/Windows panorama; replacement, window and related imagery | Local demo substitute; inherited provenance limitation |
+| benefit-exterior-renovation | Siding panorama, exterior/stone/visualizer and product sections | Local demo substitute; not a product swatch or stone close-up |
+| promo-warranty | Masonry panorama; specials, accents and product sections | Local demo substitute; not a chimney project photo |
+| benefit-consultant-homeowner | History, installation and consultation sections | Local demo substitute |
+| benefit-roofer-install | Roof repair card; siding repair illustration | Local demo substitute; roof work rather than siding-specific work |
+| benefit-crew-working | Commercial roofing card | Local demo substitute; pitched residential crew rather than a flat commercial roof |
+| promo-inspector-gutters | Gutters panorama and guard section | Local demo substitute; inspection rather than reference rain/gutter close-up |
+
+Font optimization: `Metropolis-{Regular,Medium,SemiBold,Bold}.woff2` lossless WOFF2 conversions of the matching existing TTF files using `wawoff2` (temporary tooling, not a project dependency). Source/license inherited from baseline: Metropolis by Chris Simpson, SIL OFL 1.1. Same glyphs and weights; originals retained. CSS now requests WOFF2. No font-family or visual weight changes.
+
+The build now inserts the existing homepage image preload into the homepage HTML entry only; generated service entries and custom 404 do not contain it. Existing centralized contacts remain +880 1842-299275 / tel:+8801842299275 and amamulahasan77@gmail.com / mailto:amamulahasan77@gmail.com; earlier manifest contact rows are historical.
