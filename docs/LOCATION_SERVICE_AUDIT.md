@@ -168,11 +168,49 @@ invented, so this sprint removes them:
 
 Imagery, headings, eyebrows and intro paragraphs are unchanged.
 
+## Sprint 5.5.5 — Cincinnati scoped service hubs
+
+Live inspection of https://www.mrroof.com/cincinnati/ on 2026-10-20 confirms
+all six service-grid tiles link to scoped URLs under `/cincinnati/`. Five
+are implemented locally; `/cincinnati/insulation/` is a verified reference
+URL but has no local `ServiceHubKey` and keeps the scaffold.
+
+| Local service | Reference href | Final URL (no redirect) | Local destination | Evidence |
+|---|---|---|---|---|
+| Roofing | `https://www.mrroof.com/cincinnati/roofing/` | same | `/cincinnati/roofing/` | reference service-grid and header nav |
+| Siding | `https://www.mrroof.com/cincinnati/siding/` | same | `/cincinnati/siding/` | reference service-grid and header nav |
+| Windows | `https://www.mrroof.com/cincinnati/windows/` | same | `/cincinnati/windows/` | reference service-grid and header nav |
+| Gutters | `https://www.mrroof.com/cincinnati/gutters/` | same | `/cincinnati/gutters/` | reference service-grid and header nav |
+| Masonry | `https://www.mrroof.com/cincinnati/masonry/` | same | `/cincinnati/masonry/` | reference service-grid and header nav |
+
+| Route | Hero H1 | Reference parity | Local FAQ | Final CTA |
+|---|---|---|---|---|
+| `/cincinnati/roofing/` | Cincinnati Roofing Services | Reference H1 verbatim | None (reference has no FAQ) | `/cincinnati/#estimate` |
+| `/cincinnati/siding/` | Cincinnati Siding Installation | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / signs / lifespan) adopted | 3 | `/cincinnati/#estimate` |
+| `/cincinnati/windows/` | Cincinnati Window Installation | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / signs / replace all) adopted | 3 | `/cincinnati/#estimate` |
+| `/cincinnati/gutters/` | Cincinnati Gutters | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / know-if-need / ice dam) adopted | 3 | `/cincinnati/#estimate` |
+| `/cincinnati/masonry/` | Cincinnati Masonry Services | Reference H1 verbatim | None (reference has no FAQ) | `/cincinnati/#estimate` |
+
+### CTA deviation (Cincinnati)
+
+Cincinnati availability advertises `hasFreeEstimate`, but
+`/cincinnati/free-estimate/` is still a Sprint 1 scaffold (kept behind the
+`COMPLETED_SLUGS` whitelist in `LocationFreeEstimatePage.tsx`). The five
+scoped service pages set an explicit `finalCtaTo: "/cincinnati/#estimate"`
+so the primary CTA reaches the completed location-hub hero form instead of
+the unfinished shell, matching the pattern established for Grand Rapids
+(5.5.3) and Cleveland (5.5.4).
+
+### Imagery
+
+Reuses existing per-service hero photography from `servicePages[key].hero`;
+no new assets. No substitutions beyond the shared pattern from Sprint 5.5.1.
+
 ## Not completed (still Sprint 1 shells)
 
-- `/nashville/insulation/`, `/grand-rapids/insulation/` — verified reference
-  URLs but have no local `ServiceHubKey` entry; keep the scaffold rather than
-  mis-render.
+- `/nashville/insulation/`, `/grand-rapids/insulation/`,
+  `/cincinnati/insulation/` — verified reference URLs but have no local
+  `ServiceHubKey` entry; keep the scaffold rather than mis-render.
 - `/cleveland/masonry/` and `/cleveland/insulation/` — resolve to Not Found
   because the reference does **not** publish scoped Cleveland URLs for those
   services (the tiles link to the global `/masonry/` and `/insulation/`).
@@ -186,9 +224,9 @@ Imagery, headings, eyebrows and intro paragraphs are unchanged.
 - `/<other-city>/free-estimate/` for cities whose availability advertises it
   (cleveland, cincinnati, louisville, dayton) — Sprint 1 scaffolds, kept by
   an explicit `COMPLETED_SLUGS` whitelist in `LocationFreeEstimatePage.tsx`.
-- The six remaining locations (cincinnati, dayton, lexington, louisville,
-  detroit, lansing) continue to use the Sprint 1 scaffold for every one of
-  their advertised scoped services.
+- The five remaining locations (dayton, lexington, louisville, detroit,
+  lansing) continue to use the Sprint 1 scaffold for every one of their
+  advertised scoped services.
 
 ## Automated checks
 

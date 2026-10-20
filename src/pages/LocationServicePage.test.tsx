@@ -25,6 +25,7 @@ afterEach(() => cleanup());
 const NASHVILLE_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
 const GRAND_RAPIDS_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
 const CLEVELAND_HUBS = ["roofing", "siding", "windows", "gutters"] as const;
+const CINCINNATI_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
 
 describe("locationServicePages data", () => {
   it("defines content only for pairs listed in availability", () => {
@@ -112,6 +113,34 @@ describe("Cleveland local-service hubs render", () => {
   it("Cleveland masonry remains Not Found (reference links the global /masonry/, not a scoped URL)", () => {
     renderAt("/cleveland/masonry");
     expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
+  });
+});
+
+describe("Cincinnati local-service hubs render", () => {
+  it.each(CINCINNATI_HUBS)("renders a completed body with a city-named H1 for /cincinnati/%s/", (key) => {
+    renderAt(`/cincinnati/${key}`);
+    const h1 = screen.getByRole("heading", { level: 1 });
+    expect(h1.textContent?.toLowerCase()).toContain("cincinnati");
+    expect(screen.queryByText(/scaffold — sprint 1/i)).toBeNull();
+  });
+
+  it("hero CTA points at the Cincinnati location-hub #estimate anchor", () => {
+    renderAt("/cincinnati/windows");
+    const h1 = screen.getByRole("heading", { level: 1 });
+    const intro = h1.closest("section")!;
+    const link = within(intro).getByRole("link", { name: /get a free estimate/i });
+    expect(link.getAttribute("href")).toBe("/cincinnati/#estimate");
+  });
+
+  it("renders FAQ only on Cincinnati pages where the reference publishes one", () => {
+    renderAt("/cincinnati/siding");
+    expect(screen.getByRole("heading", { name: /frequently asked questions/i })).toBeTruthy();
+    cleanup();
+    renderAt("/cincinnati/roofing");
+    expect(screen.queryByRole("heading", { name: /frequently asked questions/i })).toBeNull();
+    cleanup();
+    renderAt("/cincinnati/masonry");
+    expect(screen.queryByRole("heading", { name: /frequently asked questions/i })).toBeNull();
   });
 });
 

@@ -175,10 +175,73 @@ const clevelandServices: LocationServiceMap = {
   },
 };
 
+const CINCINNATI_FINAL_CTA = "/cincinnati/#estimate";
+
+const cincinnatiServices: LocationServiceMap = {
+  // Reference /cincinnati/roofing/ has no FAQ section; the local hub omits
+  // one rather than inventing questions.
+  roofing: {
+    title: "Cincinnati Roofing Services",
+    eyebrow: "Residential Roof Replacement and Repair",
+    intro:
+      "Residential roofing for Cincinnati and the Tri-State area — replacement, repair and inspection. Written estimates, workmanship warranties and a transferable lifetime warranty on qualifying systems.",
+    finalCtaTo: CINCINNATI_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased).
+  siding: {
+    title: "Cincinnati Siding Installation",
+    eyebrow: "Vinyl, Fiber Cement and Engineered Wood",
+    intro:
+      "Siding projects for Cincinnati homes. Compare vinyl, fiber cement and engineered wood profiles, colors and warranty terms with a written estimate — no high-pressure sales.",
+    faqs: [
+      { title: "Siding replacement cost in Cincinnati?", body: "Wall area, chosen material, trim details and any underlying repairs affect the total. A measured, written estimate is more useful than a single price point for every home." },
+      { title: "What are signs I need new siding in Cincinnati?", body: "Repeated paint failure, soft or warped panels, visible water staining behind the siding or persistent pest intrusion are reasons to request an inspection. Humid Ohio summers can accelerate these issues on older vinyl and wood siding." },
+      { title: "How long does vinyl siding last in Cincinnati?", body: "Well-installed vinyl commonly lasts 20–40 years in a Southwest Ohio climate; fiber cement systems are rated longer. Actual lifespan depends on exposure, maintenance and the specific product." },
+    ],
+    finalCtaTo: CINCINNATI_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased).
+  windows: {
+    title: "Cincinnati Window Installation",
+    eyebrow: "ProVia Endure, Aeris and Aspect",
+    intro:
+      "Replacement windows for Cincinnati homes with ProVia products. Compare frames, glass packages and installation details with a written estimate.",
+    faqs: [
+      { title: "Window replacement cost in Cincinnati?", body: "Opening count, chosen frame and glass package, and any trim or sill repair affect the total. The written estimate lists each opening and its selected configuration." },
+      { title: "What are signs I need new windows in Cincinnati?", body: "Persistent drafts, condensation between panes, difficulty operating sashes and visible frame rot are reasons to request an inspection — common on older wood frames in Ohio's humid climate." },
+      { title: "Should I replace all the house windows at once?", body: "Replacing the full set in one project usually keeps installation costs lower per opening and gives a consistent exterior. Phased replacement is possible when budget or weather calls for it; the written plan explains both options." },
+    ],
+    finalCtaTo: CINCINNATI_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased).
+  gutters: {
+    title: "Cincinnati Gutters",
+    eyebrow: "Seamless Aluminum Gutters and Guards",
+    intro:
+      "Seamless aluminum gutter installations for Cincinnati homes. Compare profiles, colors and downspout placement so rainwater is directed away from the foundation.",
+    faqs: [
+      { title: "How much do new gutters cost in Cincinnati?", body: "Linear footage, chosen gauge and profile, downspout count and any fascia repair affect the total. A measured, written estimate is more useful than a single price point for every home." },
+      { title: "How do I know if I need new gutters?", body: "Sagging sections, visible rust or splits, repeated overflow during rainfall, or pulled-away fascia are reasons to request an inspection — especially after Ohio winters." },
+      { title: "What is an ice dam?", body: "An ice dam is a ridge of ice that forms along the roof edge when melted snow refreezes, blocking further melt-water from draining through the gutters. Insulation, ventilation and clear gutters all reduce the risk." },
+    ],
+    finalCtaTo: CINCINNATI_FINAL_CTA,
+  },
+  // Reference /cincinnati/masonry/ has no FAQ section; the local hub omits
+  // one rather than inventing questions.
+  masonry: {
+    title: "Cincinnati Masonry Services",
+    eyebrow: "Chimney Repair, Tuckpointing and Stone Veneer",
+    intro:
+      "Masonry repair, tuckpointing and chimney work for Cincinnati homes. Each project is quoted in writing, with scope and materials described before work begins.",
+    finalCtaTo: CINCINNATI_FINAL_CTA,
+  },
+};
+
 export const locationServicePages: Record<Slug, LocationServiceMap> = {
   nashville: nashvilleServices,
   "grand-rapids": grandRapidsServices,
   cleveland: clevelandServices,
+  cincinnati: cincinnatiServices,
 };
 
 export function findLocationServiceContent(

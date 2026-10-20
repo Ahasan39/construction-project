@@ -156,6 +156,28 @@ Explicit location-service availability is the single source of truth in [`src/da
 
 All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.
 
+## Sprint 5.5.5 route status — 2026-10-20
+
+Five Cincinnati scoped service hubs now render completed bodies:
+`/cincinnati/{roofing,siding,windows,gutters,masonry}/`. Live inspection
+of https://www.mrroof.com/cincinnati/ on 2026-10-20 confirms all six
+service-grid tiles link to scoped `/cincinnati/*/` URLs (insulation
+included); the local insulation route stays Not Found because it is not a
+`ServiceHubKey`. Four new availability entries added for `cincinnati/{siding,
+windows,gutters,masonry}`; the existing roofing entry with hasFreeEstimate,
+hasFinancing, hasServiceAreaIndex, variants: ["commercial-roofing"] is
+unchanged. Static entries rise 89 → 93.
+
+Primary estimate CTAs on the five Cincinnati scoped pages explicitly target
+`/cincinnati/#estimate` via `finalCtaTo` because `/cincinnati/free-estimate/`
+is still a Sprint 1 scaffold.
+
+Still Sprint 1 scaffolds: insulation (not a `ServiceHubKey`),
+commercial-roofing variant, every `/<location>/financing/` and
+`/<location>/service-area/` for the four completed cities, and every
+scoped service for the five remaining cities (dayton, lexington,
+louisville, detroit, lansing).
+
 ## Sprint 5.5.4 route status — 2026-10-20
 
 Four Cleveland scoped service hubs now render completed bodies:

@@ -36,7 +36,9 @@ export const locationServiceAvailability: LocationServiceAvailability[] = [
     hasFreeEstimate: true,
   },
 
-  // Cincinnati — commercial roofing + estimate + financing.
+  // Cincinnati — commercial roofing + estimate + financing + service-area
+  // index. The reference Cincinnati homepage also links scoped service hubs
+  // for siding, windows, gutters and masonry (verified 2026-10-20).
   {
     locationSlug: "cincinnati",
     serviceKey: "roofing",
@@ -45,6 +47,10 @@ export const locationServiceAvailability: LocationServiceAvailability[] = [
     hasFinancing: true,
     hasServiceAreaIndex: true,
   },
+  { locationSlug: "cincinnati", serviceKey: "siding" },
+  { locationSlug: "cincinnati", serviceKey: "windows" },
+  { locationSlug: "cincinnati", serviceKey: "gutters" },
+  { locationSlug: "cincinnati", serviceKey: "masonry" },
 
   // Louisville — estimate + financing observed.
   {

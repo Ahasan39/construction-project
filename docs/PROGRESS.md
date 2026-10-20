@@ -1,5 +1,18 @@
 # Progress Log
 
+## Sprint 5.5.5 — Cincinnati scoped service hubs (2026-10-20)
+
+- Baseline: clean `main` at `1d19fdf85996f299098c019b78195d53a4ba9885`; expected origin and repository-local author verified.
+- Reference evidence (2026-10-20): live inspection of https://www.mrroof.com/cincinnati/ confirms all six service-grid tiles link to scoped `/cincinnati/*/` URLs. Spot-checked each of the five implementable pages for section pattern and FAQ topics; adopted only reference-verified FAQ topics (close-paraphrased).
+- Completed five Cincinnati scoped service hubs reusing the existing architecture: `/cincinnati/{roofing,siding,windows,gutters,masonry}/`. Reference-verified FAQ coverage: roofing and masonry have no FAQ (local hubs omit one); siding and windows carry 3 topics each; gutters carries 3 topics (cost / know-if-need / ice dam). No local FAQs were invented.
+- `/cincinnati/insulation/` is a verified reference URL but is not a `ServiceHubKey`; it keeps the Sprint 1 scaffold rather than mis-render.
+- Availability: added four entries to `src/data/availability.ts` for `cincinnati/{siding,windows,gutters,masonry}` so the routes mount. The pre-existing roofing entry (hasFreeEstimate, hasFinancing, hasServiceAreaIndex, variants: ["commercial-roofing"]) is unchanged. Static-route generation output rises from 89 to 93 entries + 404.
+- CTA deviation: Cincinnati advertises `hasFreeEstimate` but `/cincinnati/free-estimate/` is still a Sprint 1 scaffold. The five Cincinnati service entries carry explicit `finalCtaTo: "/cincinnati/#estimate"` so primary CTAs reach the completed location-hub hero form, matching the Grand Rapids/Cleveland pattern.
+- Content imagery: reuses existing per-service hero photography from `servicePages[key].hero`; no new assets introduced. No office, review, or credential fabricated.
+- Added 7 focused tests in `src/pages/LocationServicePage.test.tsx`: each of the five Cincinnati hubs renders a city-named H1 without the scaffold badge, hero CTA resolves to `/cincinnati/#estimate`, and FAQ heading renders only on pages where the reference publishes one (siding yes; roofing and masonry no).
+- Verification: `npm run lint`, `npm run typecheck`, `npm test` (166 tests across 14 files) and `npm run build` (93 static entries + 404) all pass. Rendered browser verification remains unavailable in this session; HTTP 200 and bundle-string probes are not substituted for rendered checks.
+- Remaining cities: five locations (dayton, lexington, louisville, detroit, lansing) still use the Sprint 1 scaffold for every advertised scoped service URL on their reference homepages.
+
 ## Sprint 5.5.4 — Cleveland scoped service hubs + Grand Rapids FAQ correction (2026-10-20)
 
 - Baseline: clean `main` at `fc12983c5900103a52fd7a3e2dbfeede72fc191d`; expected origin and repository-local author verified.
