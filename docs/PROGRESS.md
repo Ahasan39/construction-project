@@ -1,5 +1,17 @@
 # Progress Log
 
+## Sprint 5.5.3 — Grand Rapids scoped service hubs (2026-10-20)
+
+- Baseline: clean `main` at `ad23732ffcf81a9d1ab66df2f96cb0402e37ec92`; expected origin and repository-local author verified.
+- Reference evidence (2026-10-20): live inspection of https://www.mrroof.com/grand-rapids/ confirms the service grid links to published scoped URLs for roofing, siding, windows, gutters, masonry and insulation. Spot-checked `/grand-rapids/siding/` (reference H1 "Grand Rapids Siding Installation", three local FAQs on cost / signs / lifespan) and `/grand-rapids/roofing/` (H1 "Grand Rapids Roofing Services", no FAQ section).
+- Completed five Grand Rapids scoped service hubs reusing the Sprint 5.5.1 Nashville architecture: `/grand-rapids/{roofing,siding,windows,gutters,masonry}/`. Insulation is a verified reference URL but is not a `ServiceHubKey` and keeps the Sprint 1 scaffold rather than mis-render.
+- Availability: added four entries to `src/data/availability.ts` for grand-rapids/{siding,windows,gutters,masonry} so the routes mount. No capability flags added — the existing `hasFinancing` and `hasServiceAreaIndex` for Grand Rapids are unchanged and remain scoped to the roofing entry per the existing table shape. Static-route generation output rises from 82 to 86 entries + 404.
+- CTA deviation: Grand Rapids has no `hasFreeEstimate` capability and `/grand-rapids/free-estimate/` is still a scaffold. Per the Sprint 5.5.3 brief, the five scoped CTAs target the completed Grand Rapids location-hub hero form via `/grand-rapids/#estimate`. This is now the shared default in `LocationServicePage.tsx` for any completed scoped page whose city lacks `hasFreeEstimate`, replacing the previous fallback that pointed at the unfinished global `/free-estimate/` shell.
+- Content: typed Grand Rapids entries added to `src/data/locationServicePages.ts`. The Grand Rapids siding FAQs mirror the reference's own three questions (close-paraphrased for Middle Michigan climate). Other hubs carry 2 Grand Rapids-contextual FAQs each; no office, review or credential is fabricated. Imagery reuses the existing per-service `servicePages[key].hero`; no new assets.
+- Added 7 focused tests in `src/pages/LocationServicePage.test.tsx`: each of the five Grand Rapids hubs renders a city-named H1 without the scaffold badge, the hero CTA on a Grand Rapids page resolves to `/grand-rapids/#estimate`, and the breadcrumb returns to `/grand-rapids/`.
+- Verification: `npm run lint`, `npm run typecheck`, `npm test` (148 tests across 14 files) and `npm run build` (86 static entries + 404) all pass. Rendered browser verification remains unavailable in this session; HTTP 200 and bundle-string probes are not substituted for rendered checks.
+- Remaining local-service hub count from the inventory: seven cities (cleveland, cincinnati, dayton, lexington, louisville, detroit, lansing) have advertised scoped service URLs on their reference homepages (where available); verifying each and implementing the corresponding hubs is the next scope choice. Variants, financing, service-area index and service-area child routes remain out of scope.
+
 ## Sprint 5.5.2 — Nashville route provenance correction + free-estimate (2026-10-20)
 
 - Baseline: clean `main` at `138eab524b9665e6d41476c9ec0b1ac15a334a9c`; expected origin and repository-local author verified.

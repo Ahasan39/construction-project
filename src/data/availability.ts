@@ -63,13 +63,19 @@ export const locationServiceAvailability: LocationServiceAvailability[] = [
     hasServiceAreaIndex: true,
   },
 
-  // Grand Rapids — financing + service-area index.
+  // Grand Rapids — financing + service-area index, plus the five scoped
+  // service hubs linked from the reference Grand Rapids homepage
+  // (verified 2026-10-20).
   {
     locationSlug: "grand-rapids",
     serviceKey: "roofing",
     hasFinancing: true,
     hasServiceAreaIndex: true,
   },
+  { locationSlug: "grand-rapids", serviceKey: "siding" },
+  { locationSlug: "grand-rapids", serviceKey: "windows" },
+  { locationSlug: "grand-rapids", serviceKey: "gutters" },
+  { locationSlug: "grand-rapids", serviceKey: "masonry" },
 
   // Ann Arbor — service-area index only.
   {

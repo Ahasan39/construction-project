@@ -98,10 +98,14 @@ function LocationServiceBody({ location, service, hubKey, content }: BodyProps) 
     });
   }, [content.title, content.intro, canonicalPath]);
 
+  // Prefer the scoped free-estimate route; otherwise fall back to the
+  // completed location-hub hero form via its `#estimate` anchor. This keeps
+  // the primary CTA off an unfinished shell without inventing a nonexistent
+  // local route.
   const estimateTo = content.finalCtaTo
     ?? (hasLocationCapability(location.slug, "hasFreeEstimate")
       ? `/${location.slug}/free-estimate/`
-      : "/free-estimate/");
+      : `/${location.slug}/#estimate`);
 
   return (
     <div className={`service-page service-page--${hubKey}`}>

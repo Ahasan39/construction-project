@@ -156,6 +156,28 @@ Explicit location-service availability is the single source of truth in [`src/da
 
 All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.
 
+## Sprint 5.5.3 route status — 2026-10-20
+
+Five Grand Rapids scoped service hubs now render completed bodies:
+`/grand-rapids/{roofing,siding,windows,gutters,masonry}/`. Live inspection
+of https://www.mrroof.com/grand-rapids/ on 2026-10-20 confirms each is a
+published reference URL. Availability for `grand-rapids/{siding,windows,
+gutters,masonry}` was added so the routes mount; `roofing` was already
+listed. The static-route generator now emits 86 entries + 404 (was 82) —
+the four new availability entries become new SPA entry files.
+
+Primary estimate CTAs on the Grand Rapids scoped service pages target the
+Grand Rapids location-hub hero form via `#estimate` because the city's
+`/free-estimate/` route is still a Sprint 1 scaffold. This fallback is now
+the shared default in `LocationServicePage.tsx` for any completed scoped
+service page whose city lacks `hasFreeEstimate`.
+
+Still Sprint 1 scaffolds for Grand Rapids: `/grand-rapids/insulation/` (not
+a `ServiceHubKey`), `/grand-rapids/financing/`, `/grand-rapids/service-area/`
+and `/grand-rapids/service-area/<child>/`. The seven other cities
+(cleveland, cincinnati, dayton, lexington, louisville, detroit, lansing)
+still use the Sprint 1 scaffold for every advertised scoped service.
+
 ## Sprint 5.5.2 route status — 2026-10-20
 
 Corrects Sprint 5.5.1's provenance claim and completes `/nashville/free-estimate/`.

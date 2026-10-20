@@ -23,6 +23,7 @@ function renderAt(path: string) {
 afterEach(() => cleanup());
 
 const NASHVILLE_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
+const GRAND_RAPIDS_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
 
 describe("locationServicePages data", () => {
   it("defines content only for pairs listed in availability", () => {
@@ -62,6 +63,32 @@ describe("Nashville local-service hubs render", () => {
     const breadcrumb = screen.getByRole("navigation", { name: /breadcrumb/i });
     const link = within(breadcrumb).getByRole("link", { name: /nashville, tn/i });
     expect(link.getAttribute("href")).toBe("/nashville/");
+  });
+});
+
+describe("Grand Rapids local-service hubs render", () => {
+  it.each(GRAND_RAPIDS_HUBS)("renders a completed body with a city-named H1 for /grand-rapids/%s/", (key) => {
+    renderAt(`/grand-rapids/${key}`);
+    const h1 = screen.getByRole("heading", { level: 1 });
+    expect(h1.textContent?.toLowerCase()).toContain("grand rapids");
+    expect(screen.queryByText(/scaffold — sprint 1/i)).toBeNull();
+  });
+
+  it("hero CTA falls back to the location hub #estimate anchor when no scoped free-estimate exists", () => {
+    renderAt("/grand-rapids/siding");
+    const h1 = screen.getByRole("heading", { level: 1 });
+    const intro = h1.closest("section")!;
+    const link = within(intro).getByRole("link", { name: /get a free estimate/i });
+    // React Router resolves `to` relative to the current pathname; the raw
+    // target is `/grand-rapids/#estimate`.
+    expect(link.getAttribute("href")).toBe("/grand-rapids/#estimate");
+  });
+
+  it("breadcrumb returns to the Grand Rapids location hub", () => {
+    renderAt("/grand-rapids/masonry");
+    const breadcrumb = screen.getByRole("navigation", { name: /breadcrumb/i });
+    const link = within(breadcrumb).getByRole("link", { name: /grand rapids, mi/i });
+    expect(link.getAttribute("href")).toBe("/grand-rapids/");
   });
 });
 

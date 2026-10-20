@@ -2,6 +2,10 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 5.5.3 — Grand Rapids scoped service hubs (2026-10-20)
+
+Lint, typecheck, 148 tests across 14 files and production build (86 static entries + 404) all passed after implementation. New data-driven coverage asserts each of the five Grand Rapids hubs renders a city-named H1 without the Sprint 1 scaffold badge, the hero CTA resolves to the Grand Rapids `#estimate` anchor on the completed location hub, and the breadcrumb returns to `/grand-rapids/`. Rendered browser verification is not available in this session; HTTP 200 and bundle-string probes are not substituted. See [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).
+
 ## Sprint 5.5.2 — Nashville provenance correction and free-estimate (2026-10-20)
 
 Lint, typecheck, 141 tests across 14 files and production build all passed after implementation. New coverage in `src/pages/LocationFreeEstimatePage.test.tsx` asserts Nashville renders a completed body with the "Free Estimate." H1 (reference parity), the hero region selector is suppressed because Nashville is preselected while the service dropdown remains open, demo phone/email contacts render with the shared `tel:` / `mailto:` hrefs, breadcrumb targets `/nashville/`, the "Demo form — submissions are not sent." notice is present, the four other advertised `hasFreeEstimate` cities keep their Sprint 1 scaffolds, and unknown or incapable location slugs resolve to Not Found. The provenance correction documented in [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md) is docs-only — no local route or implementation changed. Rendered browser verification remains unavailable in this session; HTTP 200 and bundle-string probes are not substituted for rendered checks.

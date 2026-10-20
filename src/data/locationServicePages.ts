@@ -79,8 +79,63 @@ const nashvilleServices: LocationServiceMap = {
   },
 };
 
+const grandRapidsServices: LocationServiceMap = {
+  roofing: {
+    title: "Grand Rapids Roofing Services",
+    eyebrow: "Residential Roof Replacement and Repair",
+    intro:
+      "Residential roofing for Grand Rapids and West Michigan. Written estimates, workmanship warranties and a transferable lifetime warranty on qualifying systems.",
+    faqs: [
+      { title: "How long does a roof replacement take in Grand Rapids?", body: "Most residential roofs are installed in a single working day. Steep pitches, complex detailing or larger homes may extend the schedule into a second day; the written estimate confirms the plan." },
+      { title: "Do you handle storm damage inspections in West Michigan?", body: "Yes. The reference service documents wind, hail and water damage across Kent and Ottawa counties and the surrounding communities." },
+    ],
+  },
+  siding: {
+    title: "Grand Rapids Siding Installation",
+    eyebrow: "Vinyl, Fiber Cement and Engineered Wood",
+    intro:
+      "Siding projects for Grand Rapids homes. Compare vinyl, fiber cement and engineered wood profiles, colors and warranty terms with a written estimate — no high-pressure sales.",
+    faqs: [
+      { title: "Siding replacement cost in Grand Rapids?", body: "Wall area, chosen material, trim details and any underlying repairs affect the total. A measured, written estimate is more useful than a single price point for every home." },
+      { title: "What are signs I need new siding in Grand Rapids?", body: "Repeated paint failure, soft or warped panels, visible water staining behind the siding or persistent pest intrusion are reasons to request an inspection. Lake-effect winters can accelerate these issues on older vinyl and wood siding." },
+      { title: "How long does vinyl siding last in Grand Rapids?", body: "Well-installed vinyl commonly lasts 20–40 years in a West Michigan climate; fiber cement systems are rated longer. Actual lifespan depends on exposure, maintenance and the specific product." },
+    ],
+  },
+  windows: {
+    title: "Grand Rapids Replacement Windows",
+    eyebrow: "ProVia Endure, Aeris and Aspect",
+    intro:
+      "Replacement windows for Grand Rapids homes with ProVia products. Compare frames, glass packages and installation details with a written estimate.",
+    faqs: [
+      { title: "What windows suit a West Michigan climate?", body: "Low-E glass with argon fill is a common choice for the heating-dominated Grand Rapids load. Compare whole-window U-factor and SHGC ratings for the specific configuration before deciding." },
+      { title: "How many windows can be installed in a day?", body: "Typical residential installations complete 8–12 openings per day, depending on the home. Larger projects are scheduled across two or more days with a plan for weather and interior protection." },
+    ],
+  },
+  gutters: {
+    title: "Grand Rapids Gutters & Downspouts",
+    eyebrow: "Seamless Aluminum Gutters and Guards",
+    intro:
+      "Seamless aluminum gutter installations for Grand Rapids homes. Compare profiles, colors and downspout placement so rainwater is directed away from the foundation.",
+    faqs: [
+      { title: "What gutter size do I need for a Grand Rapids home?", body: "Standard 5-inch K-style gutters serve most residential rooflines. Larger roofs, long valleys and heavy spring rains may call for 6-inch gutters and additional downspouts; a written estimate specifies both." },
+      { title: "Do gutter guards eliminate maintenance?", body: "Guards reduce debris that reaches the gutter channel, but do not eliminate periodic inspection and cleaning — especially in Grand Rapids's leaf-heavy fall." },
+    ],
+  },
+  masonry: {
+    title: "Grand Rapids Masonry & Chimney Services",
+    eyebrow: "Chimney Repair, Tuckpointing and Stone Veneer",
+    intro:
+      "Masonry repair, tuckpointing and chimney work for Grand Rapids homes. Each project is quoted in writing, with scope and materials described before work begins.",
+    faqs: [
+      { title: "When should I schedule chimney work in Grand Rapids?", body: "Early fall, before fireplace season, is a common time to inspect flashings, caps and crown condition. West Michigan freeze-thaw cycles continue through winter." },
+      { title: "Can tuckpointing match older brick?", body: "In most cases a careful color match is possible by sampling the existing mortar. New mortar never looks identical on day one; weathering closes the gap over time." },
+    ],
+  },
+};
+
 export const locationServicePages: Record<Slug, LocationServiceMap> = {
   nashville: nashvilleServices,
+  "grand-rapids": grandRapidsServices,
 };
 
 export function findLocationServiceContent(

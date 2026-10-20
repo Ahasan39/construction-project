@@ -77,20 +77,65 @@ estimate route, which is now a completed page (see below).
 - No new imagery was generated. The hero uses the existing per-service hero
   photo from `servicePages[key].hero`.
 
+## Sprint 5.5.3 — Grand Rapids scoped service hubs
+
+Live inspection of https://www.mrroof.com/grand-rapids/ on 2026-10-20
+confirms every service-grid tile links to a published scoped URL
+(`/grand-rapids/{roofing,siding,windows,gutters,masonry,insulation}/`).
+Five hubs implemented locally; `insulation` keeps the scaffold.
+
+| Local service | Reference href | Final URL (no redirect) | Local destination | Evidence |
+|---|---|---|---|---|
+| Roofing | `https://www.mrroof.com/grand-rapids/roofing/` | same | `/grand-rapids/roofing/` | reference service-grid and header nav |
+| Siding | `https://www.mrroof.com/grand-rapids/siding/` | same | `/grand-rapids/siding/` | reference service-grid and header nav |
+| Windows | `https://www.mrroof.com/grand-rapids/windows/` | same | `/grand-rapids/windows/` | reference service-grid and header nav |
+| Gutters | `https://www.mrroof.com/grand-rapids/gutters/` | same | `/grand-rapids/gutters/` | reference service-grid and header nav |
+| Masonry | `https://www.mrroof.com/grand-rapids/masonry/` | same | `/grand-rapids/masonry/` | reference service-grid and header nav |
+
+| Route | Hero H1 | Reference parity | Final CTA |
+|---|---|---|---|
+| `/grand-rapids/roofing/` | Grand Rapids Roofing Services | Reference H1 verbatim; 2 Grand Rapids FAQs | `/grand-rapids/#estimate` |
+| `/grand-rapids/siding/` | Grand Rapids Siding Installation | Reference H1 verbatim; three local FAQs (cost / signs / lifespan) adopted from the reference wording | `/grand-rapids/#estimate` |
+| `/grand-rapids/windows/` | Grand Rapids Replacement Windows | Local eyebrow + 2 Grand Rapids FAQs | `/grand-rapids/#estimate` |
+| `/grand-rapids/gutters/` | Grand Rapids Gutters & Downspouts | Local eyebrow + 2 Grand Rapids FAQs | `/grand-rapids/#estimate` |
+| `/grand-rapids/masonry/` | Grand Rapids Masonry & Chimney Services | Local eyebrow + 2 Grand Rapids FAQs | `/grand-rapids/#estimate` |
+
+Four new availability entries were added to `src/data/availability.ts` so the
+`/grand-rapids/{siding,windows,gutters,masonry}/` routes mount. The entries
+carry only the `serviceKey`; no new capability flags are introduced because
+`hasFreeEstimate`, `hasFinancing` and `hasServiceAreaIndex` are
+service-independent for Grand Rapids on the reference. Previous ability for
+`roofing` to mount is unchanged.
+
+### CTA deviation documented
+
+Grand Rapids availability does not advertise `hasFreeEstimate` and
+`/grand-rapids/free-estimate/` remains a Sprint 1 scaffold. Per the Sprint
+5.5.3 brief, the five scoped hubs' primary CTAs point at the completed Grand
+Rapids location homepage's hero form via the `#estimate` anchor
+(`/grand-rapids/#estimate`), not at the unfinished `/free-estimate/` shell.
+The fallback was added as a code-level default in
+`src/pages/LocationServicePage.tsx` so future locations with no scoped
+estimate route inherit the same behaviour instead of pointing at the global
+page.
+
 ## Not completed (still Sprint 1 shells)
 
-- `/nashville/insulation/` — verified reference URL but has no local
-  `ServiceHubKey` entry; keeps the scaffold rather than mis-render.
+- `/nashville/insulation/`, `/grand-rapids/insulation/` — verified reference
+  URLs but have no local `ServiceHubKey` entry; keep the scaffold rather than
+  mis-render.
 - `/nashville/roofing/commercial-roofing/` — service-variant page; variants
   remain scaffolded here. The global `/roofing/commercial-roofing/` detail
   page completed in Sprint 4.5 is unaffected.
-- `/nashville/financing/`, `/nashville/service-area/` and
-  `/nashville/service-area/<child>/` — Sprint 1 scaffolds.
+- `/nashville/financing/`, `/nashville/service-area/`,
+  `/grand-rapids/financing/`, `/grand-rapids/service-area/` and every
+  `/<location>/service-area/<child>/` — Sprint 1 scaffolds.
 - `/<other-city>/free-estimate/` for cities whose availability advertises it
   (cleveland, cincinnati, louisville, dayton) — Sprint 1 scaffolds, kept by
   an explicit `COMPLETED_SLUGS` whitelist in `LocationFreeEstimatePage.tsx`.
-- The eight other locations continue to use the Sprint 1 scaffold for every
-  one of their advertised scoped services.
+- The seven remaining locations (cleveland, cincinnati, dayton, lexington,
+  louisville, detroit, lansing) continue to use the Sprint 1 scaffold for
+  every one of their advertised scoped services.
 
 ## Automated checks
 
