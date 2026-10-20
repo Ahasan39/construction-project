@@ -242,11 +242,67 @@ Cleveland and Cincinnati.
 Reuses existing per-service hero photography from `servicePages[key].hero`;
 no new assets.
 
+## Sprint 5.5.7 — Lexington scoped service hubs (correction + implementation)
+
+Correction: Sprint 5.1's `ROUTE_INVENTORY.md §2` labelled Lexington "hub only
+(no additional location-scoped pages)." Live inspection of
+https://www.mrroof.com/lexington/ on 2026-10-20 shows all six service-grid
+tiles link to scoped `/lexington/<service>/` URLs. Five are implemented
+locally; `/lexington/insulation/` is a verified reference URL but has no
+local `ServiceHubKey` and stays Not Found rather than mis-render.
+
+| Local service | Reference href | Final URL (no redirect) | Local destination | Evidence |
+|---|---|---|---|---|
+| Roofing | `https://www.mrroof.com/lexington/roofing/` | same | `/lexington/roofing/` | reference service-grid and header nav |
+| Siding | `https://www.mrroof.com/lexington/siding/` | same | `/lexington/siding/` | reference service-grid and header nav |
+| Windows | `https://www.mrroof.com/lexington/windows/` | same | `/lexington/windows/` | reference service-grid and header nav |
+| Gutters | `https://www.mrroof.com/lexington/gutters/` | same | `/lexington/gutters/` | reference service-grid and header nav |
+| Masonry | `https://www.mrroof.com/lexington/masonry/` | same | `/lexington/masonry/` | reference service-grid and header nav |
+| Insulation | `https://www.mrroof.com/lexington/insulation/` | same | Not Found (no `ServiceHubKey`) | reference service-grid |
+
+| Route | Hero H1 | Reference parity | Local FAQ | Final CTA |
+|---|---|---|---|---|
+| `/lexington/roofing/` | Lexington Roofing Services | Reference H1 verbatim; **first roofing hub with a reference FAQ** — 3 topics (cost / know-if-need / insurance) adopted | 3 | `/lexington/#estimate` |
+| `/lexington/siding/` | Lexington Siding Installation | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / signs / lifespan) adopted | 3 | `/lexington/#estimate` |
+| `/lexington/windows/` | Lexington Window Installation | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / signs / replace all) adopted | 3 | `/lexington/#estimate` |
+| `/lexington/gutters/` | Lexington Gutters & Downspouts | Reference H1 verbatim; 2 reference-verified FAQ topics adopted. Note: reference's first FAQ title still shows "Cincinnati" (template leftover); local wording corrects to "Lexington". | 2 | `/lexington/#estimate` |
+| `/lexington/masonry/` | Lexington Masonry Services | Reference H1 verbatim | None (reference has no FAQ) | `/lexington/#estimate` |
+
+### Availability correction
+
+Five new entries were added to `src/data/availability.ts` for
+`lexington/{roofing,siding,windows,gutters,masonry}`, replacing the
+"hub only" classification. No capability flags are added — the reference
+Lexington page does not advertise financing or a service-area index. A
+`/lexington/free-estimate/` URL is linked from the reference service pages
+but is not represented as a local capability; its scoped implementation is
+out of scope for this sprint.
+
+Tests that depended on the former hub-only classification were retargeted
+to Detroit (which remains hub-only on the reference):
+`availability.test.ts`, `dispatch.test.tsx`, `deployment.test.ts` and
+`LocationServicePage.test.tsx` all updated accordingly.
+
+### CTA deviation (Lexington)
+
+Lexington has no `hasFreeEstimate` capability in local availability (the
+Sprint 1 scaffold is not even mounted at `/lexington/free-estimate/`). All
+five Lexington service entries set an explicit
+`finalCtaTo: "/lexington/#estimate"` so primary CTAs reach the completed
+Lexington location-hub hero form — same pattern as Grand Rapids, Cleveland,
+Cincinnati and Dayton.
+
+### Imagery
+
+Reuses existing per-service hero photography from `servicePages[key].hero`;
+no new assets.
+
 ## Not completed (still Sprint 1 shells)
 
 - `/nashville/insulation/`, `/grand-rapids/insulation/`,
-  `/cincinnati/insulation/` — verified reference URLs but have no local
-  `ServiceHubKey` entry; keep the scaffold rather than mis-render.
+  `/cincinnati/insulation/`, `/lexington/insulation/` — verified reference
+  URLs but have no local `ServiceHubKey` entry; stay Not Found rather than
+  mis-render.
 - `/cleveland/masonry/`, `/cleveland/insulation/`, `/dayton/masonry/`,
   `/dayton/insulation/` — resolve to Not Found because the reference does
   **not** publish scoped URLs for those services (the tiles link to the
@@ -261,9 +317,11 @@ no new assets.
 - `/<other-city>/free-estimate/` for cities whose availability advertises it
   (cleveland, cincinnati, louisville, dayton) — Sprint 1 scaffolds, kept by
   an explicit `COMPLETED_SLUGS` whitelist in `LocationFreeEstimatePage.tsx`.
-- The four remaining locations (lexington, louisville, detroit, lansing)
-  continue to use the Sprint 1 scaffold for every one of their advertised
-  scoped services.
+- The remaining locations continue to use the Sprint 1 scaffold for every
+  one of their advertised scoped services: louisville and lansing (both
+  reference pages have scoped service links). Detroit is reference-hub-only
+  (no scoped service URLs on its reference page) and has no scoped service
+  pages to implement.
 
 ## Automated checks
 

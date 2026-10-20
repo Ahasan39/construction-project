@@ -18,7 +18,7 @@ describe("static demo deployment", () => {
     for (const path of ["/", "/nashville", "/nashville/roofing/commercial-roofing", "/nashville/siding", "/nashville/free-estimate", "/ann-arbor/service-area/toledo", "/blog/placeholder-article-1"]) {
       expect(routes).toContain(path);
     }
-    for (const path of ["/__preview", "/lexington/free-estimate", "/lexington/roofing", "/ann-arbor/siding", "/nashville/roofing/metal-roofing", "/nashville/insulation", "/detroit/service-area"]) {
+    for (const path of ["/__preview", "/lexington/free-estimate", "/detroit/roofing", "/ann-arbor/siding", "/nashville/roofing/metal-roofing", "/nashville/insulation", "/detroit/service-area"]) {
       expect(routes).not.toContain(path);
     }
     expect(new Set(routes).size).toBe(routes.length);

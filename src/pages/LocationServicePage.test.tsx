@@ -27,6 +27,7 @@ const GRAND_RAPIDS_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"]
 const CLEVELAND_HUBS = ["roofing", "siding", "windows", "gutters"] as const;
 const CINCINNATI_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
 const DAYTON_HUBS = ["roofing", "siding", "windows", "gutters"] as const;
+const LEXINGTON_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
 
 describe("locationServicePages data", () => {
   it("defines content only for pairs listed in availability", () => {
@@ -178,6 +179,36 @@ describe("Dayton local-service hubs render", () => {
   });
 });
 
+describe("Lexington local-service hubs render (Sprint 5.5.7)", () => {
+  it.each(LEXINGTON_HUBS)("renders a completed body with a city-named H1 for /lexington/%s/", (key) => {
+    renderAt(`/lexington/${key}`);
+    const h1 = screen.getByRole("heading", { level: 1 });
+    expect(h1.textContent?.toLowerCase()).toContain("lexington");
+    expect(screen.queryByText(/scaffold — sprint 1/i)).toBeNull();
+  });
+
+  it("hero CTA points at the Lexington location-hub #estimate anchor", () => {
+    renderAt("/lexington/roofing");
+    const h1 = screen.getByRole("heading", { level: 1 });
+    const intro = h1.closest("section")!;
+    const link = within(intro).getByRole("link", { name: /get a free estimate/i });
+    expect(link.getAttribute("href")).toBe("/lexington/#estimate");
+  });
+
+  it("Lexington roofing renders its reference-verified FAQ while masonry omits one", () => {
+    renderAt("/lexington/roofing");
+    expect(screen.getByRole("heading", { name: /frequently asked questions/i })).toBeTruthy();
+    cleanup();
+    renderAt("/lexington/masonry");
+    expect(screen.queryByRole("heading", { name: /frequently asked questions/i })).toBeNull();
+  });
+
+  it("Lexington insulation stays Not Found (not a ServiceHubKey)", () => {
+    renderAt("/lexington/insulation");
+    expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
+  });
+});
+
 describe("Grand Rapids FAQ provenance (Sprint 5.5.4 correction)", () => {
   it("keeps the reference-verified Siding FAQ section", () => {
     renderAt("/grand-rapids/siding");
@@ -194,9 +225,9 @@ describe("Grand Rapids FAQ provenance (Sprint 5.5.4 correction)", () => {
 });
 
 describe("Unsupported location-service combinations stay Not Found", () => {
-  // Lexington has no scoped service pages at all.
-  it("renders Not Found for /lexington/roofing", () => {
-    renderAt("/lexington/roofing");
+  // Detroit still has no scoped service pages.
+  it("renders Not Found for /detroit/roofing", () => {
+    renderAt("/detroit/roofing");
     expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
   });
 

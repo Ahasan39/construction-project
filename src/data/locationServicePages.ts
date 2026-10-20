@@ -292,12 +292,80 @@ const daytonServices: LocationServiceMap = {
   },
 };
 
+const LEXINGTON_FINAL_CTA = "/lexington/#estimate";
+
+const lexingtonServices: LocationServiceMap = {
+  // Reference-verified FAQ topics (close-paraphrased). This is the first
+  // roofing hub where the reference publishes an FAQ section.
+  roofing: {
+    title: "Lexington Roofing Services",
+    eyebrow: "Residential Roof Replacement and Repair",
+    intro:
+      "Residential roofing for Lexington and the Bluegrass region — replacement, repair and inspection. Written estimates, workmanship warranties and a transferable lifetime warranty on qualifying systems.",
+    faqs: [
+      { title: "How much does a new roof cost in Lexington?", body: "Pitch, square footage, chosen shingle package and any decking or flashing repair affect the total. The written estimate itemises materials and labor rather than offering a single price for every home." },
+      { title: "How do I know if I need a new roof?", body: "Curling or missing shingles, granule loss filling gutters, visible light in the attic and persistent leaks are reasons to request an inspection. Repairs can extend an aging roof when the deck is still sound." },
+      { title: "Will insurance cover the cost of my new roof?", body: "Coverage depends on the policy and the cause of damage. Storm or hail claims may be covered; aging-related replacement generally is not. The reference service helps document damage; the final decision rests with the insurer." },
+    ],
+    finalCtaTo: LEXINGTON_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased).
+  siding: {
+    title: "Lexington Siding Installation",
+    eyebrow: "Vinyl, Fiber Cement and Engineered Wood",
+    intro:
+      "Siding projects for Lexington homes. Compare vinyl, fiber cement and engineered wood profiles, colors and warranty terms with a written estimate — no high-pressure sales.",
+    faqs: [
+      { title: "Siding replacement cost in Lexington?", body: "Wall area, chosen material, trim details and any underlying repairs affect the total. A measured, written estimate is more useful than a single price point for every home." },
+      { title: "What are signs I need new siding?", body: "Repeated paint failure, soft or warped panels, visible water staining behind the siding or persistent pest intrusion are reasons to request an inspection — common on older vinyl and wood siding in the Bluegrass region." },
+      { title: "How long does vinyl siding last?", body: "Well-installed vinyl commonly lasts 20–40 years in a Kentucky climate; fiber cement systems are rated longer. Actual lifespan depends on exposure, maintenance and the specific product." },
+    ],
+    finalCtaTo: LEXINGTON_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased).
+  windows: {
+    title: "Lexington Window Installation",
+    eyebrow: "ProVia Endure, Aeris and Aspect",
+    intro:
+      "Replacement windows for Lexington homes with ProVia products. Compare frames, glass packages and installation details with a written estimate.",
+    faqs: [
+      { title: "Window replacement cost in Lexington?", body: "Opening count, chosen frame and glass package, and any trim or sill repair affect the total. The written estimate lists each opening and its selected configuration." },
+      { title: "What are signs I need new windows?", body: "Persistent drafts, condensation between panes, difficulty operating sashes and visible frame rot are reasons to request an inspection — common on older wood frames across central Kentucky." },
+      { title: "Should I replace all the house windows at once?", body: "Replacing the full set in one project usually keeps installation costs lower per opening and gives a consistent exterior. Phased replacement is possible when budget or weather calls for it; the written plan explains both options." },
+    ],
+    finalCtaTo: LEXINGTON_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased). Reference's first
+  // question still shows a Cincinnati template leftover; local wording
+  // corrects to Lexington.
+  gutters: {
+    title: "Lexington Gutters & Downspouts",
+    eyebrow: "Seamless Aluminum Gutters and Guards",
+    intro:
+      "Seamless aluminum gutter installations for Lexington homes. Compare profiles, colors and downspout placement so rainwater is directed away from the foundation.",
+    faqs: [
+      { title: "How much do new gutters cost in Lexington?", body: "Linear footage, chosen gauge and profile, downspout count and any fascia repair affect the total. A measured, written estimate is more useful than a single price point for every home." },
+      { title: "How do I know if I need new gutters?", body: "Sagging sections, visible rust or splits, repeated overflow during rainfall, or pulled-away fascia are reasons to request an inspection — especially after Kentucky winters." },
+    ],
+    finalCtaTo: LEXINGTON_FINAL_CTA,
+  },
+  // Reference /lexington/masonry/ has no FAQ section.
+  masonry: {
+    title: "Lexington Masonry Services",
+    eyebrow: "Chimney Repair, Tuckpointing and Stone Veneer",
+    intro:
+      "Masonry repair, tuckpointing and chimney work for Lexington homes. Each project is quoted in writing, with scope and materials described before work begins.",
+    finalCtaTo: LEXINGTON_FINAL_CTA,
+  },
+};
+
 export const locationServicePages: Record<Slug, LocationServiceMap> = {
   nashville: nashvilleServices,
   "grand-rapids": grandRapidsServices,
   cleveland: clevelandServices,
   cincinnati: cincinnatiServices,
   dayton: daytonServices,
+  lexington: lexingtonServices,
 };
 
 export function findLocationServiceContent(

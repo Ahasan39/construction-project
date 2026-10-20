@@ -112,7 +112,17 @@ export const locationServiceAvailability: LocationServiceAvailability[] = [
     hasServiceAreaIndex: true,
   },
 
-  // Lexington, Detroit — hub only (no additional location-scoped pages).
+  // Lexington — Sprint 5.1 called this "hub only", but live inspection on
+  // 2026-10-20 shows all six service-grid tiles on the reference Lexington
+  // homepage link to scoped /lexington/<service>/ URLs. Mount the five
+  // ServiceHubKey routes; insulation remains unmounted.
+  { locationSlug: "lexington", serviceKey: "roofing" },
+  { locationSlug: "lexington", serviceKey: "siding" },
+  { locationSlug: "lexington", serviceKey: "windows" },
+  { locationSlug: "lexington", serviceKey: "gutters" },
+  { locationSlug: "lexington", serviceKey: "masonry" },
+
+  // Detroit — hub only (no additional location-scoped pages on the reference).
 ];
 
 export function isLocationServiceAvailable(

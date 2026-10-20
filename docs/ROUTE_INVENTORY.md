@@ -156,6 +156,32 @@ Explicit location-service availability is the single source of truth in [`src/da
 
 All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.
 
+## Sprint 5.5.7 route status — 2026-10-20
+
+Correction + implementation for Lexington. Live inspection on 2026-10-20
+shows all six Lexington service-grid tiles link to scoped
+`/lexington/<service>/` URLs — Sprint 5.1's "hub only" classification was
+wrong. Five Lexington hubs now render completed bodies:
+`/lexington/{roofing,siding,windows,gutters,masonry}/`.
+`/lexington/insulation/` is a verified reference URL but has no local
+`ServiceHubKey` and stays Not Found.
+
+Five new availability entries added for Lexington; no capability flags
+(the reference Lexington page does not advertise financing or a
+service-area index). Static entries rise 96 → 101. Primary estimate CTAs
+on all five pages target `/lexington/#estimate` via `finalCtaTo` because
+no scoped `/lexington/free-estimate/` is implemented locally.
+
+Tests that assumed Lexington was hub-only were retargeted to Detroit
+(availability.test.ts, dispatch.test.tsx, deployment.test.ts and
+LocationServicePage.test.tsx).
+
+Still Sprint 1 scaffolds: insulation (not a `ServiceHubKey`),
+commercial-roofing variant, every `/<location>/financing/` and
+`/<location>/service-area/` for the six completed cities. Remaining cities
+with scoped service URLs to implement: louisville and lansing. Detroit is
+reference-hub-only.
+
 ## Sprint 5.5.6 route status — 2026-10-20
 
 Four Dayton scoped service hubs now render completed bodies:

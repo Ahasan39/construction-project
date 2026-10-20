@@ -54,7 +54,8 @@ describe("two-segment dispatcher", () => {
   });
 
   it("renders Not Found for an unavailable location/service combo", () => {
-    renderAt("/lexington/roofing");
+    // Detroit has no scoped service pages on the reference.
+    renderAt("/detroit/roofing");
     expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
   });
 

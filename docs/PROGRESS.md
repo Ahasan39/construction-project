@@ -1,5 +1,18 @@
 # Progress Log
 
+## Sprint 5.5.7 — Lexington scoped service hubs + classification correction (2026-10-20)
+
+- Baseline: clean `main` at `7caea003e7bdc535529634bd183fd8c504111f20`; expected origin and repository-local author verified.
+- Classification correction: Sprint 5.1's `ROUTE_INVENTORY.md §2` labelled Lexington "hub only." Live inspection of https://www.mrroof.com/lexington/ on 2026-10-20 shows all six service-grid tiles link to scoped `/lexington/<service>/` URLs. Spot-checked each of the five implementable pages for section pattern and FAQ topics.
+- Completed five Lexington scoped service hubs: `/lexington/{roofing,siding,windows,gutters,masonry}/`. Reference-verified FAQ coverage: roofing carries 3 topics (**first roofing hub with a reference FAQ** — cost / know-if-need / insurance); siding carries 3 (cost / signs / lifespan); windows carries 3 (cost / signs / replace-all); gutters carries 2 (cost / know-if-need; reference's first FAQ title still shows "Cincinnati" template leftover — local wording corrects to "Lexington"); masonry has no FAQ. No local FAQ topics are invented.
+- `/lexington/insulation/` is a verified reference URL but is not a `ServiceHubKey`; it stays Not Found rather than mis-render.
+- Availability: added five entries to `src/data/availability.ts` for `lexington/{roofing,siding,windows,gutters,masonry}`. No capability flags added — the reference Lexington page does not advertise financing or a service-area index. The scoped `/lexington/free-estimate/` route is linked from the reference but is not implemented locally (out of scope). Static-route generation output rises from 96 to 101 entries + 404.
+- CTA deviation: all five Lexington service entries carry explicit `finalCtaTo: "/lexington/#estimate"` so primary CTAs reach the completed Lexington location-hub hero form — same pattern as Grand Rapids, Cleveland, Cincinnati and Dayton.
+- Tests that assumed Lexington was hub-only were retargeted to Detroit (which remains hub-only on the reference): `availability.test.ts`, `dispatch.test.tsx`, `deployment.test.ts` and the Not-Found section of `LocationServicePage.test.tsx`.
+- Added 8 focused tests for Lexington: each of the five hubs renders a city-named H1 without the scaffold badge; hero CTA resolves to `/lexington/#estimate`; `/lexington/roofing/` renders its reference-verified FAQ while `/lexington/masonry/` omits one; `/lexington/insulation/` stays Not Found.
+- Verification: `npm run lint`, `npm run typecheck`, `npm test` (182 tests across 14 files) and `npm run build` (101 static entries + 404) all pass. Rendered browser verification remains unavailable in this session; HTTP 200 and bundle-string probes are not substituted.
+- Remaining locations requiring verified implementation: louisville and lansing (both have reference pages with scoped service links; not yet audited). Detroit is reference-hub-only — nothing to implement there.
+
 ## Sprint 5.5.6 — Dayton scoped service hubs (2026-10-20)
 
 - Baseline: clean `main` at `2e455a39357006186a0b0d094cd273ea71aa4b34`; expected origin and repository-local author verified.

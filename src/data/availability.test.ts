@@ -20,9 +20,15 @@ describe("location-service availability", () => {
     expect(isLocationServiceAvailable("ann-arbor", "siding")).toBe(false);
   });
 
-  it("flags Lexington/<anything> as unavailable (hub only)", () => {
-    expect(isLocationServiceAvailable("lexington", "roofing")).toBe(false);
-    expect(isLocationServiceAvailable("lexington", "siding")).toBe(false);
+  it("flags Lexington scoped service hubs as available (Sprint 5.5.7 correction)", () => {
+    expect(isLocationServiceAvailable("lexington", "roofing")).toBe(true);
+    expect(isLocationServiceAvailable("lexington", "siding")).toBe(true);
+    expect(isLocationServiceAvailable("lexington", "insulation")).toBe(false);
+  });
+
+  it("flags Detroit/<anything> as unavailable (hub only)", () => {
+    expect(isLocationServiceAvailable("detroit", "roofing")).toBe(false);
+    expect(isLocationServiceAvailable("detroit", "siding")).toBe(false);
   });
 
   it("exposes Nashville roofing commercial-roofing variant", () => {
@@ -51,7 +57,7 @@ describe("location-service availability", () => {
 
   it("returns undefined for an unavailable combo", () => {
     expect(
-      getLocationServiceAvailability("lexington", "roofing")
+      getLocationServiceAvailability("detroit", "roofing")
     ).toBeUndefined();
   });
 
