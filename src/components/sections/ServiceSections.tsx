@@ -119,6 +119,6 @@ export function ServiceCallout({ title, text, children, muted = false }: { title
   return <section className={`service-callout${muted ? " service-muted" : ""}`}><div className="service-container"><h2>{title}</h2><p>{text}</p><div className="service-actions">{children ?? <ServiceAction />}</div></div></section>;
 }
 
-export function ServiceEstimate({ windows = false }: { windows?: boolean }) {
-  return <section className="service-estimate"><div className="service-container"><h2>{windows ? "Ready to get started?" : "Schedule a Free No-Obligation Estimate Today"}</h2><p>Discuss your project, compare the options and request a written estimate.</p><div className="service-actions"><ServiceAction />{windows && <a className="service-action" href={brand.phoneHref}>Call {brand.phoneDisplay}</a>}</div></div></section>;
+export function ServiceEstimate({ windows = false, estimateTo }: { windows?: boolean; estimateTo?: string }) {
+  return <section className="service-estimate"><div className="service-container"><h2>{windows ? "Ready to get started?" : "Schedule a Free No-Obligation Estimate Today"}</h2><p>Discuss your project, compare the options and request a written estimate.</p><div className="service-actions"><ServiceAction to={estimateTo}>Get a Free Estimate</ServiceAction>{windows && <a className="service-action" href={brand.phoneHref}>Call {brand.phoneDisplay}</a>}</div></div></section>;
 }

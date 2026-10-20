@@ -156,6 +156,19 @@ Explicit location-service availability is the single source of truth in [`src/da
 
 All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.
 
+## Sprint 5.5.1 route status — 2026-10-20
+
+Five Nashville scoped service hubs now render completed bodies:
+`/nashville/roofing/`, `/nashville/siding/`, `/nashville/windows/`,
+`/nashville/gutters/`, `/nashville/masonry/`. See
+[LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).
+
+Still Sprint 1 scaffolds: `/nashville/insulation/` (not a `ServiceHubKey`),
+`/nashville/roofing/commercial-roofing/` (variant), `/nashville/free-estimate/`,
+`/nashville/financing/`, `/nashville/service-area/`, `/nashville/service-area/<child>/`,
+and every advertised scoped service for the other eight locations.
+Static-route generation, 404 and clean-entry counts are unchanged (82 + 404).
+
 ## Sprint 5.2 route status — 2026-10-20
 
 All ten location hubs (`/ann-arbor/`, `/cincinnati/`, `/cleveland/`,

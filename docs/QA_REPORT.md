@@ -2,6 +2,10 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 5.5.1 — Nashville local-service hub pages (2026-10-20)
+
+Lint, typecheck, 130 tests across 13 files and production build all passed after implementation. New data-driven coverage in `src/pages/LocationServicePage.test.tsx` asserts that every `locationServicePages` entry maps to an availability pair, each of the five completed Nashville hubs renders a city-named H1 without the Sprint 1 scaffold badge, the hero CTA resolves to `/nashville/free-estimate/`, the breadcrumb returns to `/nashville/`, `/lexington/roofing/` remains Not Found, and `/nashville/insulation/` continues to render the scaffold. Rendered browser verification of the five live routes at viewport widths is not available in this session; HTTP 200 and bundle-string probes are not substituted for rendered checks. See [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).
+
 ## Sprint 5.3 — Focused location-page verification (2026-10-20)
 
 ### Blocker — rendered browser verification

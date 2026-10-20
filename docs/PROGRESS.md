@@ -1,5 +1,16 @@
 # Progress Log
 
+## Sprint 5.5.1 — Nashville local-service hub pages (2026-10-20)
+
+- Baseline: clean `main` at `ebecb8e922cef94b96a0251ec59a7e4c59ef6d7c`; expected origin and repository-local author verified.
+- Completed five Nashville scoped service hubs: `/nashville/{roofing,siding,windows,gutters,masonry}/`. Composition reuses the global `ServiceSections` toolkit (hero/trust/products/features/related/estimate) and layers typed Nashville content from the new `src/data/locationServicePages.ts` (local H1, eyebrow, intro paragraph and concise local FAQs).
+- Reference audit (2026-10-20) confirmed only one scoped service hub, `/nashville/siding/`, is actually published on the live reference; its H1 ("Nashville Siding Installation") and FAQ topics were adopted verbatim. The other four Nashville scoped routes are advertised in `src/data/availability.ts` but are not published on the reference — their copy is Nashville-contextual paraphrase, not fabricated reference content, and no office, review or credential is invented.
+- `/nashville/insulation/` is in the availability table but is not a `ServiceHubKey`; it continues to render the Sprint 1 scaffold rather than mis-render. The commercial-roofing variant and the four other Nashville nested destinations (free-estimate, financing, service-area, service-area child) also remain scaffolds — these are explicitly out of scope here.
+- Minimal shared change: `ServiceEstimate` accepts an optional `estimateTo` prop so the final CTA points to `/nashville/free-estimate/` on the scoped pages rather than the global route. The hero sidebar replaces the global location dropdown with Nashville capability links (free-estimate, financing, service-area) sourced from availability, so no mis-directing dropdown appears on a page already scoped to Nashville.
+- Added `src/pages/LocationServicePage.test.tsx` with 10 tests: every entry in `locationServicePages` is backed by an availability pair; the five Nashville hubs each render a city-named H1 without the scaffold badge; hero CTA on a scoped page resolves to `/nashville/free-estimate/`; breadcrumb returns to `/nashville/`; `/lexington/roofing/` remains Not Found; `/nashville/insulation/` keeps the Sprint 1 scaffold. The pre-existing dispatcher test was retargeted to the new Nashville H1.
+- Verification (local): `npm run lint`, `npm run typecheck`, `npm test` (130 tests across 13 files) and `npm run build` (82 static entries + 404) all passed. Rendered browser verification remains unavailable in this session; HTTP 200 and bundle-string probes are not substituted.
+- Remaining scope: the five Nashville scoped non-service destinations and all scoped service hubs for the eight other locations remain Sprint 1 scaffolds.
+
 ## Sprint 5.3 — Focused location-page verification (2026-10-20)
 
 - Baseline: clean `main` at `8e2e96b96e90d4efeae6a523ada0687f298e5bc3`; expected origin and repository-local author verified.

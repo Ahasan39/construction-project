@@ -60,7 +60,9 @@ describe("two-segment dispatcher", () => {
 
   it("renders a location-service page for an available combo", () => {
     renderAt("/nashville/siding");
-    expect(screen.getByRole("heading", { name: /siding — nashville/i })).toBeTruthy();
+    expect(
+      screen.getByRole("heading", { level: 1, name: /nashville siding/i })
+    ).toBeTruthy();
   });
 
   it("renders Not Found when the first segment is neither a service nor a location", () => {
