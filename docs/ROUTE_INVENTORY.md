@@ -156,6 +156,32 @@ Explicit location-service availability is the single source of truth in [`src/da
 
 All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.
 
+## Sprint 5.5.4 route status — 2026-10-20
+
+Four Cleveland scoped service hubs now render completed bodies:
+`/cleveland/{roofing,siding,windows,gutters}/`. Live inspection of
+https://www.mrroof.com/cleveland/ on 2026-10-20 confirms each is a published
+reference URL. Three new availability entries added for Cleveland so the
+routes mount (`roofing` was already listed). Static entries rise 86 → 89.
+
+Cleveland's reference service grid intentionally links Masonry and
+Insulation tiles to the **global** `/masonry/` and `/insulation/` URLs, not
+scoped Cleveland pages — `/cleveland/masonry/` and `/cleveland/insulation/`
+remain Not Found rather than mis-render.
+
+Primary estimate CTAs on the Cleveland scoped pages explicitly target
+`/cleveland/#estimate` via `finalCtaTo` in `locationServicePages.ts` because
+`/cleveland/free-estimate/` is still a Sprint 1 scaffold. Grand Rapids FAQs
+documented as locally authored in Sprint 5.5.3 are removed from
+`/grand-rapids/{roofing,windows,gutters,masonry}/`; the reference-verified
+Siding FAQ block is retained.
+
+Still Sprint 1 scaffolds: insulation (not a `ServiceHubKey`),
+commercial-roofing variant, every `/<location>/financing/` and
+`/<location>/service-area/` for the three completed cities, and every
+scoped service for the six remaining cities (cincinnati, dayton, lexington,
+louisville, detroit, lansing).
+
 ## Sprint 5.5.3 route status — 2026-10-20
 
 Five Grand Rapids scoped service hubs now render completed bodies:

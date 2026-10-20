@@ -2,6 +2,10 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 5.5.4 — Cleveland scoped service hubs + Grand Rapids FAQ correction (2026-10-20)
+
+Lint, typecheck, 159 tests across 14 files and production build (89 static entries + 404) all passed after implementation. New data-driven coverage asserts: each of the four Cleveland hubs renders a city-named H1 without the Sprint 1 scaffold badge; the Cleveland hero CTA resolves to `/cleveland/#estimate`; `/cleveland/masonry/` remains Not Found (reference does not publish a scoped URL); Grand Rapids siding keeps its reference-verified FAQ block while roofing/windows/gutters/masonry no longer render one. Rendered browser verification is not available in this session; HTTP 200 and bundle-string probes are not substituted. See [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).
+
 ## Sprint 5.5.3 — Grand Rapids scoped service hubs (2026-10-20)
 
 Lint, typecheck, 148 tests across 14 files and production build (86 static entries + 404) all passed after implementation. New data-driven coverage asserts each of the five Grand Rapids hubs renders a city-named H1 without the Sprint 1 scaffold badge, the hero CTA resolves to the Grand Rapids `#estimate` anchor on the completed location hub, and the breadcrumb returns to `/grand-rapids/`. Rendered browser verification is not available in this session; HTTP 200 and bundle-string probes are not substituted. See [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).

@@ -54,7 +54,12 @@ export const locationServiceAvailability: LocationServiceAvailability[] = [
     hasFinancing: true,
   },
 
-  // Cleveland — estimate + financing + service-area index observed.
+  // Cleveland — estimate + financing + service-area index observed on the
+  // reference roofing hub, plus the four scoped service hubs linked from the
+  // reference Cleveland homepage (verified 2026-10-20). Masonry and Insulation
+  // tiles on the reference Cleveland page link to the GLOBAL /masonry/ and
+  // /insulation/ routes, not scoped Cleveland URLs, so they are intentionally
+  // absent here.
   {
     locationSlug: "cleveland",
     serviceKey: "roofing",
@@ -62,6 +67,9 @@ export const locationServiceAvailability: LocationServiceAvailability[] = [
     hasFinancing: true,
     hasServiceAreaIndex: true,
   },
+  { locationSlug: "cleveland", serviceKey: "siding" },
+  { locationSlug: "cleveland", serviceKey: "windows" },
+  { locationSlug: "cleveland", serviceKey: "gutters" },
 
   // Grand Rapids — financing + service-area index, plus the five scoped
   // service hubs linked from the reference Grand Rapids homepage

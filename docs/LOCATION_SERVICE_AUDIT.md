@@ -119,23 +119,76 @@ The fallback was added as a code-level default in
 estimate route inherit the same behaviour instead of pointing at the global
 page.
 
+## Sprint 5.5.4 — Cleveland scoped service hubs
+
+Live inspection of https://www.mrroof.com/cleveland/ on 2026-10-20 confirms
+four scoped service URLs are linked from the Cleveland service grid.
+Masonry and Insulation tiles on the Cleveland homepage link to the GLOBAL
+`/masonry/` and `/insulation/` routes, so **no scoped `/cleveland/masonry/`
+or `/cleveland/insulation/` is published**; the local routes stay Not Found.
+
+| Local service | Reference href | Final URL (no redirect) | Local destination | Evidence |
+|---|---|---|---|---|
+| Roofing | `https://www.mrroof.com/cleveland/roofing/` | same | `/cleveland/roofing/` | reference service-grid and header nav |
+| Siding | `https://www.mrroof.com/cleveland/siding/` | same | `/cleveland/siding/` | reference service-grid and header nav |
+| Windows | `https://www.mrroof.com/cleveland/windows/` | same | `/cleveland/windows/` | reference service-grid and header nav |
+| Gutters | `https://www.mrroof.com/cleveland/gutters/` | same | `/cleveland/gutters/` | reference service-grid and header nav |
+| Masonry | `https://www.mrroof.com/masonry/` (global) | same | Not Found at `/cleveland/masonry/` | reference service-grid |
+| Insulation | `https://www.mrroof.com/insulation/` (global) | same | Not Found at `/cleveland/insulation/` | reference service-grid |
+
+| Route | Hero H1 | Reference parity | Local FAQ | Final CTA |
+|---|---|---|---|---|
+| `/cleveland/roofing/` | Cleveland Roofing Services | Reference H1 verbatim; Award-Winning Roofing Contractors eyebrow | None (reference has no FAQ) | `/cleveland/#estimate` |
+| `/cleveland/siding/` | Cleveland Siding Installation | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / signs / lifespan) adopted | 3 | `/cleveland/#estimate` |
+| `/cleveland/windows/` | Cleveland Window Installation | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / signs / replace all) adopted | 3 | `/cleveland/#estimate` |
+| `/cleveland/gutters/` | Cleveland Gutters & Downspouts | Reference H1 verbatim; 2 reference-verified FAQ topics adopted | 2 | `/cleveland/#estimate` |
+
+### CTA deviation (Cleveland)
+
+Cleveland availability advertises `hasFreeEstimate`, but
+`/cleveland/free-estimate/` is still a Sprint 1 scaffold (kept behind the
+`COMPLETED_SLUGS` whitelist in `LocationFreeEstimatePage.tsx`). The four
+scoped service pages set an explicit `finalCtaTo: "/cleveland/#estimate"`
+so the primary CTA reaches the completed location-hub hero form instead of
+the unfinished shell. This is per the Sprint 5.5.4 brief and uses the same
+`#estimate` anchor pattern established for Grand Rapids in Sprint 5.5.3.
+
+## Sprint 5.5.4 — Grand Rapids FAQ provenance correction
+
+Four of the Grand Rapids scoped hubs completed in Sprint 5.5.3 previously
+carried FAQ sections documented as "Grand Rapids-contextual" (locally
+authored, not reference-verified). The audit explicitly flagged those as
+invented, so this sprint removes them:
+
+- `/grand-rapids/roofing/`, `/grand-rapids/windows/`, `/grand-rapids/gutters/`,
+  `/grand-rapids/masonry/` — FAQ blocks removed; no FAQ section is rendered.
+- `/grand-rapids/siding/` — FAQ block **kept**, because its three topics
+  (cost / signs / lifespan) are reference-verified from live inspection of
+  `/grand-rapids/siding/` on 2026-10-20.
+
+Imagery, headings, eyebrows and intro paragraphs are unchanged.
+
 ## Not completed (still Sprint 1 shells)
 
 - `/nashville/insulation/`, `/grand-rapids/insulation/` — verified reference
   URLs but have no local `ServiceHubKey` entry; keep the scaffold rather than
   mis-render.
+- `/cleveland/masonry/` and `/cleveland/insulation/` — resolve to Not Found
+  because the reference does **not** publish scoped Cleveland URLs for those
+  services (the tiles link to the global `/masonry/` and `/insulation/`).
 - `/nashville/roofing/commercial-roofing/` — service-variant page; variants
   remain scaffolded here. The global `/roofing/commercial-roofing/` detail
   page completed in Sprint 4.5 is unaffected.
 - `/nashville/financing/`, `/nashville/service-area/`,
-  `/grand-rapids/financing/`, `/grand-rapids/service-area/` and every
+  `/grand-rapids/financing/`, `/grand-rapids/service-area/`,
+  `/cleveland/financing/`, `/cleveland/service-area/` and every
   `/<location>/service-area/<child>/` — Sprint 1 scaffolds.
 - `/<other-city>/free-estimate/` for cities whose availability advertises it
   (cleveland, cincinnati, louisville, dayton) — Sprint 1 scaffolds, kept by
   an explicit `COMPLETED_SLUGS` whitelist in `LocationFreeEstimatePage.tsx`.
-- The seven remaining locations (cleveland, cincinnati, dayton, lexington,
-  louisville, detroit, lansing) continue to use the Sprint 1 scaffold for
-  every one of their advertised scoped services.
+- The six remaining locations (cincinnati, dayton, lexington, louisville,
+  detroit, lansing) continue to use the Sprint 1 scaffold for every one of
+  their advertised scoped services.
 
 ## Automated checks
 
