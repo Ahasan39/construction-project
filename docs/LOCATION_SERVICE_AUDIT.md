@@ -297,12 +297,50 @@ Cincinnati and Dayton.
 Reuses existing per-service hero photography from `servicePages[key].hero`;
 no new assets.
 
+## Sprint 5.5.8 — Louisville scoped service hubs
+
+Live inspection of https://www.mrroof.com/louisville/ on 2026-10-20 confirms
+all six service-grid tiles link to scoped `/louisville/<service>/` URLs.
+Five are implemented locally; `/louisville/insulation/` is a verified
+reference URL but has no local `ServiceHubKey` and stays Not Found.
+
+| Local service | Reference href | Final URL (no redirect) | Local destination | Evidence |
+|---|---|---|---|---|
+| Roofing | `https://www.mrroof.com/louisville/roofing/` | same | `/louisville/roofing/` | reference service-grid and header nav |
+| Siding | `https://www.mrroof.com/louisville/siding/` | same | `/louisville/siding/` | reference service-grid and header nav |
+| Windows | `https://www.mrroof.com/louisville/windows/` | same | `/louisville/windows/` | reference service-grid and header nav |
+| Gutters | `https://www.mrroof.com/louisville/gutters/` | same | `/louisville/gutters/` | reference service-grid and header nav |
+| Masonry | `https://www.mrroof.com/louisville/masonry/` | same | `/louisville/masonry/` | reference service-grid and header nav |
+| Insulation | `https://www.mrroof.com/louisville/insulation/` | same | Not Found (no `ServiceHubKey`) | reference service-grid, footer only |
+
+| Route | Hero H1 | Reference parity | Local FAQ | Final CTA |
+|---|---|---|---|---|
+| `/louisville/roofing/` | Louisville Roofing Services | Reference H1 verbatim | None (reference has no FAQ) | `/louisville/#estimate` |
+| `/louisville/siding/` | Louisville Siding Installation | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / signs / lifespan) adopted | 3 | `/louisville/#estimate` |
+| `/louisville/windows/` | Louisville Window Installation | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / signs / replace all) adopted | 3 | `/louisville/#estimate` |
+| `/louisville/gutters/` | Louisville Gutters & Downspouts | Reference H1 verbatim; 2 reference-verified FAQ topics adopted | 2 | `/louisville/#estimate` |
+| `/louisville/masonry/` | Louisville Masonry Services | Reference H1 verbatim | None (reference has no FAQ) | `/louisville/#estimate` |
+
+### CTA deviation (Louisville)
+
+Louisville availability advertises `hasFreeEstimate`, but
+`/louisville/free-estimate/` is still a Sprint 1 scaffold (kept behind the
+`COMPLETED_SLUGS` whitelist in `LocationFreeEstimatePage.tsx`). The five
+scoped service pages set an explicit `finalCtaTo: "/louisville/#estimate"`
+so primary CTAs reach the completed location-hub hero form — same pattern
+as Grand Rapids, Cleveland, Cincinnati, Dayton and Lexington.
+
+### Imagery
+
+Reuses existing per-service hero photography from `servicePages[key].hero`;
+no new assets.
+
 ## Not completed (still Sprint 1 shells)
 
 - `/nashville/insulation/`, `/grand-rapids/insulation/`,
-  `/cincinnati/insulation/`, `/lexington/insulation/` — verified reference
-  URLs but have no local `ServiceHubKey` entry; stay Not Found rather than
-  mis-render.
+  `/cincinnati/insulation/`, `/lexington/insulation/`,
+  `/louisville/insulation/` — verified reference URLs but have no local
+  `ServiceHubKey` entry; stay Not Found rather than mis-render.
 - `/cleveland/masonry/`, `/cleveland/insulation/`, `/dayton/masonry/`,
   `/dayton/insulation/` — resolve to Not Found because the reference does
   **not** publish scoped URLs for those services (the tiles link to the
@@ -317,11 +355,11 @@ no new assets.
 - `/<other-city>/free-estimate/` for cities whose availability advertises it
   (cleveland, cincinnati, louisville, dayton) — Sprint 1 scaffolds, kept by
   an explicit `COMPLETED_SLUGS` whitelist in `LocationFreeEstimatePage.tsx`.
-- The remaining locations continue to use the Sprint 1 scaffold for every
-  one of their advertised scoped services: louisville and lansing (both
-  reference pages have scoped service links). Detroit is reference-hub-only
-  (no scoped service URLs on its reference page) and has no scoped service
-  pages to implement.
+- Detroit and Lansing are unverified at the scoped-service level as of this
+  sprint; no scoped service pages are implemented for them. Earlier audits
+  classified Detroit as hub-only based on the Sprint 5.1 inventory, but
+  that classification was wrong for Lexington and must be verified by live
+  inspection before being asserted for Detroit or Lansing.
 
 ## Automated checks
 

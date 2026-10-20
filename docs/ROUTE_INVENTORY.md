@@ -156,6 +156,26 @@ Explicit location-service availability is the single source of truth in [`src/da
 
 All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.
 
+## Sprint 5.5.8 route status — 2026-10-20
+
+Five Louisville scoped service hubs now render completed bodies:
+`/louisville/{roofing,siding,windows,gutters,masonry}/`. Live inspection
+of https://www.mrroof.com/louisville/ on 2026-10-20 confirms each is a
+published reference URL. Four new availability entries added for
+`louisville/{siding,windows,gutters,masonry}`; the existing roofing
+entry (`hasFreeEstimate`, `hasFinancing`) is unchanged. Static entries
+rise 101 → 105.
+
+Primary estimate CTAs on all five pages target `/louisville/#estimate`
+via `finalCtaTo` because `/louisville/free-estimate/` is still a Sprint 1
+scaffold.
+
+Louisville insulation is a verified reference URL but is not a
+`ServiceHubKey`; it stays Not Found. Detroit and Lansing have **not** yet
+been inspected at the scoped-service level this sprint cycle and keep
+their current (Sprint 1 scaffold / Not Found) behaviour pending
+verification.
+
 ## Sprint 5.5.7 route status — 2026-10-20
 
 Correction + implementation for Lexington. Live inspection on 2026-10-20

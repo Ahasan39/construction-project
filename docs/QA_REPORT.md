@@ -2,6 +2,10 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 5.5.8 — Louisville scoped service hubs (2026-10-20)
+
+Lint, typecheck, 189 tests across 14 files and production build (105 static entries + 404) all passed after implementation. New data-driven coverage asserts: each of the five Louisville hubs renders a city-named H1 without the Sprint 1 scaffold badge; the Louisville hero CTA resolves to `/louisville/#estimate`; FAQ heading renders only where the reference publishes one (siding yes; roofing and masonry no). Rendered browser verification is not available in this session; HTTP 200 and bundle-string probes are not substituted. See [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).
+
 ## Sprint 5.5.7 — Lexington scoped service hubs + classification correction (2026-10-20)
 
 Lint, typecheck, 182 tests across 14 files and production build (101 static entries + 404) all passed after implementation. New data-driven coverage asserts: each of the five Lexington hubs renders a city-named H1 without the Sprint 1 scaffold badge; the Lexington hero CTA resolves to `/lexington/#estimate`; `/lexington/roofing/` renders its reference-verified FAQ while `/lexington/masonry/` omits one; `/lexington/insulation/` stays Not Found. Tests that assumed Lexington was hub-only were retargeted to Detroit (`availability.test.ts`, `dispatch.test.tsx`, `deployment.test.ts`, Not-Found section of `LocationServicePage.test.tsx`). Rendered browser verification is not available in this session; HTTP 200 and bundle-string probes are not substituted. See [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).

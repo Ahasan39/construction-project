@@ -1,5 +1,18 @@
 # Progress Log
 
+## Sprint 5.5.8 — Louisville scoped service hubs (2026-10-20)
+
+- Baseline: clean `main` at `c68c58cdf38b26aa28e6d9ed9d19c6db9de08f5b`; expected origin and repository-local author verified.
+- Reference evidence (2026-10-20): live inspection of https://www.mrroof.com/louisville/ confirms all six service-grid tiles link to scoped `/louisville/<service>/` URLs. Spot-checked each of the five implementable pages for section pattern and FAQ topics; adopted only reference-verified FAQ topics (close-paraphrased).
+- Completed five Louisville scoped service hubs: `/louisville/{roofing,siding,windows,gutters,masonry}/`. Reference-verified FAQ coverage: roofing and masonry have no FAQ (local hubs omit one); siding and windows carry 3 topics each; gutters carries 2. No local FAQ topics are invented.
+- `/louisville/insulation/` is a verified reference URL but has no local `ServiceHubKey`; it stays Not Found rather than mis-render.
+- Availability: added four entries to `src/data/availability.ts` for `louisville/{siding,windows,gutters,masonry}`. The pre-existing roofing entry (`hasFreeEstimate`, `hasFinancing`) is unchanged. Static-route generation output rises from 101 to 105 entries + 404.
+- CTA deviation: Louisville advertises `hasFreeEstimate` but `/louisville/free-estimate/` is still a Sprint 1 scaffold kept behind the `COMPLETED_SLUGS` whitelist. The five Louisville service entries carry explicit `finalCtaTo: "/louisville/#estimate"` so primary CTAs reach the completed location-hub hero form — same pattern as Grand Rapids, Cleveland, Cincinnati, Dayton and Lexington.
+- Imagery: reuses existing per-service hero photography from `servicePages[key].hero`; no new assets. No office, review or credential fabricated.
+- Added 7 focused tests in `src/pages/LocationServicePage.test.tsx`: each of the five Louisville hubs renders a city-named H1 without the scaffold badge; hero CTA resolves to `/louisville/#estimate`; FAQ heading renders only where the reference publishes one (siding yes; roofing and masonry no). The existing dispatch/availability tests continue to use Detroit as the "unavailable combo" fixture, which is still appropriate because Detroit's reference service-link mapping is unverified at the scoped level.
+- Verification: `npm run lint`, `npm run typecheck`, `npm test` (189 tests across 14 files) and `npm run build` (105 static entries + 404) all pass. Rendered browser verification remains unavailable in this session; HTTP 200 and bundle-string probes are not substituted.
+- Remaining verified vs unverified scope: six cities now have reference-verified scoped service hubs implemented (nashville, grand-rapids, cleveland, cincinnati, dayton, lexington, louisville). Detroit and Lansing have **not** been inspected at the scoped-service level this cycle; their current state (Sprint 1 scaffolds / Not Found) is kept pending verification.
+
 ## Sprint 5.5.7 — Lexington scoped service hubs + classification correction (2026-10-20)
 
 - Baseline: clean `main` at `7caea003e7bdc535529634bd183fd8c504111f20`; expected origin and repository-local author verified.

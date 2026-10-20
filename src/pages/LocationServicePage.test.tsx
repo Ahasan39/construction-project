@@ -28,6 +28,7 @@ const CLEVELAND_HUBS = ["roofing", "siding", "windows", "gutters"] as const;
 const CINCINNATI_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
 const DAYTON_HUBS = ["roofing", "siding", "windows", "gutters"] as const;
 const LEXINGTON_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
+const LOUISVILLE_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
 
 describe("locationServicePages data", () => {
   it("defines content only for pairs listed in availability", () => {
@@ -206,6 +207,34 @@ describe("Lexington local-service hubs render (Sprint 5.5.7)", () => {
   it("Lexington insulation stays Not Found (not a ServiceHubKey)", () => {
     renderAt("/lexington/insulation");
     expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
+  });
+});
+
+describe("Louisville local-service hubs render (Sprint 5.5.8)", () => {
+  it.each(LOUISVILLE_HUBS)("renders a completed body with a city-named H1 for /louisville/%s/", (key) => {
+    renderAt(`/louisville/${key}`);
+    const h1 = screen.getByRole("heading", { level: 1 });
+    expect(h1.textContent?.toLowerCase()).toContain("louisville");
+    expect(screen.queryByText(/scaffold — sprint 1/i)).toBeNull();
+  });
+
+  it("hero CTA points at the Louisville location-hub #estimate anchor", () => {
+    renderAt("/louisville/windows");
+    const h1 = screen.getByRole("heading", { level: 1 });
+    const intro = h1.closest("section")!;
+    const link = within(intro).getByRole("link", { name: /get a free estimate/i });
+    expect(link.getAttribute("href")).toBe("/louisville/#estimate");
+  });
+
+  it("renders FAQ only where the reference publishes one", () => {
+    renderAt("/louisville/roofing");
+    expect(screen.queryByRole("heading", { name: /frequently asked questions/i })).toBeNull();
+    cleanup();
+    renderAt("/louisville/siding");
+    expect(screen.getByRole("heading", { name: /frequently asked questions/i })).toBeTruthy();
+    cleanup();
+    renderAt("/louisville/masonry");
+    expect(screen.queryByRole("heading", { name: /frequently asked questions/i })).toBeNull();
   });
 });
 

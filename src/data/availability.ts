@@ -59,13 +59,18 @@ export const locationServiceAvailability: LocationServiceAvailability[] = [
   { locationSlug: "cincinnati", serviceKey: "gutters" },
   { locationSlug: "cincinnati", serviceKey: "masonry" },
 
-  // Louisville — estimate + financing observed.
+  // Louisville — estimate + financing observed, plus five scoped service
+  // hubs linked from the reference Louisville homepage (verified 2026-10-20).
   {
     locationSlug: "louisville",
     serviceKey: "roofing",
     hasFreeEstimate: true,
     hasFinancing: true,
   },
+  { locationSlug: "louisville", serviceKey: "siding" },
+  { locationSlug: "louisville", serviceKey: "windows" },
+  { locationSlug: "louisville", serviceKey: "gutters" },
+  { locationSlug: "louisville", serviceKey: "masonry" },
 
   // Cleveland — estimate + financing + service-area index observed on the
   // reference roofing hub, plus the four scoped service hubs linked from the
