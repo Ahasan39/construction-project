@@ -2,6 +2,36 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 5.3 — Focused location-page verification (2026-10-20)
+
+### Blocker — rendered browser verification
+
+Rendered browser inspection of the live location pages (Grand Rapids at 320/390/1440, Detroit at 390, Nashville at 1440) was not performed in this sprint. No headless-browser automation (Playwright, Puppeteer, Chromium control, in-app browser) is available to this session, and the project itself does not ship such a dependency. Per the sprint instruction, bundle-string probes are **not** substituted for rendered verification; the Sprint 5.2 bundle-string result remains the last machine-level evidence that location strings reached the deployed artifact, nothing more. Live screenshots, computed-style and overflow checks for Sprint 5.3 remain open.
+
+### Concrete fix landed this sprint
+
+The sticky `SiteHeader` is a utility strip (`min-h-11 sm:min-h-14 py-1`) stacked above the main row (`h-20 lg:h-24`) — effectively ~124px on mobile, ~144px on tablet and ~160px at `lg+`. Sprint 5.2 set the hero `<aside id="estimate">` scroll-margin at `scroll-mt-28 lg:scroll-mt-32` (112/128px), which is **below** the header on every width. The fix sets explicit arbitrary values: `scroll-mt-[136px] sm:scroll-mt-[154px] lg:scroll-mt-[170px]`, leaving ~10px of breathing room above the target at every breakpoint. The fix is derived from the header's own Tailwind geometry, not from a browser measurement.
+
+### Data / route consistency (automated)
+
+Covered by existing tests in `src/pages/LocationPage.test.tsx`:
+
+- Every `locations[]` slug has a `locationPages[]` content record (data-driven `it.each`).
+- Every `defaultRegionKey` exists in `serviceAreaRegions`.
+- Every slug renders a hero and a Final CTA region.
+- Final CTA target: `/<slug>/free-estimate/` when `hasFreeEstimate` is advertised; the in-page `#estimate` anchor otherwise. The anchor target exists in the DOM.
+- Scoped service links `/<slug>/<service>/` appear only when `availability.ts` lists the pair; otherwise the global hub link is used.
+
+All 119 tests across 12 files pass locally (reused — no application behaviour changed except the scroll-margin values, which the existing tests continue to cover).
+
+### Nested destinations still shells (not completed this sprint)
+
+- `/<location>/<service>/` beyond the explicit availability pairs — those listed in `availability.ts` keep their existing Sprint 1 shell dispatchers.
+- `/<location>/<service>/<variant>/` (only `nashville/roofing/commercial-roofing`, `cincinnati/roofing/commercial-roofing`, `dayton/roofing/commercial-roofing` are mounted at all, and they remain shells).
+- `/<location>/free-estimate/`, `/<location>/financing/`, `/<location>/service-area/`, `/<location>/service-area/<child>/` for every advertised capability — all remain Sprint 1 scaffolds.
+
+
+
 ## Published frontend contact update (2026-10-16)
 
 Lint, typecheck, all 67 tests and production build passed. Chromium 153.0.8010.12 and Firefox 155.0 checked the production build under `/construction-project/` at 320, 390, 768 and 1440px. Visible header controls remained within the viewport, no horizontal page overflow, and header top was zero after removal of the disclosure wrapper. Desktop and mobile screenshots were visually reviewed.

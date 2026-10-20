@@ -1,5 +1,14 @@
 # Progress Log
 
+## Sprint 5.3 — Focused location-page verification (2026-10-20)
+
+- Baseline: clean `main` at `8e2e96b96e90d4efeae6a523ada0687f298e5bc3`; expected origin and repository-local author verified.
+- Concrete defect fixed: Sprint 5.2's `#estimate` scroll-margin (`scroll-mt-28 lg:scroll-mt-32` → 112/128px) was shorter than the sticky `SiteHeader` (~124/144/160px at mobile/tablet/`lg+`), so the anchored CTA would land under the header. Replaced with explicit arbitrary values derived from the header's own geometry: `scroll-mt-[136px] sm:scroll-mt-[154px] lg:scroll-mt-[170px]`.
+- Rendered browser verification remains an open blocker for this sprint: no headless-browser or in-app browser automation is available to this session and the project does not ship one as a dependency. Per instructions, bundle-string probes are not substituted. The honest status is recorded in [QA_REPORT.md](QA_REPORT.md).
+- Data/route consistency reused the existing automated coverage in `src/pages/LocationPage.test.tsx` (every slug has a content record; every `defaultRegionKey` exists in `serviceAreaRegions`; Final CTA target per availability; scoped service links only where availability lists them; `#estimate` anchor present).
+- Checks after the fix: `npm run lint`, `npm run typecheck`, `npm test` (119 tests across 12 files) and `npm run build` (82 static entries + 404) all passed.
+- Readiness for Sprint 5.5: ten location hubs are complete; nested `/<location>/<service>/`, `/<location>/<service>/<variant>/`, `/<location>/free-estimate/`, `/<location>/financing/`, `/<location>/service-area/` and `/<location>/service-area/<child>/` all remain Sprint 1 shells and are explicitly out of scope here.
+
 ## Sprint 5.2 — Remaining eight location pages (2026-10-20)
 
 - Baseline: clean `main` at `051ad29c03674b8c34d6fc0f0ab1f15769564419`; expected origin and repository-local author verified.

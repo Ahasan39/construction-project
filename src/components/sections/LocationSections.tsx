@@ -93,7 +93,7 @@ export function LocationHero({ content, location }: { content: LocationPageConte
           <aside
             id="estimate"
             aria-label={`Request a free estimate — ${location.city}`}
-            className="rounded-sm bg-[#0C1F33] text-white p-6 sm:p-7 shadow-md border border-slate-800 flex flex-col justify-between scroll-mt-28 lg:scroll-mt-32"
+            className="rounded-sm bg-[#0C1F33] text-white p-6 sm:p-7 shadow-md border border-slate-800 flex flex-col justify-between scroll-mt-[136px] sm:scroll-mt-[154px] lg:scroll-mt-[170px]"
           >
             <div>
               <div className="pb-3 mb-4">
