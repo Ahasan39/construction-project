@@ -1,0 +1,680 @@
+[
+  {
+    "engine": "chromium",
+    "version": "153.0.8010.12",
+    "errors": [],
+    "records": [
+      {
+        "slug": "roof-replacement",
+        "width": 320,
+        "scrollWidth": 320,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 360,
+        "scrollWidth": 360,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 390,
+        "scrollWidth": 390,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 430,
+        "scrollWidth": 430,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 640,
+        "scrollWidth": 640,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 768,
+        "scrollWidth": 768,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 1920,
+        "scrollWidth": 1920,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 2560,
+        "scrollWidth": 2560,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "landscape": true,
+        "width": 844,
+        "scrollWidth": 844
+      },
+      {
+        "slug": "roof-repair",
+        "width": 320,
+        "scrollWidth": 320,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 360,
+        "scrollWidth": 360,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 390,
+        "scrollWidth": 390,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 430,
+        "scrollWidth": 430,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 640,
+        "scrollWidth": 640,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 768,
+        "scrollWidth": 768,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 1920,
+        "scrollWidth": 1920,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 2560,
+        "scrollWidth": 2560,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "landscape": true,
+        "width": 844,
+        "scrollWidth": 844
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 320,
+        "scrollWidth": 320,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 360,
+        "scrollWidth": 360,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 390,
+        "scrollWidth": 390,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 430,
+        "scrollWidth": 430,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 640,
+        "scrollWidth": 640,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 768,
+        "scrollWidth": 768,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 1920,
+        "scrollWidth": 1920,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 2560,
+        "scrollWidth": 2560,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "landscape": true,
+        "width": 844,
+        "scrollWidth": 844
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 320,
+        "scrollWidth": 320,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 360,
+        "scrollWidth": 360,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 390,
+        "scrollWidth": 390,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 430,
+        "scrollWidth": 430,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 640,
+        "scrollWidth": 640,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 768,
+        "scrollWidth": 768,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 1920,
+        "scrollWidth": 1920,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 2560,
+        "scrollWidth": 2560,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "landscape": true,
+        "width": 844,
+        "scrollWidth": 844
+      }
+    ]
+  },
+  {
+    "engine": "firefox",
+    "version": "155.0",
+    "errors": [],
+    "records": [
+      {
+        "slug": "roof-replacement",
+        "width": 320,
+        "scrollWidth": 320,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 360,
+        "scrollWidth": 360,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 390,
+        "scrollWidth": 390,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 430,
+        "scrollWidth": 430,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 640,
+        "scrollWidth": 640,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 768,
+        "scrollWidth": 768,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 1920,
+        "scrollWidth": 1920,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "width": 2560,
+        "scrollWidth": 2560,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-replacement",
+        "landscape": true,
+        "width": 844,
+        "scrollWidth": 844
+      },
+      {
+        "slug": "roof-repair",
+        "width": 320,
+        "scrollWidth": 320,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 360,
+        "scrollWidth": 360,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 390,
+        "scrollWidth": 390,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 430,
+        "scrollWidth": 430,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 640,
+        "scrollWidth": 640,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 768,
+        "scrollWidth": 768,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 1920,
+        "scrollWidth": 1920,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "width": 2560,
+        "scrollWidth": 2560,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "roof-repair",
+        "landscape": true,
+        "width": 844,
+        "scrollWidth": 844
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 320,
+        "scrollWidth": 320,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 360,
+        "scrollWidth": 360,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 390,
+        "scrollWidth": 390,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 430,
+        "scrollWidth": 430,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 640,
+        "scrollWidth": 640,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 768,
+        "scrollWidth": 768,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 1920,
+        "scrollWidth": 1920,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "width": 2560,
+        "scrollWidth": 2560,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "metal-roofing",
+        "landscape": true,
+        "width": 844,
+        "scrollWidth": 844
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 320,
+        "scrollWidth": 320,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 360,
+        "scrollWidth": 360,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 390,
+        "scrollWidth": 390,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 430,
+        "scrollWidth": 430,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 640,
+        "scrollWidth": 640,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 768,
+        "scrollWidth": 768,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 1024,
+        "scrollWidth": 1024,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 1280,
+        "scrollWidth": 1280,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 1440,
+        "scrollWidth": 1440,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 1920,
+        "scrollWidth": 1920,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "width": 2560,
+        "scrollWidth": 2560,
+        "h1": 1,
+        "clipped": []
+      },
+      {
+        "slug": "commercial-roofing",
+        "landscape": true,
+        "width": 844,
+        "scrollWidth": 844
+      }
+    ]
+  }
+]

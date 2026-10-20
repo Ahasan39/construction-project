@@ -1,0 +1,100 @@
+[
+  {
+    "engine": "chromium",
+    "version": "153.0.8010.12",
+    "base": "http://127.0.0.1:4173/construction-project/",
+    "routes": [
+      {
+        "slug": "roof-replacement",
+        "status": 200,
+        "queryFragmentRefresh": true,
+        "images": true,
+        "fonts": true,
+        "keyboardDisclosures": 3,
+        "location": "/ann-arbor/"
+      },
+      {
+        "slug": "roof-repair",
+        "status": 200,
+        "queryFragmentRefresh": true,
+        "images": true,
+        "fonts": true,
+        "keyboardDisclosures": 5,
+        "location": "/ann-arbor/"
+      },
+      {
+        "slug": "metal-roofing",
+        "status": 200,
+        "queryFragmentRefresh": true,
+        "images": true,
+        "fonts": true,
+        "keyboardDisclosures": 1,
+        "location": "/ann-arbor/"
+      },
+      {
+        "slug": "commercial-roofing",
+        "status": 200,
+        "queryFragmentRefresh": true,
+        "images": true,
+        "fonts": true,
+        "keyboardDisclosures": 10,
+        "location": "/ann-arbor/"
+      }
+    ],
+    "hubLinks": true,
+    "homeLinks": true,
+    "unknown": 404,
+    "errors": [],
+    "assets": [],
+    "nonGet": []
+  },
+  {
+    "engine": "firefox",
+    "version": "155.0",
+    "base": "http://127.0.0.1:4173/construction-project/",
+    "routes": [
+      {
+        "slug": "roof-replacement",
+        "status": 200,
+        "queryFragmentRefresh": true,
+        "images": true,
+        "fonts": true,
+        "keyboardDisclosures": 3,
+        "location": "/ann-arbor/"
+      },
+      {
+        "slug": "roof-repair",
+        "status": 200,
+        "queryFragmentRefresh": true,
+        "images": true,
+        "fonts": true,
+        "keyboardDisclosures": 5,
+        "location": "/ann-arbor/"
+      },
+      {
+        "slug": "metal-roofing",
+        "status": 200,
+        "queryFragmentRefresh": true,
+        "images": true,
+        "fonts": true,
+        "keyboardDisclosures": 1,
+        "location": "/ann-arbor/"
+      },
+      {
+        "slug": "commercial-roofing",
+        "status": 200,
+        "queryFragmentRefresh": true,
+        "images": true,
+        "fonts": true,
+        "keyboardDisclosures": 10,
+        "location": "/ann-arbor/"
+      }
+    ],
+    "hubLinks": true,
+    "homeLinks": true,
+    "unknown": 404,
+    "errors": [],
+    "assets": [],
+    "nonGet": []
+  }
+]

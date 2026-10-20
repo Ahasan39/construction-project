@@ -70,3 +70,27 @@ Each source below is cropped to 3:2 and encoded as `public/images/services/photo
 Font optimization: `Metropolis-{Regular,Medium,SemiBold,Bold}.woff2` lossless WOFF2 conversions of the matching existing TTF files using `wawoff2` (temporary tooling, not a project dependency). Source/license inherited from baseline: Metropolis by Chris Simpson, SIL OFL 1.1. Same glyphs and weights; originals retained. CSS now requests WOFF2. No font-family or visual weight changes.
 
 The build now inserts the existing homepage image preload into the homepage HTML entry only; generated service entries and custom 404 do not contain it. Existing centralized contacts remain +880 1842-299275 / tel:+8801842299275 and amamulahasan77@gmail.com / mailto:amamulahasan77@gmail.com; earlier manifest contact rows are historical.
+
+## Sprint 4.5 assets — 2026-10-20
+
+Fourteen responsive WebP files under `public/images/roofing-details/`, 817,732 bytes total, quality 77. Explicit dimensions, responsive `srcset`, one eager/high-priority current hero and lazy below-fold images. Each global detail HTML entry preloads only its own hero; no homepage hero preload is added to these routes. No new dependencies or remote image requests.
+
+| Stem | Source and usage | Dimensions (small / large) | Usage status |
+|---|---|---|---|
+| replacement | Existing `homepage/hero-suburban-home.jpg`; replacement panorama, visualizer substitute, shingle card | 480×320 / 1200×800 | Existing demo illustration; original licensing provenance unverified. 1200×670 source cropped/resampled to 3:2, with some enlargement. |
+| repair | Existing `homepage/benefit-roofer-install.jpg`; repair panorama | 480×320 / 640×427 | Existing demo substitute, not reference project photography |
+| consultation | Existing `homepage/benefit-consultant-homeowner.jpg`; replacement/repair feature | 480×320 / 640×427 | Existing demo substitute |
+| crew | Existing `homepage/benefit-crew-working.jpg`; replacement protection/emergency repair feature | 480×320 / 640×427 | Existing demo substitute |
+| exterior | Existing `homepage/benefit-exterior-renovation.jpg`; specials/replacement benefits/repair protection | 480×320 / 640×427 | Existing demo substitute |
+| metal | Generated standing-seam house scene; metal panorama/features and commercial metal card | 480×320 / 1440×960 | AI-generated illustrative scene; no client/project or manufacturer claim |
+| commercial | Generated low-slope membrane roof; commercial panorama/features and TPO/EPDM cards | 480×320 / 1440×960 | AI-generated generic commercial illustration; does not establish membrane product identity |
+
+Existing residential JPEGs remain unchanged. 640px assets can appear soft on wide or high-density displays. The two generated PNG masters were 1536×1024; optimized variants are committed, while session originals remain outside the repository. Detailed source paths, dimensions and byte counts: [asset-variants.json](evidence/sprint-4.5/asset-variants.json).
+
+Generated using the **imagegen skill**, built-in `image_gen.imagegen`, new-image generation mode (no reference inputs, opaque background). Saved output stems: `public/images/roofing-details/metal-{480,1440}.webp` and `commercial-{480,1440}.webp`. Prompts:
+
+> Use case: photorealistic-natural. Asset type: illustrative photograph for a commercial roofing service demo website, wide landscape 3:2 composition. Show an authentic low-slope commercial warehouse roof from an elevated oblique perspective: broad clean white single-ply membrane with realistic straight welded seams, parapet edges, properly flashed rooftop HVAC units and vents, distant industrial buildings and trees under a softly blue daylight sky. The roof itself fills most of the frame, suitable for a wide panoramic crop. Realistic materials and architectural perspective, restrained natural colors, professional architectural photography. No people, no company names, logos, signs, text, badges or watermark. This is a generic illustrative building, not a real client project.
+
+> Use case: photorealistic-natural. Asset type: illustrative metal roofing photograph for an exterior contractor demo website. Wide landscape 3:2 frame. A well-built modest suburban home with a charcoal standing-seam metal roof, viewed close enough to see long straight parallel raised seams, clean ridge cap, eave and white fascia. Roof occupies two thirds of the image, house siding and a small leafy garden below, gentle blue sky and deciduous trees behind. Realistic architectural perspective and natural daylight, restrained colors, professional architectural photography. Suitable for panoramic roofline crop and feature image. No people, brands, logos, lettering, badges or watermark. Not a claimed real contractor project.
+
+No reference-site photograph was downloaded for use in the application. Reference screenshots are audit evidence only. Generated scenes were visually reviewed for roof geometry and absence of lettering/branding. Visible generated-image captions and alternatives identify their illustrative status. Product labels are text instead of manufacturer logos; reference coverage/statistics are labeled and are not demo guarantees.

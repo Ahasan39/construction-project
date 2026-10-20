@@ -1,0 +1,2578 @@
+[
+  {
+    "slug": "roof-replacement",
+    "requested": "https://www.mrroof.com/roofing/roof-replacement/",
+    "url": "https://www.mrroof.com/roofing/roof-replacement/",
+    "status": 200,
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 7424,
+        "headings": [
+          {
+            "text": "Roof Replacement",
+            "tag": "H1",
+            "x": 80,
+            "y": 472,
+            "width": 805,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 1031,
+            "y": 575,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Trust The Nation's Largest Roofer",
+            "tag": "H2",
+            "x": 30,
+            "y": 1021,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Benefits of Roof Replacement",
+            "tag": "H2",
+            "x": 780,
+            "y": 2094,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Roofing Systems",
+            "tag": "H2",
+            "x": 30,
+            "y": 2869,
+            "width": 1380,
+            "font": "54px"
+          },
+          {
+            "text": "RoofGuard",
+            "tag": "H3",
+            "x": 60,
+            "y": 3168,
+            "width": 165,
+            "font": "32px"
+          },
+          {
+            "text": "RoofGuard+",
+            "tag": "H3",
+            "x": 527,
+            "y": 3168,
+            "width": 184,
+            "font": "32px"
+          },
+          {
+            "text": "ThunderGuard",
+            "tag": "H3",
+            "x": 993,
+            "y": 3168,
+            "width": 223,
+            "font": "32px"
+          },
+          {
+            "text": "Protection Above. And Beyond.",
+            "tag": "H2",
+            "x": 30,
+            "y": 3767,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Roof Color Visualizer",
+            "tag": "H2",
+            "x": 780,
+            "y": 4455,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Frequently Asked Questions",
+            "tag": "H2",
+            "x": 447,
+            "y": 5089,
+            "width": 545,
+            "font": "40px"
+          },
+          {
+            "text": "How much does a new roof cost?",
+            "tag": "H3",
+            "x": 310,
+            "y": 5205,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "How do I know if I need a new roof?",
+            "tag": "H3",
+            "x": 310,
+            "y": 5311,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "Will insurance cover the cost of my new roof?",
+            "tag": "H3",
+            "x": 310,
+            "y": 5416,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 30,
+            "y": 5622,
+            "width": 1380,
+            "font": "40px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 355,
+            "y": 6320,
+            "width": 730,
+            "font": "48px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 938,
+            "y": 6932,
+            "width": 452,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 938,
+            "y": 7066,
+            "width": 452,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/07/replacement-1536x576.jpg",
+            "lazy": null,
+            "w": 1440,
+            "h": 320
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2024/01/53890-green-lawn-in-front-of-country-house-2023-11-27-05-12-25-utc-1024x683.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2024/01/53890-green-lawn-in-front-of-country-house-2023-11-27-05-12-25-utc-1024x683.jpg",
+            "w": 375,
+            "h": 150
+          },
+          {
+            "alt": "Roof Replacement Contractor - Roof Installers Near Me",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-contractor.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-contractor.jpg",
+            "w": 630,
+            "h": 420
+          },
+          {
+            "alt": "Roof Replacement Estimate",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-estimate.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-estimate.jpg",
+            "w": 630,
+            "h": 420
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Siding-Visualizer-Columbus.gif",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/Siding-Visualizer-Columbus.gif",
+            "w": 630,
+            "h": 355
+          },
+          {
+            "alt": "New Siding Installation",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-siding-1.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-siding-1.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Replacement Window Installation",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-windows-1.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-windows-1.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Gutter Replacement Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-gutters-1.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-gutters-1.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Masonry & Chimney Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-mason.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-mason.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Attic Insulation Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-insulation.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-insulation.png",
+            "w": 120,
+            "h": 120
+          }
+        ],
+        "interactions": [
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          }
+        ]
+      },
+      {
+        "width": 768,
+        "height": 10687,
+        "headings": [
+          {
+            "text": "Roof Replacement",
+            "tag": "H1",
+            "x": 65,
+            "y": 462,
+            "width": 638,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 91,
+            "y": 1005,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Trust The Nation's Largest Roofer",
+            "tag": "H2",
+            "x": 15,
+            "y": 1785,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Benefits of Roof Replacement",
+            "tag": "H2",
+            "x": 15,
+            "y": 3398,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Roofing Systems",
+            "tag": "H2",
+            "x": 15,
+            "y": 4064,
+            "width": 738,
+            "font": "46px"
+          },
+          {
+            "text": "RoofGuard",
+            "tag": "H3",
+            "x": 45,
+            "y": 4442,
+            "width": 165,
+            "font": "32px"
+          },
+          {
+            "text": "RoofGuard+",
+            "tag": "H3",
+            "x": 45,
+            "y": 4908,
+            "width": 184,
+            "font": "32px"
+          },
+          {
+            "text": "ThunderGuard",
+            "tag": "H3",
+            "x": 45,
+            "y": 5377,
+            "width": 223,
+            "font": "32px"
+          },
+          {
+            "text": "Protection Above. And Beyond.",
+            "tag": "H2",
+            "x": 15,
+            "y": 5921,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Roof Color Visualizer",
+            "tag": "H2",
+            "x": 15,
+            "y": 6967,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Frequently Asked Questions",
+            "tag": "H2",
+            "x": 111,
+            "y": 7521,
+            "width": 545,
+            "font": "40px"
+          },
+          {
+            "text": "How much does a new roof cost?",
+            "tag": "H3",
+            "x": 15,
+            "y": 7597,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "How do I know if I need a new roof?",
+            "tag": "H3",
+            "x": 15,
+            "y": 7701,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Will insurance cover the cost of my new roof?",
+            "tag": "H3",
+            "x": 15,
+            "y": 7804,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 7967,
+            "width": 738,
+            "font": "44px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 69,
+            "y": 9332,
+            "width": 630,
+            "font": "42px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 40,
+            "y": 10287,
+            "width": 693,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 40,
+            "y": 10403,
+            "width": 693,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/07/replacement-1536x576.jpg",
+            "lazy": null,
+            "w": 768,
+            "h": 320
+          },
+          {
+            "alt": "Roof Replacement Contractor - Roof Installers Near Me",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-contractor.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-contractor.jpg",
+            "w": 738,
+            "h": 492
+          },
+          {
+            "alt": "Roof Replacement Estimate",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-estimate.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-estimate.jpg",
+            "w": 738,
+            "h": 492
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Siding-Visualizer-Columbus.gif",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/Siding-Visualizer-Columbus.gif",
+            "w": 738,
+            "h": 416
+          },
+          {
+            "alt": "New Siding Installation",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-siding-1.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-siding-1.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Replacement Window Installation",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-windows-1.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-windows-1.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Gutter Replacement Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-gutters-1.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-gutters-1.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Masonry & Chimney Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-mason.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-mason.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Attic Insulation Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-insulation.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-insulation.png",
+            "w": 120,
+            "h": 120
+          }
+        ],
+        "interactions": [
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "height": 13406,
+        "headings": [
+          {
+            "text": "Roof Replacement",
+            "tag": "H1",
+            "x": 30,
+            "y": 474,
+            "width": 330,
+            "font": "36px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 76,
+            "y": 1051,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Trust The Nation's Largest Roofer",
+            "tag": "H2",
+            "x": 15,
+            "y": 1605,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Benefits of Roof Replacement",
+            "tag": "H2",
+            "x": 15,
+            "y": 3610,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Roofing Systems",
+            "tag": "H2",
+            "x": 15,
+            "y": 4542,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "RoofGuard",
+            "tag": "H3",
+            "x": 45,
+            "y": 5165,
+            "width": 165,
+            "font": "32px"
+          },
+          {
+            "text": "RoofGuard+",
+            "tag": "H3",
+            "x": 45,
+            "y": 5718,
+            "width": 184,
+            "font": "32px"
+          },
+          {
+            "text": "ThunderGuard",
+            "tag": "H3",
+            "x": 45,
+            "y": 6272,
+            "width": 223,
+            "font": "32px"
+          },
+          {
+            "text": "Protection Above. And Beyond.",
+            "tag": "H2",
+            "x": 15,
+            "y": 7019,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Roof Color Visualizer",
+            "tag": "H2",
+            "x": 15,
+            "y": 8262,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Frequently Asked Questions",
+            "tag": "H2",
+            "x": 20,
+            "y": 9028,
+            "width": 351,
+            "font": "32px"
+          },
+          {
+            "text": "How much does a new roof cost?",
+            "tag": "H3",
+            "x": 20,
+            "y": 9130,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "How do I know if I need a new roof?",
+            "tag": "H3",
+            "x": 20,
+            "y": 9230,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "Will insurance cover the cost of my new roof?",
+            "tag": "H3",
+            "x": 20,
+            "y": 9358,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 9616,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 50,
+            "y": 11595,
+            "width": 290,
+            "font": "32px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 55,
+            "y": 12889,
+            "width": 285,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 55,
+            "y": 13041,
+            "width": 285,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/07/replacement-1536x576.jpg",
+            "lazy": null,
+            "w": 390,
+            "h": 200
+          },
+          {
+            "alt": "Roof Replacement Contractor - Roof Installers Near Me",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-contractor.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-contractor.jpg",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "Roof Replacement Estimate",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-estimate.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/roof-replacement-estimate.jpg",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Siding-Visualizer-Columbus.gif",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/Siding-Visualizer-Columbus.gif",
+            "w": 360,
+            "h": 203
+          }
+        ],
+        "interactions": [
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "roof-repair",
+    "requested": "https://www.mrroof.com/roofing/roof-repair/",
+    "url": "https://www.mrroof.com/roofing/roof-repair/",
+    "status": 200,
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 5133,
+        "headings": [
+          {
+            "text": "Roof Repair",
+            "tag": "H1",
+            "x": 80,
+            "y": 472,
+            "width": 805,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 1031,
+            "y": 575,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Local Roof Repair Specialist",
+            "tag": "H2",
+            "x": 30,
+            "y": 1055,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "24/7 Emergency Roofing Service",
+            "tag": "H2",
+            "x": 780,
+            "y": 1969,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Protection Above. And Beyond.",
+            "tag": "H2",
+            "x": 30,
+            "y": 2663,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Frequently Asked Questions",
+            "tag": "H2",
+            "x": 447,
+            "y": 3380,
+            "width": 545,
+            "font": "40px"
+          },
+          {
+            "text": "How much does roof repair cost?",
+            "tag": "H3",
+            "x": 310,
+            "y": 3496,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "Should I repair or replace my roof?",
+            "tag": "H3",
+            "x": 310,
+            "y": 3602,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "Are you able to make same day roof repairs?",
+            "tag": "H3",
+            "x": 310,
+            "y": 3707,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 355,
+            "y": 4029,
+            "width": 730,
+            "font": "48px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 938,
+            "y": 4641,
+            "width": 452,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 938,
+            "y": 4775,
+            "width": 452,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Roof Repair Services - Local roof repair companies near me.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepair-1536x612.jpg",
+            "lazy": null,
+            "w": 1440,
+            "h": 320
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2024/01/53890-green-lawn-in-front-of-country-house-2023-11-27-05-12-25-utc-1024x683.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2024/01/53890-green-lawn-in-front-of-country-house-2023-11-27-05-12-25-utc-1024x683.jpg",
+            "w": 375,
+            "h": 150
+          },
+          {
+            "alt": "Free Roofing Estimate",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepair-Estimate.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepair-Estimate.jpg",
+            "w": 630,
+            "h": 420
+          },
+          {
+            "alt": "Roofing Experts",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepairExperts.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepairExperts.jpg",
+            "w": 630,
+            "h": 439
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/08/protection.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2025/08/protection.jpg",
+            "w": 630,
+            "h": 420
+          }
+        ],
+        "interactions": [
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          }
+        ]
+      },
+      {
+        "width": 768,
+        "height": 6750,
+        "headings": [
+          {
+            "text": "Roof Repair",
+            "tag": "H1",
+            "x": 65,
+            "y": 462,
+            "width": 638,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 91,
+            "y": 1039,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Local Roof Repair Specialist",
+            "tag": "H2",
+            "x": 15,
+            "y": 1819,
+            "width": 738,
+            "font": "32px"
+          },
+          {
+            "text": "24/7 Emergency Roofing Service",
+            "tag": "H2",
+            "x": 15,
+            "y": 3300,
+            "width": 738,
+            "font": "32px"
+          },
+          {
+            "text": "Protection Above. And Beyond.",
+            "tag": "H2",
+            "x": 25,
+            "y": 4315,
+            "width": 738,
+            "font": "32px"
+          },
+          {
+            "text": "Frequently Asked Questions",
+            "tag": "H2",
+            "x": 111,
+            "y": 4884,
+            "width": 545,
+            "font": "40px"
+          },
+          {
+            "text": "How much does roof repair cost?",
+            "tag": "H3",
+            "x": 15,
+            "y": 4960,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Should I repair or replace my roof?",
+            "tag": "H3",
+            "x": 15,
+            "y": 5063,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Are you able to make same day roof repairs?",
+            "tag": "H3",
+            "x": 15,
+            "y": 5167,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 69,
+            "y": 5396,
+            "width": 630,
+            "font": "42px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 40,
+            "y": 6350,
+            "width": 693,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 40,
+            "y": 6466,
+            "width": 693,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Roof Repair Services - Local roof repair companies near me.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepair-1536x612.jpg",
+            "lazy": null,
+            "w": 768,
+            "h": 320
+          },
+          {
+            "alt": "Free Roofing Estimate",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepair-Estimate.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepair-Estimate.jpg",
+            "w": 738,
+            "h": 492
+          },
+          {
+            "alt": "Roofing Experts",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepairExperts.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepairExperts.jpg",
+            "w": 738,
+            "h": 514
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/08/protection.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2025/08/protection.jpg",
+            "w": 738,
+            "h": 492
+          }
+        ],
+        "interactions": [
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "height": 7555,
+        "headings": [
+          {
+            "text": "Roof Repair",
+            "tag": "H1",
+            "x": 30,
+            "y": 474,
+            "width": 330,
+            "font": "36px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 76,
+            "y": 1079,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Local Roof Repair Specialist",
+            "tag": "H2",
+            "x": 15,
+            "y": 1610,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "24/7 Emergency Roofing Service",
+            "tag": "H2",
+            "x": 15,
+            "y": 3400,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Protection Above. And Beyond.",
+            "tag": "H2",
+            "x": 25,
+            "y": 4367,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Frequently Asked Questions",
+            "tag": "H2",
+            "x": 20,
+            "y": 5203,
+            "width": 351,
+            "font": "32px"
+          },
+          {
+            "text": "How much does roof repair cost?",
+            "tag": "H3",
+            "x": 20,
+            "y": 5306,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "Should I repair or replace my roof?",
+            "tag": "H3",
+            "x": 20,
+            "y": 5406,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "Are you able to make same day roof repairs?",
+            "tag": "H3",
+            "x": 20,
+            "y": 5506,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 50,
+            "y": 5745,
+            "width": 290,
+            "font": "32px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 55,
+            "y": 7039,
+            "width": 285,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 55,
+            "y": 7191,
+            "width": 285,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Roof Repair Services - Local roof repair companies near me.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepair-1536x612.jpg",
+            "lazy": null,
+            "w": 390,
+            "h": 200
+          },
+          {
+            "alt": "Free Roofing Estimate",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepair-Estimate.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepair-Estimate.jpg",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "Roofing Experts",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepairExperts.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/RoofRepairExperts.jpg",
+            "w": 360,
+            "h": 251
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/08/protection.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2025/08/protection.jpg",
+            "w": 360,
+            "h": 240
+          }
+        ],
+        "interactions": [
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "metal-roofing",
+    "requested": "https://www.mrroof.com/roofing/metal-roofing/",
+    "url": "https://www.mrroof.com/roofing/metal-roofing/",
+    "status": 200,
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 6062,
+        "headings": [
+          {
+            "text": "Metal Roofing",
+            "tag": "H1",
+            "x": 80,
+            "y": 472,
+            "width": 805,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 1031,
+            "y": 575,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "The Metal Roofing Pros",
+            "tag": "H2",
+            "x": 30,
+            "y": 953,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Benefits of Standing Seam Metal Roofing",
+            "tag": "H2",
+            "x": 780,
+            "y": 2011,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "A Modern Look That Lasts a Lifetime",
+            "tag": "H2",
+            "x": 30,
+            "y": 3048,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Metal Roof Color Visualizer",
+            "tag": "H2",
+            "x": 780,
+            "y": 3626,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 30,
+            "y": 4260,
+            "width": 1380,
+            "font": "40px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 355,
+            "y": 4958,
+            "width": 730,
+            "font": "48px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 938,
+            "y": 5570,
+            "width": 452,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 938,
+            "y": 5704,
+            "width": 452,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Metal Roofing Company",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofing-1536x552.webp",
+            "lazy": null,
+            "w": 1440,
+            "h": 320
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2024/01/53890-green-lawn-in-front-of-country-house-2023-11-27-05-12-25-utc-1024x683.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2024/01/53890-green-lawn-in-front-of-country-house-2023-11-27-05-12-25-utc-1024x683.jpg",
+            "w": 375,
+            "h": 150
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/08/metalroofing2.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2025/08/metalroofing2.jpg",
+            "w": 630,
+            "h": 472
+          },
+          {
+            "alt": "Metal Roofing Services by Mr. Roof.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofers.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofers.jpg",
+            "w": 630,
+            "h": 420
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/08/metalroofing1.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2025/08/metalroofing1.jpg",
+            "w": 630,
+            "h": 353
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Siding-Visualizer-Columbus.gif",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/Siding-Visualizer-Columbus.gif",
+            "w": 630,
+            "h": 355
+          },
+          {
+            "alt": "New Siding Installation",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-siding-1.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-siding-1.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Replacement Window Installation",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-windows-1.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-windows-1.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Gutter Replacement Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-gutters-1.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-gutters-1.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Masonry & Chimney Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-mason.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-mason.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Attic Insulation Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-insulation.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-insulation.png",
+            "w": 120,
+            "h": 120
+          }
+        ],
+        "interactions": [
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          }
+        ]
+      },
+      {
+        "width": 768,
+        "height": 8745,
+        "headings": [
+          {
+            "text": "Metal Roofing",
+            "tag": "H1",
+            "x": 65,
+            "y": 462,
+            "width": 638,
+            "font": "56px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 91,
+            "y": 903,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "The Metal Roofing Pros",
+            "tag": "H2",
+            "x": 15,
+            "y": 1744,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Benefits of Standing Seam Metal Roofing",
+            "tag": "H2",
+            "x": 15,
+            "y": 3357,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "A Modern Look That Lasts a Lifetime",
+            "tag": "H2",
+            "x": 15,
+            "y": 4545,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Metal Roof Color Visualizer",
+            "tag": "H2",
+            "x": 15,
+            "y": 5485,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 6039,
+            "width": 738,
+            "font": "44px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 69,
+            "y": 7390,
+            "width": 630,
+            "font": "42px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 40,
+            "y": 8345,
+            "width": 693,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 40,
+            "y": 8461,
+            "width": 693,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Metal Roofing Company",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofing-1536x552.webp",
+            "lazy": null,
+            "w": 768,
+            "h": 320
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/08/metalroofing2.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2025/08/metalroofing2.jpg",
+            "w": 738,
+            "h": 553
+          },
+          {
+            "alt": "Metal Roofing Services by Mr. Roof.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofers.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofers.jpg",
+            "w": 738,
+            "h": 492
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/08/metalroofing1.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2025/08/metalroofing1.jpg",
+            "w": 443,
+            "h": 248
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Siding-Visualizer-Columbus.gif",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/Siding-Visualizer-Columbus.gif",
+            "w": 738,
+            "h": 416
+          },
+          {
+            "alt": "New Siding Installation",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-siding-1.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-siding-1.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Replacement Window Installation",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-windows-1.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-windows-1.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Gutter Replacement Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-gutters-1.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-gutters-1.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Masonry & Chimney Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-mason.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-mason.png",
+            "w": 120,
+            "h": 120
+          },
+          {
+            "alt": "Attic Insulation Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-insulation.png",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/mr-insulation.png",
+            "w": 120,
+            "h": 120
+          }
+        ],
+        "interactions": [
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "height": 10442,
+        "headings": [
+          {
+            "text": "Metal Roofing",
+            "tag": "H1",
+            "x": 30,
+            "y": 474,
+            "width": 330,
+            "font": "36px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 76,
+            "y": 915,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "The Metal Roofing Pros",
+            "tag": "H2",
+            "x": 15,
+            "y": 1499,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Benefits of Standing Seam Metal Roofing",
+            "tag": "H2",
+            "x": 15,
+            "y": 3555,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "A Modern Look That Lasts a Lifetime",
+            "tag": "H2",
+            "x": 15,
+            "y": 4933,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Metal Roof Color Visualizer",
+            "tag": "H2",
+            "x": 15,
+            "y": 5899,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Bundle & Save On Additional Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 6691,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 50,
+            "y": 8632,
+            "width": 290,
+            "font": "32px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 55,
+            "y": 9926,
+            "width": 285,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 55,
+            "y": 10077,
+            "width": 285,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Metal Roofing Company",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofing-1536x552.webp",
+            "lazy": null,
+            "w": 390,
+            "h": 200
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/08/metalroofing2.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2025/08/metalroofing2.jpg",
+            "w": 360,
+            "h": 270
+          },
+          {
+            "alt": "Metal Roofing Services by Mr. Roof.",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofers.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofers.jpg",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/08/metalroofing1.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2025/08/metalroofing1.jpg",
+            "w": 216,
+            "h": 121
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Siding-Visualizer-Columbus.gif",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/Siding-Visualizer-Columbus.gif",
+            "w": 360,
+            "h": 203
+          }
+        ],
+        "interactions": [
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "commercial-roofing",
+    "requested": "https://www.mrroof.com/roofing/commercial-roofing/",
+    "url": "https://www.mrroof.com/roofing/commercial-roofing/",
+    "status": 200,
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 6816,
+        "headings": [
+          {
+            "text": "Commercial Roofing Contractors",
+            "tag": "H1",
+            "x": 80,
+            "y": 472,
+            "width": 805,
+            "font": "56px"
+          },
+          {
+            "text": "Protect Your Business. Protect Your Investment.",
+            "tag": "H3",
+            "x": 80,
+            "y": 604,
+            "width": 805,
+            "font": "28px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 1031,
+            "y": 575,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Roofing for Buildings That Can't Afford Downtime",
+            "tag": "H2",
+            "x": 30,
+            "y": 1003,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Commercial Roofing Across the Midwest in Partnership with Contractors Inc.",
+            "tag": "H3",
+            "x": 30,
+            "y": 1111,
+            "width": 630,
+            "font": "28px"
+          },
+          {
+            "text": "Commercial Roofing Services",
+            "tag": "H2",
+            "x": 780,
+            "y": 1838,
+            "width": 630,
+            "font": "40px"
+          },
+          {
+            "text": "Built to Last, Not Just Installed Fast.",
+            "tag": "H3",
+            "x": 780,
+            "y": 1902,
+            "width": 630,
+            "font": "28px"
+          },
+          {
+            "text": "Your Roofing Project, Simplified",
+            "tag": "H2",
+            "x": 413,
+            "y": 3345,
+            "width": 613,
+            "font": "40px"
+          },
+          {
+            "text": "Request a Bid & Walk the Job",
+            "tag": "H5",
+            "x": 147,
+            "y": 3593,
+            "width": 284,
+            "font": "20px"
+          },
+          {
+            "text": "Completing Your Job",
+            "tag": "H5",
+            "x": 596,
+            "y": 3593,
+            "width": 204,
+            "font": "20px"
+          },
+          {
+            "text": "Post Installation Support",
+            "tag": "H5",
+            "x": 1044,
+            "y": 3593,
+            "width": 235,
+            "font": "20px"
+          },
+          {
+            "text": "Frequently Asked Questions",
+            "tag": "H2",
+            "x": 447,
+            "y": 4290,
+            "width": 545,
+            "font": "40px"
+          },
+          {
+            "text": "Do you do Multifamily roofing?",
+            "tag": "H3",
+            "x": 310,
+            "y": 4406,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "Can I re-roof, or do I have to tear off my existing commercial roof?",
+            "tag": "H3",
+            "x": 310,
+            "y": 4512,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "How do I know if my business needs a new roof?",
+            "tag": "H3",
+            "x": 310,
+            "y": 4651,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "How long does it take to install a new commercial roof?",
+            "tag": "H3",
+            "x": 310,
+            "y": 4757,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "What types of commercial roofing systems do you install?",
+            "tag": "H3",
+            "x": 310,
+            "y": 4862,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "How often should I schedule roof inspections?",
+            "tag": "H3",
+            "x": 310,
+            "y": 4968,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "Do you offer guarantees on commercial roofing projects?",
+            "tag": "H3",
+            "x": 310,
+            "y": 5073,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "What is considered commercial roofing?",
+            "tag": "H3",
+            "x": 310,
+            "y": 5179,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "What is the most common type of commercial roofing?",
+            "tag": "H3",
+            "x": 310,
+            "y": 5285,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "How do I know if I need roof repairs or a full replacement?",
+            "tag": "H3",
+            "x": 310,
+            "y": 5390,
+            "width": 820,
+            "font": "28px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 355,
+            "y": 5712,
+            "width": 730,
+            "font": "48px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 938,
+            "y": 6324,
+            "width": 452,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 938,
+            "y": 6457,
+            "width": 452,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Commercial Roofing",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/03/commercial-roofing-1536x736.jpg",
+            "lazy": null,
+            "w": 1440,
+            "h": 320
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2024/01/53890-green-lawn-in-front-of-country-house-2023-11-27-05-12-25-utc-1024x683.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2024/01/53890-green-lawn-in-front-of-country-house-2023-11-27-05-12-25-utc-1024x683.jpg",
+            "w": 375,
+            "h": 150
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/08/smile.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2025/08/smile.jpg",
+            "w": 630,
+            "h": 420
+          },
+          {
+            "alt": "Commercial Roofing Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Commercial-Roof.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/Commercial-Roof.jpg",
+            "w": 630,
+            "h": 420
+          },
+          {
+            "alt": "TPO Roofing",
+            "src": "",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2026/02/TPO-Roofing.webp",
+            "w": 330,
+            "h": 250
+          },
+          {
+            "alt": "EPDM Roofing",
+            "src": "",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2026/02/EPDM-Roofing.webp",
+            "w": 330,
+            "h": 250
+          },
+          {
+            "alt": "Metal Roofing Installers",
+            "src": "",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofing-installers.jpg",
+            "w": 330,
+            "h": 250
+          },
+          {
+            "alt": "",
+            "src": "",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2026/02/Shingle-Steep-Slope.webp",
+            "w": 330,
+            "h": 250
+          }
+        ],
+        "interactions": [
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          }
+        ]
+      },
+      {
+        "width": 768,
+        "height": 8756,
+        "headings": [
+          {
+            "text": "Commercial Roofing Contractors",
+            "tag": "H1",
+            "x": 65,
+            "y": 462,
+            "width": 638,
+            "font": "56px"
+          },
+          {
+            "text": "Protect Your Business. Protect Your Investment.",
+            "tag": "H3",
+            "x": 65,
+            "y": 594,
+            "width": 638,
+            "font": "28px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 91,
+            "y": 947,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Roofing for Buildings That Can't Afford Downtime",
+            "tag": "H2",
+            "x": 15,
+            "y": 1728,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Commercial Roofing Across the Midwest in Partnership with Contractors Inc.",
+            "tag": "H3",
+            "x": 15,
+            "y": 1836,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Commercial Roofing Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 3084,
+            "width": 738,
+            "font": "40px"
+          },
+          {
+            "text": "Built to Last, Not Just Installed Fast.",
+            "tag": "H3",
+            "x": 15,
+            "y": 3148,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Your Roofing Project, Simplified",
+            "tag": "H2",
+            "x": 77,
+            "y": 4637,
+            "width": 613,
+            "font": "40px"
+          },
+          {
+            "text": "Request a Bid & Walk the Job",
+            "tag": "H5",
+            "x": 160,
+            "y": 4914,
+            "width": 284,
+            "font": "20px"
+          },
+          {
+            "text": "Completing Your Job",
+            "tag": "H5",
+            "x": 160,
+            "y": 5268,
+            "width": 204,
+            "font": "20px"
+          },
+          {
+            "text": "Post Installation Support",
+            "tag": "H5",
+            "x": 160,
+            "y": 5622,
+            "width": 235,
+            "font": "20px"
+          },
+          {
+            "text": "Frequently Asked Questions",
+            "tag": "H2",
+            "x": 111,
+            "y": 6136,
+            "width": 545,
+            "font": "40px"
+          },
+          {
+            "text": "Do you do Multifamily roofing?",
+            "tag": "H3",
+            "x": 15,
+            "y": 6212,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Can I re-roof, or do I have to tear off my existing commercial roof?",
+            "tag": "H3",
+            "x": 15,
+            "y": 6315,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "How do I know if my business needs a new roof?",
+            "tag": "H3",
+            "x": 15,
+            "y": 6450,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "How long does it take to install a new commercial roof?",
+            "tag": "H3",
+            "x": 15,
+            "y": 6553,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "What types of commercial roofing systems do you install?",
+            "tag": "H3",
+            "x": 15,
+            "y": 6656,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "How often should I schedule roof inspections?",
+            "tag": "H3",
+            "x": 15,
+            "y": 6759,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Do you offer guarantees on commercial roofing projects?",
+            "tag": "H3",
+            "x": 15,
+            "y": 6862,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "What is considered commercial roofing?",
+            "tag": "H3",
+            "x": 15,
+            "y": 6966,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "What is the most common type of commercial roofing?",
+            "tag": "H3",
+            "x": 15,
+            "y": 7069,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "How do I know if I need roof repairs or a full replacement?",
+            "tag": "H3",
+            "x": 15,
+            "y": 7172,
+            "width": 738,
+            "font": "28px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 69,
+            "y": 7401,
+            "width": 630,
+            "font": "42px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 40,
+            "y": 8356,
+            "width": 693,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 40,
+            "y": 8472,
+            "width": 693,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Commercial Roofing",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/03/commercial-roofing-1536x736.jpg",
+            "lazy": null,
+            "w": 768,
+            "h": 320
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/08/smile.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2025/08/smile.jpg",
+            "w": 738,
+            "h": 492
+          },
+          {
+            "alt": "Commercial Roofing Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Commercial-Roof.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/Commercial-Roof.jpg",
+            "w": 738,
+            "h": 492
+          },
+          {
+            "alt": "TPO Roofing",
+            "src": "",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2026/02/TPO-Roofing.webp",
+            "w": 359,
+            "h": 170
+          },
+          {
+            "alt": "EPDM Roofing",
+            "src": "",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2026/02/EPDM-Roofing.webp",
+            "w": 359,
+            "h": 170
+          },
+          {
+            "alt": "Metal Roofing Installers",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofing-installers.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofing-installers.jpg",
+            "w": 359,
+            "h": 170
+          },
+          {
+            "alt": "",
+            "src": "",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2026/02/Shingle-Steep-Slope.webp",
+            "w": 359,
+            "h": 170
+          }
+        ],
+        "interactions": [
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "height": 11633,
+        "headings": [
+          {
+            "text": "Commercial Roofing Contractors",
+            "tag": "H1",
+            "x": 30,
+            "y": 474,
+            "width": 330,
+            "font": "36px"
+          },
+          {
+            "text": "Protect Your Business. Protect Your Investment.",
+            "tag": "H3",
+            "x": 30,
+            "y": 602,
+            "width": 330,
+            "font": "28px"
+          },
+          {
+            "text": "Current Specials",
+            "tag": "H6",
+            "x": 76,
+            "y": 990,
+            "width": 189,
+            "font": "24px"
+          },
+          {
+            "text": "Roofing for Buildings That Can't Afford Downtime",
+            "tag": "H2",
+            "x": 15,
+            "y": 1544,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Commercial Roofing Across the Midwest in Partnership with Contractors Inc.",
+            "tag": "H3",
+            "x": 15,
+            "y": 1669,
+            "width": 360,
+            "font": "28px"
+          },
+          {
+            "text": "Commercial Roofing Services",
+            "tag": "H2",
+            "x": 15,
+            "y": 3433,
+            "width": 360,
+            "font": "32px"
+          },
+          {
+            "text": "Built to Last, Not Just Installed Fast.",
+            "tag": "H3",
+            "x": 15,
+            "y": 3523,
+            "width": 360,
+            "font": "28px"
+          },
+          {
+            "text": "Your Roofing Project, Simplified",
+            "tag": "H2",
+            "x": 30,
+            "y": 6059,
+            "width": 330,
+            "font": "32px"
+          },
+          {
+            "text": "Request a Bid & Walk the Job",
+            "tag": "H5",
+            "x": 60,
+            "y": 6559,
+            "width": 270,
+            "font": "20px"
+          },
+          {
+            "text": "Completing Your Job",
+            "tag": "H5",
+            "x": 125,
+            "y": 7122,
+            "width": 204,
+            "font": "20px"
+          },
+          {
+            "text": "Post Installation Support",
+            "tag": "H5",
+            "x": 60,
+            "y": 7731,
+            "width": 235,
+            "font": "20px"
+          },
+          {
+            "text": "Frequently Asked Questions",
+            "tag": "H2",
+            "x": 20,
+            "y": 8357,
+            "width": 351,
+            "font": "32px"
+          },
+          {
+            "text": "Do you do Multifamily roofing?",
+            "tag": "H3",
+            "x": 20,
+            "y": 8459,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "Can I re-roof, or do I have to tear off my existing commercial roof?",
+            "tag": "H3",
+            "x": 20,
+            "y": 8559,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "How do I know if my business needs a new roof?",
+            "tag": "H3",
+            "x": 20,
+            "y": 8687,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "How long does it take to install a new commercial roof?",
+            "tag": "H3",
+            "x": 20,
+            "y": 8815,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "What types of commercial roofing systems do you install?",
+            "tag": "H3",
+            "x": 20,
+            "y": 8943,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "How often should I schedule roof inspections?",
+            "tag": "H3",
+            "x": 20,
+            "y": 9071,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "Do you offer guarantees on commercial roofing projects?",
+            "tag": "H3",
+            "x": 20,
+            "y": 9199,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "What is considered commercial roofing?",
+            "tag": "H3",
+            "x": 20,
+            "y": 9327,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "What is the most common type of commercial roofing?",
+            "tag": "H3",
+            "x": 20,
+            "y": 9455,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "How do I know if I need roof repairs or a full replacement?",
+            "tag": "H3",
+            "x": 20,
+            "y": 9583,
+            "width": 351,
+            "font": "28px"
+          },
+          {
+            "text": "Schedule a Free No-Obligation Estimate Today",
+            "tag": "H2",
+            "x": 50,
+            "y": 9823,
+            "width": 290,
+            "font": "32px"
+          },
+          {
+            "text": "Mr. Roof Ranked #36 on Roofing Contractor Magazine’s 2026 Top 100 List",
+            "tag": "H6",
+            "x": 55,
+            "y": 11117,
+            "width": 285,
+            "font": "15px"
+          },
+          {
+            "text": "Roof Repair vs. Roof Replacement: Which Is Right for You?",
+            "tag": "H6",
+            "x": 55,
+            "y": 11268,
+            "width": 285,
+            "font": "15px"
+          }
+        ],
+        "images": [
+          {
+            "alt": "Commercial Roofing",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/03/commercial-roofing-1536x736.jpg",
+            "lazy": null,
+            "w": 390,
+            "h": 200
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2025/08/smile.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2025/08/smile.jpg",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "Commercial Roofing Services",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/Commercial-Roof.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/Commercial-Roof.jpg",
+            "w": 360,
+            "h": 240
+          },
+          {
+            "alt": "TPO Roofing",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/02/TPO-Roofing-768x650.webp",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2026/02/TPO-Roofing.webp",
+            "w": 360,
+            "h": 170
+          },
+          {
+            "alt": "EPDM Roofing",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/02/EPDM-Roofing-768x650.webp",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2026/02/EPDM-Roofing.webp",
+            "w": 360,
+            "h": 170
+          },
+          {
+            "alt": "Metal Roofing Installers",
+            "src": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofing-installers.jpg",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2023/02/metal-roofing-installers.jpg",
+            "w": 360,
+            "h": 170
+          },
+          {
+            "alt": "",
+            "src": "https://www.mrroof.com/wp-content/uploads/2026/02/Shingle-Steep-Slope-768x650.webp",
+            "lazy": "https://www.mrroof.com/wp-content/uploads/2026/02/Shingle-Steep-Slope.webp",
+            "w": 360,
+            "h": 170
+          }
+        ],
+        "interactions": [
+          {
+            "tag": "DIV",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          },
+          {
+            "tag": "H3",
+            "expanded": "false"
+          }
+        ]
+      }
+    ]
+  }
+]

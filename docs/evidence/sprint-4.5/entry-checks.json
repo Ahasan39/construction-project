@@ -1,0 +1,29 @@
+{
+  "records": [
+    {
+      "slug": "roof-replacement",
+      "oneDetailPreload": true,
+      "noHomepagePreload": true,
+      "noindex": true
+    },
+    {
+      "slug": "roof-repair",
+      "oneDetailPreload": true,
+      "noHomepagePreload": true,
+      "noindex": true
+    },
+    {
+      "slug": "metal-roofing",
+      "oneDetailPreload": true,
+      "noHomepagePreload": true,
+      "noindex": true
+    },
+    {
+      "slug": "commercial-roofing",
+      "oneDetailPreload": true,
+      "noHomepagePreload": true,
+      "noindex": true
+    }
+  ],
+  "custom404NoHeroPreload": true
+}

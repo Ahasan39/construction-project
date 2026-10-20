@@ -1,0 +1,84 @@
+[
+  {
+    "engine": "chromium",
+    "base": "http://127.0.0.1:4173/construction-project/",
+    "version": "153.0.8010.12",
+    "routes": [
+      {
+        "slug": "roofing",
+        "status": 200,
+        "refresh": 200
+      },
+      {
+        "slug": "siding",
+        "status": 200,
+        "refresh": 200
+      },
+      {
+        "slug": "windows",
+        "status": 200,
+        "refresh": 200
+      },
+      {
+        "slug": "gutters",
+        "status": 200,
+        "refresh": 200
+      },
+      {
+        "slug": "masonry",
+        "status": 200,
+        "refresh": 200
+      }
+    ],
+    "checks": [
+      "Native disclosure Enter/Space; style next/previous; reduced motion; service location action",
+      "Review navigation and reduced-motion autoplay guard; related service; estimate shell destination",
+      "Homepage smoke; mobile drawer Windows navigation and close",
+      "All five header navigation actions"
+    ],
+    "errors": [],
+    "badAssets": [],
+    "nonGetRequests": []
+  },
+  {
+    "engine": "firefox",
+    "base": "http://127.0.0.1:4173/construction-project/",
+    "version": "155.0",
+    "routes": [
+      {
+        "slug": "roofing",
+        "status": 200,
+        "refresh": 200
+      },
+      {
+        "slug": "siding",
+        "status": 200,
+        "refresh": 200
+      },
+      {
+        "slug": "windows",
+        "status": 200,
+        "refresh": 200
+      },
+      {
+        "slug": "gutters",
+        "status": 200,
+        "refresh": 200
+      },
+      {
+        "slug": "masonry",
+        "status": 200,
+        "refresh": 200
+      }
+    ],
+    "checks": [
+      "Native disclosure Enter/Space; style next/previous; reduced motion; service location action",
+      "Review navigation and reduced-motion autoplay guard; related service; estimate shell destination",
+      "Homepage smoke; mobile drawer Windows navigation and close",
+      "All five header navigation actions"
+    ],
+    "errors": [],
+    "badAssets": [],
+    "nonGetRequests": []
+  }
+]

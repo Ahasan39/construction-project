@@ -593,3 +593,43 @@ Implementation commit `2d4853f203acab76a33b34f57d3d251c9a7cd598` pushed normally
 Both Chromium and Firefox repeated the successful production smoke against `https://ahasan39.github.io/construction-project/`: five direct loads and refreshes, one H1/noindex, all image loads, all header service links, mobile drawer, service location selector, disclosure keyboard toggles, style/review controls, reduced-motion guard, related/estimate actions and homepage note. Zero page errors, failed assets or non-GET requests. [Live interaction records](evidence/sprint-4/live-interactions.json).
 
 All five pages additionally checked live at 390×900 and 1440×900 with no horizontal overflow; ten full-page captures stored as `live-{service}-{width}.webp`. Mobile Siding capture visually reviewed after deployment. Live HTML points to the same `/construction-project/assets/index-uZt4hnLz.js` as the local production build. A direct unknown path returned HTTP 404. [Fingerprint and geometry](evidence/sprint-4/live-verification.json). This evidence does not claim deployed Lighthouse scores or actual 200% zoom.
+
+## Sprint 4.5 — global Roofing details (2026-10-20)
+
+Scope: four existing global detail shells replaced. Reference audit from 2026-10-18; final verification resumed 2026-10-20. Baseline main was `85f4bdbcd3a7cf62b4ecb9c14890efbf5730115c`, matching origin; no unrelated work found. Shared header/footer, homepage, service hub bodies, mock form, centralized contacts, route gates, Pages base, noindex and Claude ignores remain intact. No new forms, backend submission or location bodies.
+
+### Build and tests
+
+- `npm run lint`: pass.
+- `npm run typecheck`: pass.
+- `npm test`: **91/91 tests**, 11 files. New checks cover all four data resolutions, invalid slugs, route dispatch, supported links/location fallbacks, single H1/priority image and repair-to-replacement navigation. Native disclosure behavior is additionally exercised in real browsers.
+- `npm run build`: pass; 105 modules, **82 clean-route entries plus custom 404**. Main JS 384.44kB / 119.29kB gzip; two-segment chunk 27.52kB / 9.07kB gzip; additional detail CSS 3.45kB / 1.00kB gzip. No dependencies added.
+- Each global detail HTML has one matching responsive hero preload, no homepage hero preload, and noindex. Custom 404 has no hero preload. [Entry checks](evidence/sprint-4.5/entry-checks.json).
+- Diff whitespace check passes; Claude files remain ignored. Existing contact values and short mock-form note are unchanged.
+
+### Browser and comparison evidence
+
+Chromium **153.0.8010.12**, Firefox **155.0**. All four pages at **320, 360, 390, 430, 640, 768, 1024, 1280, 1440, 1920 and 2560px**, plus 844×390 landscape: **48 samples per engine / 96 total**, no page-level horizontal overflow or clipped measured headings/buttons/selects, one H1, zero runtime/console errors. [Matrix](evidence/sprint-4.5/browser-matrix.json). Finite viewport coverage is not a claim of testing every device.
+
+Both engines passed direct HTTP 200 loading and refresh; query and `#detail-title` retention; all loaded images and Metropolis fonts; noindex; location selection to a valid regional destination; all four Roofing hub links; homepage Replace/Repair links; breadcrumbs; unknown detail HTTP 404/Not Found. Every disclosure (3 replacement, 5 repair, 1 metal, 10 commercial) toggled using Enter/Space with visible focus; reduced-motion indicator duration was below 0.01s. Zero asset failures, page errors or non-GET requests. [Detail interaction records](evidence/sprint-4.5/production-detail-interactions.json).
+
+Homepage plus all five hubs passed regression smoke in both browsers: direct load/refresh, image loading, header links, mobile drawer navigation/close, location selector, siding style controls, Roofing review navigation/reduced-motion guard, related and estimate destinations, homepage form note. [Regression records](evidence/sprint-4.5/production-interactions.json). Mock form submission remains covered by existing unit tests; no real submission was made.
+
+Matching full-page reference/local images at **390×900, 768×900 and 1440×900** are stored as `reference-{slug}-{width}.webp` / `local-{slug}-{width}.webp` in [evidence](evidence/sprint-4.5/). All four desktop compositions and all mobile/tablet intro contact sheets were visually reviewed. Corrections included copy sizes/insets, package headers/actions, commercial FAQ surface and removal of unobserved feature estimate buttons. Explicit image sizes reserve layout space; hero content is never gated by animation. Native controls have comfortable targets and visible focus. Current hero preloads and below-fold lazy loading avoid eager downloads of every service photo.
+
+**Actual 200% zoom remains unverified.** Headed Chromium Control+0 followed by five Control++ commands left DPR at 1 and viewport width at 1034; the shortcut did not apply browser zoom in this automation environment. No CSS zoom or viewport resize is presented as a substitute. [Attempt](evidence/sprint-4.5/zoom-attempt.json). Physical touch and screen-reader output were not tested. Shared-header mobile differences, copied content density, lower-resolution existing assets and generated substitutions are explicit in the [audit comparison table](ROOFING_DETAIL_AUDIT.md) and [asset manifest](ASSET_MANIFEST.md).
+
+### Final image sizing and recorded performance
+
+Commercial cards now request widths appropriate to the one/two/four-column layout instead of half-screen feature widths; specials use 400px and desktop feature sizing caps at 630px. The already-completed post-correction Lighthouse 13.5.0 run reduced the commercial desktop image-delivery saving estimate from 326KiB to 46KiB. No new sweep was run during final recovery.
+
+| Page / device | Performance | LCP (seconds) | CLS | TBT (ms) |
+|---|---:|---:|---:|---:|
+| Replacement mobile | 70 | 5.436 | 0.000296 | 102 |
+| Replacement desktop | 97 | 1.103 | 0.000729 | 0 |
+| Commercial mobile | 70 | 4.920 | 0 | 178.673 |
+| Commercial desktop | 98 | 1.036 | 0.000607 | 9.5 |
+
+Accessibility and Best Practices are 100 in all four reports. SEO is 63 with intentional noindex retained. These are localhost production-build measurements, not live PageSpeed scores. [Recorded summary](evidence/sprint-4.5/lighthouse-summary.json) includes exact metrics and failed audits. Remaining findings: shared unused JavaScript (~190KiB), render-blocking requests, image delivery, network dependency chain, cache lifetimes on the simple local server, and back/forward cache restoration. **Performance 100 remains open**; no framework ceiling is claimed.
+
+Final recovery: lint, typecheck, all 91 tests and build ran once against the final code and passed. Final two-segment JS is 27.64kB / 9.12kB gzip; main JS 384.44kB / 119.30kB gzip. Previously completed browser/screenshot coverage was retained, not repeated after the image-hint-only correction. Publication verification is limited to the existing Pages workflow result and lightweight HTTP checks; no further screenshots, zoom attempts or Sprint 5 work.

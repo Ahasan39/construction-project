@@ -1,0 +1,13 @@
+{
+  "method": "Headed Chromium keyboard Control+0 then five Control++ commands; no CSS zoom or deviceScaleFactor emulation",
+  "before": {
+    "width": 1034,
+    "dpr": 1
+  },
+  "after": {
+    "width": 1034,
+    "dpr": 1,
+    "scrollWidth": 1019
+  },
+  "confirmed200": false
+}

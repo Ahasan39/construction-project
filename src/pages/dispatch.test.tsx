@@ -42,7 +42,7 @@ describe("two-segment dispatcher", () => {
   it("renders a service variant when service + variant match", () => {
     renderAt("/roofing/roof-replacement");
     expect(
-      screen.getByRole("heading", { name: /roof replacement/i })
+      screen.getByRole("heading", { level: 1, name: /roof replacement/i })
     ).toBeTruthy();
   });
 

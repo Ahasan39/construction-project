@@ -1,0 +1,438 @@
+[
+  {
+    "slug": "roof-replacement",
+    "device": "mobile",
+    "lighthouse": "13.5.0",
+    "date": "2026-10-20T02:41:23.608Z",
+    "url": "http://127.0.0.1:4173/construction-project/roofing/roof-replacement/",
+    "scores": {
+      "performance": 70,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 63,
+      "agentic-browsing": 100
+    },
+    "metrics": {
+      "largest-contentful-paint": {
+        "value": 5435.712475,
+        "display": "5.4 s"
+      },
+      "cumulative-layout-shift": {
+        "value": 0.0002963171322846119,
+        "display": "0"
+      },
+      "total-blocking-time": {
+        "value": 102,
+        "display": "100 ms"
+      },
+      "first-contentful-paint": {
+        "value": 4039.2946249999995,
+        "display": "4.0 s"
+      },
+      "speed-index": {
+        "value": 4039.2946249999995,
+        "display": "4.0 s"
+      }
+    },
+    "failed": [
+      {
+        "id": "first-contentful-paint",
+        "title": "First Contentful Paint",
+        "score": 0.22,
+        "display": "4.0 s"
+      },
+      {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "score": 0.2,
+        "display": "5.4 s"
+      },
+      {
+        "id": "speed-index",
+        "title": "Speed Index",
+        "score": 0.8,
+        "display": "4.0 s"
+      },
+      {
+        "id": "total-blocking-time",
+        "title": "Total Blocking Time",
+        "score": 0.98,
+        "display": "100 ms"
+      },
+      {
+        "id": "max-potential-fid",
+        "title": "Max Potential First Input Delay",
+        "score": 0.88,
+        "display": "140 ms"
+      },
+      {
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.71,
+        "display": "5.5 s"
+      },
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "score": 0,
+        "display": "Est savings of 190 KiB",
+        "details": 1050
+      },
+      {
+        "id": "is-crawlable",
+        "title": "Page is blocked from indexing",
+        "score": 0
+      },
+      {
+        "id": "bf-cache",
+        "title": "Page prevented back/forward cache restoration",
+        "score": 0,
+        "display": "2 failure reasons"
+      },
+      {
+        "id": "cache-insight",
+        "title": "Use efficient cache lifetimes",
+        "score": 0,
+        "display": "Est savings of 799 KiB"
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0,
+        "display": "Est savings of 88 KiB"
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0
+      },
+      {
+        "id": "render-blocking-insight",
+        "title": "Render-blocking requests",
+        "score": 0,
+        "display": "Est savings of 900 ms"
+      }
+    ]
+  },
+  {
+    "slug": "roof-replacement",
+    "device": "desktop",
+    "lighthouse": "13.5.0",
+    "date": "2026-10-20T02:41:38.709Z",
+    "url": "http://127.0.0.1:4173/construction-project/roofing/roof-replacement/",
+    "scores": {
+      "performance": 97,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 63,
+      "agentic-browsing": 100
+    },
+    "metrics": {
+      "largest-contentful-paint": {
+        "value": 1103.2866250000002,
+        "display": "1.1 s"
+      },
+      "cumulative-layout-shift": {
+        "value": 0.0007289616167586026,
+        "display": "0.001"
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms"
+      },
+      "first-contentful-paint": {
+        "value": 826.0618750000001,
+        "display": "0.8 s"
+      },
+      "speed-index": {
+        "value": 826.0618750000001,
+        "display": "0.8 s"
+      }
+    },
+    "failed": [
+      {
+        "id": "first-contentful-paint",
+        "title": "First Contentful Paint",
+        "score": 0.94,
+        "display": "0.8 s"
+      },
+      {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "score": 0.92,
+        "display": "1.1 s"
+      },
+      {
+        "id": "speed-index",
+        "title": "Speed Index",
+        "score": 0.99,
+        "display": "0.8 s"
+      },
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "score": 0,
+        "display": "Est savings of 190 KiB",
+        "details": 160
+      },
+      {
+        "id": "is-crawlable",
+        "title": "Page is blocked from indexing",
+        "score": 0
+      },
+      {
+        "id": "bf-cache",
+        "title": "Page prevented back/forward cache restoration",
+        "score": 0,
+        "display": "2 failure reasons"
+      },
+      {
+        "id": "cache-insight",
+        "title": "Use efficient cache lifetimes",
+        "score": 0,
+        "display": "Est savings of 884 KiB"
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0,
+        "display": "Est savings of 111 KiB"
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0
+      },
+      {
+        "id": "render-blocking-insight",
+        "title": "Render-blocking requests",
+        "score": 0,
+        "display": "Est savings of 200 ms"
+      }
+    ]
+  },
+  {
+    "slug": "commercial-roofing",
+    "device": "mobile",
+    "lighthouse": "13.5.0",
+    "date": "2026-10-20T02:41:54.169Z",
+    "url": "http://127.0.0.1:4173/construction-project/roofing/commercial-roofing/",
+    "scores": {
+      "performance": 70,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 63,
+      "agentic-browsing": 100
+    },
+    "metrics": {
+      "largest-contentful-paint": {
+        "value": 4919.9617,
+        "display": "4.9 s"
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0"
+      },
+      "total-blocking-time": {
+        "value": 178.67304999999988,
+        "display": "180 ms"
+      },
+      "first-contentful-paint": {
+        "value": 4033.13475,
+        "display": "4.0 s"
+      },
+      "speed-index": {
+        "value": 4033.13475,
+        "display": "4.0 s"
+      }
+    },
+    "failed": [
+      {
+        "id": "first-contentful-paint",
+        "title": "First Contentful Paint",
+        "score": 0.22,
+        "display": "4.0 s"
+      },
+      {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "score": 0.28,
+        "display": "4.9 s"
+      },
+      {
+        "id": "speed-index",
+        "title": "Speed Index",
+        "score": 0.8,
+        "display": "4.0 s"
+      },
+      {
+        "id": "total-blocking-time",
+        "title": "Total Blocking Time",
+        "score": 0.92,
+        "display": "180 ms"
+      },
+      {
+        "id": "max-potential-fid",
+        "title": "Max Potential First Input Delay",
+        "score": 0.44,
+        "display": "270 ms"
+      },
+      {
+        "id": "interactive",
+        "title": "Time to Interactive",
+        "score": 0.77,
+        "display": "4.9 s"
+      },
+      {
+        "id": "mainthread-work-breakdown",
+        "title": "Minimize main-thread work",
+        "score": 0,
+        "display": "2.7 s"
+      },
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "score": 0,
+        "display": "Est savings of 190 KiB",
+        "details": 900
+      },
+      {
+        "id": "is-crawlable",
+        "title": "Page is blocked from indexing",
+        "score": 0
+      },
+      {
+        "id": "bf-cache",
+        "title": "Page prevented back/forward cache restoration",
+        "score": 0,
+        "display": "2 failure reasons"
+      },
+      {
+        "id": "cache-insight",
+        "title": "Use efficient cache lifetimes",
+        "score": 0,
+        "display": "Est savings of 638 KiB"
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0,
+        "display": "Est savings of 46 KiB"
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0
+      },
+      {
+        "id": "render-blocking-insight",
+        "title": "Render-blocking requests",
+        "score": 0,
+        "display": "Est savings of 900 ms"
+      }
+    ]
+  },
+  {
+    "slug": "commercial-roofing",
+    "device": "desktop",
+    "lighthouse": "13.5.0",
+    "date": "2026-10-20T02:42:11.184Z",
+    "url": "http://127.0.0.1:4173/construction-project/roofing/commercial-roofing/",
+    "scores": {
+      "performance": 98,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 63,
+      "agentic-browsing": 100
+    },
+    "metrics": {
+      "largest-contentful-paint": {
+        "value": 1035.576525,
+        "display": "1.0 s"
+      },
+      "cumulative-layout-shift": {
+        "value": 0.0006073647958439133,
+        "display": "0.001"
+      },
+      "total-blocking-time": {
+        "value": 9.5,
+        "display": "10 ms"
+      },
+      "first-contentful-paint": {
+        "value": 846.340375,
+        "display": "0.8 s"
+      },
+      "speed-index": {
+        "value": 867.8518430897876,
+        "display": "0.9 s"
+      }
+    },
+    "failed": [
+      {
+        "id": "first-contentful-paint",
+        "title": "First Contentful Paint",
+        "score": 0.93,
+        "display": "0.8 s"
+      },
+      {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "score": 0.94,
+        "display": "1.0 s"
+      },
+      {
+        "id": "speed-index",
+        "title": "Speed Index",
+        "score": 0.99,
+        "display": "0.9 s"
+      },
+      {
+        "id": "max-potential-fid",
+        "title": "Max Potential First Input Delay",
+        "score": 0.99,
+        "display": "70 ms"
+      },
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "score": 0,
+        "display": "Est savings of 190 KiB",
+        "details": 160
+      },
+      {
+        "id": "is-crawlable",
+        "title": "Page is blocked from indexing",
+        "score": 0
+      },
+      {
+        "id": "bf-cache",
+        "title": "Page prevented back/forward cache restoration",
+        "score": 0,
+        "display": "2 failure reasons"
+      },
+      {
+        "id": "cache-insight",
+        "title": "Use efficient cache lifetimes",
+        "score": 0,
+        "display": "Est savings of 741 KiB"
+      },
+      {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "score": 0.5,
+        "display": "Est savings of 46 KiB"
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "title": "Network dependency tree",
+        "score": 0
+      },
+      {
+        "id": "render-blocking-insight",
+        "title": "Render-blocking requests",
+        "score": 0,
+        "display": "Est savings of 200 ms"
+      }
+    ]
+  }
+]

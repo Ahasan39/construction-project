@@ -155,3 +155,9 @@ Explicit location-service availability is the single source of truth in [`src/da
 | Global insulation / new product detail routes | Not added. Insulation and unimplemented product detail actions use the existing estimate destination. |
 
 All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.
+
+## Sprint 4.5 route status — 2026-10-20 (supersedes detail-shell status above)
+
+The four global detail routes `/roofing/roof-replacement/`, `/roofing/roof-repair/`, `/roofing/metal-roofing/` and `/roofing/commercial-roofing/` now have complete reference-informed bodies. Actual reference destinations match these nested paths; all returned 200 without redirects in the 2026-10-18 audit. See [detail audit](ROOFING_DETAIL_AUDIT.md).
+
+Only those four global shells are replaced. Location hubs and location-service/variant routes, `/free-estimate/`, `/financing/` and `/visualizer/` remain future shells. The native detail selector routes to an explicitly supported location variant or the regional hub; no availability combinations were invented. Homepage repair/replacement links and all four Roofing hub cards resolve to completed detail pages. Unknown details remain Not Found. The 82 clean entries and custom 404 are unchanged in count; only global detail hero preloads are added.

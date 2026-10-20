@@ -1,0 +1,50 @@
+.roofing-detail .detail-subtitle { font-size: 22px; font-weight: 700; line-height: 1.4; margin-bottom: 24px; }
+.roofing-detail figure { margin: 0; }
+.roofing-detail figcaption { font-size: 12px; color: #52616c; margin-top: 8px; }
+.roofing-detail .detail-text-link { text-decoration: underline; text-underline-offset: 3px; display: inline-block; padding-block: 8px; }
+.roofing-detail .detail-text-link:hover { color: #b81b22; }
+.detail-packages { padding-block: 80px 0; }
+.detail-packages > header, .detail-process > div > header { text-align: center; max-width: 900px; margin: 0 auto 48px; }
+.detail-kicker { font-weight: 700; margin-bottom: 12px; }
+.detail-packages .service-reference-note { margin-top: 20px; }
+.detail-three-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; }
+.detail-tier { background: #ebedef; display: flex; flex-direction: column; min-width: 0; text-align: center; }
+.detail-tier > header { background: #102637; color: white; padding: 30px 24px; }
+.detail-tier--1 > header { background: #d9232a; }
+.detail-tier--2 > header { background: #5bc2e7; color: #102637; }
+.detail-tier h3 { font-size: 30px; }
+.detail-tier header p { margin-top: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+.detail-tier > div { padding: 32px; display: flex; flex: 1; flex-direction: column; align-items: center; }
+.detail-product-name { font-size: 26px; display: block; margin-bottom: 24px; }
+.detail-tier ul { margin: 24px 0; width: 100%; }
+.detail-tier li { padding-block: 16px; border-bottom: 1px solid #cdd5dc; }
+.detail-tier .service-action { margin-top: auto; }
+.detail-commercial-products { padding-block: 70px; }
+.detail-process { padding-block: 80px; }
+.detail-process .detail-tier h3 { font-size: 24px; }
+.detail-process .detail-tier header { min-height: 160px; display: flex; flex-direction: column; justify-content: center; }
+.detail-process .detail-tier header span { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+@media (max-width: 1023px) { .detail-three-grid { grid-template-columns: 1fr; } .detail-tier > div { padding: 32px; } .detail-process .detail-tier header { min-height: 0; } }
+@media (max-width: 767px) { .detail-packages { padding-top: 56px; } .detail-process, .detail-commercial-products { padding-block: 56px; } .roofing-detail .detail-subtitle { font-size: 20px; } }
+/* Detail-specific reference surfaces; shared hub styles remain unchanged. */
+.detail-packages .detail-tier > header { display: flex; gap: 14px; align-items: center; text-align: left; padding: 24px 28px; }
+.detail-packages .detail-tier--0 > header { background: #387b8b; }
+.detail-packages .detail-tier--1 > header { background: #075064; }
+.detail-packages .detail-tier--2 > header { background: #102637; color: white; }
+.detail-packages .detail-tier header p { margin: 0; font-size: 12px; }
+.detail-packages .detail-tier > div { align-items: stretch; text-align: left; padding: 28px; }
+.detail-packages .detail-tier li { padding-block: 8px; border: 0; }
+.detail-packages > header h2 { font-size: clamp(2rem, 3.8vw, 3.375rem); }
+.detail-process .detail-tier > div { text-align: left; }
+.roofing-detail--commercial-roofing .service-faq { background: white; }
+@media (max-width: 767px) { .detail-packages .detail-tier > header { flex-wrap: wrap; } }
+.roofing-detail .service-intro-copy > p:not(.detail-subtitle) { font-size: 20px; line-height: 1.7; }
+.roofing-detail .service-feature-copy > p, .roofing-detail .service-checks { font-size: 18px; line-height: 1.6; }
+.roofing-detail .service-feature-copy > p { line-height: 1.6; }
+@media (min-width: 1024px) { .roofing-detail .service-intro-copy { padding: 60px 50px; } }
+@media (max-width: 767px) {
+  .roofing-detail .service-intro-copy { padding: 36px 30px 56px; }
+  .roofing-detail .service-intro-copy > p:not(.detail-subtitle) { font-size: 18px; line-height: 1.7; }
+  .roofing-detail .service-specials { padding: 32px 30px; }
+}
+.roofing-detail #detail-title { scroll-margin-top: 180px; }

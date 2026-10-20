@@ -5,6 +5,7 @@ import path from "node:path";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { staticRoutes } from "./src/app/staticRoutes";
 import { servicePages, type ServiceHubKey } from "./src/data/servicePages";
+import { findRoofingDetail } from "./src/data/roofingDetails";
 
 export default defineConfig(({ command, isPreview }) => ({
   base: command === "build" || isPreview ? "/construction-project/" : "/",
@@ -20,7 +21,11 @@ export default defineConfig(({ command, isPreview }) => ({
         const service = servicePages[route.slice(1) as ServiceHubKey];
         const hero = service?.hero.file;
         const preload = hero ? `<link rel="preload" as="image" type="image/webp" href="/construction-project/images/services/photos/${hero}-900.webp" imagesrcset="/construction-project/images/services/photos/${hero}-480.webp 480w, /construction-project/images/services/photos/${hero}-900.webp 900w" imagesizes="100vw" fetchpriority="high">` : "";
-        await writeFile(path.join(directory, "index.html"), preload ? html.replace("</head>", `${preload}\n</head>`) : html);
+        const detail = route.startsWith("/roofing/") ? findRoofingDetail(route.split("/")[2]) : undefined;
+        const photo = detail?.hero;
+        const detailPreload = photo ? `<link rel="preload" as="image" type="image/webp" href="/construction-project/images/roofing-details/${photo.name}-${photo.width}.webp" imagesrcset="/construction-project/images/roofing-details/${photo.name}-480.webp 480w, /construction-project/images/roofing-details/${photo.name}-${photo.width}.webp ${photo.width}w" imagesizes="100vw" fetchpriority="high">` : "";
+        const routePreload = detailPreload || preload;
+        await writeFile(path.join(directory, "index.html"), routePreload ? html.replace("</head>", `${routePreload}\n</head>`) : html);
       }
       // Pages serves this shell with HTTP 404, keeping path, query and hash intact.
       await writeFile(path.join(output, "404.html"), html);

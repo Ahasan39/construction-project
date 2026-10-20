@@ -1,0 +1,142 @@
+[
+  {
+    "name": "replacement",
+    "source": "public/images/homepage/hero-suburban-home.jpg",
+    "width": 480,
+    "height": 320,
+    "originalWidth": 1200,
+    "originalHeight": 670,
+    "output": "public/images/roofing-details/replacement-480.webp",
+    "bytes": 31580
+  },
+  {
+    "name": "replacement",
+    "source": "public/images/homepage/hero-suburban-home.jpg",
+    "width": 1200,
+    "height": 800,
+    "originalWidth": 1200,
+    "originalHeight": 670,
+    "output": "public/images/roofing-details/replacement-1200.webp",
+    "bytes": 121186
+  },
+  {
+    "name": "repair",
+    "source": "public/images/homepage/benefit-roofer-install.jpg",
+    "width": 480,
+    "height": 320,
+    "originalWidth": 640,
+    "originalHeight": 478,
+    "output": "public/images/roofing-details/repair-480.webp",
+    "bytes": 31504
+  },
+  {
+    "name": "repair",
+    "source": "public/images/homepage/benefit-roofer-install.jpg",
+    "width": 640,
+    "height": 427,
+    "originalWidth": 640,
+    "originalHeight": 478,
+    "output": "public/images/roofing-details/repair-640.webp",
+    "bytes": 48146
+  },
+  {
+    "name": "consultation",
+    "source": "public/images/homepage/benefit-consultant-homeowner.jpg",
+    "width": 480,
+    "height": 320,
+    "originalWidth": 640,
+    "originalHeight": 478,
+    "output": "public/images/roofing-details/consultation-480.webp",
+    "bytes": 35006
+  },
+  {
+    "name": "consultation",
+    "source": "public/images/homepage/benefit-consultant-homeowner.jpg",
+    "width": 640,
+    "height": 427,
+    "originalWidth": 640,
+    "originalHeight": 478,
+    "output": "public/images/roofing-details/consultation-640.webp",
+    "bytes": 54976
+  },
+  {
+    "name": "crew",
+    "source": "public/images/homepage/benefit-crew-working.jpg",
+    "width": 480,
+    "height": 320,
+    "originalWidth": 640,
+    "originalHeight": 478,
+    "output": "public/images/roofing-details/crew-480.webp",
+    "bytes": 29516
+  },
+  {
+    "name": "crew",
+    "source": "public/images/homepage/benefit-crew-working.jpg",
+    "width": 640,
+    "height": 427,
+    "originalWidth": 640,
+    "originalHeight": 478,
+    "output": "public/images/roofing-details/crew-640.webp",
+    "bytes": 47266
+  },
+  {
+    "name": "exterior",
+    "source": "public/images/homepage/benefit-exterior-renovation.jpg",
+    "width": 480,
+    "height": 320,
+    "originalWidth": 640,
+    "originalHeight": 478,
+    "output": "public/images/roofing-details/exterior-480.webp",
+    "bytes": 39204
+  },
+  {
+    "name": "exterior",
+    "source": "public/images/homepage/benefit-exterior-renovation.jpg",
+    "width": 640,
+    "height": 427,
+    "originalWidth": 640,
+    "originalHeight": 478,
+    "output": "public/images/roofing-details/exterior-640.webp",
+    "bytes": 62962
+  },
+  {
+    "name": "metal",
+    "source": "C:/Users/USER/.codex/generated_images/01a14a3e-57a1-7382-bfc2-91d1d2d2a129/exec-430d951e-8df2-4e67-a63f-120dcf4918ca.png",
+    "width": 480,
+    "height": 320,
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "output": "public/images/roofing-details/metal-480.webp",
+    "bytes": 34776
+  },
+  {
+    "name": "metal",
+    "source": "C:/Users/USER/.codex/generated_images/01a14a3e-57a1-7382-bfc2-91d1d2d2a129/exec-430d951e-8df2-4e67-a63f-120dcf4918ca.png",
+    "width": 1440,
+    "height": 960,
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "output": "public/images/roofing-details/metal-1440.webp",
+    "bytes": 193560
+  },
+  {
+    "name": "commercial",
+    "source": "C:/Users/USER/.codex/generated_images/01a14a3e-57a1-7382-bfc2-91d1d2d2a129/exec-5fd44e9e-e1e9-4118-8dd1-3cc488e45b19.png",
+    "width": 480,
+    "height": 320,
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "output": "public/images/roofing-details/commercial-480.webp",
+    "bytes": 13620
+  },
+  {
+    "name": "commercial",
+    "source": "C:/Users/USER/.codex/generated_images/01a14a3e-57a1-7382-bfc2-91d1d2d2a129/exec-5fd44e9e-e1e9-4118-8dd1-3cc488e45b19.png",
+    "width": 1440,
+    "height": 960,
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "output": "public/images/roofing-details/commercial-1440.webp",
+    "bytes": 74430
+  }
+]
