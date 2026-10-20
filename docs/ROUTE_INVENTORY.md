@@ -156,6 +156,18 @@ Explicit location-service availability is the single source of truth in [`src/da
 
 All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.
 
+## Sprint 5.2 route status — 2026-10-20
+
+All ten location hubs (`/ann-arbor/`, `/cincinnati/`, `/cleveland/`,
+`/dayton/`, `/detroit/`, `/grand-rapids/`, `/lansing/`, `/lexington/`,
+`/louisville/`, `/nashville/`) now render completed, reference-informed
+compositions. See [LOCATION_PAGES_AUDIT.md](LOCATION_PAGES_AUDIT.md).
+
+Location-scoped service, free-estimate, financing and service-area routes
+remain gated by `src/data/availability.ts` and are unchanged. Static route
+generation and clean entry counts are unchanged (82 entries + 404). Nested
+`/<location>/service-area/<child>/` pages remain Sprint 1 scaffolds.
+
 ## Sprint 5.1 route status — 2026-10-20
 
 `/ann-arbor/` and `/nashville/` now render completed location hubs informed by

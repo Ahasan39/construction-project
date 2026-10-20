@@ -1,5 +1,16 @@
 # Progress Log
 
+## Sprint 5.2 — Remaining eight location pages (2026-10-20)
+
+- Baseline: clean `main` at `051ad29c03674b8c34d6fc0f0ab1f15769564419`; expected origin and repository-local author verified.
+- Extended `src/data/locationPages.ts` with typed content for Grand Rapids, Cleveland, Cincinnati, Dayton, Lexington, Louisville, Detroit and Lansing. All ten `locations[]` entries now resolve to a completed hub; the Sprint 1 scaffold fallback remains in place in `LocationPage.tsx` but is now unused.
+- Reference inspection (2026-10-20, all eight 200 OK, no redirects): H1 and section wording captured per page in [LOCATION_PAGES_AUDIT.md](LOCATION_PAGES_AUDIT.md). Preserved real differences — Grand Rapids/Dayton/Louisville use their own service-grid wording; Cleveland/Cincinnati/Lexington share "Quality Products. Service You Can Trust."; Detroit/Lansing reuse the Southeast Michigan grid heading. Only Ann Arbor keeps the "As Seen On" strip.
+- Fixed Ann Arbor's final CTA: destination is now resolved from availability. Locations with `hasFreeEstimate` link to `/<slug>/free-estimate/`; others anchor the hero form via `#estimate` (hero `<aside>` carries `id="estimate"` plus `scroll-mt-28 lg:scroll-mt-32` for the sticky header). No invented local estimate route is generated.
+- Explicit location→region map in `locationPages.ts` (never inferred from names). Detroit maps to `south-east-michigan`; Lexington maps to `lexington-area` even though the reference's own form omits that option. Where a mapping is listed, the hero region dropdown is suppressed; a missing mapping would surface the open selector instead.
+- Added 28 data-driven tests in `LocationPage.test.tsx` covering: catalog coverage (every slug resolves), region preselection, final-CTA target per availability, As Seen On presence, scoped-vs-global service grid links, and the hero anchor target existing in the DOM.
+- Verification (local): `npm run lint`, `npm run typecheck`, `npm test` (119 tests across 12 files) and `npm run build` (clean, 82 static entries + 404) passed. Preview smoke-tested one representative page.
+- Open: mobile Lighthouse 100 and actual 200% zoom carry over. Nested `/<location>/<service>/` combinations beyond the explicit availability table remain unchanged; `/service-area/<slug>/` child pages remain Sprint 1 scaffolds.
+
 ## Sprint 5.1 — Location pages: Ann Arbor and Nashville (2026-10-20)
 
 - Baseline: clean `main` at `3c4dc2f7b75e9582b950d686f8da690836042c67`; expected origin and repository-local author verified.

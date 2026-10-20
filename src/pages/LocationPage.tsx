@@ -42,6 +42,13 @@ export default function LocationPage({ location }: LocationPageProps) {
   const availableForLocation = (service: ServiceKey) =>
     isLocationServiceAvailable(location.slug, service);
 
+  // Prefer a scoped free-estimate route when the location advertises one;
+  // otherwise anchor the hero form on this page. Never invent a local
+  // free-estimate route that is not listed in availability.
+  const ctaTo = hasLocationCapability(location.slug, "hasFreeEstimate")
+    ? `/${location.slug}/free-estimate/`
+    : "#estimate";
+
   return (
     <>
       <LocationHero content={content} location={location} />
@@ -57,7 +64,7 @@ export default function LocationPage({ location }: LocationPageProps) {
       {content.showAsSeenOnStrip && <LocationAsSeenOn />}
       <ReviewsStrip />
       <AwardsStrip />
-      <LocationFinalCta content={content} />
+      <LocationFinalCta content={content} ctaTo={ctaTo} />
     </>
   );
 }

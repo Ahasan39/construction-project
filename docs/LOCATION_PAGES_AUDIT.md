@@ -1,7 +1,9 @@
-# Location Pages Audit — Sprint 5.1 (2026-10-20)
+# Location Pages Audit — Sprints 5.1 and 5.2 (2026-10-20)
 
-Scope: `/ann-arbor/` and `/nashville/`. Reference pages inspected via WebFetch
-on 2026-10-20; both returned 200 with no redirects.
+Scope: all ten location hubs. Sprint 5.1 completed Ann Arbor and Nashville;
+Sprint 5.2 added Grand Rapids, Cleveland, Cincinnati, Dayton, Lexington,
+Louisville, Detroit and Lansing. Reference pages inspected via WebFetch on
+2026-10-20; all returned 200 with no redirects.
 
 ## Shared section composition
 
@@ -85,6 +87,42 @@ preselected and hidden; service selection remains open.
   share the viewport-tested rules from the homepage sprint; new wrappers use
   only fluid grids, `overflow-wrap: anywhere` on long headings and the shared
   focus-visible outline.
+
+## Sprint 5.2 per-page observations
+
+Reference H1 and section wording captured for every page; implemented verbatim
+or close-paraphrased in `src/data/locationPages.ts`.
+
+| Slug | Hero H1 (reference) | Service-grid heading | Default region | Scoped services |
+|---|---|---|---|---|
+| ann-arbor | "Southeast Michigan's Top Choice for Residential Roofing." | "Mr. Roof: Quality, Value, and Cost Effective Prices" | south-east-michigan | roofing (service-area index only) |
+| nashville | "Your Experienced Nashville Roofing Contractor." | "The Leading Exterior Remodeler in Nashville" | nashville-area | roofing (+ commercial variant), siding, windows, gutters, masonry, insulation |
+| grand-rapids | "Grand Rapids' Go-To Roofing Company Since 1962" | "Full-Service Exterior Remodeling in Grand Rapids" | grand-rapids-area | roofing (financing + service-area index) |
+| cleveland | "Cleveland Residential Roofing Contractors You Can Trust" | "Quality Products. Service You Can Trust." | cleveland-area | roofing (free-estimate, financing, service-area index) |
+| cincinnati | "Best Roofers in Cincinnati, OH" | "Quality Products. Service You Can Trust." | cincinnati-area | roofing (+ commercial variant, free-estimate, financing, service-area index) |
+| dayton | "Dayton's Trusted Roofing Company" | "Your First Choice For Exterior Renovation in Dayton" | dayton-area | roofing (+ commercial variant, free-estimate) |
+| lexington | "Lexington, Kentucky's Most Trusted Roofing Contractors" | "Quality Products. Service You Can Trust." | lexington-area | hub only |
+| louisville | "#1 Residential Roofing Company in Louisville, Kentucky" | "Trusted Exterior Renovation Contractors in Louisville" | louisville-area | roofing (free-estimate, financing) |
+| detroit | "Detroit's #1 Choice for Residential Roofing" | "Mr. Roof: Quality, Value, and Cost Effective Prices" | south-east-michigan | hub only |
+| lansing | "Lansing's #1 Choice for Residential Roofing" | "Mr. Roof: Quality, Value, and Cost Effective Prices" | lansing-area | roofing (service-area index only) |
+
+The "As Seen On" media strip is only present on Ann Arbor's reference page; the
+other nine omit it. The Lexington reference form does not list Lexington as a
+region; we keep Lexington Area in our local dropdown and preselect it.
+
+## Final CTA — Ann Arbor correction (Sprint 5.2)
+
+Sprint 5.1 pointed Ann Arbor's final CTA back at `/ann-arbor/` (a reload). The
+final CTA destination is now computed from availability:
+
+- If `hasFreeEstimate` is advertised for the location, the CTA goes to
+  `/<slug>/free-estimate/`.
+- Otherwise it anchors the hero form via `#estimate` (resolved against the
+  current path by React Router). The hero `<aside>` carries `id="estimate"`
+  and `scroll-mt-28 lg:scroll-mt-32` so the sticky header does not cover the
+  scroll target.
+
+No nonexistent `/<slug>/free-estimate/` route is ever generated.
 
 ## Open limitations
 

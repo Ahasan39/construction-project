@@ -91,8 +91,9 @@ export function LocationHero({ content, location }: { content: LocationPageConte
           </div>
 
           <aside
+            id="estimate"
             aria-label={`Request a free estimate — ${location.city}`}
-            className="rounded-sm bg-[#0C1F33] text-white p-6 sm:p-7 shadow-md border border-slate-800 flex flex-col justify-between"
+            className="rounded-sm bg-[#0C1F33] text-white p-6 sm:p-7 shadow-md border border-slate-800 flex flex-col justify-between scroll-mt-28 lg:scroll-mt-32"
           >
             <div>
               <div className="pb-3 mb-4">
@@ -352,8 +353,16 @@ export function LocationAsSeenOn() {
   );
 }
 
-/** Final CTA banner. Preserves local destination (hub) when free-estimate is not available. */
-export function LocationFinalCta({ content }: { content: LocationPageContent }) {
+/** Final CTA banner. Caller supplies the resolved destination so the page can
+ *  prefer a scoped `/<slug>/free-estimate/` route and fall back to an in-page
+ *  anchor on the hero form rather than inventing a nonexistent local route. */
+export function LocationFinalCta({
+  content,
+  ctaTo,
+}: {
+  content: LocationPageContent;
+  ctaTo: string;
+}) {
   return (
     <section aria-label="Final call to action" className="bg-[#0C1F33] text-white">
       <Container width="wide" className="py-12 sm:py-16 flex flex-col items-center text-center gap-5">
@@ -364,7 +373,7 @@ export function LocationFinalCta({ content }: { content: LocationPageContent }) 
           {content.finalCta.body}
         </p>
         <Link
-          to={content.finalCta.primary.to}
+          to={ctaTo}
           className="inline-flex items-center justify-center min-h-[48px] px-8 rounded-sm bg-[#D9232A] hover:bg-[#B81B22] text-white text-sm font-extrabold uppercase tracking-wider transition-colors shadow-md focus-visible:outline-2 focus-visible:outline-[var(--color-focus)]"
         >
           {content.finalCta.primary.label}
