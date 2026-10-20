@@ -1,5 +1,15 @@
 # Progress Log
 
+## Sprint 5.5.2 — Nashville route provenance correction + free-estimate (2026-10-20)
+
+- Baseline: clean `main` at `138eab524b9665e6d41476c9ec0b1ac15a334a9c`; expected origin and repository-local author verified.
+- Correction to Sprint 5.5.1 provenance: a live inspection of the Nashville reference homepage on 2026-10-20 confirms every service-grid tile links to a published scoped URL. All five Nashville scoped hubs completed in Sprint 5.5.1 are **verified reference URLs**, not demo extensions. Sprint 5.5.1's claim that four were unpublished was based on the older partial sitemap excerpt in `ROUTE_INVENTORY.md §2` rather than live navigation; the audit is now corrected in [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md). No local route or page implementation changes result from this correction.
+- Completed `/nashville/free-estimate/`: AppShell, breadcrumb, H1 "Free Estimate." (reference parity), reusable `EstimateForm` with Nashville preselected via `lockedRegion="nashville-area"`, service kept open, consent checkboxes and existing validation / pending / success / error / retry behaviour preserved. The demo-only notice, centralized phone/email and noindex metadata are all intact. No office address is published for the demo and no reference endpoint is reactivated.
+- Gating: `COMPLETED_SLUGS = new Set(["nashville"])` in `LocationFreeEstimatePage.tsx` keeps the scaffold for cleveland, cincinnati, louisville and dayton — these advertise `hasFreeEstimate` in availability but are not in scope here.
+- Added `src/pages/LocationFreeEstimatePage.test.tsx` (10 tests): Nashville free-estimate renders a city-named H1 without the scaffold badge; the hero region selector is suppressed and service is open; demo phone/email contacts render with the expected `tel:` / `mailto:` hrefs; breadcrumb returns to `/nashville/`; the "Demo form — submissions are not sent." notice is present; the four other `hasFreeEstimate` cities keep the Sprint 1 scaffold; unknown cities and cities without the capability resolve to Not Found.
+- Verification: `npm run lint`, `npm run typecheck`, `npm test` (141 tests across 14 files) and `npm run build` (82 static entries + 404) all pass. Rendered browser verification remains unavailable in this session; HTTP 200 and bundle-string probes are not substituted.
+- Remaining Sprint 1 shells: insulation (not a `ServiceHubKey`), commercial-roofing variant, nashville financing/service-area, and every scoped service across the other eight locations.
+
 ## Sprint 5.5.1 — Nashville local-service hub pages (2026-10-20)
 
 - Baseline: clean `main` at `ebecb8e922cef94b96a0251ec59a7e4c59ef6d7c`; expected origin and repository-local author verified.

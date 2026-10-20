@@ -156,18 +156,31 @@ Explicit location-service availability is the single source of truth in [`src/da
 
 All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.
 
+## Sprint 5.5.2 route status — 2026-10-20
+
+Corrects Sprint 5.5.1's provenance claim and completes `/nashville/free-estimate/`.
+Live inspection of the reference Nashville homepage on 2026-10-20 confirms
+every service-grid tile links to a published scoped URL
+(`/nashville/{roofing,siding,windows,gutters,masonry,insulation}/`), so the
+five scoped service hubs completed in Sprint 5.5.1 are **verified reference
+URLs** — not demo extensions.
+
+`/nashville/free-estimate/` now renders a completed body: AppShell, breadcrumb,
+"Free Estimate." H1 (reference parity), reusable `EstimateForm` with the
+Nashville region preselected and service left open, demo phone/email, and the
+standing "Demo form — submissions are not sent." notice. The route is gated
+behind `COMPLETED_SLUGS = {"nashville"}` in `LocationFreeEstimatePage.tsx`;
+other advertised cities (cleveland, cincinnati, louisville, dayton) keep the
+scaffold until their own sprints.
+
+Still Sprint 1 scaffolds: `/nashville/insulation/`,
+`/nashville/roofing/commercial-roofing/`, `/nashville/financing/`,
+`/nashville/service-area/`, `/nashville/service-area/<child>/`, every
+advertised scoped service for the other eight locations, and the four other
+cities' `/free-estimate/` routes. Static-route generation, 404 and
+clean-entry counts are unchanged (82 + 404).
+
 ## Sprint 5.5.1 route status — 2026-10-20
-
-Five Nashville scoped service hubs now render completed bodies:
-`/nashville/roofing/`, `/nashville/siding/`, `/nashville/windows/`,
-`/nashville/gutters/`, `/nashville/masonry/`. See
-[LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).
-
-Still Sprint 1 scaffolds: `/nashville/insulation/` (not a `ServiceHubKey`),
-`/nashville/roofing/commercial-roofing/` (variant), `/nashville/free-estimate/`,
-`/nashville/financing/`, `/nashville/service-area/`, `/nashville/service-area/<child>/`,
-and every advertised scoped service for the other eight locations.
-Static-route generation, 404 and clean-entry counts are unchanged (82 + 404).
 
 ## Sprint 5.2 route status — 2026-10-20
 

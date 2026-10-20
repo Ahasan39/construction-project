@@ -2,6 +2,10 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 5.5.2 — Nashville provenance correction and free-estimate (2026-10-20)
+
+Lint, typecheck, 141 tests across 14 files and production build all passed after implementation. New coverage in `src/pages/LocationFreeEstimatePage.test.tsx` asserts Nashville renders a completed body with the "Free Estimate." H1 (reference parity), the hero region selector is suppressed because Nashville is preselected while the service dropdown remains open, demo phone/email contacts render with the shared `tel:` / `mailto:` hrefs, breadcrumb targets `/nashville/`, the "Demo form — submissions are not sent." notice is present, the four other advertised `hasFreeEstimate` cities keep their Sprint 1 scaffolds, and unknown or incapable location slugs resolve to Not Found. The provenance correction documented in [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md) is docs-only — no local route or implementation changed. Rendered browser verification remains unavailable in this session; HTTP 200 and bundle-string probes are not substituted for rendered checks.
+
 ## Sprint 5.5.1 — Nashville local-service hub pages (2026-10-20)
 
 Lint, typecheck, 130 tests across 13 files and production build all passed after implementation. New data-driven coverage in `src/pages/LocationServicePage.test.tsx` asserts that every `locationServicePages` entry maps to an availability pair, each of the five completed Nashville hubs renders a city-named H1 without the Sprint 1 scaffold badge, the hero CTA resolves to `/nashville/free-estimate/`, the breadcrumb returns to `/nashville/`, `/lexington/roofing/` remains Not Found, and `/nashville/insulation/` continues to render the scaffold. Rendered browser verification of the five live routes at viewport widths is not available in this session; HTTP 200 and bundle-string probes are not substituted for rendered checks. See [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).
