@@ -237,11 +237,67 @@ const cincinnatiServices: LocationServiceMap = {
   },
 };
 
+const DAYTON_FINAL_CTA = "/dayton/#estimate";
+
+const daytonServices: LocationServiceMap = {
+  // Reference /dayton/roofing/ has no FAQ section; the local hub omits one.
+  roofing: {
+    title: "Dayton Roofing Services",
+    eyebrow: "Residential Roof Replacement and Repair",
+    intro:
+      "Residential roofing for Dayton and the Miami Valley — replacement, repair and inspection. Written estimates, workmanship warranties and a transferable lifetime warranty on qualifying systems.",
+    finalCtaTo: DAYTON_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased); the live reference
+  // page's first FAQ question has a Cincinnati placeholder from the
+  // reference's own template, so our local wording keeps the three
+  // reference-verified topics (cost / signs / lifespan) with correct
+  // Dayton naming.
+  siding: {
+    title: "Dayton Siding Installation",
+    eyebrow: "Vinyl, Fiber Cement and Engineered Wood",
+    intro:
+      "Siding projects for Dayton homes. Compare vinyl, fiber cement and engineered wood profiles, colors and warranty terms with a written estimate — no high-pressure sales.",
+    faqs: [
+      { title: "Siding replacement cost in Dayton?", body: "Wall area, chosen material, trim details and any underlying repairs affect the total. A measured, written estimate is more useful than a single price point for every home." },
+      { title: "What are signs I need new siding?", body: "Repeated paint failure, soft or warped panels, visible water staining behind the siding or persistent pest intrusion are reasons to request an inspection. Southwest Ohio seasonal shifts can accelerate these issues on older vinyl and wood siding." },
+      { title: "How long does vinyl siding last?", body: "Well-installed vinyl commonly lasts 20–40 years in a Miami Valley climate; fiber cement systems are rated longer. Actual lifespan depends on exposure, maintenance and the specific product." },
+    ],
+    finalCtaTo: DAYTON_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased).
+  windows: {
+    title: "Dayton Window Installation",
+    eyebrow: "ProVia Endure, Aeris and Aspect",
+    intro:
+      "Replacement windows for Dayton homes with ProVia products. Compare frames, glass packages and installation details with a written estimate.",
+    faqs: [
+      { title: "Window replacement cost in Dayton?", body: "Opening count, chosen frame and glass package, and any trim or sill repair affect the total. The written estimate lists each opening and its selected configuration." },
+      { title: "What are signs I need new windows?", body: "Persistent drafts, condensation between panes, difficulty operating sashes and visible frame rot are reasons to request an inspection — common on older wood frames across the Miami Valley." },
+      { title: "Should I replace all the house windows at once?", body: "Replacing the full set in one project usually keeps installation costs lower per opening and gives a consistent exterior. Phased replacement is possible when budget or weather calls for it; the written plan explains both options." },
+    ],
+    finalCtaTo: DAYTON_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased).
+  gutters: {
+    title: "Dayton Gutters & Downspouts",
+    eyebrow: "Seamless Aluminum Gutters and Guards",
+    intro:
+      "Seamless aluminum gutter installations for Dayton homes. Compare profiles, colors and downspout placement so rainwater is directed away from the foundation.",
+    faqs: [
+      { title: "How much do new gutters cost in Dayton?", body: "Linear footage, chosen gauge and profile, downspout count and any fascia repair affect the total. A measured, written estimate is more useful than a single price point for every home." },
+      { title: "How do I know if I need new gutters?", body: "Sagging sections, visible rust or splits, repeated overflow during rainfall, or pulled-away fascia are reasons to request an inspection — especially after Ohio winters." },
+    ],
+    finalCtaTo: DAYTON_FINAL_CTA,
+  },
+};
+
 export const locationServicePages: Record<Slug, LocationServiceMap> = {
   nashville: nashvilleServices,
   "grand-rapids": grandRapidsServices,
   cleveland: clevelandServices,
   cincinnati: cincinnatiServices,
+  dayton: daytonServices,
 };
 
 export function findLocationServiceContent(

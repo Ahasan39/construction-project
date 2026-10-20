@@ -2,6 +2,10 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 5.5.6 — Dayton scoped service hubs (2026-10-20)
+
+Lint, typecheck, 173 tests across 14 files and production build (96 static entries + 404) all passed after implementation. New data-driven coverage asserts: each of the four Dayton hubs renders a city-named H1 without the Sprint 1 scaffold badge; the Dayton hero CTA resolves to `/dayton/#estimate`; `/dayton/masonry/` and `/dayton/insulation/` remain Not Found; FAQ heading renders only where the reference publishes one. Rendered browser verification is not available in this session; HTTP 200 and bundle-string probes are not substituted. See [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).
+
 ## Sprint 5.5.5 — Cincinnati scoped service hubs (2026-10-20)
 
 Lint, typecheck, 166 tests across 14 files and production build (93 static entries + 404) all passed after implementation. New data-driven coverage asserts: each of the five Cincinnati hubs renders a city-named H1 without the Sprint 1 scaffold badge; the Cincinnati hero CTA resolves to `/cincinnati/#estimate`; FAQ heading renders only where the reference publishes one (siding yes; roofing and masonry no). Rendered browser verification is not available in this session; HTTP 200 and bundle-string probes are not substituted. See [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).

@@ -26,6 +26,7 @@ const NASHVILLE_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as
 const GRAND_RAPIDS_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
 const CLEVELAND_HUBS = ["roofing", "siding", "windows", "gutters"] as const;
 const CINCINNATI_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
+const DAYTON_HUBS = ["roofing", "siding", "windows", "gutters"] as const;
 
 describe("locationServicePages data", () => {
   it("defines content only for pairs listed in availability", () => {
@@ -141,6 +142,39 @@ describe("Cincinnati local-service hubs render", () => {
     cleanup();
     renderAt("/cincinnati/masonry");
     expect(screen.queryByRole("heading", { name: /frequently asked questions/i })).toBeNull();
+  });
+});
+
+describe("Dayton local-service hubs render", () => {
+  it.each(DAYTON_HUBS)("renders a completed body with a city-named H1 for /dayton/%s/", (key) => {
+    renderAt(`/dayton/${key}`);
+    const h1 = screen.getByRole("heading", { level: 1 });
+    expect(h1.textContent?.toLowerCase()).toContain("dayton");
+    expect(screen.queryByText(/scaffold — sprint 1/i)).toBeNull();
+  });
+
+  it("hero CTA points at the Dayton location-hub #estimate anchor", () => {
+    renderAt("/dayton/siding");
+    const h1 = screen.getByRole("heading", { level: 1 });
+    const intro = h1.closest("section")!;
+    const link = within(intro).getByRole("link", { name: /get a free estimate/i });
+    expect(link.getAttribute("href")).toBe("/dayton/#estimate");
+  });
+
+  it("Dayton masonry and insulation remain Not Found (reference tiles link globally)", () => {
+    renderAt("/dayton/masonry");
+    expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
+    cleanup();
+    renderAt("/dayton/insulation");
+    expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
+  });
+
+  it("Dayton roofing has no FAQ (reference has none) while siding does", () => {
+    renderAt("/dayton/roofing");
+    expect(screen.queryByRole("heading", { name: /frequently asked questions/i })).toBeNull();
+    cleanup();
+    renderAt("/dayton/siding");
+    expect(screen.getByRole("heading", { name: /frequently asked questions/i })).toBeTruthy();
   });
 });
 

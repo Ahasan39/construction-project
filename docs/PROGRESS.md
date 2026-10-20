@@ -1,5 +1,17 @@
 # Progress Log
 
+## Sprint 5.5.6 — Dayton scoped service hubs (2026-10-20)
+
+- Baseline: clean `main` at `2e455a39357006186a0b0d094cd273ea71aa4b34`; expected origin and repository-local author verified.
+- Reference evidence (2026-10-20): live inspection of https://www.mrroof.com/dayton/ confirms four scoped service URLs linked from the Dayton service grid (`/dayton/{roofing,siding,windows,gutters}/`). Masonry and Insulation tiles link to the GLOBAL `/masonry/` and `/insulation/` URLs — `/dayton/{masonry,insulation}/` stay Not Found rather than mis-render. Spot-checked each of the four scoped pages for section pattern and FAQ topics; adopted only reference-verified FAQ topics (close-paraphrased).
+- Completed four Dayton scoped service hubs: `/dayton/{roofing,siding,windows,gutters}/`. Reference-verified FAQ coverage: roofing has no FAQ and the local hub omits one; siding carries 3 topics (reference template still shows "Cincinnati" in its first-question label — a reference-side template leftover; local wording corrects to "Dayton"); windows carries 3; gutters carries 2. No local FAQ topics are invented.
+- Availability: added three entries to `src/data/availability.ts` for `dayton/{siding,windows,gutters}`. The pre-existing roofing entry (`hasFreeEstimate`, `variants: ["commercial-roofing"]`) is unchanged. Static-route generation output rises from 93 to 96 entries + 404.
+- CTA deviation: Dayton advertises `hasFreeEstimate` but `/dayton/free-estimate/` is still a Sprint 1 scaffold kept behind the `COMPLETED_SLUGS` whitelist. The four Dayton service entries carry explicit `finalCtaTo: "/dayton/#estimate"` so primary CTAs reach the completed location-hub hero form, matching the Grand Rapids / Cleveland / Cincinnati pattern.
+- Imagery: reuses existing per-service hero photography from `servicePages[key].hero`; no new assets. No office, review or credential fabricated.
+- Added 7 focused tests in `src/pages/LocationServicePage.test.tsx`: each of the four Dayton hubs renders a city-named H1 without the scaffold badge; hero CTA resolves to `/dayton/#estimate`; `/dayton/masonry/` and `/dayton/insulation/` both resolve to Not Found; `/dayton/roofing/` has no FAQ heading while `/dayton/siding/` does.
+- Verification: `npm run lint`, `npm run typecheck`, `npm test` (173 tests across 14 files) and `npm run build` (96 static entries + 404) all pass. Rendered browser verification remains unavailable in this session; HTTP 200 and bundle-string probes are not substituted.
+- Remaining cities: four locations (lexington, louisville, detroit, lansing) still use the Sprint 1 scaffold for every advertised scoped service URL on their reference homepages.
+
 ## Sprint 5.5.5 — Cincinnati scoped service hubs (2026-10-20)
 
 - Baseline: clean `main` at `1d19fdf85996f299098c019b78195d53a4ba9885`; expected origin and repository-local author verified.

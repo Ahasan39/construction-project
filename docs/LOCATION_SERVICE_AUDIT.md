@@ -206,14 +206,51 @@ the unfinished shell, matching the pattern established for Grand Rapids
 Reuses existing per-service hero photography from `servicePages[key].hero`;
 no new assets. No substitutions beyond the shared pattern from Sprint 5.5.1.
 
+## Sprint 5.5.6 — Dayton scoped service hubs
+
+Live inspection of https://www.mrroof.com/dayton/ on 2026-10-20 confirms
+four scoped service URLs linked from the Dayton service grid. Dayton
+Masonry and Insulation tiles link to the GLOBAL `/masonry/` and
+`/insulation/` URLs, so `/dayton/{masonry,insulation}/` stay Not Found.
+
+| Local service | Reference href | Final URL (no redirect) | Local destination | Evidence |
+|---|---|---|---|---|
+| Roofing | `https://www.mrroof.com/dayton/roofing/` | same | `/dayton/roofing/` | reference service-grid and header nav |
+| Siding | `https://www.mrroof.com/dayton/siding/` | same | `/dayton/siding/` | reference service-grid and header nav |
+| Windows | `https://www.mrroof.com/dayton/windows/` | same | `/dayton/windows/` | reference service-grid and header nav |
+| Gutters | `https://www.mrroof.com/dayton/gutters/` | same | `/dayton/gutters/` | reference service-grid and header nav |
+| Masonry | `https://www.mrroof.com/masonry/` (global) | same | Not Found at `/dayton/masonry/` | reference service-grid |
+| Insulation | `https://www.mrroof.com/insulation/` (global) | same | Not Found at `/dayton/insulation/` | reference service-grid |
+
+| Route | Hero H1 | Reference parity | Local FAQ | Final CTA |
+|---|---|---|---|---|
+| `/dayton/roofing/` | Dayton Roofing Services | Reference H1 verbatim | None (reference has no FAQ) | `/dayton/#estimate` |
+| `/dayton/siding/` | Dayton Siding Installation | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / signs / lifespan) adopted. Note: the live reference page's first question itself still says "Cincinnati" (apparent template leftover on reference); local wording corrects to "Dayton". | 3 | `/dayton/#estimate` |
+| `/dayton/windows/` | Dayton Window Installation | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / signs / replace all) adopted | 3 | `/dayton/#estimate` |
+| `/dayton/gutters/` | Dayton Gutters & Downspouts | Reference H1 verbatim; 2 reference-verified FAQ topics adopted | 2 | `/dayton/#estimate` |
+
+### CTA deviation (Dayton)
+
+Dayton advertises `hasFreeEstimate` in availability but
+`/dayton/free-estimate/` is still a Sprint 1 scaffold (kept behind the
+`COMPLETED_SLUGS` whitelist). The four Dayton service entries set an
+explicit `finalCtaTo: "/dayton/#estimate"`, same pattern as Grand Rapids,
+Cleveland and Cincinnati.
+
+### Imagery
+
+Reuses existing per-service hero photography from `servicePages[key].hero`;
+no new assets.
+
 ## Not completed (still Sprint 1 shells)
 
 - `/nashville/insulation/`, `/grand-rapids/insulation/`,
   `/cincinnati/insulation/` — verified reference URLs but have no local
   `ServiceHubKey` entry; keep the scaffold rather than mis-render.
-- `/cleveland/masonry/` and `/cleveland/insulation/` — resolve to Not Found
-  because the reference does **not** publish scoped Cleveland URLs for those
-  services (the tiles link to the global `/masonry/` and `/insulation/`).
+- `/cleveland/masonry/`, `/cleveland/insulation/`, `/dayton/masonry/`,
+  `/dayton/insulation/` — resolve to Not Found because the reference does
+  **not** publish scoped URLs for those services (the tiles link to the
+  global `/masonry/` and `/insulation/`).
 - `/nashville/roofing/commercial-roofing/` — service-variant page; variants
   remain scaffolded here. The global `/roofing/commercial-roofing/` detail
   page completed in Sprint 4.5 is unaffected.
@@ -224,9 +261,9 @@ no new assets. No substitutions beyond the shared pattern from Sprint 5.5.1.
 - `/<other-city>/free-estimate/` for cities whose availability advertises it
   (cleveland, cincinnati, louisville, dayton) — Sprint 1 scaffolds, kept by
   an explicit `COMPLETED_SLUGS` whitelist in `LocationFreeEstimatePage.tsx`.
-- The five remaining locations (dayton, lexington, louisville, detroit,
-  lansing) continue to use the Sprint 1 scaffold for every one of their
-  advertised scoped services.
+- The four remaining locations (lexington, louisville, detroit, lansing)
+  continue to use the Sprint 1 scaffold for every one of their advertised
+  scoped services.
 
 ## Automated checks
 

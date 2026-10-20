@@ -28,13 +28,20 @@ export const locationServiceAvailability: LocationServiceAvailability[] = [
   { locationSlug: "nashville", serviceKey: "masonry" },
   { locationSlug: "nashville", serviceKey: "insulation" },
 
-  // Dayton — commercial roofing + estimate observed.
+  // Dayton — commercial roofing + estimate observed; also four scoped
+  // service hubs linked from the reference Dayton homepage (verified
+  // 2026-10-20). Masonry and Insulation tiles on the reference Dayton page
+  // link to the GLOBAL /masonry/ and /insulation/ routes, so they are
+  // intentionally absent here.
   {
     locationSlug: "dayton",
     serviceKey: "roofing",
     variants: ["commercial-roofing"],
     hasFreeEstimate: true,
   },
+  { locationSlug: "dayton", serviceKey: "siding" },
+  { locationSlug: "dayton", serviceKey: "windows" },
+  { locationSlug: "dayton", serviceKey: "gutters" },
 
   // Cincinnati — commercial roofing + estimate + financing + service-area
   // index. The reference Cincinnati homepage also links scoped service hubs
