@@ -1,5 +1,16 @@
 # Progress Log
 
+## Sprint 5.1 — Location pages: Ann Arbor and Nashville (2026-10-20)
+
+- Baseline: clean `main` at `3c4dc2f7b75e9582b950d686f8da690836042c67`; expected origin and repository-local author verified.
+- Added typed location-page content in `src/data/locationPages.ts` and a reusable `LocationSections` module. `src/pages/LocationPage.tsx` now composes a reference-informed hub for `/ann-arbor/` and `/nashville/`, falling back to the Sprint 1 scaffold for the eight other locations.
+- Reference inspection (2026-10-20, both 200 OK, no redirects): captured and acted on in [LOCATION_PAGES_AUDIT.md](LOCATION_PAGES_AUDIT.md). Preserved reference-specific differences — Southeast Michigan vs Nashville headings, Ann Arbor's "As Seen On" strip (omitted on Nashville), and the local vs free-estimate CTA destinations per availability.
+- Hero `EstimateForm` reuses the existing form via the new `lockedRegion` preselection path; the region dropdown is suppressed when preselected. Shared `ReviewsStrip` and `AwardsStrip` are reused unchanged.
+- Contacts remain centralized demo values from `src/data/brand.ts`. No reference phone, form endpoint, office address, award or review was fabricated. The removed large disclosure banner is not reintroduced.
+- Added `src/pages/LocationPage.test.tsx` (11 behavioural tests). The dispatcher test for `/nashville` was narrowed to `level: 1` to disambiguate the now richer heading hierarchy.
+- Verification (local): `npm run lint`, `npm run typecheck`, `npm test` (102 tests across 12 files) and `npm run build` (107 modules, clean, 82 static entries + 404) passed. Preview smoke-tested both pages via `npm run preview` on the production base.
+- Open: mobile Performance 100 and actual 200% browser-chrome zoom remain carried over; the eight remaining location hubs and `/service-area/<slug>/` nested pages remain scaffolds and are explicitly out of this sprint.
+
 ## Working agreement — Git workflow (from 2026-10-15 onward)
 
 The user authorized commits and pushes beginning after Sprint 3. From this point every completed sprint ends with:

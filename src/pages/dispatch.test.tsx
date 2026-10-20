@@ -29,7 +29,9 @@ describe("top-level slug dispatcher", () => {
 
   it("renders a location hub for a known location slug", () => {
     renderAt("/nashville");
-    expect(screen.getByRole("heading", { name: /nashville/i })).toBeTruthy();
+    expect(
+      screen.getByRole("heading", { level: 1, name: /nashville/i })
+    ).toBeTruthy();
   });
 
   it("renders Not Found for an unknown top-level slug", () => {

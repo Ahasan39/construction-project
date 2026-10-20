@@ -1,15 +1,69 @@
+import { useEffect } from "react";
+import { applyRouteMeta } from "@/app/seo";
 import { PageShell } from "@/components/layout/PageShell";
+import { ReviewsStrip } from "@/components/sections/ReviewsStrip";
+import { AwardsStrip } from "@/components/sections/AwardsStrip";
 import {
+  LocationHero,
+  LocationTrust,
+  LocationOffers,
+  LocationServiceGrid,
+  LocationOverviewSection,
+  LocationReasons,
+  LocationAsSeenOn,
+  LocationFinalCta,
+} from "@/components/sections/LocationSections";
+import {
+  isLocationServiceAvailable,
   locationServiceAvailability,
   hasLocationCapability,
 } from "@/data/availability";
-import type { Location } from "@/types";
+import { findLocationPage } from "@/data/locationPages";
+import type { Location, ServiceKey } from "@/types";
 
 export interface LocationPageProps {
   location: Location;
 }
 
 export default function LocationPage({ location }: LocationPageProps) {
+  const content = findLocationPage(location.slug);
+
+  useEffect(() => {
+    if (!content) return;
+    applyRouteMeta({
+      title: `${location.city}, ${location.state} roofing & home exterior`,
+      description: content.hero.description,
+      canonicalPath: `/${location.slug}/`,
+    });
+  }, [content, location]);
+
+  if (!content) return <LocationScaffold location={location} />;
+
+  const availableForLocation = (service: ServiceKey) =>
+    isLocationServiceAvailable(location.slug, service);
+
+  return (
+    <>
+      <LocationHero content={content} location={location} />
+      <LocationTrust />
+      <LocationOffers location={location} />
+      <LocationServiceGrid
+        content={content}
+        location={location}
+        isServiceAvailable={availableForLocation}
+      />
+      <LocationOverviewSection overview={content.overview} />
+      <LocationReasons reasons={content.reasons} />
+      {content.showAsSeenOnStrip && <LocationAsSeenOn />}
+      <ReviewsStrip />
+      <AwardsStrip />
+      <LocationFinalCta content={content} />
+    </>
+  );
+}
+
+/** Original scaffold, preserved for locations that have not been built out. */
+function LocationScaffold({ location }: { location: Location }) {
   const serviceKeys = locationServiceAvailability
     .filter((a) => a.locationSlug === location.slug)
     .map((a) => a.serviceKey);

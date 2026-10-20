@@ -156,6 +156,15 @@ Explicit location-service availability is the single source of truth in [`src/da
 
 All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.
 
+## Sprint 5.1 route status — 2026-10-20
+
+`/ann-arbor/` and `/nashville/` now render completed location hubs informed by
+the live reference pages; see [LOCATION_PAGES_AUDIT.md](LOCATION_PAGES_AUDIT.md).
+The eight other location hubs continue to render the Sprint 1 scaffold.
+Location-scoped service, free-estimate, financing and service-area routes
+remain gated by `src/data/availability.ts` and are unchanged. Static route
+generation and clean entry counts are unchanged (82 entries + 404).
+
 ## Sprint 4.5 route status — 2026-10-20 (supersedes detail-shell status above)
 
 The four global detail routes `/roofing/roof-replacement/`, `/roofing/roof-repair/`, `/roofing/metal-roofing/` and `/roofing/commercial-roofing/` now have complete reference-informed bodies. Actual reference destinations match these nested paths; all returned 200 without redirects in the 2026-10-18 audit. See [detail audit](ROOFING_DETAIL_AUDIT.md).
