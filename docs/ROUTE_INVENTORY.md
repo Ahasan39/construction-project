@@ -156,6 +156,28 @@ Explicit location-service availability is the single source of truth in [`src/da
 
 All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.
 
+## Sprint 5.5.11 route status — 2026-10-21
+
+Four previously-scaffold `/<slug>/free-estimate/` routes now render completed
+bodies: `/cleveland/free-estimate/`, `/cincinnati/free-estimate/`,
+`/louisville/free-estimate/`, `/dayton/free-estimate/`. Live inspection on
+2026-10-21 confirms each as a published reference page with the same form
+structure as Nashville. Implementation extends the Sprint 5.5.2
+`COMPLETED_SLUGS` whitelist in `LocationFreeEstimatePage.tsx` from
+`{"nashville"}` to the full five cities; no new typed data or components
+needed. Static-route generation unchanged (114 + 404).
+
+Each city's region is preselected via the existing `locationPages` map
+(`cleveland-area`, `cincinnati-area`, `louisville-area`, `dayton-area`,
+`nashville-area`). The service dropdown remains open as on the reference.
+
+**Every published reference `/<slug>/free-estimate/` page is now
+implemented locally.** `/<slug>/free-estimate/` for the five remaining
+cities (ann-arbor, grand-rapids, lexington, detroit, lansing) continues
+to resolve to Not Found because those cities do not advertise
+`hasFreeEstimate` in availability (and the reference does not publish
+scoped free-estimate pages for them).
+
 ## Sprint 5.5.10 route status — 2026-10-21
 
 Five Lansing scoped service hubs now render completed bodies:

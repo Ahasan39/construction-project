@@ -58,14 +58,39 @@ describe("Nashville free-estimate", () => {
   });
 });
 
-describe("Other hasFreeEstimate locations keep the scaffold (out of Sprint 5.5.2 scope)", () => {
-  it.each(["cleveland", "cincinnati", "louisville", "dayton"])(
-    "/%s/free-estimate still renders the scaffold badge",
-    (slug) => {
-      renderAt(`/${slug}/free-estimate`);
-      expect(screen.getByText(/scaffold — sprint 1/i)).toBeTruthy();
-    }
-  );
+describe("Cleveland / Cincinnati / Louisville / Dayton free-estimate pages (Sprint 5.5.11)", () => {
+  const cases: Array<[string, string, string, string]> = [
+    ["cleveland", "Cleveland", "cleveland-area", "OH"],
+    ["cincinnati", "Cincinnati", "cincinnati-area", "OH"],
+    ["louisville", "Louisville", "louisville-area", "KY"],
+    ["dayton", "Dayton", "dayton-area", "OH"],
+  ];
+
+  it.each(cases)("renders a completed body for /%s/free-estimate without the scaffold badge", (slug) => {
+    renderAt(`/${slug}/free-estimate`);
+    expect(
+      screen.getByRole("heading", { level: 1, name: /free estimate/i })
+    ).toBeTruthy();
+    expect(screen.queryByText(/scaffold — sprint 1/i)).toBeNull();
+    expect(screen.queryByText(/lead form will be built/i)).toBeNull();
+  });
+
+  it.each(cases)("preselects the matching region on /%s/free-estimate (region selector hidden; service remains open)", (slug) => {
+    renderAt(`/${slug}/free-estimate`);
+    expect(
+      screen.queryByRole("combobox", { name: /select location/i })
+    ).toBeNull();
+    expect(
+      screen.getByRole("combobox", { name: /select service/i })
+    ).toBeTruthy();
+  });
+
+  it.each(cases)("breadcrumb on /%s/free-estimate returns to the location hub", (slug, city, _region, state) => {
+    renderAt(`/${slug}/free-estimate`);
+    const nav = screen.getByRole("navigation", { name: /breadcrumb/i });
+    const link = within(nav).getByRole("link", { name: new RegExp(`${city}, ${state}`, "i") });
+    expect(link.getAttribute("href")).toBe(`/${slug}/`);
+  });
 });
 
 describe("Not Found guards", () => {

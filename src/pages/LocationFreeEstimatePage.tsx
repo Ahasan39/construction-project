@@ -12,11 +12,16 @@ import type { Location } from "@/types";
 import NotFoundPage from "./NotFoundPage";
 
 /**
- * Locations whose /free-estimate/ route is a complete demo page in this
- * sprint. Other locations with `hasFreeEstimate` in availability keep the
- * Sprint 1 scaffold until their own sprint lands them.
+ * Locations whose /free-estimate/ route is a complete demo page. Every
+ * location with `hasFreeEstimate` in availability is now implemented.
  */
-const COMPLETED_SLUGS = new Set<string>(["nashville"]);
+const COMPLETED_SLUGS = new Set<string>([
+  "nashville",
+  "cleveland",
+  "cincinnati",
+  "louisville",
+  "dayton",
+]);
 
 export default function LocationFreeEstimatePage() {
   const { locationSlug } = useParams();

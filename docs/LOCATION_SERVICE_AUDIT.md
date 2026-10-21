@@ -491,11 +491,17 @@ no new assets.
   `/grand-rapids/financing/`, `/grand-rapids/service-area/`,
   `/cleveland/financing/`, `/cleveland/service-area/` and every
   `/<location>/service-area/<child>/` — Sprint 1 scaffolds.
-- `/<other-city>/free-estimate/` for cities whose availability advertises it
-  (cleveland, cincinnati, louisville, dayton) — Sprint 1 scaffolds, kept by
-  an explicit `COMPLETED_SLUGS` whitelist in `LocationFreeEstimatePage.tsx`.
-- `/detroit/insulation/`, `/lansing/insulation/` — footer-level reference
-  URLs but no local `ServiceHubKey`; stay Not Found.
+- `/<other-city>/free-estimate/` — all four previously-scaffold cities
+  (cleveland, cincinnati, louisville, dayton) are now completed in Sprint
+  5.5.11; see the Sprint 5.5.11 section below.
+- `/detroit/insulation/` — verified reference URL (footer only) but has no
+  local `ServiceHubKey`; stays Not Found.
+- `/lansing/insulation/` — footer-level reference URL but no local
+  `ServiceHubKey`; stays Not Found.
+- All scoped service hubs across every city are now implemented. The only
+  remaining scoped-service shells are the `/<location>/<service>/<variant>/`
+  routes (variants), which are explicitly out of scope for the 5.5.x
+  sequence.
 
 ## Automated checks
 
@@ -515,3 +521,46 @@ rendered verification of the five live pages at viewport widths is **not**
 performed. Per sprint guidance, HTTP 200 and bundle-string probes are not
 substituted for rendered verification. Rendered verification remains open and
 is explicitly out of scope for this sprint if browser tooling is unavailable.
+
+## Sprint 5.5.11 — Remaining free-estimate pages
+
+Live inspection on 2026-10-21 confirms every `hasFreeEstimate` city has a
+published scoped `/<slug>/free-estimate/` reference page with identical
+structure to Nashville (H1 "Free Estimate", 5 required fields, 2 optional
+consent checkboxes, submit label "Get a FREE ESTIMATE").
+
+| Route | Reference href | Preselected region | Local status (before 5.5.11) | Status (after 5.5.11) |
+|---|---|---|---|---|
+| `/cleveland/free-estimate/` | `https://www.mrroof.com/cleveland/free-estimate/` | `cleveland-area` | Scaffold | Complete |
+| `/cincinnati/free-estimate/` | `https://www.mrroof.com/cincinnati/free-estimate/` | `cincinnati-area` | Scaffold | Complete |
+| `/louisville/free-estimate/` | `https://www.mrroof.com/louisville/free-estimate/` | `louisville-area` | Scaffold | Complete |
+| `/dayton/free-estimate/` | `https://www.mrroof.com/dayton/free-estimate/` | `dayton-area` | Scaffold | Complete |
+| `/nashville/free-estimate/` | same pattern | `nashville-area` | Complete since 5.5.2 | Complete |
+
+Implementation: no new typed data, no new components. The sole code change
+is extending `COMPLETED_SLUGS` in `src/pages/LocationFreeEstimatePage.tsx`
+from `{"nashville"}` to the full five. The pre-existing
+`findLocationPage(location.slug).defaultRegionKey` map (populated for all
+ten cities since Sprint 5.1/5.2) now drives region preselection for the
+four new pages; the shared `EstimateBody` renders the identical AppShell /
+breadcrumb / hero H1 / inverse `EstimateForm` / demo-contact card.
+
+Deliberate deviations from the reference:
+- Reference pages do not preselect a region on their open dropdown; our
+  implementation preselects via `lockedRegion` because the page is already
+  scoped to a city — the same choice already in effect for Nashville.
+- Reference pages display a city-specific secondary phone number and a
+  physical office address (e.g. Cleveland shows (216) 777-5874 and a
+  Valley View address). Our implementation exposes **only** the shared
+  demo phone and email (`+880 1842-299275` /
+  `amamulahasan77@gmail.com`); no office address is published. Per project
+  policy no reference phone or address is reactivated or invented.
+
+Static-route generation: unchanged. All four URLs were already emitted
+because the parent cities already advertised `hasFreeEstimate` in
+availability. Entry count remains 114 + 404.
+
+**Every published reference `/<slug>/free-estimate/` page is now
+implemented locally.** Remaining `/free-estimate/` routes for cities
+without `hasFreeEstimate` capability continue to resolve to Not Found
+by design.
