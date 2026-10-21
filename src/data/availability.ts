@@ -110,12 +110,19 @@ export const locationServiceAvailability: LocationServiceAvailability[] = [
     hasServiceAreaIndex: true,
   },
 
-  // Lansing — service-area index only.
+  // Lansing — service-area index on roofing, plus four scoped service hubs
+  // linked from the reference Lansing header navigation (verified
+  // 2026-10-21; the grid tiles on the reference page redirect to
+  // /ann-arbor/, but the scoped Lansing URLs themselves resolve).
   {
     locationSlug: "lansing",
     serviceKey: "roofing",
     hasServiceAreaIndex: true,
   },
+  { locationSlug: "lansing", serviceKey: "siding" },
+  { locationSlug: "lansing", serviceKey: "windows" },
+  { locationSlug: "lansing", serviceKey: "gutters" },
+  { locationSlug: "lansing", serviceKey: "masonry" },
 
   // Lexington — Sprint 5.1 called this "hub only", but live inspection on
   // 2026-10-20 shows all six service-grid tiles on the reference Lexington

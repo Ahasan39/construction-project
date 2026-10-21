@@ -2,6 +2,10 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 5.5.10 — Lansing scoped service hubs (2026-10-21)
+
+Lint, typecheck, 205 tests across 14 files and production build (114 static entries + 404) all passed after implementation. New data-driven coverage asserts: each of the five Lansing hubs renders a city-named H1 without the Sprint 1 scaffold badge; the Lansing hero CTA resolves to `/lansing/#estimate`; Lansing roofing renders its reference-verified 2-topic FAQ while Lansing masonry omits one; `/lansing/insulation/` stays Not Found; breadcrumb returns to `/lansing/`. The LocationPage service-grid fallback test is retargeted from Lansing to `/cleveland/masonry/` (aligning with the dispatcher/availability tests). Rendered browser verification is not available in this session; HTTP 200 and bundle-string probes are not substituted. See [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).
+
 ## Sprint 5.5.9 — Detroit scoped service hubs + Lansing verification (2026-10-21)
 
 Lint, typecheck, 197 tests across 14 files and production build (110 static entries + 404) all passed after implementation. Four Not-Found tests that depended on the former Detroit hub-only classification are retargeted to `/cleveland/masonry/` (reference links Cleveland masonry globally); the LocationPage service-grid fallback test is retargeted to Lansing (whose non-roofing services are not yet in availability). New data-driven coverage asserts: each of the five Detroit hubs renders a city-named H1 without the Sprint 1 scaffold badge; the Detroit hero CTA resolves to `/detroit/#estimate`; Detroit roofing renders its reference-verified 2-topic FAQ while Detroit masonry omits one; `/lansing/siding/` remains Not Found to confirm the deferred scope. Rendered browser verification is not available in this session; HTTP 200 and bundle-string probes are not substituted. See [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).

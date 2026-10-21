@@ -414,6 +414,66 @@ pattern as every prior scoped-service batch.
 Reuses existing per-service hero photography from `servicePages[key].hero`;
 no new assets.
 
+## Sprint 5.5.10 — Lansing scoped service hubs
+
+Live inspection of the five Lansing scoped service URLs on 2026-10-21
+confirms each is a published reference page. The reference Lansing
+service-grid tiles unusually link to `/ann-arbor/<service>/` (same
+pattern noted for Detroit in Sprint 5.5.9), but the scoped Lansing
+URLs themselves resolve and are the destinations linked from the
+reference Lansing header navigation.
+
+| Local service | Original href (source) | Final URL | Local destination |
+|---|---|---|---|
+| Roofing | `https://www.mrroof.com/lansing/roofing/` (header nav) | same | `/lansing/roofing/` |
+| Siding | `https://www.mrroof.com/lansing/siding/` (header nav) | same | `/lansing/siding/` |
+| Windows | `https://www.mrroof.com/lansing/windows/` (header nav) | same | `/lansing/windows/` |
+| Gutters | `https://www.mrroof.com/lansing/gutters/` (header nav) | same | `/lansing/gutters/` |
+| Masonry | `https://www.mrroof.com/lansing/masonry/` (header nav) | same | `/lansing/masonry/` |
+
+| Route | Hero H1 | Reference parity | Local FAQ | Final CTA |
+|---|---|---|---|---|
+| `/lansing/roofing/` | Lansing Roofing Services | Reference H1 verbatim; 2 reference-verified FAQ topics (cost / signs — same pattern observed on Detroit) adopted | 2 | `/lansing/#estimate` |
+| `/lansing/siding/` | Lansing Siding Installation | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / signs / lifespan) adopted | 3 | `/lansing/#estimate` |
+| `/lansing/windows/` | Lansing Window Installation | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / signs / replace all) adopted | 3 | `/lansing/#estimate` |
+| `/lansing/gutters/` | Lansing Gutters & Downspouts | Reference H1 verbatim; 2 reference-verified FAQ topics adopted | 2 | `/lansing/#estimate` |
+| `/lansing/masonry/` | Lansing Masonry Services | Reference H1 verbatim | None (reference has no FAQ) | `/lansing/#estimate` |
+
+Four new availability entries added for Lansing
+(`siding, windows, gutters, masonry`). The pre-existing roofing entry
+(`hasServiceAreaIndex: true`) is unchanged. No new capability flags added
+— the reference Lansing page does not advertise financing or a
+free-estimate route. Static entries rise 110 → 114.
+
+### Fallback-test fixture change
+
+Sprint 5.5.9 had retargeted the LocationPage service-grid fallback test
+to Lansing because Lansing's non-roofing services were unavailable.
+Lansing is now fully populated, so the fallback test is retargeted again
+— this time to Cleveland masonry (the reference Cleveland service grid
+deliberately links masonry globally), which also matches the Not-Found
+fixture used in the dispatcher/availability tests.
+
+### CTA deviation (Lansing)
+
+Lansing has no `hasFreeEstimate` capability in local availability. The
+five service entries carry an explicit `finalCtaTo: "/lansing/#estimate"`
+so primary CTAs reach the completed Lansing location-hub hero form —
+same pattern as every prior scoped-service batch.
+
+### Local deviation from reference
+
+Our local Lansing location-hub service grid continues to link each tile
+to the scoped `/lansing/<service>/` route (via `isLocationServiceAvailable`),
+rather than mirroring the reference's practice of pointing its grid
+tiles at `/ann-arbor/`. Same deliberate deviation as Detroit — our tiles
+now reach completed Lansing pages rather than redirect to another city.
+
+### Imagery
+
+Reuses existing per-service hero photography from `servicePages[key].hero`;
+no new assets.
+
 ## Not completed (still Sprint 1 shells)
 
 - `/nashville/insulation/`, `/grand-rapids/insulation/`,
@@ -434,11 +494,8 @@ no new assets.
 - `/<other-city>/free-estimate/` for cities whose availability advertises it
   (cleveland, cincinnati, louisville, dayton) — Sprint 1 scaffolds, kept by
   an explicit `COMPLETED_SLUGS` whitelist in `LocationFreeEstimatePage.tsx`.
-- `/detroit/insulation/` — verified reference URL (footer only) but has no
-  local `ServiceHubKey`; stays Not Found.
-- `/lansing/{roofing,siding,windows,gutters,masonry}/` — reference URLs
-  verified this sprint but not yet implemented locally. These are the
-  exact remaining scoped-service pages.
+- `/detroit/insulation/`, `/lansing/insulation/` — footer-level reference
+  URLs but no local `ServiceHubKey`; stay Not Found.
 
 ## Automated checks
 

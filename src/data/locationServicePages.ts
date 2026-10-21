@@ -481,6 +481,71 @@ const detroitServices: LocationServiceMap = {
   },
 };
 
+const LANSING_FINAL_CTA = "/lansing/#estimate";
+
+const lansingServices: LocationServiceMap = {
+  // Reference-verified FAQ topics (close-paraphrased). The reference
+  // Lansing roofing page uses the same 2-topic pattern (cost / signs)
+  // observed on Detroit.
+  roofing: {
+    title: "Lansing Roofing Services",
+    eyebrow: "Residential Roof Replacement and Repair",
+    intro:
+      "Residential roofing for Lansing and mid-Michigan — replacement, repair and inspection. Written estimates, workmanship warranties and a transferable lifetime warranty on qualifying systems.",
+    faqs: [
+      { title: "Roof replacement cost in Lansing?", body: "Pitch, square footage, chosen shingle package and any decking or flashing repair affect the total. The written estimate itemises materials and labor rather than offering a single price for every home." },
+      { title: "What are signs I need a new roof?", body: "Curling or missing shingles, granule loss filling gutters, visible light in the attic and persistent leaks are reasons to request an inspection. Repairs can extend an aging roof when the deck is still sound." },
+    ],
+    finalCtaTo: LANSING_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased).
+  siding: {
+    title: "Lansing Siding Installation",
+    eyebrow: "Vinyl, Fiber Cement and Engineered Wood",
+    intro:
+      "Siding projects for Lansing homes. Compare vinyl, fiber cement and engineered wood profiles, colors and warranty terms with a written estimate — no high-pressure sales.",
+    faqs: [
+      { title: "Siding replacement cost in Lansing?", body: "Wall area, chosen material, trim details and any underlying repairs affect the total. A measured, written estimate is more useful than a single price point for every home." },
+      { title: "What are signs I need new siding?", body: "Repeated paint failure, soft or warped panels, visible water staining behind the siding or persistent pest intrusion are reasons to request an inspection — common on older vinyl and wood siding across mid-Michigan." },
+      { title: "How long does vinyl siding last?", body: "Well-installed vinyl commonly lasts 20–40 years in a mid-Michigan climate; fiber cement systems are rated longer. Actual lifespan depends on exposure, maintenance and the specific product." },
+    ],
+    finalCtaTo: LANSING_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased).
+  windows: {
+    title: "Lansing Window Installation",
+    eyebrow: "ProVia Endure, Aeris and Aspect",
+    intro:
+      "Replacement windows for Lansing homes with ProVia products. Compare frames, glass packages and installation details with a written estimate.",
+    faqs: [
+      { title: "Window replacement cost in Lansing?", body: "Opening count, chosen frame and glass package, and any trim or sill repair affect the total. The written estimate lists each opening and its selected configuration." },
+      { title: "What are signs I need new windows?", body: "Persistent drafts, condensation between panes, difficulty operating sashes and visible frame rot are reasons to request an inspection — common on older wood frames across the Lansing area." },
+      { title: "Should I replace all the house windows at once?", body: "Replacing the full set in one project usually keeps installation costs lower per opening and gives a consistent exterior. Phased replacement is possible when budget or weather calls for it; the written plan explains both options." },
+    ],
+    finalCtaTo: LANSING_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased).
+  gutters: {
+    title: "Lansing Gutters & Downspouts",
+    eyebrow: "Seamless Aluminum Gutters and Guards",
+    intro:
+      "Seamless aluminum gutter installations for Lansing homes. Compare profiles, colors and downspout placement so rainwater is directed away from the foundation.",
+    faqs: [
+      { title: "How much do new gutters cost in Lansing?", body: "Linear footage, chosen gauge and profile, downspout count and any fascia repair affect the total. A measured, written estimate is more useful than a single price point for every home." },
+      { title: "How do I know if I need new gutters?", body: "Sagging sections, visible rust or splits, repeated overflow during rainfall, or pulled-away fascia are reasons to request an inspection — especially after mid-Michigan winters." },
+    ],
+    finalCtaTo: LANSING_FINAL_CTA,
+  },
+  // Reference /lansing/masonry/ has no FAQ section.
+  masonry: {
+    title: "Lansing Masonry Services",
+    eyebrow: "Chimney Repair, Tuckpointing and Stone Veneer",
+    intro:
+      "Masonry repair, tuckpointing and chimney work for Lansing homes. Each project is quoted in writing, with scope and materials described before work begins.",
+    finalCtaTo: LANSING_FINAL_CTA,
+  },
+};
+
 export const locationServicePages: Record<Slug, LocationServiceMap> = {
   nashville: nashvilleServices,
   "grand-rapids": grandRapidsServices,
@@ -490,6 +555,7 @@ export const locationServicePages: Record<Slug, LocationServiceMap> = {
   lexington: lexingtonServices,
   louisville: louisvilleServices,
   detroit: detroitServices,
+  lansing: lansingServices,
 };
 
 export function findLocationServiceContent(

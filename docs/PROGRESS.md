@@ -1,5 +1,18 @@
 # Progress Log
 
+## Sprint 5.5.10 — Lansing scoped service hubs (2026-10-21)
+
+- Baseline: clean `main` at `5687e4068a05bea2100bf76cd14ee1cea4196446`; expected origin and repository-local author verified.
+- Reference evidence (2026-10-21): live inspection of each of the five Lansing scoped service URLs confirms published reference pages with city-named H1s and the following FAQ pattern — roofing 2 topics (cost / signs — same as Detroit); siding 3; windows 3; gutters 2; masonry none. The reference Lansing service-grid tiles link to `/ann-arbor/`, but the scoped Lansing URLs resolve and are the destinations linked from the Lansing header navigation.
+- Completed five Lansing scoped service hubs: `/lansing/{roofing,siding,windows,gutters,masonry}/`. Reference-verified FAQ coverage adopted close-paraphrased, mid-Michigan climate framing. No local FAQ topics are invented. No office, review or credential fabricated. Imagery reuses existing per-service hero photography from `servicePages[key].hero`; no new assets.
+- Availability: added four entries to `src/data/availability.ts` for `lansing/{siding,windows,gutters,masonry}`. The pre-existing roofing entry (`hasServiceAreaIndex: true`) is unchanged. No new capability flags added — the reference Lansing page does not advertise financing or a free-estimate route. Static-route generation output rises from 110 to 114 entries + 404.
+- CTA deviation: all five Lansing service entries carry explicit `finalCtaTo: "/lansing/#estimate"` so primary CTAs reach the completed Lansing location-hub hero form.
+- Local deviation from reference: the Lansing location-hub service grid continues to link each tile to the scoped `/lansing/<service>/` route (via `isLocationServiceAvailable`), rather than mirroring the reference's practice of pointing its grid tiles at `/ann-arbor/`. Same deliberate deviation documented for Detroit in Sprint 5.5.9.
+- Fallback-test fixture update: `LocationPage.test.tsx` service-grid fallback test, retargeted to Lansing in Sprint 5.5.9, is now retargeted to `/cleveland/masonry/` because Lansing is fully populated. This matches the dispatcher/availability tests which already use Cleveland masonry as the unavailable Not-Found fixture. The LocationServicePage.test.tsx test that previously asserted `/lansing/siding/` was Not Found is removed and replaced by a new Lansing-completed block.
+- Added 9 focused tests for Lansing: each of the five hubs renders a city-named H1 without the scaffold badge; hero CTA resolves to `/lansing/#estimate`; roofing renders its reference-verified 2-topic FAQ while masonry omits one; `/lansing/insulation/` stays Not Found; breadcrumb returns to `/lansing/`.
+- Local verification: `npm run lint`, `npm run typecheck`, `npm test` (205 tests across 14 files) and `npm run build` (114 static entries + 404) all pass. Rendered browser verification remains unavailable in this session; HTTP 200 and bundle-string probes are not substituted for rendered checks.
+- **All scoped service hubs across every city are now complete.** The remaining Sprint 1 scoped-service shells are the `/<location>/<service>/<variant>/` routes and the per-location `/free-estimate/`, `/financing/`, `/service-area/` and `/service-area/<child>/` category pages — all explicitly out of the 5.5.x scope.
+
 ## Sprint 5.5.9 — Detroit scoped service hubs + Lansing verification (2026-10-21)
 
 - Baseline: clean `main` at `7923ed330da1170b5136e7e4a4092938f792bc34`; expected origin and repository-local author verified.

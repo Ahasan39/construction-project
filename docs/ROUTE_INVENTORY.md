@@ -156,6 +156,32 @@ Explicit location-service availability is the single source of truth in [`src/da
 
 All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.
 
+## Sprint 5.5.10 route status — 2026-10-21
+
+Five Lansing scoped service hubs now render completed bodies:
+`/lansing/{roofing,siding,windows,gutters,masonry}/`. Live inspection of
+each page on 2026-10-21 confirms the published reference URLs and the
+section-order / FAQ pattern. Four new availability entries added for
+Lansing (`siding, windows, gutters, masonry`); the pre-existing roofing
+entry with `hasServiceAreaIndex` is unchanged. Static entries rise
+110 → 114.
+
+Primary estimate CTAs on all five Lansing pages target
+`/lansing/#estimate` via `finalCtaTo` because Lansing has no scoped
+free-estimate route.
+
+Fallback-test fixture update: the `LocationPage.test.tsx` service-grid
+fallback test, previously retargeted to Lansing in Sprint 5.5.9, is now
+retargeted to `/cleveland/masonry/` because Lansing is fully populated.
+This aligns with the dispatcher/availability tests, which already use
+Cleveland masonry as the unavailable Not-Found fixture.
+
+**All scoped service hubs across every city are now complete.** The only
+remaining scoped-service shells are `/<location>/<service>/<variant>/`
+routes (service variants) and the location estimate / financing /
+service-area category pages, which are explicitly out of scope for the
+5.5.x sequence.
+
 ## Sprint 5.5.9 route status — 2026-10-21
 
 Five Detroit scoped service hubs now render completed bodies:

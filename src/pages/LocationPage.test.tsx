@@ -99,17 +99,14 @@ describe("LocationPage composition (every completed slug renders)", () => {
   });
 
   it("service grid falls back to the global hub when the combination is not scoped", () => {
-    // Lansing's availability still only lists roofing (with service-area
-    // index). The other four service hubs are confirmed reference URLs but
-    // are deferred to a later sprint, so our implementation renders them
-    // as the global hub fallback.
-    renderLocation("lansing");
-    for (const service of services) {
-      if (service.key === "insulation") continue;
-      if (service.key === "roofing") continue; // scoped for Lansing in availability
-      const link = screen.getByRole("link", { name: new RegExp(`visit ${service.title} hub`, "i") });
-      expect(link.getAttribute("href")).toBe(`/${service.slug}/`);
-      expect(isLocationServiceAvailable("lansing", service.key)).toBe(false);
-    }
+    // Cleveland's reference service grid links Masonry to the GLOBAL
+    // /masonry/ URL rather than a scoped one, so Cleveland masonry is the
+    // natural fallback fixture (confirmed by the matching Not Found
+    // availability test). Every other Cleveland service is scoped locally.
+    renderLocation("cleveland");
+    const masonry = services.find((s) => s.key === "masonry")!;
+    const link = screen.getByRole("link", { name: new RegExp(`visit ${masonry.title} hub`, "i") });
+    expect(link.getAttribute("href")).toBe(`/${masonry.slug}/`);
+    expect(isLocationServiceAvailable("cleveland", masonry.key)).toBe(false);
   });
 });

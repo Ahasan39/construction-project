@@ -263,13 +263,45 @@ describe("Detroit local-service hubs render (Sprint 5.5.9)", () => {
     expect(screen.queryByRole("heading", { name: /frequently asked questions/i })).toBeNull();
   });
 
-  it("Lansing scoped non-roofing routes remain unimplemented in this sprint", () => {
-    // Lansing's availability still only lists roofing (with its service-area
-    // index capability). /lansing/siding/ and the other three service hubs
-    // are confirmed reference URLs but are deferred to a later sprint, so
-    // the dispatcher resolves them to Not Found for now.
+});
+
+describe("Lansing local-service hubs render (Sprint 5.5.10)", () => {
+  it.each(["roofing", "siding", "windows", "gutters", "masonry"] as const)(
+    "renders a completed body with a city-named H1 for /lansing/%s/",
+    (key) => {
+      renderAt(`/lansing/${key}`);
+      const h1 = screen.getByRole("heading", { level: 1 });
+      expect(h1.textContent?.toLowerCase()).toContain("lansing");
+      expect(screen.queryByText(/scaffold — sprint 1/i)).toBeNull();
+    }
+  );
+
+  it("hero CTA points at the Lansing location-hub #estimate anchor", () => {
     renderAt("/lansing/siding");
+    const h1 = screen.getByRole("heading", { level: 1 });
+    const intro = h1.closest("section")!;
+    const link = within(intro).getByRole("link", { name: /get a free estimate/i });
+    expect(link.getAttribute("href")).toBe("/lansing/#estimate");
+  });
+
+  it("Lansing roofing renders its reference-verified 2-topic FAQ while masonry omits one", () => {
+    renderAt("/lansing/roofing");
+    expect(screen.getByRole("heading", { name: /frequently asked questions/i })).toBeTruthy();
+    cleanup();
+    renderAt("/lansing/masonry");
+    expect(screen.queryByRole("heading", { name: /frequently asked questions/i })).toBeNull();
+  });
+
+  it("Lansing insulation stays Not Found (no ServiceHubKey)", () => {
+    renderAt("/lansing/insulation");
     expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
+  });
+
+  it("Lansing breadcrumb returns to the location hub", () => {
+    renderAt("/lansing/windows");
+    const nav = screen.getByRole("navigation", { name: /breadcrumb/i });
+    const link = within(nav).getByRole("link", { name: /lansing, mi/i });
+    expect(link.getAttribute("href")).toBe("/lansing/");
   });
 });
 
