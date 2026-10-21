@@ -487,10 +487,13 @@ no new assets.
 - `/nashville/roofing/commercial-roofing/` — service-variant page; variants
   remain scaffolded here. The global `/roofing/commercial-roofing/` detail
   page completed in Sprint 4.5 is unaffected.
-- `/nashville/financing/`, `/nashville/service-area/`,
-  `/grand-rapids/financing/`, `/grand-rapids/service-area/`,
-  `/cleveland/financing/`, `/cleveland/service-area/` and every
-  `/<location>/service-area/<child>/` — Sprint 1 scaffolds.
+- `/nashville/financing/`, `/grand-rapids/financing/`,
+  `/cleveland/financing/`, `/cincinnati/financing/`,
+  `/louisville/financing/` — Sprint 1 scaffolds.
+- Every `/<location>/service-area/<child>/` route — Sprint 1 scaffolds. The
+  six `/<location>/service-area/` index pages are complete as of Sprint
+  5.5.12 (see `docs/ROUTE_INVENTORY.md`); the child destinations remain
+  the next scope.
 - `/<other-city>/free-estimate/` — all four previously-scaffold cities
   (cleveland, cincinnati, louisville, dayton) are now completed in Sprint
   5.5.11; see the Sprint 5.5.11 section below.

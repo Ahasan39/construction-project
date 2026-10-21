@@ -2,6 +2,10 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 5.5.12 — Location service-area index pages (2026-10-21)
+
+Lint, typecheck, 231 tests across 15 files and production build (114 static entries + 404) all passed after implementation. New `LocationServiceAreaPage.test.tsx` adds data-coverage, body-rendering (×6), compass-direction heading (×6), final-CTA resolution per availability (scoped free-estimate vs `#estimate` anchor), child-link vs plain-text policy, and Not-Found guards. Rendered browser verification is not available in this session; HTTP 200 and bundle-string probes are not substituted. Deployment pending explicit approval per the Sprint 5.5.12 workflow. See `docs/ROUTE_INVENTORY.md` Sprint 5.5.12 block.
+
 ## Sprint 5.5.11 — Remaining free-estimate pages (2026-10-21)
 
 Lint, typecheck, 213 tests across 14 files and production build (114 static entries + 404) all passed after implementation. The LocationFreeEstimatePage.test.tsx block that previously asserted the four cities kept the Sprint 1 scaffold is replaced with a positive-rendering block (`it.each` across the four slugs): completed city-named H1 without the scaffold badge; region selector suppressed with service dropdown remaining open; breadcrumb returns to the location hub. Nashville and Not-Found cases unchanged. Rendered browser verification is not available in this session; HTTP 200 and bundle-string probes are not substituted. Deployment pending explicit approval per the ongoing Sprint 5.5.10/5.5.11 review. See [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).

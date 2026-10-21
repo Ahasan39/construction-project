@@ -156,6 +156,33 @@ Explicit location-service availability is the single source of truth in [`src/da
 
 All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.
 
+## Sprint 5.5.12 route status — 2026-10-21
+
+Six location service-area index pages now render completed bodies:
+`/nashville/service-area/`, `/cincinnati/service-area/`,
+`/cleveland/service-area/`, `/grand-rapids/service-area/`,
+`/ann-arbor/service-area/`, `/lansing/service-area/`. Live inspection of
+each page on 2026-10-21 confirmed the intro paragraph, counties list and
+compass-direction city lists; the typed content lives in
+`src/data/serviceAreas.ts`.
+
+Static-route generation unchanged (114 + 404) — all six index URLs were
+already emitted via each parent location's `hasServiceAreaIndex`
+capability flag.
+
+Child destinations (`/<location>/service-area/<child>/`) remain Sprint 1
+scaffolds. The index page links **only** to the three sample children
+already present in `locations[].serviceAreaChildren` for each city
+(their scoped routes exist in the route table); every other reference
+child name renders as plain text with a visible note that detailed
+child pages will arrive in a later sprint. No dead links are introduced.
+
+Lansing's reference `/lansing/service-area/` is a markedly richer feature
+page (`"Roofing and Exterior Services in Greater Lansing, Michigan"`
+hero + why-choose-us + process + projects + reviews + financing + FAQ
+sections). This sprint implements the community-list portion only; the
+richer page composition is deferred.
+
 ## Sprint 5.5.11 route status — 2026-10-21
 
 Four previously-scaffold `/<slug>/free-estimate/` routes now render completed
