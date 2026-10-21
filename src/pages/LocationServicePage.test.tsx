@@ -29,6 +29,7 @@ const CINCINNATI_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] a
 const DAYTON_HUBS = ["roofing", "siding", "windows", "gutters"] as const;
 const LEXINGTON_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
 const LOUISVILLE_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
+const DETROIT_HUBS = ["roofing", "siding", "windows", "gutters", "masonry"] as const;
 
 describe("locationServicePages data", () => {
   it("defines content only for pairs listed in availability", () => {
@@ -238,6 +239,40 @@ describe("Louisville local-service hubs render (Sprint 5.5.8)", () => {
   });
 });
 
+describe("Detroit local-service hubs render (Sprint 5.5.9)", () => {
+  it.each(DETROIT_HUBS)("renders a completed body with a city-named H1 for /detroit/%s/", (key) => {
+    renderAt(`/detroit/${key}`);
+    const h1 = screen.getByRole("heading", { level: 1 });
+    expect(h1.textContent?.toLowerCase()).toContain("detroit");
+    expect(screen.queryByText(/scaffold — sprint 1/i)).toBeNull();
+  });
+
+  it("hero CTA points at the Detroit location-hub #estimate anchor", () => {
+    renderAt("/detroit/roofing");
+    const h1 = screen.getByRole("heading", { level: 1 });
+    const intro = h1.closest("section")!;
+    const link = within(intro).getByRole("link", { name: /get a free estimate/i });
+    expect(link.getAttribute("href")).toBe("/detroit/#estimate");
+  });
+
+  it("Detroit roofing renders its reference-verified 2-topic FAQ while masonry omits one", () => {
+    renderAt("/detroit/roofing");
+    expect(screen.getByRole("heading", { name: /frequently asked questions/i })).toBeTruthy();
+    cleanup();
+    renderAt("/detroit/masonry");
+    expect(screen.queryByRole("heading", { name: /frequently asked questions/i })).toBeNull();
+  });
+
+  it("Lansing scoped non-roofing routes remain unimplemented in this sprint", () => {
+    // Lansing's availability still only lists roofing (with its service-area
+    // index capability). /lansing/siding/ and the other three service hubs
+    // are confirmed reference URLs but are deferred to a later sprint, so
+    // the dispatcher resolves them to Not Found for now.
+    renderAt("/lansing/siding");
+    expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
+  });
+});
+
 describe("Grand Rapids FAQ provenance (Sprint 5.5.4 correction)", () => {
   it("keeps the reference-verified Siding FAQ section", () => {
     renderAt("/grand-rapids/siding");
@@ -254,9 +289,10 @@ describe("Grand Rapids FAQ provenance (Sprint 5.5.4 correction)", () => {
 });
 
 describe("Unsupported location-service combinations stay Not Found", () => {
-  // Detroit still has no scoped service pages.
-  it("renders Not Found for /detroit/roofing", () => {
-    renderAt("/detroit/roofing");
+  // Cleveland's reference service grid links Masonry globally — the scoped
+  // Cleveland masonry URL is intentionally unavailable.
+  it("renders Not Found for /cleveland/masonry", () => {
+    renderAt("/cleveland/masonry");
     expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
   });
 

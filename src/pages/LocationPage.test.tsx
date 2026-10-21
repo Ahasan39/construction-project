@@ -99,13 +99,17 @@ describe("LocationPage composition (every completed slug renders)", () => {
   });
 
   it("service grid falls back to the global hub when the combination is not scoped", () => {
-    renderLocation("detroit");
-    // Detroit has no scoped service pages — every tile uses the global hub.
+    // Lansing's availability still only lists roofing (with service-area
+    // index). The other four service hubs are confirmed reference URLs but
+    // are deferred to a later sprint, so our implementation renders them
+    // as the global hub fallback.
+    renderLocation("lansing");
     for (const service of services) {
       if (service.key === "insulation") continue;
+      if (service.key === "roofing") continue; // scoped for Lansing in availability
       const link = screen.getByRole("link", { name: new RegExp(`visit ${service.title} hub`, "i") });
       expect(link.getAttribute("href")).toBe(`/${service.slug}/`);
-      expect(isLocationServiceAvailable("detroit", service.key)).toBe(false);
+      expect(isLocationServiceAvailable("lansing", service.key)).toBe(false);
     }
   });
 });

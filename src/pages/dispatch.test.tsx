@@ -54,8 +54,9 @@ describe("two-segment dispatcher", () => {
   });
 
   it("renders Not Found for an unavailable location/service combo", () => {
-    // Detroit has no scoped service pages on the reference.
-    renderAt("/detroit/roofing");
+    // Cleveland's reference service grid links Masonry globally, not
+    // scoped, so /cleveland/masonry/ is intentionally unavailable.
+    renderAt("/cleveland/masonry");
     expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
   });
 

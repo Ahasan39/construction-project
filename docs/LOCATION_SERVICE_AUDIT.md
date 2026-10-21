@@ -335,6 +335,85 @@ as Grand Rapids, Cleveland, Cincinnati, Dayton and Lexington.
 Reuses existing per-service hero photography from `servicePages[key].hero`;
 no new assets.
 
+## Sprint 5.5.9 — Detroit scoped service hubs + Lansing verification
+
+Live inspection on 2026-10-21 produced evidence that overturns the earlier
+"hub only" classification for both Detroit and Lansing.
+
+### Detroit — actual reference mapping
+
+| Service | Original href (source) | Scope | Final URL | Local destination |
+|---|---|---|---|---|
+| Roofing | `https://www.mrroof.com/detroit/roofing/` (header nav) | Scoped `/detroit/` | same | `/detroit/roofing/` |
+| Siding | `https://www.mrroof.com/detroit/siding/` (header nav) | Scoped `/detroit/` | same | `/detroit/siding/` |
+| Windows | `https://www.mrroof.com/detroit/windows/` (header nav) | Scoped `/detroit/` | same | `/detroit/windows/` |
+| Gutters | `https://www.mrroof.com/detroit/gutters/` (header nav) | Scoped `/detroit/` | same | `/detroit/gutters/` |
+| Masonry | `https://www.mrroof.com/detroit/masonry/` (header nav) | Scoped `/detroit/` | same | `/detroit/masonry/` |
+| Insulation | `https://www.mrroof.com/detroit/insulation/` (footer only) | Scoped `/detroit/` | same | Not Found (no `ServiceHubKey`) |
+
+The six service-grid **tiles** on the reference Detroit homepage link to
+`/ann-arbor/<service>/` rather than to Detroit's own scoped URLs — an
+unusual pattern that preserves access to the scoped URLs through the header
+and footer. Our local Detroit location-hub keeps its service-grid tiles
+pointed at the scoped Detroit URLs (now that they are implemented); this
+is a deliberate deviation from the reference's grid-tile oddity and is
+documented here rather than copied blindly.
+
+### Detroit — implementation
+
+| Route | Hero H1 | Reference parity | Local FAQ | Final CTA |
+|---|---|---|---|---|
+| `/detroit/roofing/` | Detroit Roofing Services | Reference H1 verbatim; 2 reference-verified FAQ topics (cost / signs) adopted | 2 | `/detroit/#estimate` |
+| `/detroit/siding/` | Detroit Siding Installation | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / signs / lifespan) adopted | 3 | `/detroit/#estimate` |
+| `/detroit/windows/` | Detroit Window Installation | Reference H1 verbatim; 3 reference-verified FAQ topics (cost / signs / replace all) adopted | 3 | `/detroit/#estimate` |
+| `/detroit/gutters/` | Detroit Gutters & Downspouts | Reference H1 verbatim; 2 reference-verified FAQ topics adopted | 2 | `/detroit/#estimate` |
+| `/detroit/masonry/` | Detroit Masonry Services | Reference H1 verbatim | None (reference has no FAQ) | `/detroit/#estimate` |
+
+Five new availability entries added for Detroit. No capability flags added
+(the reference Detroit page does not advertise financing or a service-area
+index). Static entries rise 105 → 110.
+
+### Lansing — actual reference mapping (verified, not implemented this sprint)
+
+| Service | Original href (source) | Scope | Final URL | Local destination |
+|---|---|---|---|---|
+| Roofing | `https://www.mrroof.com/lansing/roofing/` (header nav) | Scoped `/lansing/` | same | **Sprint 1 scaffold** |
+| Siding | `https://www.mrroof.com/lansing/siding/` (header nav) | Scoped `/lansing/` | same | Not Found (not in availability yet) |
+| Windows | `https://www.mrroof.com/lansing/windows/` (header nav) | Scoped `/lansing/` | same | Not Found |
+| Gutters | `https://www.mrroof.com/lansing/gutters/` (header nav) | Scoped `/lansing/` | same | Not Found |
+| Masonry | `https://www.mrroof.com/lansing/masonry/` (header nav) | Scoped `/lansing/` | same | Not Found |
+| Insulation | None in header; grid tile links to `/ann-arbor/insulation/` | — | — | — |
+
+As with Detroit, the Lansing service-grid tiles link to `/ann-arbor/` even
+though scoped Lansing URLs exist and are reachable through the header.
+Lansing's five scoped hubs are the exact remaining scope from this sprint;
+their local availability entries and typed content are deferred to a later
+sprint.
+
+### Negative-test fixture change
+
+Four previous tests used `/detroit/roofing/` as the "unavailable combo"
+Not-Found fixture — that is no longer unavailable. All four are retargeted
+to `/cleveland/masonry/`, which the reference Cleveland service grid
+deliberately links to the global `/masonry/` URL (so the scoped Cleveland
+masonry URL is not published). Files updated: `availability.test.ts`,
+`dispatch.test.tsx`, `deployment.test.ts`, and the Not-Found section of
+`LocationServicePage.test.tsx`. The `LocationPage.test.tsx` fallback test
+is retargeted to Lansing (whose siding/windows/gutters/masonry are not yet
+in availability).
+
+### CTA deviation (Detroit)
+
+Detroit has no `hasFreeEstimate` capability in local availability. The five
+service entries carry an explicit `finalCtaTo: "/detroit/#estimate"` so
+primary CTAs reach the completed Detroit location-hub hero form — same
+pattern as every prior scoped-service batch.
+
+### Imagery
+
+Reuses existing per-service hero photography from `servicePages[key].hero`;
+no new assets.
+
 ## Not completed (still Sprint 1 shells)
 
 - `/nashville/insulation/`, `/grand-rapids/insulation/`,
@@ -355,11 +434,11 @@ no new assets.
 - `/<other-city>/free-estimate/` for cities whose availability advertises it
   (cleveland, cincinnati, louisville, dayton) — Sprint 1 scaffolds, kept by
   an explicit `COMPLETED_SLUGS` whitelist in `LocationFreeEstimatePage.tsx`.
-- Detroit and Lansing are unverified at the scoped-service level as of this
-  sprint; no scoped service pages are implemented for them. Earlier audits
-  classified Detroit as hub-only based on the Sprint 5.1 inventory, but
-  that classification was wrong for Lexington and must be verified by live
-  inspection before being asserted for Detroit or Lansing.
+- `/detroit/insulation/` — verified reference URL (footer only) but has no
+  local `ServiceHubKey`; stays Not Found.
+- `/lansing/{roofing,siding,windows,gutters,masonry}/` — reference URLs
+  verified this sprint but not yet implemented locally. These are the
+  exact remaining scoped-service pages.
 
 ## Automated checks
 

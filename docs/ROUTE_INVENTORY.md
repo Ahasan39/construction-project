@@ -156,6 +156,37 @@ Explicit location-service availability is the single source of truth in [`src/da
 
 All 82 generated clean-route entries, custom 404, Pages base and noindex are retained. No service-detail, location or other future-sprint body implemented.
 
+## Sprint 5.5.9 route status — 2026-10-21
+
+Five Detroit scoped service hubs now render completed bodies:
+`/detroit/{roofing,siding,windows,gutters,masonry}/`. Live inspection of
+https://www.mrroof.com/detroit/ on 2026-10-21 confirms the Detroit
+**header** navigation links scoped `/detroit/<service>/` URLs for the five
+`ServiceHubKey` services (the Detroit service-grid tiles unusually link to
+`/ann-arbor/`, but the scoped Detroit URLs themselves resolve). Five new
+availability entries added for Detroit. Static entries rise 105 → 110.
+
+Lansing verification: live inspection of https://www.mrroof.com/lansing/
+confirms the Lansing **header** navigation also links scoped
+`/lansing/<service>/` URLs for the same five services. Lansing's scoped
+hubs are **not** implemented in this sprint — these five routes are the
+exact remaining scoped-service pages across the whole route tree.
+
+Primary estimate CTAs on the five Detroit pages target `/detroit/#estimate`
+via `finalCtaTo` because Detroit has no scoped free-estimate route.
+
+Negative-test fixture: four tests that used `/detroit/roofing/` as an
+unavailable Not-Found example are retargeted to `/cleveland/masonry/`,
+which the reference Cleveland service grid deliberately links to the
+global `/masonry/`. The `LocationPage.test.tsx` fallback test is
+retargeted to Lansing (whose scoped service hubs are not yet in
+availability).
+
+Still Sprint 1 scaffolds: insulation (not a `ServiceHubKey`),
+commercial-roofing variant, every `/<location>/financing/` and
+`/<location>/service-area/` for all cities, `/<location>/service-area/<child>/`,
+and the five Lansing scoped service hubs listed above.
+
 ## Sprint 5.5.8 route status — 2026-10-20
 
 Five Louisville scoped service hubs now render completed bodies:

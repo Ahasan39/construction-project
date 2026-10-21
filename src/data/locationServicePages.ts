@@ -418,6 +418,69 @@ const louisvilleServices: LocationServiceMap = {
   },
 };
 
+const DETROIT_FINAL_CTA = "/detroit/#estimate";
+
+const detroitServices: LocationServiceMap = {
+  // Reference-verified FAQ topics (close-paraphrased).
+  roofing: {
+    title: "Detroit Roofing Services",
+    eyebrow: "Residential Roof Replacement and Repair",
+    intro:
+      "Residential roofing for Detroit and the surrounding Southeast Michigan metro — replacement, repair and inspection. Written estimates, workmanship warranties and a transferable lifetime warranty on qualifying systems.",
+    faqs: [
+      { title: "Roof replacement cost in Detroit?", body: "Pitch, square footage, chosen shingle package and any decking or flashing repair affect the total. The written estimate itemises materials and labor rather than offering a single price for every home." },
+      { title: "What are signs I need a new roof?", body: "Curling or missing shingles, granule loss filling gutters, visible light in the attic and persistent leaks are reasons to request an inspection. Repairs can extend an aging roof when the deck is still sound." },
+    ],
+    finalCtaTo: DETROIT_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased).
+  siding: {
+    title: "Detroit Siding Installation",
+    eyebrow: "Vinyl, Fiber Cement and Engineered Wood",
+    intro:
+      "Siding projects for Detroit homes. Compare vinyl, fiber cement and engineered wood profiles, colors and warranty terms with a written estimate — no high-pressure sales.",
+    faqs: [
+      { title: "Siding replacement cost in Detroit?", body: "Wall area, chosen material, trim details and any underlying repairs affect the total. A measured, written estimate is more useful than a single price point for every home." },
+      { title: "What are signs I need new siding?", body: "Repeated paint failure, soft or warped panels, visible water staining behind the siding or persistent pest intrusion are reasons to request an inspection — common on older vinyl and wood siding across Southeast Michigan." },
+      { title: "How long does vinyl siding last?", body: "Well-installed vinyl commonly lasts 20–40 years in a Southeast Michigan climate; fiber cement systems are rated longer. Actual lifespan depends on exposure, maintenance and the specific product." },
+    ],
+    finalCtaTo: DETROIT_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased).
+  windows: {
+    title: "Detroit Window Installation",
+    eyebrow: "ProVia Endure, Aeris and Aspect",
+    intro:
+      "Replacement windows for Detroit homes with ProVia products. Compare frames, glass packages and installation details with a written estimate.",
+    faqs: [
+      { title: "Window replacement cost in Detroit?", body: "Opening count, chosen frame and glass package, and any trim or sill repair affect the total. The written estimate lists each opening and its selected configuration." },
+      { title: "What are signs I need new windows?", body: "Persistent drafts, condensation between panes, difficulty operating sashes and visible frame rot are reasons to request an inspection — common on older wood frames across the metro Detroit area." },
+      { title: "Should I replace all the house windows at once?", body: "Replacing the full set in one project usually keeps installation costs lower per opening and gives a consistent exterior. Phased replacement is possible when budget or weather calls for it; the written plan explains both options." },
+    ],
+    finalCtaTo: DETROIT_FINAL_CTA,
+  },
+  // Reference-verified FAQ topics (close-paraphrased).
+  gutters: {
+    title: "Detroit Gutters & Downspouts",
+    eyebrow: "Seamless Aluminum Gutters and Guards",
+    intro:
+      "Seamless aluminum gutter installations for Detroit homes. Compare profiles, colors and downspout placement so rainwater is directed away from the foundation.",
+    faqs: [
+      { title: "How much do new gutters cost in Detroit?", body: "Linear footage, chosen gauge and profile, downspout count and any fascia repair affect the total. A measured, written estimate is more useful than a single price point for every home." },
+      { title: "How do I know if I need new gutters?", body: "Sagging sections, visible rust or splits, repeated overflow during rainfall, or pulled-away fascia are reasons to request an inspection — especially after Southeast Michigan winters." },
+    ],
+    finalCtaTo: DETROIT_FINAL_CTA,
+  },
+  // Reference /detroit/masonry/ has no FAQ section.
+  masonry: {
+    title: "Detroit Masonry Services",
+    eyebrow: "Chimney Repair, Tuckpointing and Stone Veneer",
+    intro:
+      "Masonry repair, tuckpointing and chimney work for Detroit homes. Each project is quoted in writing, with scope and materials described before work begins.",
+    finalCtaTo: DETROIT_FINAL_CTA,
+  },
+};
+
 export const locationServicePages: Record<Slug, LocationServiceMap> = {
   nashville: nashvilleServices,
   "grand-rapids": grandRapidsServices,
@@ -426,6 +489,7 @@ export const locationServicePages: Record<Slug, LocationServiceMap> = {
   dayton: daytonServices,
   lexington: lexingtonServices,
   louisville: louisvilleServices,
+  detroit: detroitServices,
 };
 
 export function findLocationServiceContent(

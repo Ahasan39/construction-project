@@ -1,5 +1,19 @@
 # Progress Log
 
+## Sprint 5.5.9 — Detroit scoped service hubs + Lansing verification (2026-10-21)
+
+- Baseline: clean `main` at `7923ed330da1170b5136e7e4a4092938f792bc34`; expected origin and repository-local author verified.
+- Reference evidence (2026-10-21): live inspection of https://www.mrroof.com/detroit/ and https://www.mrroof.com/lansing/ overturns the "hub only" classification for both. Detroit and Lansing both expose scoped `/<slug>/<service>/` URLs through their **header** navigation for roofing, siding, windows, gutters and masonry. The service-grid tiles on both pages unusually link to `/ann-arbor/` instead of the location's own URLs, but the scoped URLs themselves resolve. Insulation appears only in footers / grid tiles and remains without a `ServiceHubKey`.
+- Scope choice: with 10 potentially-implementable hubs across the two locations and a 5-hub sprint cap, implemented Detroit's full batch (5 pages) first. Lansing's 5 are documented as the exact remaining scoped-service pages.
+- Completed five Detroit scoped service hubs: `/detroit/{roofing,siding,windows,gutters,masonry}/`. Reference-verified FAQ coverage adopted close-paraphrased: roofing — 2 (cost / signs — a new 2-topic roofing pattern); siding — 3 (cost / signs / lifespan); windows — 3 (cost / signs / replace-all); gutters — 2 (cost / know-if-need); masonry — none. No local FAQ topics are invented.
+- Availability: added five entries to `src/data/availability.ts` for Detroit (`roofing, siding, windows, gutters, masonry`). No capability flags added — the reference Detroit page does not advertise financing or a service-area index. Static-route generation output rises from 105 to 110 entries + 404.
+- CTA deviation: all five Detroit service entries carry explicit `finalCtaTo: "/detroit/#estimate"` so primary CTAs reach the completed Detroit location-hub hero form.
+- Local deviation from reference: the Detroit location-hub service grid continues to link each tile to the scoped `/detroit/<service>/` route (via `isLocationServiceAvailable`), which contradicts the reference's practice of linking its grid tiles to `/ann-arbor/`. The deviation is deliberate — our tiles now reach completed Detroit pages rather than redirect to another city — and is documented in [LOCATION_SERVICE_AUDIT.md](LOCATION_SERVICE_AUDIT.md).
+- Negative-test fixture change: four tests that used `/detroit/roofing/` as the Not-Found example are retargeted to `/cleveland/masonry/`, which the reference Cleveland service grid deliberately links globally. Files updated: `availability.test.ts`, `dispatch.test.tsx`, `deployment.test.ts`, and the Not-Found section of `LocationServicePage.test.tsx`. The LocationPage service-grid fallback test is retargeted to Lansing (whose siding/windows/gutters/masonry are not yet in availability; its roofing is).
+- Added 8 focused tests for Detroit: each of the five hubs renders a city-named H1 without the scaffold badge; hero CTA resolves to `/detroit/#estimate`; roofing renders its reference-verified 2-topic FAQ while masonry omits one; `/lansing/siding/` remains Not Found to confirm the deferred scope.
+- Verification: `npm run lint`, `npm run typecheck`, `npm test` (197 tests across 14 files) and `npm run build` (110 static entries + 404) all pass. Rendered browser verification remains unavailable in this session; HTTP 200 and bundle-string probes are not substituted.
+- Exact remaining scoped-service pages: `/lansing/{roofing,siding,windows,gutters,masonry}/` — reference URLs verified this sprint, implementation deferred.
+
 ## Sprint 5.5.8 — Louisville scoped service hubs (2026-10-20)
 
 - Baseline: clean `main` at `c68c58cdf38b26aa28e6d9ed9d19c6db9de08f5b`; expected origin and repository-local author verified.

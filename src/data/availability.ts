@@ -127,7 +127,17 @@ export const locationServiceAvailability: LocationServiceAvailability[] = [
   { locationSlug: "lexington", serviceKey: "gutters" },
   { locationSlug: "lexington", serviceKey: "masonry" },
 
-  // Detroit — hub only (no additional location-scoped pages on the reference).
+  // Detroit — correction: Sprint 5.1 called this "hub only," but live
+  // inspection on 2026-10-21 shows the reference Detroit header navigation
+  // links scoped /detroit/<service>/ URLs for roofing, siding, windows,
+  // gutters and masonry (the grid tiles happen to redirect to Ann Arbor,
+  // but the scoped Detroit pages themselves resolve). Insulation remains
+  // unmounted (no `ServiceHubKey`).
+  { locationSlug: "detroit", serviceKey: "roofing" },
+  { locationSlug: "detroit", serviceKey: "siding" },
+  { locationSlug: "detroit", serviceKey: "windows" },
+  { locationSlug: "detroit", serviceKey: "gutters" },
+  { locationSlug: "detroit", serviceKey: "masonry" },
 ];
 
 export function isLocationServiceAvailable(
