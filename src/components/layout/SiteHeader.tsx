@@ -17,15 +17,15 @@ const topLevelItems = primaryNav.filter((i) => !i.children);
 const aboutItem = primaryNav.find((i) => i.children);
 
 /**
- * Shared public header, informed by the supplied reference screenshot:
+ * Shared public header:
  *
- *   ┌─ Top strip (dark navy, min-h-14): Location selector · phone CTA ────────┐
- *   │ Logo │  Primary nav · About ▾         │ Phone │ Free Estimate (lg) │ ← main row
- *   └────────────────────────────────────────────────────────────────────┘
+ *   ┌─ Top utility strip (dark navy): Location selector · Phone CTA ───────┐
+ *   │ Logo │  Primary nav (Roofing · Gutters · … · About ▾) │ Free Estimate │ ← main row
+ *   └───────────────────────────────────────────────────────────────────────┘
  *
- * The main row is intentionally taller than Sprint 2's generic 56px — the
- * reference emphasizes the phone and estimate CTA at hero-adjacent size.
- * Exact px numbers remain provisional until live measurement.
+ * The phone number is cleanly accessible in the top utility strip, leaving
+ * the main navigation row spacious, balanced, and focused on the primary
+ * navigation links and prominent Free Estimate CTA.
  */
 export function SiteHeader() {
   const activeLocation = useLocationContext();
@@ -50,7 +50,7 @@ export function SiteHeader() {
       {/* Top utility strip */}
       <div className="bg-[var(--color-brand-primary)] text-white text-sm">
         <Container width="wide">
-          <div className="flex items-center justify-between gap-4 min-h-11 sm:min-h-14 py-1">
+          <div className="flex items-center justify-between gap-4 min-h-9 sm:min-h-10 py-1 sm:py-1.5">
             <div className="hidden sm:flex items-center shrink-0 text-[13px]">
               <LocationSelector idPrefix="top" inverse />
             </div>
@@ -68,7 +68,7 @@ export function SiteHeader() {
 
       {/* Main row */}
       <Container width="wide">
-        <div className="flex items-center justify-between gap-6 h-20 lg:h-24">
+        <div className="flex items-center justify-between gap-6 h-16 sm:h-16 lg:h-18">
           {/* Logo */}
           <Link
             to="/"
@@ -79,10 +79,10 @@ export function SiteHeader() {
               <img
                 src={brand.logoSrc}
                 alt={`${brand.companyName} Logo`}
-                height={44}
-                width={180}
+                height={40}
+                width={170}
                 style={{ aspectRatio: "180 / 44" }}
-                className="h-10 lg:h-11 w-auto max-w-[180px] lg:max-w-[210px] shrink-0 object-contain"
+                className="h-9 lg:h-10 w-auto max-w-[160px] lg:max-w-[190px] shrink-0 object-contain"
               />
             ) : (
               <span className="text-2xl font-extrabold tracking-tight">
@@ -100,7 +100,7 @@ export function SiteHeader() {
 
           {/* Desktop primary nav */}
           <nav aria-label="Primary" className="hidden xl:block flex-1">
-            <ul className="flex items-center justify-center gap-7 text-[14px] font-bold tracking-wide uppercase">
+            <ul className="flex items-center justify-center gap-6 xl:gap-8 text-[14px] font-bold tracking-wide uppercase">
               {topLevelItems.map((item) => (
                 <li key={item.to}>
                   <Link
@@ -156,17 +156,10 @@ export function SiteHeader() {
             </ul>
           </nav>
 
-          {/* Desktop actions */}
-          <div className="hidden xl:flex items-center gap-5 shrink-0">
-            <SmartLink
-              to={phoneHref}
-              external
-              className="text-xl font-black text-[var(--color-brand-primary)] whitespace-nowrap hover:text-[var(--color-brand-accent)] transition-colors"
-            >
-              {phoneDisplay}
-            </SmartLink>
+          {/* Desktop action CTA */}
+          <div className="hidden xl:flex items-center shrink-0">
             <Link to={estimateHref}>
-              <Button size="lg" className="whitespace-nowrap uppercase tracking-wider font-extrabold text-sm px-6">
+              <Button size="md" className="whitespace-nowrap uppercase tracking-wider font-extrabold text-xs lg:text-sm px-6 shadow-sm">
                 Free estimate
               </Button>
             </Link>

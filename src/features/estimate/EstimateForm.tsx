@@ -163,22 +163,22 @@ export function EstimateForm({
 
   // Classes for the dark hero-card variant vs. the default page variant.
   const labelTone =
-    variant === "inverse" ? "text-white text-xs font-semibold tracking-wide uppercase" : "text-[var(--color-ink)] text-sm font-medium";
+    variant === "inverse" ? "text-white text-xs font-semibold tracking-wide" : "text-[var(--color-ink)] text-sm font-medium";
   const noticeTone =
     variant === "inverse"
       ? "text-slate-300 text-xs"
       : "text-[var(--color-ink-muted)] text-xs";
   const inputClassName =
     variant === "inverse"
-      ? "!bg-[#10273D] !border-[#223E59] !text-white placeholder:!text-slate-400 focus:!border-[#00a3e0] !rounded-sm"
+      ? "!h-10 text-sm !bg-[#10273D] !border-[#223E59] !text-white placeholder:!text-slate-400 focus:!border-[#00a3e0] !rounded-sm"
       : "";
 
   return (
     <form
       noValidate
       onSubmit={onSubmit}
-      aria-describedby={`${demoNoticeId} ${statusRegionId}`}
-      className="flex flex-col gap-3"
+      aria-describedby={[demoNoticeId, status === "error" ? statusRegionId : undefined].filter(Boolean).join(" ")}
+      className="flex flex-col gap-2 sm:gap-2.5"
     >
       {/* Success acknowledgement replaces the form on happy path for clarity. */}
       {status === "success" ? (
@@ -356,39 +356,45 @@ export function EstimateForm({
             </div>
           )}
 
-          <div className={`flex flex-col gap-2 ${labelTone}`}>
+          <div className="flex flex-col gap-1.5 pt-0.5">
             <Checkbox
               name="consentReminders"
               checked={values.consentReminders}
               onChange={(e) => update("consentReminders")(e.target.checked)}
               label="Send me appointment reminders and service updates."
+              labelClassName={`text-xs leading-snug ${
+                variant === "inverse" ? "text-slate-200 font-medium" : "text-[var(--color-ink)]"
+              }`}
             />
             <Checkbox
               name="consentPromotions"
               checked={values.consentPromotions}
               onChange={(e) => update("consentPromotions")(e.target.checked)}
               label="Send me seasonal offers and promotions."
+              labelClassName={`text-xs leading-snug ${
+                variant === "inverse" ? "text-slate-200 font-medium" : "text-[var(--color-ink)]"
+              }`}
             />
           </div>
 
-          <p id={demoNoticeId} className={`text-xs ${noticeTone} leading-relaxed`}>
+          <p id={demoNoticeId} className={`text-[11px] sm:text-xs ${noticeTone} leading-normal`}>
             Demo form — submissions are not sent.
           </p>
 
-          <div
-            id={statusRegionId}
-            role="status"
-            aria-live="polite"
-            className={`min-h-[1.5em] text-sm ${
-              status === "error"
-                ? variant === "inverse"
+          {status === "error" && (
+            <div
+              id={statusRegionId}
+              role="status"
+              aria-live="polite"
+              className={`text-xs ${
+                variant === "inverse"
                   ? "text-red-200"
                   : "text-[var(--color-danger)]"
-                : noticeTone
-            }`}
-          >
-            {status === "error" && serverMessage}
-          </div>
+              }`}
+            >
+              {serverMessage}
+            </div>
+          )}
 
           <Button
             type="submit"
@@ -397,7 +403,7 @@ export function EstimateForm({
             loadingLabel="Submitting…"
             className={`w-full font-extrabold uppercase tracking-wider ${
               variant === "inverse"
-                ? "bg-[#d9232a] hover:bg-[#b81b22] text-white py-3.5 shadow-md"
+                ? "bg-[#d9232a] hover:bg-[#b81b22] text-white py-2.5 sm:py-3 shadow-md"
                 : ""
             }`}
           >

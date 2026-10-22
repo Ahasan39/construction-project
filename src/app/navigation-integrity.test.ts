@@ -38,7 +38,7 @@ describe("navigation integrity", () => {
       "/", "/free-estimate", "/about", "/special-offers", "/financing",
       "/warranties", "/refer-a-friend", "/contact-us", "/reviews",
       "/commercial-projects", "/careers/sales", "/privacy-policy",
-      "/terms-and-conditions", "/billpay", "/visualizer", "/crew", "/blog",
+      "/terms-and-conditions", "/billpay", "/visualizer", "/crew", "/blog", "/gallery",
     ];
     for (const path of expected) {
       expect(routes.has(path)).toBe(true);

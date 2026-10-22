@@ -91,7 +91,7 @@ export default function BlogIndexPage() {
               {items.map((a) => (
                 <li
                   key={a.slug}
-                  className="rounded-sm border border-slate-200 bg-[#F4F6F8] overflow-hidden flex flex-col"
+                  className="rounded-sm border border-slate-200 bg-[#F4F6F8] overflow-hidden flex flex-col hover-lift"
                 >
                   {a.thumbnailSrc ? (
                     <Link
@@ -138,9 +138,9 @@ export default function BlogIndexPage() {
                     </p>
                     <Link
                       to={`/blog/${a.slug}`}
-                      className="mt-4 self-start text-xs font-bold text-[var(--color-brand-accent)] hover:underline uppercase tracking-wider"
+                      className="mt-4 self-start text-xs font-bold text-[var(--color-brand-accent)] hover:underline uppercase tracking-wider arrow-nudge"
                     >
-                      Read more »
+                      <span>Read more</span>
                     </Link>
                   </div>
                 </li>

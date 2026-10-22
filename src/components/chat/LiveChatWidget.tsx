@@ -95,7 +95,7 @@ export function LiveChatWidget() {
           role="dialog"
           aria-labelledby={`${panelId}-title`}
           aria-describedby={`${panelId}-status`}
-          className="pointer-events-auto w-[min(23rem,calc(100vw-2rem))] max-h-[min(32rem,calc(100vh-7rem))] flex flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[0_20px_50px_-20px_rgba(15,34,49,0.35),0_8px_16px_-8px_rgba(15,34,49,0.18)] motion-safe:animate-[fadeIn_140ms_ease-out] ring-1 ring-black/5"
+          className="pointer-events-auto w-[min(23rem,calc(100vw-2rem))] max-h-[min(32rem,calc(100vh-7rem))] flex flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[0_20px_50px_-20px_rgba(15,34,49,0.35),0_8px_16px_-8px_rgba(15,34,49,0.18)] motion-safe:animate-[fadeInUp_240ms_var(--ease-emphasized)_both] ring-1 ring-black/5 origin-bottom-right"
         >
           <header className="shrink-0 flex items-center gap-3 px-4 py-3.5 bg-[var(--color-brand-primary)] text-white">
             <span
@@ -232,7 +232,7 @@ export function LiveChatWidget() {
         aria-expanded={open}
         aria-controls={panelId}
         aria-label={open ? "Hide chat launcher" : "Open chat"}
-        className="pointer-events-auto group inline-flex items-center gap-2 h-14 px-5 rounded-full bg-[var(--color-brand-accent)] text-white text-sm font-extrabold uppercase tracking-wider shadow-[0_14px_28px_-10px_rgba(217,35,42,0.55),0_6px_12px_-6px_rgba(15,34,49,0.25)] ring-1 ring-black/5 hover:bg-[var(--color-brand-accent-600)] active:translate-y-[1px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)] motion-safe:transition-[background-color,transform,box-shadow] motion-safe:duration-150"
+        className={`pointer-events-auto group inline-flex items-center gap-2 h-14 px-5 rounded-full bg-[var(--color-brand-accent)] text-white text-sm font-extrabold uppercase tracking-wider shadow-[0_14px_28px_-10px_rgba(217,35,42,0.55),0_6px_12px_-6px_rgba(15,34,49,0.25)] ring-1 ring-black/5 hover:bg-[var(--color-brand-accent-600)] hover:scale-[1.03] active:translate-y-[1px] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)] motion-safe:transition-[background-color,transform,box-shadow] motion-safe:duration-200 ${open ? "" : "motion-safe:animate-[fadeInUp_320ms_var(--ease-emphasized)_both] launcher-float"}`}
       >
         <ChatIcon
           className="h-5 w-5 motion-safe:transition-transform motion-safe:duration-200 motion-safe:group-hover:-rotate-6"

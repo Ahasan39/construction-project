@@ -3,6 +3,7 @@ import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { LiveChatWidget } from "@/components/chat/LiveChatWidget";
 import { OfferPopup } from "@/components/promo/OfferPopup";
+import { BackToTopButton } from "./BackToTopButton";
 
 /**
  * Top-level public shell. One `<main>` landmark for the whole app; nav
@@ -18,6 +19,7 @@ export function AppShell() {
       </main>
       <SiteFooter />
       <LiveChatWidget />
+      <BackToTopButton />
       <OfferPopup />
     </>
   );

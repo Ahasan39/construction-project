@@ -2,6 +2,410 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 5.22 — Simplify Main Header and Improve Navigation Balance (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — clean, 0 warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **487/487** across 28 files (all tests green) |
+| `npm run build` | pass — **236** supported static route entries + 404.html generated |
+| Phone removed from main desktop navigation row | verified |
+| Phone preserved in top utility bar (`Call +880 1842-299275`) | verified |
+| All 7 primary navigation links preserved | verified (Roofing, Gutters, Siding, Windows, Masonry, Gallery, About) |
+| About dropdown disclosure interaction & keyboard focus | verified |
+| Free Estimate CTA button prominent and location-aware | verified |
+| Rebalanced navigation spacing (`gap-6 xl:gap-8`) | verified |
+| Mobile hamburger button & drawer behavior intact | verified |
+| Viewport checks (1440x900, 1366x768, 1024x768, 768x1024, 375x812) | **performed & verified** via browser subagent |
+| Zero horizontal overflow across all viewports | verified |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+### Browser QA Measurements & Layout Audit (Sprint 5.22)
+
+- **Viewports tested:**
+  - `1440 × 900` — standard desktop
+  - `1366 × 768` — primary laptop
+  - `1024 × 768` — small laptop / landscape tablet
+  - `768 × 1024` — tablet portrait
+  - `375 × 812` — mobile reference
+- **Header Observations:**
+  - **Main row composition:** Clean 3-zone layout: Logo on far left, 7 navigation links centered with comfortable `gap-6 xl:gap-8`, and the red "Free estimate" CTA button on the far right.
+  - **Phone removal verification:** The phone number link is completely removed from the main navigation row. The phone contact remains prominently and clearly available in the top utility strip (`Call +880 1842-299275`) right above the main navigation.
+  - **About dropdown disclosure:** Clicking "About" opens the menu showing Special Offers, Pay My Bill, Financing, Warranties, Visualizer, Refer a Friend, Customer Reviews, etc. Closes smoothly on click and Escape key.
+  - **Mobile navigation:** At 1024px, 768px, and 375px, the hamburger button is present and accessible. Clicking "Open menu" opens the slide-in drawer displaying the LocationSelector, full navigation items, phone contact, and Free Estimate button.
+  - **Overflow check:** `document.documentElement.scrollWidth <= window.innerWidth` across all viewports with zero horizontal scrolling.
+
+## Sprint 5.21 — Compact Estimate Form Consent and Footer Spacing (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — clean, 0 warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **487/487** across 28 files (all tests green) |
+| `npm run build` | pass — **236** supported static route entries + 404.html generated |
+| Consent checkboxes present & intact | verified (both options preserved) |
+| Checkbox gap reduction (`gap-2` -> `gap-1.5`) & alignment (`mt-0.5`) | verified |
+| Checkbox label compact typography (`text-xs leading-snug`) | verified |
+| Idle empty status region removed from DOM | verified |
+| Error status region displays politely on submission error | verified |
+| Demo notice spacing tightened with submit button | verified |
+| Submit button hierarchy, touch targets, and focus states | verified |
+| Lead form & CTA button clearance from Live Chat widget | verified |
+| Mobile responsiveness & zero overflow at 375px | verified |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+### Browser QA Measurements & Layout Audit (Sprint 5.21)
+
+- **Viewports tested:**
+  - `1366 × 768` — primary laptop target
+  - `375 × 812` — mobile reference
+- **Consent & Footer Compaction Measurements:**
+  - Checkbox labels now fit on single lines with `text-xs leading-snug text-slate-200 font-medium`.
+  - Checkbox vertical gap reduced from 8px to 6px (`gap-1.5`).
+  - Idle empty status region (previously taking 21px min-height + surrounding flex gaps) removed completely when idle.
+  - Spacing between demo notice and submit button reduced from ~24px to ~8px–10px.
+  - Net vertical height reduction of lead form card: **~35px–45px**.
+- **Visual & Interaction Observations:**
+  - Both checkboxes remain independently toggleable and functional.
+  - Submission with empty fields triggers clean field error messages in rose text without breaking card layout.
+  - On 1366 × 768, the red "Get a FREE ESTIMATE" CTA button sits comfortably above the 768px fold with ample clearance above the floating Live Chat widget.
+  - On 375 × 812, mobile touch targets remain comfortable and `document.documentElement.scrollWidth <= window.innerWidth` is verified (zero horizontal overflow).
+
+## Sprint 5.20 — Desktop First-Screen Layout Optimization (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — clean, 0 warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **487/487** across 28 files (all tests green) |
+| `npm run build` | pass — **236** supported static route entries + 404.html generated |
+| Shared Header height optimization (152px -> ~112px desktop) | verified (saves 40px globally) |
+| Top utility strip height reduction (56px -> 40px) | verified |
+| Main navigation row height reduction (96px -> 72px desktop) | verified |
+| Homepage hero container padding reduction (`py-10` -> `py-5`) | verified |
+| Homepage hero photo height adjustment (340px -> 235px xl / 220px lg) | verified |
+| Lead-form card & CTA button above the fold at 1366 × 768 | **verified in real browser** |
+| Gallery filter toolbar & first row photos above the fold at 1366 × 768 | **verified in real browser** |
+| Responsive checks (1440x900, 1366x768, 1024x768, 768x1024, 375x812) | **performed & verified** via browser subagent |
+| Zero horizontal overflow at 375px (`scrollWidth <= innerWidth`) | verified |
+| Live Chat widget clearance and Back-to-Top clearance | verified |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+### Browser QA Measurements & Layout Audit (Sprint 5.20)
+
+- **Viewports tested:**
+  - `1366 × 768` — primary laptop target
+  - `1440 × 900` — standard desktop target
+  - `1024 × 768` — small laptop / tablet landscape
+  - `768 × 1024` — tablet portrait
+  - `375 × 812` — mobile reference
+- **Header Height Comparison:**
+  - Before: Top bar 56px (`min-h-11 sm:min-h-14`) + Main row 96px (`h-20 lg:h-24`) = **152px**.
+  - After: Top bar 40px (`min-h-9 sm:min-h-10`) + Main row 72px (`h-16 sm:h-16 lg:h-18`) = **~112px**.
+  - Net global savings: **40px vertical space saved on every public page**.
+- **Homepage First-Screen Results:**
+  - At `1366 × 768`:
+    - Header is 112px.
+    - Hero top padding is 20px (`lg:py-5`).
+    - Left column (headline, copy, suburban house photo, emergency leak box, phone number) sits comfortably within ~544px height.
+    - Right column lead-form card (heading, 5 input fields, checkboxes, demo notice, red "GET A FREE ESTIMATE" CTA button) sits comfortably at ~460px height.
+    - The red CTA button is fully visible above the 768px fold without requiring any user scrolling.
+  - At `1440 × 900`:
+    - Both columns are fully visible with ample breathing room; the emergency contact bar and lead form footer are visible above the fold.
+- **Gallery Above-the-Fold Results:**
+  - At `1366 × 768`:
+    - Header is 112px.
+    - Breadcrumbs, H1, description, and "REQUEST AN ESTIMATE" CTA are displayed cleanly.
+    - Category filter toolbar begins at ~340px from page top.
+    - First row of 3 project cards begins at ~410px, leaving ample vertical space for project photos and card details to be immediately visible above the 768px fold.
+- **Mobile Results (375 × 812):**
+  - Header collapses to compact 40px top bar + 64px main row with logo and accessible hamburger button.
+  - No horizontal overflow (`document.documentElement.scrollWidth === 375`).
+  - Mobile scrolling feels natural with touch targets meeting accessibility standards (>= 44px).
+
+## Sprint 5.19 — Compact Gallery Hero & Above-the-Fold Visibility (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — clean, 0 warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **487/487** across 28 files (all 17 GalleryPage assertions green) |
+| `npm run build` | pass — **236** supported static route entries + 404 (emits `dist/gallery/index.html`) |
+| Hero vertical padding reduction (`py-16` -> `py-9` desktop) | verified |
+| Heading resizing (`text-5xl` -> `text-4xl` with `leading-snug`) | verified |
+| Spacing reduction between hero and category toolbar | verified |
+| Filter toolbar margin reduction (`mb-10` -> `mb-6`) | verified |
+| Card summary clamp to 2 lines (`line-clamp-2`) for uniform card heights | verified |
+| First row of project cards visible above the fold on desktop | **verified in real browser** |
+| Rendered browser QA (1440px desktop, 1024px laptop, 768px tablet, 375px mobile) | **performed & verified** via browser subagent (`compact_gallery_qa_1792677805057.webp`) |
+| Zero horizontal overflow, no clipped text, comfortable touch targets | verified |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+### Browser QA Measurements & Above-the-Fold Analysis (Sprint 5.19)
+
+- **Viewports tested:** 1440x900 desktop, 1024x768 laptop, 768x1024 tablet, 375x812 mobile.
+- **Above-the-fold visibility (Desktop & Laptop):**
+  - Before Sprint 5.19, the cards grid began ~609px below the viewport top, pushing the images and titles below the fold on standard desktop viewports.
+  - After Sprint 5.19, the cards grid begins at ~450px below the viewport top (saving over 150px of vertical space).
+  - The first row of project cards (including full project images, category tags, property types, and titles) is immediately visible without scrolling.
+- **Mobile & Tablet behavior:**
+  - At 768px: two-column project cards layout renders with clean spacing and no clipping.
+  - At 375px: hero stacks cleanly (breadcrumbs, eyebrow, H1, description, CTA) with no horizontal overflow, followed directly by the scrollable category toolbar and single-column project cards.
+
+## Sprint 5.18 — Premium Gallery / Our Work page (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — clean, 0 warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **487/487** across 28 files (+17 new GalleryPage assertions vs 470 baseline) |
+| `npm run build` | pass — **236** supported static route entries + 404 (+1 for `/gallery`, emits `dist/gallery/index.html`) |
+| Gallery route `/gallery` renders single H1 | asserted |
+| Header & Mobile nav render Gallery link to `/gallery` | asserted |
+| Default "All Projects" filter displays 9 projects | asserted |
+| Category filtering updates cards immediately (Roofing, Siding, Windows, Gutters, Masonry) | asserted |
+| Empty-state UI and reset button | asserted |
+| Project card content, responsive images, non-empty alt text | asserted |
+| Lightbox modal dialog (`role="dialog"`, `aria-modal="true"`) opens on View Project | asserted |
+| Lightbox multi-photo controls (Previous, Next, photo count, thumbnails) | asserted |
+| Lightbox dismiss via close button, Escape key, and backdrop click | asserted |
+| Body scroll locked while modal is open, restored on close | asserted |
+| Focus restored to trigger button on modal close | asserted |
+| Conversion CTA points to `/free-estimate` and phone link | asserted |
+| Rendered browser QA (desktop 1440px, tablet 768px, mobile 375px) | **performed & verified** via browser subagent (`gallery_page_qa_1792676879439.webp`) |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+### Browser QA Observations (Sprint 5.18)
+
+- **Viewports tested:** 1440px desktop, 768px tablet, 375px mobile.
+- **Hero section:** Breadcrumb ("Home › Project Gallery"), single H1, and "Request an Estimate" button properly aligned without pushing cards too far below fold.
+- **Filters toolbar:** All 6 category buttons with counts rendered and operable. Filtering dynamically re-rendered grid without full-page reloads.
+- **Project cards:** 3 columns on desktop, 2 on tablet, 1 on mobile. Cards feature `.hover-lift` elevation and smooth image zoom on hover.
+- **Lightbox modal:** Opens smoothly in center of screen with darkened backdrop, displays high-res WebP image, title, category tag, full description, scope checklist, and materials. Thumbnail bar and arrow buttons navigate between photos seamlessly. Escape and close button dismiss cleanly.
+- **Overflow & layout:** Zero horizontal scrolling across 1440px, 768px, and 375px.
+
+## Sprint 5.17 — Back-to-top button (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **470/470** across 27 files (+6 new BackToTopButton assertions) |
+| `npm run build` | pass — 235 supported static route entries + 404 (unchanged) |
+| Hidden near top (`aria-hidden="true"`, `tabindex="-1"`, `opacity-0`, `pointer-events-none`) | asserted |
+| Visible past `scrollY > 400` threshold | asserted |
+| Re-hides when scrolling back near the top | asserted |
+| Click → `window.scrollTo({top:0, left:0, behavior:"smooth"})` | asserted |
+| `prefers-reduced-motion: reduce` → `behavior:"auto"` fallback | asserted |
+| Positioned at `bottom-[88px] sm:bottom-[96px] right-4 sm:right-6` above chat launcher | asserted |
+| Rendered browser QA | **unverified** — no automation available |
+| Deploy preview / Pages | **not run** |
+
+## Sprint 5.15 — Footer developer credit (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **464/464** across 26 files (unchanged) |
+| `npm run build` | pass — 235 supported static route entries + 404 (unchanged) |
+| Credit renders exact wording "Design and Developed by Ahasan39" | source-level verified |
+| Ahasan39 link points to https://ahasan39.github.io/ | source-level verified |
+| Same-tab navigation (no `target="_blank"`) per project convention | source-level verified |
+| Visible focus state via `focus-visible` + `--color-focus` outline | source-level verified |
+| Rendered browser QA | **unverified** — no browser automation this session |
+
+## Sprint 5.14 — Continuous reviews marquee + launcher float (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **464/464** across 26 files (+4 vs Sprint 5.12/5.13 baseline of 460) |
+| `npm run build` | pass — 235 supported static route entries + 404 (unchanged) |
+| Marquee track renders by default with 18 slots (9 canonical + 9 aria-hidden clones) | asserted |
+| Marquee track uses `w-max` + `.marquee-track` + `.marquee-root` wrapper for CSS pause | asserted |
+| Cloned reviews do not add duplicate `role="group"` nodes | asserted (9 groups, not 18) |
+| Any manual interaction (Prev/Next/arrow/dot/swipe) switches to stepped mode | asserted |
+| Pause/Play button toggles between marquee and stepped mode | asserted |
+| Reduced motion forces stepped mode and no marquee track | asserted |
+| Launcher carries `.launcher-float` while panel is closed | asserted |
+| Opening the panel suppresses launcher float + entrance animation | asserted |
+| Closing the panel restores launcher float | asserted |
+| Dialog semantics / Escape / focus restoration / scroll lock | preserved from prior sprints — existing tests green |
+| Rendered browser QA (375 / 768 / 1440) | **unverified** — no browser automation available |
+| Visual seamless-loop endpoint of the marquee | **unverified in a real browser** |
+| Cross-browser (Chrome / Edge / Firefox) | **unverified** |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+### Seamless-loop implementation notes
+
+- Track: `className="flex w-max marquee-track"` — intrinsic width = sum of children, not viewport width, so the CSS `-50%` translation is a precise ratio of the content width.
+- Children: `[...reviews, ...reviews]` — 9 real + 9 clones. Clones get `aria-hidden="true"` and no `role`/`aria-label`, so screen readers see one canonical list of 9 slide groups.
+- Card width: `width: ${100/visibleCount}vw` capped by `max-w-[22rem]` — responsive, consistent across breakpoints.
+- Keyframe: `translateX(0) → translateX(-50%)` with `linear` easing over 60 s, `infinite` iteration count. Linear easing + 50% stride guarantees the loop seam has no acceleration jump.
+- Pause: pure CSS via `.marquee-root:hover .marquee-track { animation-play-state: paused }` and the same selector for `:focus-within`. No JS timer, no RAF.
+
+## Sprint 5.13 — Real-browser verification attempt (2026-10-22)
+
+### Environment audit (what is on this machine)
+
+| Item | Present? | Notes |
+|---|---|---|
+| Chrome binary | **yes** — `C:\Program Files\Google\Chrome\Application\chrome.exe` | installed as a GUI browser; **no automation driver** attached to this session |
+| Edge binary | **yes** — `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe` | same — GUI only, no automation surface |
+| Firefox binary | no | — |
+| Chromium (headless CLI alias) | no | — |
+| Playwright | no | not in `package.json`, not on PATH |
+| Puppeteer | no | not in `package.json`, not on PATH |
+| Lighthouse / `lhci` | no | — |
+| `gh` (GitHub CLI) | no | can't query Pages workflow from this terminal |
+| MCP browser bridge (built-in pane, Chrome extension, DevTools MCP) | **no** — none enabled in this session's tool list |
+
+### What was performed this session (actual)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **460/460** across 26 files (regression baseline from Sprint 5.12 preserved) |
+| `npm run build` | pass — 235 supported static route entries + 404 (unchanged) |
+| Working tree before + after | preserved; no reset / stash / discard |
+
+### Real-browser verification — not performed, by design
+
+The sprint spec says: *"If no browser is available, stop before installing anything. Report exactly what is missing and request approval for the smallest suitable testing setup."*
+
+Chrome and Edge exist on this host as GUI applications, **but there is no automation layer available in this session to drive them and capture evidence of user interactions** (prev/next clicks, Escape, keyboard focus moves, Live Chat open/close transitions, viewport switching between 375 / 768 / 1440). Headless Chrome launched directly can produce a single static screenshot but cannot:
+- Click Previous/Next and observe transition smoothness
+- Switch viewport widths and record each state
+- Open/close the Live Chat panel and verify dialog focus containment
+- Capture `console` errors or failed asset requests on a running session
+- Honor `prefers-reduced-motion` toggled at the OS level without automation
+
+Therefore no browser-based scenario was executed, no screenshot was captured, and no visual claim is made.
+
+### Smallest suitable testing setup — awaiting your approval
+
+To actually perform the Sprint 5.13 scenarios, one of the following would need to be installed/enabled (each requires explicit user approval per the sprint guardrail):
+
+1. **Playwright** (recommended) — `npm i -D @playwright/test` + `npx playwright install chromium`. Gives programmatic click/keyboard/scroll, viewport emulation, screenshots, console-error capture, trace recordings. Adds ~1 dev dependency + a Chromium download (~170 MB). Can be scoped to a single `tests/e2e/` folder and excluded from the production bundle.
+2. **Puppeteer** — `npm i -D puppeteer`. Similar capabilities, Chrome-only. Slightly lighter API, no built-in test runner.
+3. **MCP browser bridge** (no dependency change) — if a Chrome DevTools MCP, in-app browser pane, or Claude-in-Chrome extension is enabled in a future session, the existing installed Chrome/Edge binaries can be driven directly without a new npm package.
+
+Preferred: **Playwright**, scoped to a `tests/e2e/` folder, with a `test:e2e` script added to `package.json`. The Vitest/jsdom suite stays separate and keeps running on every change.
+
+No installation was performed this session.
+
+### Scenarios ready to run once a browser is wired up
+
+- Carousel at 375 / 768 / 1440: initial state, Next × full cycle, Prev × full cycle, dot click, keyboard Arrow navigation, autoplay enable + disable, boundary disabled states, resize re-clamp, swipe gesture.
+- Live Chat at 375 / 768 / 1440: launcher mount entrance pacing, hover scale, active press, open-panel `fadeInUp` from `origin-bottom-right`, Escape close, close-button close, focus return to launcher, body scroll lock, textarea Enter / Shift-Enter.
+- Reduced-motion: toggle OS preference and reload — Reveal / carousel transition / Live Chat animation should all collapse to instant state changes.
+- Cross-browser: same scenarios in Chrome and Edge. Firefox pending install.
+- Console errors + failed network requests captured per route.
+- Lighthouse mobile + desktop runs for homepage + one blog article + one service hub.
+
+## Sprint 5.12 — Reviews carousel polish + Live Chat animation (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **460/460** across 26 files (+5 Sprint 5.12 regressions vs Sprint 5.11's 455) |
+| `npm run build` | pass — 235 supported static route entries + 404 (unchanged) |
+| Carousel transform math (one card-width per step) | asserted via keyboard navigation + computed `style.transform` check |
+| Carousel transition uses `--duration-emphasized` + `--ease-standard` motion tokens | asserted |
+| Carousel pre-existing suite (9 tests) | all green — no behavior change |
+| Live Chat launcher mount entrance (`fadeInUp` + `ease-emphasized`) | asserted via className |
+| Live Chat launcher hover scale (`hover:scale-[1.03]`) | asserted via className |
+| Live Chat panel open entrance (`fadeInUp` + `ease-emphasized`) | asserted via dialog className |
+| Live Chat closed-panel invariant (dialog fully unmounted) | asserted — no stray textarea / send button after close |
+| Live Chat dialog semantics / Escape / focus restoration | preserved from prior sprint, existing tests green |
+| Rendered browser QA (desktop/mobile) | **unverified** — no dev server or automation launched |
+| Visual carousel sliding smoothness | **unverified** — jsdom cannot assert CSS transition visual quality |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+### Carousel root-cause summary
+
+| Area | Assessment |
+|---|---|
+| Slide math (`translateX(-${currentIndex * (100 / visibleCount)}%)`) | correct — asserted by new regression test |
+| Rapid-click desync | not reproducible — functional `setState` chains deterministically |
+| Boundary disabled buttons at autoplay-off | intentional product contract, preserved by existing tests |
+| Motion token consistency | **fixed** — now uses `--duration-emphasized` + `--ease-standard` + `will-change: transform` |
+| Reduced-motion handling | preserved — global rule clamps the transition, autoplay disabled on `matchMedia` change |
+
+## Sprint 5.11 — Premium animation enhancement (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **455/455** across 26 files (count unchanged — reused existing selectors) |
+| `npm run build` | pass — 235 supported static route entries + 404 (unchanged) |
+| Motion tokens defined once in `globals.css` | source-level verified |
+| `.hover-lift` + `.arrow-nudge` live inside `prefers-reduced-motion: no-preference` | source-level verified |
+| `.hover-lift` fires on `:focus-within` so keyboard users get equivalent feedback | source-level verified |
+| Pseudo-content `»` is decorative — link accessible name still "Read more" | asserted via existing `getAllByRole("link", {name: /read more/i})` |
+| WhyUs cards: `Reveal` + stagger + `.hover-lift` | source-level |
+| PromotionsRow cards: `Reveal` + stagger + `.hover-lift` | source-level |
+| Blog listing cards: `.hover-lift` + `.arrow-nudge` on Read more | source-level |
+| Rendered browser QA (375 / 768 / 1440) | **unverified** — no dev server or automation launched |
+| Cross-browser coverage (Chrome / Firefox / Safari / Edge) | **unverified** |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+### Not verified in a real browser this session
+
+- Pacing of the new WhyUs (0 / 60 / 120 / 180 ms) and PromotionsRow (0 / 80 / 160 ms) staggers.
+- Hover-lift transform feel on real hardware.
+- `.arrow-nudge` chevron slide on real cursor interactions and on keyboard focus.
+- `prefers-reduced-motion: reduce` behavior in a real browser across OS/browser combinations.
+- IntersectionObserver threshold tuning on real page scrolls.
+
+## Sprint 5.10 — Browser QA / performance audit pass (2026-10-22)
+
+### Environment actually used
+
+- Node tooling only: `npm run lint`, `npm run typecheck`, `npm test` (Vitest + jsdom), `npm run build` (Vite).
+- **No real browser launched.** `which lighthouse`, `which playwright`, `which chromium`, `which gh` → all "not found". No MCP browser bridge enabled.
+- **No dependency installed this session.** Sprint spec forbids installing new tooling without approval.
+
+### Automated regression (actual results)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **455/455** across 26 files (unchanged from Sprint 5.9 release) |
+| `npm run build` | pass — **235** supported static route entries + 404 (unchanged) |
+| Working tree | clean before + after audit |
+
+### Not performed this session (explicitly flagged)
+
+| Area | Reason |
+|---|---|
+| Lighthouse / Core Web Vitals (LCP, CLS, INP) | no Lighthouse / `lhci` / Chrome binary available |
+| Responsive rendering at 375 / 768 / 1440 | no browser automation available |
+| Cross-browser (Chrome / Firefox / Safari / Edge) | no browser available |
+| Hero entrance pacing in a real browser | no browser available |
+| Reveal threshold tuning on real scrolls | no browser available |
+| Live Chat / Offer Popup visual stacking | no browser available |
+| GitHub Pages deployment status for commit `1dcd63f` | no `gh` CLI; verify at Actions tab |
+| Live site at ahasan39.github.io/construction-project/ | no browser available for verification |
+
+### Source-level audit (what was verified without a browser)
+
+- SEO: every route emits `noindex,nofollow` via `applyRouteMeta`; `index.html` ships with viewport, theme-color, description, title, base-path-aware favicons; `public/robots.txt` allows crawling so compliant crawlers can read the per-page noindex; `CANONICAL_ORIGIN` intentionally empty until the client supplies the real domain.
+- Images: hero `fetchPriority="high"` + `decoding="async"` + explicit dimensions; below-the-fold images `loading="lazy"` + locked aspect ratios.
+- Motion: only `opacity` + `transform` animated; `.reveal` hidden state gated by `prefers-reduced-motion: no-preference`; global `prefers-reduced-motion: reduce` rule preserved.
+- Bundle: `index` chunk `407.72 kB` raw / `126.13 kB` gzip; route-level `React.lazy()` splitting preserved.
+
+### Defects found + fixed this sprint
+
+**None.** No source-visible defect surfaced to fix. No speculative change was made.
+
 ## Sprint 5.9 — Shared motion system (2026-10-22)
 
 | Check | Result |

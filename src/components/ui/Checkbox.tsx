@@ -6,11 +6,12 @@ export interface CheckboxProps
   label: ReactNode;
   description?: ReactNode;
   invalid?: boolean;
+  labelClassName?: string;
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   function Checkbox(
-    { label, description, invalid, id: idProp, className = "", ...rest },
+    { label, description, invalid, id: idProp, className = "", labelClassName = "", ...rest },
     ref
   ) {
     const autoId = useId();
@@ -25,11 +26,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           type="checkbox"
           aria-describedby={descId}
           aria-invalid={invalid || undefined}
-          className="mt-1 h-4 w-4 shrink-0 accent-[var(--color-brand-accent)] cursor-pointer"
+          className="mt-0.5 h-4 w-4 shrink-0 rounded accent-[var(--color-brand-accent)] cursor-pointer focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] focus-visible:outline-offset-2"
           {...rest}
         />
         <div className="flex flex-col">
-          <label htmlFor={id} className="text-sm leading-snug cursor-pointer">
+          <label htmlFor={id} className={`cursor-pointer ${labelClassName || "text-sm leading-snug"}`}>
             {label}
           </label>
           {description && (

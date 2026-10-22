@@ -68,6 +68,55 @@ describe("LiveChatWidget", () => {
     expect((textarea as HTMLTextAreaElement).value).toBe("");
   });
 
+  it("launcher mount applies the shared fadeInUp entrance animation (Sprint 5.12)", () => {
+    render(<LiveChatWidget />);
+    const launcher = screen.getByRole("button", { name: /open chat/i });
+    expect(launcher.className).toContain("animate-[fadeInUp");
+    expect(launcher.className).toContain("ease-emphasized");
+    expect(launcher.className).toContain("hover:scale-[1.03]");
+  });
+
+  it("launcher carries continuous `launcher-float` motion while the panel is closed (Sprint 5.14)", () => {
+    render(<LiveChatWidget />);
+    const launcher = screen.getByRole("button", { name: /open chat/i });
+    expect(launcher.className).toContain("launcher-float");
+  });
+
+  it("opening the panel suppresses continuous launcher motion (Sprint 5.14)", () => {
+    render(<LiveChatWidget />);
+    fireEvent.click(screen.getByRole("button", { name: /open chat/i }));
+    const launcher = screen.getByRole("button", { name: /hide chat launcher/i });
+    expect(launcher.className.includes("launcher-float")).toBe(false);
+    expect(launcher.className.includes("animate-[fadeInUp")).toBe(false);
+  });
+
+  it("closing the panel restores the continuous launcher motion (Sprint 5.14)", () => {
+    render(<LiveChatWidget />);
+    fireEvent.click(screen.getByRole("button", { name: /open chat/i }));
+    fireEvent.click(screen.getByRole("button", { name: /close live chat/i }));
+    const launcher = screen.getByRole("button", { name: /open chat/i });
+    expect(launcher.className).toContain("launcher-float");
+  });
+
+  it("open panel uses the shared fadeInUp entrance animation (Sprint 5.12)", () => {
+    render(<LiveChatWidget />);
+    fireEvent.click(screen.getByRole("button", { name: /open chat/i }));
+    const dialog = screen.getByRole("dialog", { name: /how can we help/i });
+    expect(dialog.className).toContain("animate-[fadeInUp");
+  });
+
+  it("closed panel is fully unmounted so it cannot intercept clicks or focus (Sprint 5.12)", () => {
+    render(<LiveChatWidget />);
+    fireEvent.click(screen.getByRole("button", { name: /open chat/i }));
+    fireEvent.click(screen.getByRole("button", { name: /close live chat/i }));
+    expect(screen.queryByRole("dialog")).toBeNull();
+    // No stray textarea or send button in the tree after close.
+    expect(screen.queryByPlaceholderText(/type your question/i)).toBeNull();
+    expect(
+      screen.queryByRole("button", { name: /^send message$/i })
+    ).toBeNull();
+  });
+
   it("never claims a successful delivery or an online agent", () => {
     render(<LiveChatWidget />);
     fireEvent.click(screen.getByRole("button", { name: /open chat/i }));

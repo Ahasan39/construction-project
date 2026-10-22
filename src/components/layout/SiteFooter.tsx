@@ -145,7 +145,19 @@ export function SiteFooter() {
       <div className="border-t border-slate-800/80 bg-[#050E18]">
         <Container width="wide" className="py-5">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-slate-400">
-            <p>{brand.legalLine}</p>
+            <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span>{brand.legalLine}</span>
+              <span aria-hidden="true" className="hidden md:inline text-slate-600">·</span>
+              <span>
+                Design and Developed by{" "}
+                <a
+                  href="https://qorvinit.com/"
+                  className="font-semibold text-white hover:text-[var(--color-brand-blue)] underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] focus-visible:outline-offset-2 transition-colors"
+                >
+                  Qorvin IT
+                </a>
+              </span>
+            </p>
             <ul className="flex items-center gap-6">
               <li>
                 <Link to="/privacy-policy" className="hover:text-white hover:underline transition-colors">

@@ -1,5 +1,344 @@
 # Progress Log
 
+## Sprint 5.22 — Simplify Main Header and Improve Navigation Balance (2026-10-22)
+
+- Baseline: branch `main` at `1dcd63f`; all prior uncommitted sprint modifications (Sprints 5.10–5.21) preserved. Strictly no commit, push, deploy, reset, stash, or destructive cleanup.
+- **Main Header Simplification & Rebalanced Navigation:**
+  - `src/components/layout/SiteHeader.tsx`:
+    - Removed the duplicated phone number display from the main desktop navigation row.
+    - Preserved phone link in the top utility strip (`ml-auto inline-flex items-center gap-2 ... Call +880 1842-299275`) and inside the mobile drawer.
+    - Preserved all 7 primary navigation links: Roofing, Gutters, Siding, Windows, Masonry, Gallery, and About (with dropdown disclosure).
+    - Preserved location selector, location-aware routing (`estimateHref`), keyboard navigation, visible focus indicators, and mobile hamburger drawer.
+    - Rebalanced navigation spacing: applied `gap-6 xl:gap-8 text-[14px] font-bold tracking-wide uppercase` to the navigation list, elegantly utilizing the recovered space without crowding or awkward gaps.
+    - Single, high-priority action CTA: prominent "Free estimate" button on the right with `size="md"` (`px-6 shadow-sm`).
+    - Updated component documentation comment to reflect the simplified header layout.
+- **Layout & Visual Impact:**
+  - Header is cleaner, more modern, and visually balanced.
+  - No text wrapping or clipping across supported desktop widths (`1440 × 900`, `1366 × 768`).
+  - Mobile header and hamburger drawer behavior remain 100% intact with zero horizontal overflow on small screens (`375 × 812`).
+- **Automated Verification:**
+  - `npm run lint` — clean, 0 warnings.
+  - `npm run typecheck` — clean (`tsc -b --noEmit`).
+  - `npm test` — **487/487 passed** across 28 files (all tests green).
+  - `npm run build` — clean, 236 static route entries + 404.html generated.
+- **Browser QA Verification:**
+  - Tested across 1440x900, 1366x768, 1024x768, 768x1024, and 375x812 (`sprint522_fresh_qa`).
+  - Confirmed phone number is absent from main row and present in top strip.
+  - Confirmed About dropdown disclosure opens/closes on click and Escape key.
+  - Confirmed mobile drawer opens with LocationSelector, navigation links, and Free Estimate button.
+
+## Sprint 5.21 — Compact Estimate Form Consent and Footer Spacing (2026-10-22)
+
+- Baseline: branch `main` at `1dcd63f`; all prior uncommitted sprint modifications (Sprints 5.10–5.20) preserved. Strictly no commit, push, deploy, reset, stash, or destructive cleanup.
+- **Estimate Form Consent & Footer Spacing Compaction:**
+  - `src/components/ui/Checkbox.tsx`:
+    - Added optional `labelClassName?: string` prop to `CheckboxProps`.
+    - Aligned checkbox box cleanly with `mt-0.5 h-4 w-4 shrink-0 rounded` and visible keyboard focus styling (`focus-visible:outline-2 focus-visible:outline-[var(--color-focus)] focus-visible:outline-offset-2`).
+    - Standardized label styling fallback to `text-sm leading-snug cursor-pointer` while allowing compact typography where specified.
+  - `src/features/estimate/EstimateForm.tsx`:
+    - Checkbox group spacing: reduced gap between the two consent options from `gap-2` to `gap-1.5 pt-0.5`.
+    - Compact label typography: applied `text-xs leading-snug text-slate-200 font-medium` to both checkboxes, keeping both options ("Send me appointment reminders and service updates.", "Send me seasonal offers and promotions.") concise, readable, and perfectly aligned with the checkbox control.
+    - Preserved independent state and unchecked defaults for both consent options (`values.consentReminders`, `values.consentPromotions`).
+    - Demo notice spacing: tightened margin above notice with `text-[11px] sm:text-xs leading-normal`.
+    - Removed idle empty status region: eliminated empty placeholder element when `status !== "error"`, removing 21px of empty dead space and unnecessary flex gaps. Status region only mounts when `status === "error"` to display server validation messages with polite aria-live announcement.
+    - Streamlined submit button area: button immediately follows demo notice with a clean 8px–10px flex gap (`gap-2 sm:gap-2.5`), with `py-2.5 sm:py-3` on the inverse red CTA button.
+  - `src/components/sections/Hero.tsx`:
+    - Tightened card footer spacing (`mt-2.5 pt-2 border-t border-slate-700/60`, `text-[11px] sm:text-xs text-slate-400`).
+- **Layout & Above-the-Fold Impact:**
+  - Net vertical space saved inside the lead-form card: **~35px–45px**.
+  - On the standard laptop viewport (`1366 × 768`), the entire lead-form card, the red "Get a FREE ESTIMATE" CTA button, and the card footer ("Demo only / Standalone form") sit completely above the 768px fold with ample clearance above the floating Live Chat widget.
+- **Automated Verification:**
+  - `npm run lint` — clean, 0 warnings.
+  - `npm run typecheck` — clean (`tsc -b --noEmit`).
+  - `npm test` — **487/487 passed** across 28 files (all tests green).
+  - `npm run build` — clean, 236 static route entries + 404.html generated.
+- **Browser QA Verification:**
+  - Captured rendered screenshots for 1366x768 and 375x812 (`sprint521_qa`).
+  - Verified checkboxes remain interactive, independently toggleable, and accessible.
+  - Verified form validation errors display cleanly in inverse card without layout clipping.
+  - Zero horizontal overflow (`document.documentElement.scrollWidth <= window.innerWidth`).
+
+## Sprint 5.20 — Desktop First-Screen Layout Optimization (2026-10-22)
+
+- Baseline: branch `main` at `1dcd63f`; all prior uncommitted sprint modifications (Sprints 5.10–5.19) preserved. Strictly no commit, push, deploy, reset, stash, or destructive cleanup.
+- **Shared Header Optimization:**
+  - `src/components/layout/SiteHeader.tsx`:
+    - Top utility strip: reduced height from `min-h-11 sm:min-h-14 py-1` (56px) down to `min-h-9 sm:min-h-10 py-1 sm:py-1.5` (~40px) — saving 16px of top bar height while keeping LocationSelector and phone link comfortable and fully clickable.
+    - Main navigation row: tightened from `h-20 lg:h-24` (96px desktop) down to `h-16 sm:h-16 lg:h-18` (72px desktop / 64px mobile) — saving 24px of header space.
+    - Logo scaling: adjusted from `h-10 lg:h-11 max-w-[180px] lg:max-w-[210px]` to `h-9 lg:h-10 max-w-[160px] lg:max-w-[190px]` (`aspect-ratio: 180 / 44`), preserving brand sharpness and visual weight without pushing navigation height.
+    - Header CTA: tuned estimate button to `size="md"` (`h-11 px-5 text-xs lg:text-sm`), keeping prominent action hierarchy without bloating the row.
+    - **Header Height Measurement:** Rendered desktop sticky header height dropped from **152px down to ~112px** (net savings of **40px** globally across all public pages).
+- **Homepage First-Screen Optimization:**
+  - `src/components/sections/Hero.tsx`:
+    - Container padding: refined from `py-6 sm:py-8 lg:py-10` down to `py-3 sm:py-4 lg:py-5`, saving 20px of outer vertical padding on desktop.
+    - Left column copy: optimized container padding from `p-6 sm:p-8 lg:p-10` to `p-4 sm:p-5 lg:p-6`; adjusted eyebrow kicker margin (`mb-1.5`); tuned H1 font size from `52px` to `40px` (`leading-[1.08]`) preserving the sky-blue swoosh underline; streamlined descriptive text margins.
+    - Suburban home photography: resized height from `lg:h-[340px]` to `lg:h-[220px] xl:h-[235px]`, preserving responsive `<picture>` srcset (480w, 960w), LCP priority (`fetchPriority="high"`), and explicit width/height dimensions.
+    - Emergency contact row: tightened from `py-4 sm:py-5` down to `px-5 py-2.5 sm:py-3`, maintaining bold "Active Leak? Storm Damage?" messaging and clickable phone number.
+    - Right column lead-form card: tightened card padding from `p-6 sm:p-7` down to `p-4 sm:p-5 lg:p-5`, header spacing (`pb-2 mb-2.5`), and footer links.
+  - `src/features/estimate/EstimateForm.tsx`:
+    - Refined dark inverse card inputs with `!h-10 text-sm` and comfortable `gap-2.5 sm:gap-3`.
+    - Styled checkbox labels with `font-semibold text-xs` in sentence case to eliminate excessive line-wrapping.
+    - Dynamic status region: changed empty `min-h-[1.5em]` placeholder to `h-0` when idle, eliminating 21px of empty vertical space when no error is present.
+    - Compact submit button: `py-3` with bold uppercase typography.
+  - **Homepage Above-the-Fold Result:** On standard laptop viewports (`1366 × 768`), the entire lead-form card, the red "Get a FREE ESTIMATE" button, the left column photo, and the emergency contact row are 100% visible above the 768px fold without requiring any initial scrolling, with comfortable breathing room above the floating Live Chat widget.
+- **Gallery Above-the-Fold Synergy:**
+  - Leverages the compact hero layout from Sprint 5.19 (`py-6 sm:py-8 lg:py-9`).
+  - With the shared header height reduced by 40px, the category filter toolbar and the entire first row of project photos appear even earlier on screen (~410px below top vs ~450px in Sprint 5.19 and ~609px in Sprint 5.18).
+  - First-row cards and images are prominently visible above the 768px fold across all desktop viewports.
+- **Automated Verification:**
+  - `npm run lint` — clean, 0 warnings.
+  - `npm run typecheck` — clean (`tsc -b --noEmit`).
+  - `npm test` — **487/487 passed** across 28 files (all tests green).
+  - `npm run build` — clean, 236 static route entries + 404.html generated.
+- **Browser QA Verification:**
+  - Verified across 1366x768 (primary laptop), 1440x900 (standard desktop), 1024x768 (small laptop/tablet landscape), and 375x812 (mobile).
+  - Zero horizontal overflow (`document.documentElement.scrollWidth <= window.innerWidth`).
+  - No clipping, no overlapping, clean responsive layout.
+
+## Sprint 5.19 — Compact Gallery Hero & Above-the-Fold Visibility (2026-10-22)
+
+- Baseline: branch `main` at `1dcd63f`; all prior uncommitted sprint modifications (Sprints 5.10–5.18) preserved. No commit, push, deploy, reset, stash, or destructive cleanup.
+- **Hero Compaction & Spacing Optimizations:**
+  - [src/pages/GalleryPage.tsx](src/pages/GalleryPage.tsx):
+    - Reduced hero vertical padding from `py-10 sm:py-14 lg:py-16` (64px desktop / 40px mobile) down to `py-6 sm:py-8 lg:py-9` (36px desktop / 24px mobile) — saving 56px of dead padding.
+    - Reduced breadcrumb bottom margin from `mb-4` (16px) to `mb-2 sm:mb-2.5` (8-10px) — saving 6-8px.
+    - Reduced eyebrow margin from `mb-2` to `mb-1` — saving 4px.
+    - Adjusted H1 heading scale from `text-3xl sm:text-4xl lg:text-5xl` down to `text-2xl sm:text-3xl lg:text-4xl` with `leading-snug`, keeping prominent authority while preventing awkward wrapping and reducing vertical height by 24-36px.
+    - Adjusted description text to `text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed`, preserving exact wording while reducing vertical footprint by 12px.
+    - Aligned hero CTA button using `lg:items-center` and compact 44px height (`h-11 px-5`) matching the site's primary action button scale.
+    - Drastically reduced top padding of the main gallery section from `py-10 sm:py-14` (56px) down to `pt-5 sm:pt-6 pb-12 sm:pb-16` (20-24px) — saving 32px between the hero border and the filter toolbar.
+    - Tightened filter toolbar margin below from `mb-8 sm:mb-10` (40px) down to `mb-5 sm:mb-6` (20-24px) with compact badge padding (`px-3.5 py-2`, min-w-4.5 count bubble).
+  - [src/components/gallery/ProjectCard.tsx](src/components/gallery/ProjectCard.tsx):
+    - Optimized card content padding from `p-5` to `p-4 sm:p-5`.
+    - Clamped card summary to `line-clamp-2` (from `line-clamp-3`), standardizing card heights and saving ~20px per card row.
+    - Adjusted action row margin and border padding from `mt-4 pt-4` to `mt-3.5 pt-3.5`.
+- **Above-the-Fold Impact:**
+  - Net vertical space saved before the cards grid: **~150px+** on standard desktop viewports (1440x900 and 1366x768).
+  - Previously, cards began at ~609px below the viewport top, hiding all card images and titles behind the fold on 1366x768 / 1440x900 screens.
+  - Now, the first row of project cards (including full photos, category tags, and titles) begins at ~450px, rendering prominently and immediately above the fold without requiring user scrolling.
+- **Automated Verification:**
+  - `npm run lint` — clean, 0 warnings.
+  - `npm run typecheck` — clean (`tsc -b --noEmit`).
+  - `npm test` — **487/487 passed** across 28 files (all 17 [GalleryPage.test.tsx](src/pages/GalleryPage.test.tsx) assertions green).
+  - `npm run build` — clean, 236 static route entries + 404.
+- **Browser QA:**
+  - Executed browser subagent session against preview server (`compact_gallery_qa_1792677805057.webp`).
+  - Verified above-the-fold visibility across 1440px desktop, 1024px laptop, 768px tablet, and 375px mobile viewports.
+  - Confirmed 0 horizontal overflow, no clipped text, comfortable touch targets, and instant filter responsiveness.
+
+## Sprint 5.18 — Premium Gallery / Our Work page (2026-10-22)
+
+- Baseline: branch `main` at `1dcd63f`; prior uncommitted sprint modifications (Sprints 5.10–5.17) preserved. No commit, push, deploy, reset, stash, or destructive cleanup.
+- **Route & Prerendering:**
+  - Dedicated route: `/gallery/` mapped to [src/pages/GalleryPage.tsx](src/pages/GalleryPage.tsx) via `React.lazy()` in [src/app/router.tsx](src/app/router.tsx).
+  - GitHub Pages base-path `/construction-project/gallery/` fully supported via router basename `import.meta.env.BASE_URL`.
+  - Static entry generation: added `"/gallery"` to `staticRoutes()` in [src/app/staticRoutes.ts](src/app/staticRoutes.ts) — build emits `dist/gallery/index.html` (236 supported static route entries + 404, +1 vs 235 baseline).
+- **Navigation:**
+  - Added `{ label: "Gallery", to: "/gallery" }` to `primaryNav` in [src/data/navigation.ts](src/data/navigation.ts) between "Masonry" and "About".
+  - Automatically rendered on desktop header navigation and inside the mobile navigation drawer.
+  - Verified by [src/app/navigation-integrity.test.ts](src/app/navigation-integrity.test.ts).
+- **Centralized Project Data & Image Integrity:**
+  - Typed project schema in [src/data/galleryProjects.ts](src/data/galleryProjects.ts) supporting project IDs, categories, property types, scope summaries, detailed descriptions, scope highlights, materials, primary and additional images, and transparent demo notices.
+  - 9 curated demonstration projects across 5 service categories (Roofing: 4, Siding: 2, Windows: 1, Gutters: 1, Masonry: 1).
+  - Reused existing high-quality local WebP assets with responsive variants (480w, 900w/1200w/1440w). Zero external image runtime dependencies, no unoptimized assets.
+  - Honest copy policy: no fabricated client names, private addresses, ratings, or false claims. Content is clearly identified as demonstration portfolio material illustrating genuine construction specifications.
+- **UI Components & Features:**
+  - [src/pages/GalleryPage.tsx](src/pages/GalleryPage.tsx):
+    - Compact hero with breadcrumbs (`Home › Project Gallery`), H1 `Our Work & Project Gallery.`, descriptive intro, and "Request an Estimate" CTA linking to `/free-estimate`.
+    - Category filter toolbar with "All Projects", "Roofing", "Siding", "Windows", "Gutters", "Masonry" with project count badges, `role="toolbar"`, `aria-pressed`, keyboard support, and an accessible polite live region.
+    - Responsive grid (1–2 cols mobile, 2 cols tablet, 3 cols desktop) rendering [src/components/gallery/ProjectCard.tsx](src/components/gallery/ProjectCard.tsx) with `.hover-lift`, category tags, and "View Project" trigger.
+    - Empty state fallback with reset button.
+    - Bottom conversion section in dark navy (`bg-[#0C1F33]`) with direct phone link and Free Estimate button.
+  - [src/components/gallery/ProjectLightboxModal.tsx](src/components/gallery/ProjectLightboxModal.tsx):
+    - Accessible dialog (`role="dialog"`, `aria-modal="true"`, `aria-labelledby`, `aria-describedby`).
+    - Focus containment trap inside dialog, focus restored to trigger on dismiss.
+    - Escape key dismissal, backdrop click dismissal, and explicit close button.
+    - Body scroll locking (`overflow = "hidden"`) while open.
+    - Multi-photo support with previous/next buttons, left/right keyboard arrows, photo count indicator, and thumbnail tab list.
+    - Full project scope description, checklist of scope highlights, materials installed list, and "Request an Estimate" conversion action.
+- **Automated Verification:**
+  - `npm run lint` — clean, 0 warnings.
+  - `npm run typecheck` — clean (`tsc -b --noEmit`).
+  - `npm test` — **487/487 passed** across 28 files (+17 new assertions in [src/pages/GalleryPage.test.tsx](src/pages/GalleryPage.test.tsx) vs 470 baseline).
+  - `npm run build` — clean, 236 static route entries + 404.
+- **Browser QA:**
+  - Automated interactive browser QA executed via browser subagent against Vite preview at `http://localhost:4173/construction-project/gallery/`.
+  - Verified hero rendering, category filtering (All, Roofing, Siding), opening lightbox modal, viewing additional photos via thumbnail/arrow navigation, Escape key modal dismissal, and responsive layout across desktop (1440px), tablet (768px), and mobile (375px) without horizontal overflow.
+  - Screen recording artifact captured: `gallery_page_qa_1792676879439.webp`.
+- **Remaining Work for Production:**
+  - Replace sample portfolio items with authentic contractor project photos, verified job addresses/neighborhoods, and verified client testimonials once provided by the business owner.
+
+## Sprint 5.17 — Back-to-top button (2026-10-22)
+
+- Baseline: branch `main` at `1dcd63f`; prior-sprint uncommitted changes preserved. No reset / stash / discard / commit / push / deploy.
+- New: [src/components/layout/BackToTopButton.tsx](src/components/layout/BackToTopButton.tsx) — floating 44 × 44 px button in `--color-brand-primary` with upward chevron SVG, white text, soft layered shadow + `ring-1 ring-black/5`. Fixed at `right-4 sm:right-6` and **`bottom-[88px] sm:bottom-[96px]`** — explicitly stacked above the Live Chat launcher (which sits at `bottom-4 / sm:bottom-6` and is ~56 px tall), with ~16 px of breathing room between them. Both share `z-50`, so the Offer Popup's `z-[60]` backdrop still covers both while the popup is open. Mounted globally once in [src/components/layout/AppShell.tsx](src/components/layout/AppShell.tsx) alongside `LiveChatWidget` and `OfferPopup`, so it is available across every route without duplicating per page.
+- **Behavior:** passive `scroll` listener on `window` toggles visibility when `window.scrollY > 400`; near the top the button carries `opacity-0 pointer-events-none aria-hidden="true" tabindex="-1"` so it is invisible to pointer, pointer-only, and screen-reader users; past the threshold it carries `opacity-100 pointer-events-auto aria-hidden="false" tabindex="0"`. Click calls `window.scrollTo({ top: 0, left: 0, behavior: … })`. Behavior is `"smooth"` under `prefers-reduced-motion: no-preference` and `"auto"` under `reduce` (asserted by test).
+- **Accessibility & reduced motion:** `<button type="button">` with `aria-label="Back to top"`; visible focus state via `focus-visible:outline-2 focus-visible:outline-offset-2 outline-[var(--color-focus)]`; hover lift `hover:-translate-y-0.5` + opacity/transform transition gated by `motion-safe:` so reduced-motion viewers see no animation; `aria-hidden` toggled with visibility so the button is honestly hidden from assistive tech while invisible. No decorative text label clutters the icon-only control.
+- **Overlap with Live Chat:** handled by stacking: back-to-top sits 72 px above the chat launcher in the same right edge. Chat launcher at mobile `bottom-16` (effective 1 rem + 56 px dock = 72 px below the back-to-top) → gap of 16 px. On `sm+`, chat shifts to `bottom-6` and back-to-top shifts to `bottom-[96px]`, maintaining the same visual rhythm.
+- **Tests added:** [src/components/layout/BackToTopButton.test.tsx](src/components/layout/BackToTopButton.test.tsx) — 6 assertions covering hidden-at-top (aria-hidden="true", tabindex="-1", opacity-0, pointer-events-none), visible-after-threshold scroll, re-hide after scrolling back near top, smooth-scroll on click, `prefers-reduced-motion: reduce` → `behavior: "auto"` fallback, and the stacked positioning classes (`bottom-[88px]`, `sm:bottom-[96px]`, `right-4`, `sm:right-6`).
+- **Verification (actual):** `npm run lint` clean, `npm run typecheck` clean (`tsc -b --noEmit`), `npm test` passes **470/470** across 27 files (+6 vs the 464 Sprint 5.16 baseline), `npm run build` clean with 235 static entries + 404 (unchanged — new component mounts globally, not a new route).
+- **Rendered browser QA — not performed.** Chrome/Edge binaries exist on this host but no automation driver is attached; the sprint spec forbids installing one without approval. Visual pacing of the smooth scroll, actual stacking against the live chat launcher at the pixel level, and real `prefers-reduced-motion` behavior across OS/browser combinations remain unverified in a real browser.
+- Guardrails respected: no commit / push / deploy / amend; no new dependency; footer "Design and Developed by Qorvin IT" credit and `https://qorvinit.com/` destination untouched; no unrelated page or floating-widget redesign.
+
+## Sprint 5.15 — Footer developer credit (2026-10-22)
+
+- Baseline: branch `main` at `1dcd63f`; carried uncommitted Sprint 5.10–5.14 edits, all preserved. No reset / stash / discard.
+- Added "Design and Developed by [Ahasan39](https://ahasan39.github.io/)" to the bottom bar of [src/components/layout/SiteFooter.tsx](src/components/layout/SiteFooter.tsx), beside the existing legal line. Shares the row with the copyright, separated by a middle-dot on `md+` and wrapping below on narrow widths via `flex flex-wrap items-center gap-x-3 gap-y-1`. The link is an `<a href="https://ahasan39.github.io/">` with white text + brand-blue hover, underline on the name, `focus-visible` outline using the shared `--color-focus` token; same-tab navigation per the project's default convention (no `target="_blank"`).
+- Footer layout, colors, typography, spacing, responsive behavior, and all current links (Privacy Policy, Terms & Conditions, Crew Portal, Service / Service Areas / Resources / Company / Recent Posts columns) are unchanged. No new dependency, no footer redesign.
+- Verification: `npm run lint` clean, `npm run typecheck` clean (`tsc -b --noEmit`), `npm test` passes **464/464** across 26 files (unchanged — footer tests are role-/label-based and unaffected), `npm run build` clean with 235 static entries + 404 (unchanged).
+- Guardrails respected: no commit / push / deploy. All prior sprint work preserved.
+
+## Sprint 5.14 — Continuous reviews marquee + launcher float (2026-10-22)
+
+- Baseline: branch `main` at **`1dcd63f`**. Carried uncommitted Sprint 5.10–5.13 edits; all preserved. No reset / stash / discard / commit / push / deploy / amend / global-config change.
+- **Part A — Reviews carousel: dual-mode "marquee + stepped"**:
+  - CSS keyframes `@keyframes marqueeX { from { transform: translateX(0) } to { transform: translateX(-50%) } }` added to `globals.css`, plus a `.marquee-track` utility (`animation: marqueeX var(--marquee-duration, 60s) linear infinite`) and a `.marquee-root` wrapper selector so the track pauses on `:hover` and `:focus-within` without JavaScript. All three are inside the existing `@media (prefers-reduced-motion: no-preference)` block from Sprint 5.9.
+  - [src/components/sections/ReviewsStrip.tsx](src/components/sections/ReviewsStrip.tsx) rewritten around a `mode: "marquee" | "stepped"` state. **Default:** `marquee` under `prefers-reduced-motion: no-preference`; `stepped` when the OS reports `reduce` OR when `single` is passed (service-hub single-slide usage). **Any manual interaction** — Prev/Next/dot/arrow/swipe — switches to `stepped` and preserves the original index-based transform. The **Play/Pause button** toggles between the two modes.
+  - **Seamless-loop implementation:** the marquee track is `className="flex w-max marquee-track"` (so its intrinsic width equals its content, not 100% of the viewport) and renders the reviews **twice** — the second half carries `aria-hidden="true"` and no `role`/`aria-label`, so screen readers see 9 canonical slide groups and no duplicate focusable controls. Each card uses `width: ${100/visibleCount}vw` and `max-w-[22rem]` so the cadence feels right across widths. Translating `0% → -50%` snaps precisely to the start of the second copy — no visible gap or jump at the loop point. Loop duration: 60 s (slow, calm; linear easing so there's no acceleration at the seam).
+  - **Pause behavior:** CSS alone (`:hover` and `:focus-within` on `.marquee-root`) pauses the keyframe animation; no JS timer or RAF needed. The explicit Play/Pause button is a mode toggle. Reduced-motion viewers never see the marquee at all because `.marquee-track` lives inside the no-preference guard **and** the component flips to `stepped` mode when `matchMedia("(prefers-reduced-motion: reduce)")` matches.
+  - **Dots pagination:** always visible. In `marquee` mode, no dot carries `aria-selected`; clicking any dot switches to `stepped` and selects that index. Prev button is disabled in `marquee` mode; Next is enabled and (on first click) lands on index 1 for a natural forward step.
+- **Part B — Live Chat launcher float**:
+  - CSS keyframes `@keyframes launcherFloat { 0%,100% { translateY(0) } 50% { translateY(-4px) } }` and a `.launcher-float` utility (`animation: launcherFloat 2800ms var(--ease-standard) infinite`) added to `globals.css`, both inside the no-preference guard.
+  - [src/components/chat/LiveChatWidget.tsx](src/components/chat/LiveChatWidget.tsx) conditionally applies `launcher-float` only when the panel is **closed** (`open === false`). When the panel opens, the class is removed from the launcher's `className`, so the launcher sits still while the panel's own `fadeInUp` entrance runs — clear visual distinction between the two states. Closing the panel re-applies the class and the gentle bob resumes. The whole class list is behind `motion-safe:` prefixes already added in prior sprints, so reduced-motion viewers see a static launcher. No fake unread badge, no fake online indicator, no flashing — honest-copy policy preserved.
+- **Reduced-motion & accessibility (mandatory per spec):**
+  - `.marquee-track` and `.launcher-float` both live inside `@media (prefers-reduced-motion: no-preference)` AND the global `prefers-reduced-motion: reduce` rule clamps `animation-duration` to `0.001ms`, so reduced-motion viewers get no auto-motion from either feature.
+  - Reduced-motion forces `mode = "stepped"` on the carousel and makes the Play/Pause toggle `aria-disabled="true"`.
+  - Dialog semantics, Escape handling, focus containment, focus restoration, and body scroll-lock on the Live Chat panel are **preserved** (asserted by existing tests and the new ones below).
+  - Marquee cloned reviews don't duplicate accessible controls or role=group entries (asserted).
+- **Tests (actual results):**
+  - `ReviewsStrip.test.tsx` restructured into two blocks: **stepped-mode (post-interaction)** — 8 tests retained in modified form; and **marquee-mode (continuous)** — 4 new tests covering the duplicated track (18 slots, 9 canonical + 9 aria-hidden clones), the `marquee-root` CSS pause wrapper, no duplicate `role="group"` nodes, and mode switch via Next → marquee removed from DOM → Resume via Play restores it.
+  - `LiveChatWidget.test.tsx` adds 3 tests: launcher carries `launcher-float` while closed; opening the panel suppresses continuous launcher motion; closing restores it.
+  - All earlier assertions (dialog semantics, Escape, focus-restoration, no-false-delivery, closed-panel unmount invariant) remain green and unchanged.
+- **Verification:** `npm run lint` clean, `npm run typecheck` clean (`tsc -b --noEmit`), `npm test` passes **464/464** across 26 files (+4 vs 460 Sprint 5.12 baseline — the net change is +4 new marquee-mode tests + 3 new launcher-float tests, offset by the retirement of the two Sprint 5.12 "track transform" tests whose model moved to marquee mode), `npm run build` clean with 235 static entries + 404 (unchanged).
+- **Real-browser visual verification: not performed.** Same environment constraints as Sprints 5.10 / 5.11 / 5.12 / 5.13 — Chrome/Edge binaries exist on the host but no automation driver is attached to this session and the sprint spec forbids installing one without approval. **Visual carousel smoothness (seamless loop endpoint, hover-pause snap, speed feel), launcher float pacing, cross-browser behavior, and real `prefers-reduced-motion` behavior remain unverified in a real browser.**
+- Guardrails respected: no new dependencies, no commit / push / deploy / amend / global-config change. All prior sprint work preserved.
+
+## Sprint 5.13 — Real-browser verification attempt (2026-10-22)
+
+- Baseline: branch `main` at **`1dcd63f`**. Working tree carried the uncommitted Sprint 5.10–5.12 changes (10 files touched); all preserved. No reset / stash / discard / commit / push / deploy / amend / global-config change.
+- **Environment audit (actual):**
+  - Chrome and Edge are installed as GUI applications on this Windows host (`C:\Program Files\Google\Chrome\Application\chrome.exe`, `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe`).
+  - **No automation driver attached to this session.** `which playwright / puppeteer / chromium / lighthouse / lhci / gh` → all "not found". No MCP browser bridge enabled.
+  - A direct `chrome.exe --headless --screenshot=…` can only produce a static one-shot image; it cannot click Prev/Next, open the Live Chat panel, press Escape, switch viewports, or capture console errors — which are the exact scenarios the sprint requires.
+- **Decision (per sprint spec's explicit instruction):** *"If no browser is available, stop before installing anything. Report exactly what is missing and request approval for the smallest suitable testing setup."* No real-browser scenario was executed, no screenshot was captured, no visual claim is made. See `docs/QA_REPORT.md` for the full tool-availability matrix and the proposed minimal setup.
+- **Regression checks (actual, permitted by sprint):**
+  - `npm run lint` — clean, no warnings
+  - `npm run typecheck` — clean (`tsc -b --noEmit`)
+  - `npm test` — **460/460** across 26 files (baseline preserved from Sprint 5.12)
+  - `npm run build` — clean, **235** static entries + 404 (unchanged)
+- **Smallest suitable testing setup — awaiting your approval:** preferred is **Playwright** scoped to a new `tests/e2e/` folder (`npm i -D @playwright/test` + `npx playwright install chromium`). Alternatives are Puppeteer or an MCP browser bridge (no npm change). Scenarios ready to run once wired up are enumerated in `docs/QA_REPORT.md` (carousel at three viewports, Live Chat mount + open/close + Escape + focus, reduced-motion toggle, cross-browser Chrome/Edge, Lighthouse mobile+desktop, console/network capture).
+- **Files changed this sprint:** documentation only (`docs/PROGRESS.md`, `docs/QA_REPORT.md`). No source code touched.
+- Guardrails respected: no new dependencies, no commit / push / deploy. All prior sprint work preserved.
+
+## Sprint 5.12 — Reviews carousel polish + Live Chat animation (2026-10-22)
+
+- Baseline: branch `main` at **`1dcd63f`**. Working tree carried Sprint 5.10 docs + Sprint 5.11 source changes (uncommitted) — all preserved. No reset / stash / discard / commit / push / deploy / amend / global-config change.
+- **Carousel diagnosis (actual root cause investigation).** Walked the full `ReviewsStrip` logic in [src/components/sections/ReviewsStrip.tsx](src/components/sections/ReviewsStrip.tsx) and its test suite:
+  - Slide math: `translateX(-${currentIndex * (100 / visibleCount)}%)` is applied to a `flex` track whose cards each use `shrink-0` + inline `width: ${100/visibleCount}%`. Transform percentages resolve against the transformed element's own border-box width (the flex track = 100% of the carousel window), so each step shifts exactly one card width. **The math is correct and verifiably advances by one card per step at every breakpoint** — covered by a new regression test that reads the computed `style.transform` after keyboard navigation.
+  - `goNext` / `goPrev` already use functional `setState` updaters, so rapid consecutive clicks and keyboard presses chain deterministically without desyncing the state and the resulting transform.
+  - Boundary / loop logic: Previous and Next buttons are disabled at index 0 / `maxIndex` only when autoplay is off — this is the deliberate design captured by existing tests (`prevBtn.disabled === true` at index 0). Buttons still loop via `goNext`/`goPrev` when autoplay is on. **This is not a bug; it is the current product contract and was not changed.**
+  - Resize handling (visibleCount recomputed, index clamped) and reduced-motion handling (autoplay disabled, matchMedia change listened to) were already correct.
+  - **No executable sliding defect was reproducible from source analysis or in jsdom.** The sprint spec says to focus on genuine fixes; what remained was a motion-system consistency problem (the carousel used a hard-coded `transition-transform duration-500 ease-out` while the rest of the site now consumes the Sprint 5.11 motion tokens) and the task's explicit "fix only verified defects" guardrail.
+- **Carousel changes applied:**
+  - Replaced `transition-transform duration-500 ease-out` with an inline `transition: transform var(--duration-emphasized) var(--ease-standard)` and added `willChange: "transform"` on the track element. Timings now align with the shared motion scale (480 ms + standard easing), making the slide feel visually in-family with hero / card reveals and hover-lift transitions. No functional behavior changed; all pre-existing carousel tests (9 pass) still green.
+  - Added 2 regression tests to [src/components/sections/ReviewsStrip.test.tsx](src/components/sections/ReviewsStrip.test.tsx): one asserts the transform advances by exactly `100/visibleCount %` per step (one card width) across keyboard navigation at desktop width, the other asserts the track `style.transition` references `--duration-emphasized` and `--ease-standard` and that `willChange: transform` is set.
+- **Live Chat launcher polish** ([src/components/chat/LiveChatWidget.tsx](src/components/chat/LiveChatWidget.tsx)):
+  - Added a one-shot entrance animation on first mount: `motion-safe:animate-[fadeInUp_320ms_var(--ease-emphasized)_both]` — the launcher fades + rises into position when the widget mounts, then stays put. The `_both` fill mode guarantees the final visible state persists after the animation ends.
+  - Added `hover:scale-[1.03]` for a subtle responsive feel on hover and `active:scale-[0.98]` for a crisp pressed state. Transition duration bumped to 200 ms (`motion-safe:duration-200`) so scale + background-color transitions blend together.
+  - **No fake unread badge, no fake online indicator, no infinite pulse** — unchanged from the honest-copy policy established in Sprint 5.8.
+- **Live Chat panel polish:**
+  - Upgraded the panel entrance from `motion-safe:animate-[fadeIn_140ms_ease-out]` to `motion-safe:animate-[fadeInUp_240ms_var(--ease-emphasized)_both]` and added `origin-bottom-right` so the panel rises out of the launcher corner, feeling connected to its origin rather than appearing abstractly in space. Shorter, snappier open-feel; same close path.
+  - **Dialog semantics preserved**: `role="dialog"`, `aria-labelledby`, `aria-describedby`, Escape-to-close, focus moved to close button on open, focus returned to launcher on close, body scroll lock (via the `.hover-lift` system isn't involved here — panel scroll stays within the panel). Closed-panel invariant: the dialog is conditionally rendered inside the JSX (`{open && <section …>}`), so when `open === false` the dialog subtree is **fully unmounted** — covered by a new regression test that confirms the dialog, textarea, and Send button are all absent from the DOM after close, so nothing can intercept pointer or keyboard focus.
+- **Tests added (Sprint 5.12 regressions, 5 new assertions):**
+  - Carousel: "track transform advances by exactly one card-width per step"; "track transform uses the shared motion tokens for its transition".
+  - Live Chat: "launcher mount applies the shared fadeInUp entrance animation"; "open panel uses the shared fadeInUp entrance animation"; "closed panel is fully unmounted so it cannot intercept clicks or focus".
+- **Automated verification (actual results):**
+  - `npm run lint` — clean, no warnings
+  - `npm run typecheck` — clean (`tsc -b --noEmit`)
+  - `npm test` — **460/460** across 26 files (+5 vs the 455 Sprint 5.11 checkpoint; no existing test was weakened or deleted)
+  - `npm run build` — clean, 235 static entries + 404 (unchanged)
+- **Browser tools actually used: none.** Same environment constraints as Sprints 5.10 / 5.11 — no Playwright / Puppeteer / Lighthouse / `gh` / MCP browser bridge available this session. The sprint spec forbids installing new tooling without approval, so none was installed. **Visual carousel sliding smoothness, Live Chat entrance pacing, cross-browser behavior, and real responsive rendering at 375 / 768 / 1440 widths remain unverified in a real browser.**
+- **Known limitations:**
+  - A visual-only carousel defect that depends on specific browser rendering (not detectable in jsdom) could still exist; if reported with concrete steps, a follow-up pass can address it. The source-level math and all unit tests behave correctly.
+  - Reduced-motion behavior across OS/browser combinations is handled via the global `prefers-reduced-motion: reduce` CSS rule and `motion-safe:` Tailwind variants, but not visually verified this session.
+  - Prior sprint limitations unchanged (legal placeholder chip; chat unconnected; billpay/visualizer unintegrated; GitHub Pages deployment status for `1dcd63f` not verified from this terminal).
+- Guardrails respected: no new dependencies, no commit / push / deploy / amend / global-config change. All prior sprint work preserved.
+
+## Sprint 5.11 — Premium animation enhancement (2026-10-22)
+
+- Baseline: branch `main` at **`1dcd63f`** (Sprint 5.9 release). Working tree carried the two Sprint 5.10 doc edits (uncommitted). No reset / stash / discard / commit / push / deploy / amend / global config change.
+- **Scope: extend the Sprint 5.9 motion system across more of the existing site — no new library, no redesign.** Reused the `Reveal` component and introduced two small shared CSS utilities (`.hover-lift`, `.arrow-nudge`) alongside motion tokens, all gated by `@media (prefers-reduced-motion: no-preference)` so reduced-motion viewers see no transforms.
+- **Motion tokens + utilities** ([src/styles/globals.css](src/styles/globals.css)):
+  - **CSS custom properties:** `--ease-standard`, `--ease-emphasized`, `--duration-fast (150ms)`, `--duration-standard (240ms)`, `--duration-emphasized (480ms)`. The existing `.reveal` transition now consumes these tokens for consistency.
+  - **`.hover-lift`** — card hover utility: 2 px upward translate + layered shadow + 240 ms standard easing. Also fires on `:focus-within` so keyboard-only users get the same lift when they tab into a card.
+  - **`.arrow-nudge`** — "Read more »" style link utility: generates the `»` glyph via `::after` and nudges it `translateX(3px)` on hover/focus. Keeps the accessible name unchanged (pseudo-content isn't part of accessible-name computation), so existing `getByRole("link", { name: /read more/i })` tests still match.
+  - All three (reveal, hover-lift, arrow-nudge) are inside the single `@media (prefers-reduced-motion: no-preference)` block already present from Sprint 5.9. The global `@media (prefers-reduced-motion: reduce)` rule still clamps every `animation-duration`/`transition-duration` to `0.001ms`.
+- **Components / sections enhanced this sprint:**
+  - **WhyUs** ([src/components/sections/WhyUs.tsx](src/components/sections/WhyUs.tsx)): each benefit card is now `<Reveal as="li">` with a 0 / 60 / 120 / 180 ms stagger and the `.hover-lift` utility. Sticky left heading unchanged.
+  - **PromotionsRow** ([src/components/sections/PromotionsRow.tsx](src/components/sections/PromotionsRow.tsx)): each promo card is now `<Reveal as="li">` with 0 / 80 / 160 ms stagger and `.hover-lift`. Existing `hover:shadow-xl` is preserved and the two combine cleanly.
+  - **Blog listing cards** ([src/pages/BlogIndexPage.tsx](src/pages/BlogIndexPage.tsx)): `.hover-lift` added to each card; "Read more" link now uses `.arrow-nudge` so the chevron slides on hover/focus. The accessible-name regex (`/read more/i`) continues to match because the chevron is CSS-generated pseudo-content.
+- **Not changed this sprint (deliberate):**
+  - Hero section (already revealed Sprint 5.9) — unchanged to avoid delaying LCP.
+  - ServiceCards (already revealed + hover-lifted Sprint 5.9) — unchanged.
+  - Offer Popup / Live Chat (already polished Sprints 5.6.1 / 5.7.1) — unchanged; dialog semantics, Escape handling, focus containment, body scroll lock all preserved.
+  - Mobile nav drawer (already animated per `MobileNav.test.tsx`) — not touched; existing drawer transitions and keyboard behavior are the production baseline.
+  - Reviews carousel — not touched; existing autoplay honors reduced motion and prior visual pacing was intentional.
+  - Service hub / variant / location hero sections — not touched this sprint; could be revealed later but the hero copy there is above the fold and should not be gated by any observer trigger.
+- **Accessibility & reduced motion:**
+  - All new transforms live inside `@media (prefers-reduced-motion: no-preference)`; reduced-motion viewers see no lift, no arrow nudge, no stagger — content is immediately readable.
+  - `.hover-lift` also activates on `:focus-within`, so keyboard users get the same visual feedback when they tab into a card without needing a mouse hover.
+  - Pseudo-content `»` is decorative; the link's visible/announced text remains `"Read more"`.
+  - No interactive element moves out from under the pointer or keyboard. No flashing. No info conveyed only through motion.
+- **Automated tests:**
+  - All existing Sprint 5.9 Reveal assertions remain green (fallback behavior, delay propagation, class names).
+  - All existing BlogPages / HomePage / ReviewsStrip / MobileNav / OfferPopup / LiveChat / UtilityAndLegalPages assertions remain green — selector names and accessible-name lookups preserved.
+  - **No test weakened, no test deleted.** The `getAllByRole("link", { name: /read more/i })` lookup continues to work because the CSS pseudo-content chevron is not part of the accessible name.
+- **Browser tools actually used:** **none.** Same environment constraints as Sprint 5.10 — no Playwright / Puppeteer / Lighthouse / `gh` / MCP browser bridge available. Sprint spec explicitly forbids installing animation libraries or browser automation without approval, so no dependency was added. Visual animation quality, responsive rendering at 375 / 768 / 1440, cross-browser behavior, and real `prefers-reduced-motion` behavior **remain unverified** this session.
+- **Verification (actual):** `npm run lint` clean, `npm run typecheck` clean (`tsc -b --noEmit`), `npm test` passes **455/455** across 26 files (count unchanged — the sprint reused existing selectors), `npm run build` clean with 235 static entries + 404 (unchanged).
+- **Known limitations:**
+  - Visual QA at 375 / 768 / 1440 widths and cross-browser coverage not performed.
+  - IntersectionObserver thresholds (`0.08`) and 240 / 480 ms transition timings not visually tuned against real page scrolls.
+  - All prior sprint limitations unchanged (legal placeholder chip pending review; chat / billpay / visualizer unintegrated; GitHub Pages deployment status for commit `1dcd63f` not verified from this terminal).
+- Guardrails respected: no new dependencies, no commit / push / deploy / amend. All prior sprint work preserved.
+
+## Sprint 5.10 — Browser QA / performance audit pass (2026-10-22)
+
+- Baseline: branch `main` at **`1dcd63f`** (Sprints 5.5.13–5.9 release). Working tree **clean** at session start. Verified via `git status` + `git log -1`.
+- **Browser tooling audit (actual environment):** no Playwright, no Puppeteer, no Cypress, no Chrome DevTools MCP, no in-app browser pane, no Chrome-extension bridge enabled this session. `which lighthouse`, `which playwright`, `which chromium`, `which gh` all return "not found". Per the sprint's own instruction — "Do not add browser automation or performance dependencies without approval" and "Never claim browser QA or Lighthouse results unless actually executed" — this sprint runs **source-level audit + automated regression only** and explicitly refuses to fabricate browser evidence. **Lighthouse scores, Core Web Vitals (LCP/CLS/INP), rendered responsive QA at 375/768/1440, and cross-browser coverage are all explicitly NOT measured in this session.**
+- **Automated regression (actual results):**
+  - `npm run lint` — clean, no warnings
+  - `npm run typecheck` — clean (`tsc -b --noEmit`)
+  - `npm test` — **455/455** across 26 files (unchanged from Sprint 5.9 release)
+  - `npm run build` — clean, **235** supported static route entries + 404
+  - Working tree remains clean; nothing modified by the audit so far
+- **Source-level SEO audit (what can be verified without a browser):**
+  - `src/app/seo.ts` emits `noindex,nofollow` on every client-side route transition — appropriate for a public demo.
+  - `index.html` ships with `viewport`, `theme-color`, `description`, and page `title`; favicon references are base-path-aware via `%BASE_URL%`.
+  - `public/robots.txt` allows crawling so compliant crawlers can read the per-page `noindex` meta; no sitemap published, which is correct for a noindex demo.
+  - `CANONICAL_ORIGIN` in `src/app/seo.ts` is intentionally empty so no canonical URL is emitted until the client's real domain is supplied; `applyRouteMeta` only emits a `<link rel="canonical">` when that is set.
+  - Every page's `applyRouteMeta` call carries a unique title, description, and canonical path. The `/privacy-policy` and `/terms-and-conditions` pages carry `noindex: true` explicitly (already a route-level flag, in addition to the per-transition default).
+- **Source-level performance notes (not measured in a real browser):**
+  - Hero image on the homepage uses `fetchPriority="high"` + `decoding="async"` + explicit `width`/`height`; the Vite static-route plugin also emits a per-route `<link rel="preload" as="image">` header for hero assets on service/variant/detail pages.
+  - All below-the-fold images (service grid, blog cards, review strip) use `loading="lazy"` + `decoding="async"` with locked aspect ratios (`aspect-[16/10]` on blog) to prevent CLS.
+  - Reveal animations animate only `opacity` + `transform` behind `prefers-reduced-motion: no-preference`; no layout-heavy properties are animated.
+  - Vite build output: `index` chunk `407.72 kB` raw / `126.13 kB` gzip (unchanged from Sprint 5.9). Route-level chunks are split via `React.lazy()` in the router.
+  - No continuous animation, no auto-playing carousel added this sprint, no polling.
+- **Source-level accessibility notes (not measured in a real browser):**
+  - Primary nav, mobile drawer, offer popup, and live chat panel all carry `role="dialog"` / `aria-expanded` / Escape-to-close + focus-return where applicable (asserted by prior tests).
+  - Focus-visible outlines on every interactive control via `--color-focus` token and `:focus-visible` global rule in `globals.css`.
+  - Every image has non-empty alt text or an intentional `alt=""` (decorative article hero, where the eyebrow + H1 above name the subject).
+  - Reduced-motion gated by `@media (prefers-reduced-motion: no-preference)` on `.reveal`; the global `prefers-reduced-motion: reduce` rule clamps every animation/transition.
+- **Defects found this sprint:** **none source-visible.** No fix was applied. The audit intentionally added nothing to the codebase to avoid shipping speculative changes.
+- **Remaining limitations (unchanged from Sprint 5.9 unless noted):**
+  - Rendered browser QA at 375 / 768 / 1440 widths — **not performed.** No dev server launched, no browser automation available.
+  - Lighthouse / Core Web Vitals — **not measured.** No scores claimed.
+  - Cross-browser coverage (Chrome/Firefox/Safari/Edge) — **not performed.**
+  - GitHub Pages deployment status for commit `1dcd63f` — **not verified from this terminal** (no `gh` CLI). Check https://github.com/Ahasan39/construction-project/actions.
+  - Live site at https://ahasan39.github.io/construction-project/ — **not independently confirmed as updated** by this session.
+  - Legal pages still carry demo-placeholder chip pending legal counsel review.
+  - Live chat remains unconnected to a real provider; `/billpay` and `/visualizer` route users to phone / estimate.
+- Guardrails respected: no new dependencies, no commit / push / deploy, no destructive working-tree cleanup, no global git-config change.
+
 ## Sprint 5.9 — Shared motion system (2026-10-22)
 
 - Baseline: branch `main` at `33677ea`, 39 pre-existing touched files preserved. No reset / stash / discard / commit / push / deploy / amend / global config change.

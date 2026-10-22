@@ -37,6 +37,7 @@ const PrivacyPolicyPage = lazy(() => import("@/pages/PrivacyPolicyPage"));
 const TermsPage = lazy(() => import("@/pages/TermsPage"));
 const PayMyBillPage = lazy(() => import("@/pages/PayMyBillPage"));
 const VisualizerPage = lazy(() => import("@/pages/VisualizerPage"));
+const GalleryPage = lazy(() => import("@/pages/GalleryPage"));
 
 /**
  * Dev-only preview. Guarded by `import.meta.env.DEV`, which Vite rewrites to a
@@ -86,6 +87,7 @@ export const router = createBrowserRouter([
         element: <L><ContactUsPage /></L>,
       },
       { path: "reviews", element: <L><ReviewsPage /></L> },
+      { path: "gallery", element: <L><GalleryPage /></L> },
       { path: "commercial-projects", element: <L><CommercialProjectsPage /></L> },
       { path: "careers/sales", element: <L><SalesCareersPage /></L> },
       { path: "privacy-policy", element: <L><PrivacyPolicyPage /></L> },

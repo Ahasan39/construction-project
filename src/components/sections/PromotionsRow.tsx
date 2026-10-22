@@ -1,6 +1,7 @@
 import { assetUrl } from "@/app/assets";
 import { Link } from "react-router-dom";
 import { Container } from "@/components/ui";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface Promo {
   title: string;
@@ -80,10 +81,12 @@ export function PromotionsRow() {
     >
       <Container width="wide" className="py-14 sm:py-18 lg:py-24">
         <ul className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {promos.map((p) => (
-            <li
+          {promos.map((p, i) => (
+            <Reveal
+              as="li"
               key={p.title}
-              className="flex flex-col rounded-sm overflow-hidden bg-[#0C1F33] border border-slate-700/40 shadow-md group hover:shadow-xl transition-all duration-300"
+              delayMs={80 * i}
+              className="flex flex-col rounded-sm overflow-hidden bg-[#0C1F33] border border-slate-700/40 shadow-md group hover:shadow-xl hover-lift"
             >
               {/* Photo top */}
               <div className="h-56 sm:h-64 w-full overflow-hidden bg-slate-800">
@@ -118,7 +121,7 @@ export function PromotionsRow() {
 
               {/* Thin cyan/blue lower accent line */}
               <div className="h-1 bg-[#00A3E0] w-full" aria-hidden="true" />
-            </li>
+            </Reveal>
           ))}
         </ul>
       </Container>

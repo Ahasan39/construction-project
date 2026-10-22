@@ -1,5 +1,6 @@
 import { assetUrl } from "@/app/assets";
 import { Container } from "@/components/ui";
+import { Reveal } from "@/components/motion/Reveal";
 
 interface Benefit {
   title: string;
@@ -106,10 +107,12 @@ export function WhyUs() {
 
           {/* Right vertical cards list */}
           <ol className="flex flex-col gap-8 sm:gap-10">
-            {benefits.map((b) => (
-              <li
+            {benefits.map((b, i) => (
+              <Reveal
+                as="li"
                 key={b.title}
-                className="flex flex-col md:flex-row rounded-sm overflow-hidden bg-[#F4F6F8] border border-slate-200/50"
+                delayMs={60 * i}
+                className="flex flex-col md:flex-row rounded-sm overflow-hidden bg-[#F4F6F8] border border-slate-200/50 hover-lift"
               >
                 {/* Taller vertical/squared photo on left */}
                 <div className="w-full md:w-72 lg:w-80 min-h-[260px] md:min-h-[300px] shrink-0 bg-slate-200">
@@ -140,7 +143,7 @@ export function WhyUs() {
                     {b.body}
                   </p>
                 </div>
-              </li>
+              </Reveal>
             ))}
           </ol>
         </div>

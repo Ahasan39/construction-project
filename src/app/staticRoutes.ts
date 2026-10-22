@@ -8,7 +8,7 @@ export function staticRoutes(): string[] {
   const routes = new Set([
     "/", "/free-estimate", "/about", "/special-offers", "/financing",
     "/warranties", "/refer-a-friend", "/contact-us", "/reviews", "/commercial-projects",
-    "/careers/sales", "/privacy-policy", "/terms-and-conditions", "/billpay", "/visualizer", "/crew", "/blog",
+    "/careers/sales", "/privacy-policy", "/terms-and-conditions", "/billpay", "/visualizer", "/crew", "/blog", "/gallery",
   ]);
   for (const service of services) {
     routes.add(`/${service.slug}`);

@@ -147,14 +147,22 @@
 }
 
 /* -------------------------------------------------------------------------
- * Site-wide motion system (Sprint 5.9)
- * - CSS-first: a small set of keyframes + a `.reveal` utility used by the
- *   shared `<Reveal>` component, which toggles `.is-visible` once the element
- *   enters the viewport.
- * - Reduced-motion users skip the initial-hidden state entirely (see the
- *   @media guard below), so content is always readable regardless of JS,
- *   observer availability, or motion preferences.
+ * Site-wide motion system (Sprint 5.9, extended Sprint 5.11)
+ * - CSS-first: a small set of motion tokens + keyframes + utilities. The
+ *   `.reveal` utility is used by the shared <Reveal> component, which toggles
+ *   `.is-visible` once the element enters the viewport. Everything else is a
+ *   pure CSS hover/focus utility that already respects the global
+ *   `prefers-reduced-motion: reduce` clamp below.
  * ------------------------------------------------------------------------- */
+
+:root {
+  /* Motion tokens — reuse these in utility classes so timings stay consistent. */
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0.9, 0.3, 1.1);
+  --duration-fast: 150ms;
+  --duration-standard: 240ms;
+  --duration-emphasized: 480ms;
+}
 
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -166,18 +174,82 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Marquee for the continuously-scrolling reviews track. The track renders
+   its reviews twice (second copy aria-hidden), so translating by -50% snaps
+   exactly to the start of the second copy — a seamless loop. */
+@keyframes marqueeX {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Gentle vertical bob for the floating Live Chat launcher. */
+@keyframes launcherFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;
     transform: translateY(10px);
-    transition: opacity 480ms cubic-bezier(0.22, 0.61, 0.36, 1),
-                transform 480ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition: opacity var(--duration-emphasized) var(--ease-standard),
+                transform var(--duration-emphasized) var(--ease-standard);
     transition-delay: var(--reveal-delay, 0ms);
     will-change: opacity, transform;
   }
   .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Card hover: subtle lift + shadow. Shared utility so timings are uniform. */
+  .hover-lift {
+    transition: transform var(--duration-standard) var(--ease-standard),
+                box-shadow var(--duration-standard) var(--ease-standard),
+                border-color var(--duration-standard) var(--ease-standard);
+    will-change: transform;
+  }
+  .hover-lift:hover,
+  .hover-lift:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -16px rgba(15, 34, 49, 0.25),
+                0 2px 4px -2px rgba(15, 34, 49, 0.08);
+  }
+
+  /* Continuously-scrolling marquee track for the reviews carousel. */
+  .marquee-track {
+    animation: marqueeX var(--marquee-duration, 60s) linear infinite;
+    animation-play-state: running;
+    will-change: transform;
+  }
+  .marquee-track[data-paused="true"] { animation-play-state: paused; }
+  /* Pause on pointer hover or keyboard focus within the carousel region. */
+  .marquee-root:hover .marquee-track,
+  .marquee-root:focus-within .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* Floating Live Chat launcher: slow, subtle bob. */
+  .launcher-float {
+    animation: launcherFloat 2800ms var(--ease-standard) infinite;
+    will-change: transform;
+  }
+
+  /* Arrow nudge for "Read more »" style links. */
+  .arrow-nudge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+  .arrow-nudge::after {
+    content: "»";
+    display: inline-block;
+    transition: transform var(--duration-standard) var(--ease-emphasized);
+  }
+  .arrow-nudge:hover::after,
+  .arrow-nudge:focus-visible::after {
+    transform: translateX(3px);
   }
 }
 
