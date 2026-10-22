@@ -93,6 +93,7 @@ export function SiteFooter() {
               <li><Link to="/financing" className="hover:text-white hover:underline transition-colors">Financing</Link></li>
               <li><Link to="/warranties" className="hover:text-white hover:underline transition-colors">Warranties</Link></li>
               <li><Link to="/refer-a-friend" className="hover:text-white hover:underline transition-colors">Refer a Friend</Link></li>
+              <li><Link to="/contact-us" className="hover:text-white hover:underline transition-colors">Contact Us</Link></li>
               <li><Link to="/commercial-projects" className="hover:text-white hover:underline transition-colors">Commercial Projects</Link></li>
             </ul>
           </FooterColumn>
@@ -149,6 +150,11 @@ export function SiteFooter() {
               <li>
                 <Link to="/privacy-policy" className="hover:text-white hover:underline transition-colors">
                   Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms-and-conditions" className="hover:text-white hover:underline transition-colors">
+                  Terms &amp; Conditions
                 </Link>
               </li>
               <li>

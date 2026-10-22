@@ -25,18 +25,20 @@ The full sitemap listing was partially truncated by the fetch tool (`page-sitema
 | `/siding/` | Service hub | internal | |
 | `/windows/` | Service hub | internal | |
 | `/masonry/` | Service hub | internal | |
-| `/about/` | Company | internal | |
-| `/special-offers/` | Company / offers | internal | |
-| `/financing/` | Company / financing | internal | |
-| `/warranties/` | Company / warranties | internal | |
-| `/refer-a-friend/` | Company | internal | |
-| `/reviews/` | Company / reviews | internal | |
-| `/careers/sales/` | Careers | internal | May embed external ATS; verify |
-| `/commercial-projects/` | Company | internal | |
+| `/about/` | Company | internal | Implemented in Sprint 6.5 (hero, approach narrative, services callout, values grid, CTA). |
+| `/special-offers/` | Company / offers | internal | Implemented in Sprint 6.5 as a demo-placeholder page; no active-promotion claims. |
+| `/financing/` | Company / financing | internal | Implemented in Sprint 6.5 as informational; no rates / lender partners / live application. |
+| `/warranties/` | Company / warranties | internal | Implemented in Sprint 6.5; manufacturer vs. workmanship split with no quoted durations. |
+| `/refer-a-friend/` | Company | internal | Implemented in Sprint 6 (hero, three-step, reward disclaimer, demo referral form). |
+| `/contact-us/` | Company | internal | Added in Sprint 6; demo contact card + service-area links + Free Estimate CTA. |
+| `/reviews/` | Company / reviews | internal | Implemented in Sprint 6.5 using reference-transcribed carousel reviews; no aggregated rating / external badges. |
+| `/careers/sales/` | Careers | internal | Implemented in Sprint 7; informational only, no openings listed, no applications accepted, no external ATS link until verified. |
+| `/commercial-projects/` | Company | internal | Implemented in Sprint 7; overview of commercial scopes, honest-empty-state gallery, no fabricated client portfolio. |
 | `/free-estimate/` | Lead form | internal | |
-| `/blog/` | Blog index | internal | 5 pages, 12/page |
-| `/blog/<slug>/` | Blog article | template-instance | ~55+ posts observed |
-| `/privacy-policy/` | Legal | internal | |
+| `/blog/` | Blog index | internal | Implemented in Sprint 7.5 — card grid over `listArticleSummaries()` with per-card demo chip. |
+| `/blog/<slug>/` | Blog article | template-instance | Implemented in Sprint 7.5 — hero + body + related posts; demonstration content only, no reference posts reproduced. |
+| `/privacy-policy/` | Legal | internal | Implemented in Sprint 8 as a non-final demo placeholder (requires legal review). `noindex`. |
+| `/terms-and-conditions/` | Legal | internal | Added in Sprint 8 as a non-final demo placeholder (requires legal review). `noindex`. Resolves the Sprint 0 missing-Terms blocker. |
 | `/provia-windows-installed-by-mr-roof/` | Content page | internal | Vendor product landing |
 | `/cleveland-roof-replacement-cost/` | Content page | internal | Non-standard SEO landing (not under `/cleveland/`) |
 
@@ -63,14 +65,18 @@ Each location has its own hub, estimate form, service-area index, and selectivel
 
 Represented by `/{region}/service-area/{slug}/`. A sample from the sitemap (not exhaustive):
 
-- Ann Arbor region: `toledo`, `oakland-county`, `wayne-county`, `washtenaw-county`, `monroe-county`, `livingston-county`, `lenawee-county`, `jackson-county`, `milford`, `brighton`, `westland`, `taylor`, `st-clair-shores`, `saline`, `belleville`, `adrian`, `roseville`, `redford`, `plymouth`, `beverly-hills`, `troy`, `sterling-heights`, `inkster`, `detroit`, `rochester-hills`, `dearborn`, `pontiac`, `novi`, `macomb`, `farmington-hills`, `canton`.
+- Ann Arbor region: `toledo`, `oakland-county`, `wayne-county`, `washtenaw-county`, `monroe-county`, `livingston-county`, `lenawee-county`, `jackson-county`, `milford`, `brighton`, `westland`, `taylor`, `st-clair-shores`, `saline`, `belleville`, `adrian`, `roseville`, `redford`, `plymouth`, `beverly-hills`, `troy`, `sterling-heights`, `inkster`, `detroit`, `rochester-hills`, `dearborn`, `pontiac`, `novi`, `macomb`, `farmington-hills`, `canton`.  
+  **Sprint 5.5.15:** all 43 reference city slugs now mounted as `/ann-arbor/service-area/<slug>/` (plus the pre-existing county children `oakland-county` and `wayne-county`, kept so previously-emitted URLs continue to resolve). Remaining reference counties (`jackson-county`, `lenawee-county`, `livingston-county`, `monroe-county`, `washtenaw-county`) stay as index-only text per policy.
 - Grand Rapids region: `zeeland`, `lowell`, `wyoming`, `wayland`, `spring-lake`, `ottawa-county`, `kentwood`, `kent-county`, `kalamazoo`, `hudsonville`, `holland`, `grandville` (plus more below the fetch cutoff).
-- Cleveland region: `ashland`, `mansfield`.
-- Cincinnati region: `lebanon`.
+- Cleveland region: Sprint 5.5.14 mounts all 26 reference city slugs plus the legacy `ashland` child — `avon-lake, bay-village, euclid, lakewood, mansfield, north-olmstead, north-ridgeville, akron, canton, independence, medina, north-royalton, aurora, brecksville, eastlake, hudson, mentor, painesville, solon, willoughby, brunswick, elyria, parma, rocky-river, strongsville, westlake, ashland`. County slugs (`cuyahoga-county` etc.) remain reference-only index text.
+- Cincinnati region: Sprint 5.5.14 mounts all 11 reference city slugs plus the legacy `lebanon` child — `mason, middletown, west-chester, covington, florence, batavia, loveland, milford, fairfield, hamilton, liberty-township, lebanon`. County slugs (`hamilton-county` etc.) remain reference-only index text.
+- Grand Rapids region: Sprint 5.5.14 mounts all 25 reference city slugs — `cedar-springs, comstock-park, coopersville, kentwood, muskegon, sparta, wyoming, byron-center, cutlerville, georgetown, grandville, kalamazoo, portage, ada, battle-creek, caledonia, forest-hills, lowell, allendale, ferrysburg, grand-haven, holland, hudsonville, spring-lake, zeeland`. County slugs (`kent-county` etc.) remain reference-only index text.
 - Dayton region: `montgomery-county`, `clark-county`.
 - Louisville region: `taylorsville`, `shepherdsville`, `shelbyville`, `shelby-county`, `madison`, `la-grange`, `jeffersonville`, `jefferson-county`, `jeffersontown`, `frankfort`, `georgetown`, `nicholasville`, `new-albany`, `spencer-county`, `elizabethtown`, `crestwood`, `clark-county-indiana`, `bullitt-county`.
-- Nashville region: `murfreesboro`, `gallatin`, `williamson-county`, `spring-hill`, `smyrna`, `portland`, `mount-juliet`, `madison`, `lebanon`, `la-vernge`, `hermitage`, `hendersonville`, `franklin`, `davidson-county`, `clarksville`, `cheatham-county`, `brentwood`, `antioch`.
-- Lansing region: `haslett`, `holt`, `waverly`, `dewitt`, `okemos`, `east-lansing`.
+- Nashville region: `murfreesboro`, `gallatin`, `williamson-county`, `spring-hill`, `smyrna`, `portland`, `mount-juliet`, `madison`, `lebanon`, `la-vernge`, `hermitage`, `hendersonville`, `franklin`, `davidson-county`, `clarksville`, `cheatham-county`, `brentwood`, `antioch`.  
+  **Sprint 5.5.13:** all 15 city slugs (`gallatin`, `hendersonville`, `madison`, `portland`, `brentwood`, `franklin`, `la-vernge`, `murfreesboro`, `spring-hill`, `antioch`, `hermitage`, `lebanon`, `mount-juliet`, `smyrna`, `clarksville`) now mounted as `/nashville/service-area/<slug>/`. County slugs (`davidson-county`, `williamson-county`, `cheatham-county`) remain reference-only, rendered as text on the index.
+- Lansing region: `haslett`, `holt`, `waverly`, `dewitt`, `okemos`, `east-lansing`.  
+  **Sprint 5.5.13:** all 6 city slugs now mounted as `/lansing/service-area/<slug>/`.
 
 **Odd one out:** `/louisville/bardstown/` exists outside the usual `/service-area/` subpath — likely a legacy structure; we will treat it as a redirect/alias in data.
 
@@ -78,9 +84,9 @@ Represented by `/{region}/service-area/{slug}/`. A sample from the sitemap (not 
 
 | Path | Classification | Target |
 |---|---|---|
-| `/crew/` | external | Employee / crew portal (auth required). Entry point only — frontend links out. |
-| `/billpay/` | external | Bill payment (likely third-party payment processor). Entry point only. |
-| `/visualizer/` | external | 3D exterior design visualizer (likely Owens Corning Design EyeQ or similar). Entry point only. |
+| `/crew/` | external | Employee / crew portal (auth required). Entry point only — still `ExternalEntryPage` with unverified URL; `noindex`. |
+| `/billpay/` | external | Bill payment (likely third-party payment processor). Sprint 8 replaces the `ExternalEntryPage` with a full `PayMyBillPage` that refuses to render a fake form; destination URL is still awaiting the client-supplied value. |
+| `/visualizer/` | external | 3D exterior design visualizer. Sprint 8 replaces the `ExternalEntryPage` with a full `VisualizerPage` that declares no tool is integrated; destination URL still awaiting the client-supplied value. |
 
 For each: reproduce the on-site landing/entry card and expose the outbound link, but **do not** stand up our own payment or visualizer backend during the frontend phase.
 

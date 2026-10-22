@@ -19,7 +19,7 @@ export const primaryNav: NavItem[] = [
       { label: "Customer Reviews", to: "/reviews" },
       { label: "Sales Careers", to: "/careers/sales" },
       { label: "Blog", to: "/blog" },
-      { label: "Contact Us", to: "/free-estimate" },
+      { label: "Contact Us", to: "/contact-us" },
       { label: "Commercial Projects", to: "/commercial-projects" },
     ],
   },

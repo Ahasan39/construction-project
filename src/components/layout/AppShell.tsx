@@ -1,6 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
+import { LiveChatWidget } from "@/components/chat/LiveChatWidget";
+import { OfferPopup } from "@/components/promo/OfferPopup";
 
 /**
  * Top-level public shell. One `<main>` landmark for the whole app; nav
@@ -15,6 +17,8 @@ export function AppShell() {
         <Outlet />
       </main>
       <SiteFooter />
+      <LiveChatWidget />
+      <OfferPopup />
     </>
   );
 }

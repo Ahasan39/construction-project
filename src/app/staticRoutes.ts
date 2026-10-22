@@ -7,8 +7,8 @@ import { listArticleSummaries } from "../data/articles";
 export function staticRoutes(): string[] {
   const routes = new Set([
     "/", "/free-estimate", "/about", "/special-offers", "/financing",
-    "/warranties", "/refer-a-friend", "/reviews", "/commercial-projects",
-    "/careers/sales", "/privacy-policy", "/billpay", "/visualizer", "/crew", "/blog",
+    "/warranties", "/refer-a-friend", "/contact-us", "/reviews", "/commercial-projects",
+    "/careers/sales", "/privacy-policy", "/terms-and-conditions", "/billpay", "/visualizer", "/crew", "/blog",
   ]);
   for (const service of services) {
     routes.add(`/${service.slug}`);

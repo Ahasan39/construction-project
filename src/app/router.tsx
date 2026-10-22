@@ -23,8 +23,20 @@ const ThreeSegmentLocationPage = lazy(
 const FreeEstimatePage = lazy(() => import("@/pages/FreeEstimatePage"));
 const BlogIndexPage = lazy(() => import("@/pages/BlogIndexPage"));
 const BlogArticlePage = lazy(() => import("@/pages/BlogArticlePage"));
-const StaticPage = lazy(() => import("@/pages/StaticPage"));
 const ExternalEntryPage = lazy(() => import("@/pages/ExternalEntryPage"));
+const ContactUsPage = lazy(() => import("@/pages/ContactUsPage"));
+const ReferAFriendPage = lazy(() => import("@/pages/ReferAFriendPage"));
+const AboutPage = lazy(() => import("@/pages/AboutPage"));
+const SpecialOffersPage = lazy(() => import("@/pages/SpecialOffersPage"));
+const FinancingPage = lazy(() => import("@/pages/FinancingPage"));
+const WarrantiesPage = lazy(() => import("@/pages/WarrantiesPage"));
+const ReviewsPage = lazy(() => import("@/pages/ReviewsPage"));
+const CommercialProjectsPage = lazy(() => import("@/pages/CommercialProjectsPage"));
+const SalesCareersPage = lazy(() => import("@/pages/SalesCareersPage"));
+const PrivacyPolicyPage = lazy(() => import("@/pages/PrivacyPolicyPage"));
+const TermsPage = lazy(() => import("@/pages/TermsPage"));
+const PayMyBillPage = lazy(() => import("@/pages/PayMyBillPage"));
+const VisualizerPage = lazy(() => import("@/pages/VisualizerPage"));
 
 /**
  * Dev-only preview. Guarded by `import.meta.env.DEV`, which Vite rewrites to a
@@ -61,135 +73,27 @@ export const router = createBrowserRouter([
       { path: "free-estimate", element: <L><FreeEstimatePage /></L> },
 
       /* Resource / company pages */
-      {
-        path: "about",
-        element: (
-          <L>
-            <StaticPage
-              meta={{ title: "About — scaffold", description: "About the company.", canonicalPath: "/about/" }}
-              title="About"
-            />
-          </L>
-        ),
-      },
-      {
-        path: "special-offers",
-        element: (
-          <L>
-            <StaticPage
-              meta={{ title: "Special offers — scaffold", description: "Current offers and promotions.", canonicalPath: "/special-offers/" }}
-              title="Special offers"
-            />
-          </L>
-        ),
-      },
-      {
-        path: "financing",
-        element: (
-          <L>
-            <StaticPage
-              meta={{ title: "Financing — scaffold", description: "Financing options.", canonicalPath: "/financing/" }}
-              title="Financing"
-            />
-          </L>
-        ),
-      },
-      {
-        path: "warranties",
-        element: (
-          <L>
-            <StaticPage
-              meta={{ title: "Warranties — scaffold", description: "Warranty information.", canonicalPath: "/warranties/" }}
-              title="Warranties"
-            />
-          </L>
-        ),
-      },
+      { path: "about", element: <L><AboutPage /></L> },
+      { path: "special-offers", element: <L><SpecialOffersPage /></L> },
+      { path: "financing", element: <L><FinancingPage /></L> },
+      { path: "warranties", element: <L><WarrantiesPage /></L> },
       {
         path: "refer-a-friend",
-        element: (
-          <L>
-            <StaticPage
-              meta={{ title: "Refer a friend — scaffold", description: "Referral program.", canonicalPath: "/refer-a-friend/" }}
-              title="Refer a friend"
-            />
-          </L>
-        ),
+        element: <L><ReferAFriendPage /></L>,
       },
       {
-        path: "reviews",
-        element: (
-          <L>
-            <StaticPage
-              meta={{ title: "Customer reviews — scaffold", description: "Customer reviews.", canonicalPath: "/reviews/" }}
-              title="Customer reviews"
-            />
-          </L>
-        ),
+        path: "contact-us",
+        element: <L><ContactUsPage /></L>,
       },
-      {
-        path: "commercial-projects",
-        element: (
-          <L>
-            <StaticPage
-              meta={{ title: "Commercial projects — scaffold", description: "Selected commercial projects.", canonicalPath: "/commercial-projects/" }}
-              title="Commercial projects"
-            />
-          </L>
-        ),
-      },
-      {
-        path: "careers/sales",
-        element: (
-          <L>
-            <StaticPage
-              meta={{ title: "Sales careers — scaffold", description: "Sales career opportunities.", canonicalPath: "/careers/sales/" }}
-              title="Sales careers"
-            />
-          </L>
-        ),
-      },
-      {
-        path: "privacy-policy",
-        element: (
-          <L>
-            <StaticPage
-              meta={{ title: "Privacy policy — scaffold", description: "Privacy policy.", canonicalPath: "/privacy-policy/" }}
-              title="Privacy policy"
-            />
-          </L>
-        ),
-      },
+      { path: "reviews", element: <L><ReviewsPage /></L> },
+      { path: "commercial-projects", element: <L><CommercialProjectsPage /></L> },
+      { path: "careers/sales", element: <L><SalesCareersPage /></L> },
+      { path: "privacy-policy", element: <L><PrivacyPolicyPage /></L> },
+      { path: "terms-and-conditions", element: <L><TermsPage /></L> },
 
       /* External integration entry points */
-      {
-        path: "billpay",
-        element: (
-          <L>
-            <ExternalEntryPage
-              meta={{ title: "Pay my bill — scaffold", description: "External bill-pay portal entry point.", canonicalPath: "/billpay/" }}
-              title="Pay my bill"
-              intro="Bill payment is handled by an external processor. Replace the outbound link with the client's provider before launch."
-              outboundLabel="Open bill-pay portal"
-              outboundHref={null}
-            />
-          </L>
-        ),
-      },
-      {
-        path: "visualizer",
-        element: (
-          <L>
-            <ExternalEntryPage
-              meta={{ title: "Design visualizer — scaffold", description: "External 3D exterior design tool entry point.", canonicalPath: "/visualizer/" }}
-              title="Design visualizer"
-              intro="The 3D visualizer is an external tool. Replace the outbound link with the client's provider before launch."
-              outboundLabel="Open visualizer"
-              outboundHref={null}
-            />
-          </L>
-        ),
-      },
+      { path: "billpay", element: <L><PayMyBillPage /></L> },
+      { path: "visualizer", element: <L><VisualizerPage /></L> },
       {
         path: "crew",
         element: (

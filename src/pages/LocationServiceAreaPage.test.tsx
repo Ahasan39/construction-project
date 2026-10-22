@@ -86,9 +86,11 @@ describe("Service-area index pages render", () => {
   });
 
   it("children already present in locations[] data get linked; others render as text", () => {
+    // After Sprint 5.5.13, every Nashville and Lansing reference city is in
+    // `locations[].serviceAreaChildren`, so the "unlinked" invariant moves to
+    // a market whose reference children are still not enumerated — Cincinnati.
     renderAt("/nashville/service-area");
     const nashville = findLocation("nashville")!;
-    // Franklin is both in nashville.serviceAreaChildren and in reference list → linked.
     const franklin = screen.getByRole("link", { name: /^franklin$/i });
     expect(franklin.getAttribute("href")).toBe(
       "/nashville/service-area/franklin/"
@@ -96,11 +98,19 @@ describe("Service-area index pages render", () => {
     expect(
       nashville.serviceAreaChildren.some((c) => c.slug === "franklin")
     ).toBe(true);
+    const clarksville = screen.getByRole("link", { name: /^clarksville$/i });
+    expect(clarksville.getAttribute("href")).toBe(
+      "/nashville/service-area/clarksville/"
+    );
 
-    // Clarksville is in the reference list but not in locations[] data → not linked.
-    expect(screen.getByText("Clarksville").tagName.toLowerCase()).toBe("span");
+    // After Sprint 5.5.15 every reference *city* across every market with an
+    // index page is mounted as a child route. The "unlinked text" invariant
+    // now lives on reference *county* entries — Nashville's `davidson-county`
+    // is on the typed index but intentionally not promoted to a mounted
+    // child route (county pages are index-only text per prior-sprint policy).
+    expect(screen.getByText("Davidson County").tagName.toLowerCase()).toBe("span");
     expect(
-      nashville.serviceAreaChildren.some((c) => c.slug === "clarksville")
+      nashville.serviceAreaChildren.some((c) => c.slug === "davidson-county")
     ).toBe(false);
   });
 });

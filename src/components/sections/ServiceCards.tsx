@@ -1,5 +1,6 @@
 import { assetUrl } from "@/app/assets";
 import { Link } from "react-router-dom";
+import { Reveal } from "@/components/motion/Reveal";
 import { Container } from "@/components/ui";
 
 interface ServiceCard {
@@ -62,14 +63,16 @@ export function ServiceCards() {
           id="services-heading"
           className="text-3xl sm:text-4xl lg:text-[42px] font-black text-center text-[var(--color-brand-primary)] tracking-tight mb-10 sm:mb-14"
         >
-          Our Services
+          <Reveal as="span">Our Services</Reveal>
         </h2>
 
         <ul className="grid gap-6 sm:grid-cols-2">
-          {cards.map((c) => (
-            <li
+          {cards.map((c, i) => (
+            <Reveal
+              as="li"
               key={c.title}
-              className="flex flex-col justify-between rounded-sm bg-[#F4F6F8] border border-slate-200/60 p-6 sm:p-8 lg:p-10 shadow-none hover:border-slate-300 transition-colors"
+              delayMs={80 * i}
+              className="flex flex-col justify-between rounded-sm bg-[#F4F6F8] border border-slate-200/60 p-6 sm:p-8 lg:p-10 shadow-none hover:border-slate-300 hover:shadow-[0_12px_28px_-16px_rgba(15,34,49,0.25)] motion-safe:transition-[border-color,box-shadow,transform] motion-safe:duration-200 hover:-translate-y-0.5"
             >
               <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left">
                 {/* Architectural illustration rendered directly on panel */}
@@ -109,7 +112,7 @@ export function ServiceCards() {
                   ))}
                 </div>
               </div>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </Container>

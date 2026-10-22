@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, SmartLink } from "@/components/ui";
 import { brand } from "@/data/brand";
 import { EstimateForm } from "@/features/estimate/EstimateForm";
+import { Reveal } from "@/components/motion/Reveal";
 
 /**
  * Homepage hero — faithfully reconstructs the reference's two-column composition:
@@ -25,22 +26,22 @@ export function Hero() {
           <div className="flex flex-col justify-between rounded-sm overflow-hidden border border-slate-200/90 bg-gradient-to-b from-[#EBF3FA] via-[#E2EEF8] to-[#D5E6F5] shadow-sm">
             {/* Top copy section on sky gradient */}
             <div className="p-6 sm:p-8 lg:p-10">
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-600 mb-3">
+              <Reveal as="p" className="text-xs font-bold uppercase tracking-wider text-slate-600 mb-3">
                 Roofing &amp; Home Exterior Experts
-              </p>
-              <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-black leading-[1.08] tracking-tight text-[var(--color-brand-primary)]">
+              </Reveal>
+              <Reveal as="h1" delayMs={80} className="text-3xl sm:text-5xl lg:text-[52px] font-black leading-[1.08] tracking-tight text-[var(--color-brand-primary)]">
                 Done in a day.
                 <br />
                 Good for a{" "}
                 <span className="inline-block bg-[#5BC2E7]/40 text-[var(--color-brand-primary)] px-2 py-0.5 rounded-sm">
                   lifetime.
                 </span>
-              </h1>
-              <p className="mt-4 text-slate-700 text-sm sm:text-base leading-relaxed max-w-xl">
+              </Reveal>
+              <Reveal as="p" delayMs={160} className="mt-4 text-slate-700 text-sm sm:text-base leading-relaxed max-w-xl">
                 Roofing, siding, windows, and gutters installed in a single day, backed with a
                 lifetime warranty, and guided by direct, honest answers: no pressure or fluff,
                 just thoughtful care, fast action, and permanent peace of mind.
-              </p>
+              </Reveal>
             </div>
 
             {/* Suburban home photography stretching across the lower hero */}

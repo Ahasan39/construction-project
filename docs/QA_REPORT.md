@@ -2,6 +2,366 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 5.9 — Shared motion system (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **455/455** across 26 files (+4 new `Reveal.test.tsx` assertions) |
+| `npm run build` | pass — 235 supported static route entries + 404 (unchanged) |
+| `.reveal` initial hidden state gated by `prefers-reduced-motion: no-preference` | source-level verified in `globals.css` |
+| Global reduced-motion rule clamps animation/transition durations | preserved from prior sprint |
+| IntersectionObserver fallback (jsdom) → children immediately `is-visible` | asserted |
+| `delayMs` surfaces as `--reveal-delay` CSS variable | asserted |
+| Hero / ServiceCards headings still match role-based tests | existing HomePage test suite green |
+| Floating widgets (Offer Popup, Live Chat) `motion-safe:` guards intact | source-level preserved |
+| Rendered browser QA (375 / 768 / 1440) | **unverified** — no dev server or automation launched |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+### Remaining unverified in a real browser
+
+- Pacing of the staggered hero reveal (0 / 80 / 160 ms).
+- Service card hover lift and shadow transition on actual hardware.
+- Real `prefers-reduced-motion: reduce` behavior across OS/browser combinations.
+- IntersectionObserver threshold tuning on real page scrolls.
+- Any CLS introduced during reveal (expected zero — only opacity + transform animated).
+
+## Sprint 5.8 — Remove public demo labels + add blog images (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **451/451** across 25 files (same count as Sprint 5.7.1 — tests rewritten, not added) |
+| `npm run build` | pass — 235 supported static route entries + 404 (unchanged) |
+| Live chat: no "demo"/"not sent" wording visible | asserted via updated dialog disclosure checks |
+| Live chat: no false-delivery / "online now" / "we have received" copy | asserted (expanded defensive scan) |
+| Offer popup: no "Demo placeholder" chip | source-level + updated title/CTA selectors |
+| Offer popup: no fabricated $amount, %, promo code, or expiry | asserted (defensive scan preserved) |
+| Special Offers: offer cards contain no fabricated values | asserted (new defensive scan) |
+| Blog: every article has a non-empty `thumbnailSrc` | asserted |
+| Blog: image renders with descriptive alt text (`{category} — {title}`) | asserted |
+| Blog article detail: image rendered + softened advice disclaimer | source-level + updated assertion |
+| Pay My Bill: no `<form>`, no card/bank/CC/CVV inputs | asserted (preserved from prior sprint) |
+| Legal pages (Privacy, Terms): demo-placeholder chip + legal-counsel disclaimer **retained** | source preserved intentionally |
+| Rendered browser QA (375 / 768 / 1440) | **unverified** — no dev server or automation launched |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+### Blog image inventory
+
+| Article | Image |
+|---|---|
+| What to look for after a severe storm | `/images/services/photos/benefit-crew-working-900.webp` |
+| What goes into a written roof-replacement estimate | `/images/services/photos/benefit-consultant-homeowner-900.webp` |
+| Gutters and ice: why winter attention matters | `/images/services/photos/promo-inspector-gutters-900.webp` |
+| Siding: what the big material categories actually mean | `/images/services/photos/benefit-exterior-renovation-900.webp` |
+| Replacement windows: U-factor, SHGC and the labels on the sticker | `/images/services/photos/hero-suburban-home-900.webp` |
+| Chimneys and brick: when a mason, not a roofer, is the right call | `/images/services/photos/benefit-roofer-install-900.webp` |
+
+- Format: WebP, 900 px wide, pre-existing optimized assets in `public/images/services/photos/`.
+- Listing card: `loading="lazy"`, `decoding="async"`, `aspect-[16/10]`, hover scale behind `motion-safe:`.
+- Article detail hero: `fetchPriority="high"`, `decoding="async"`, `aspect-[16/10]`, decorative alt (eyebrow + H1 above it name the subject).
+- No new image was generated or downloaded this session.
+
+### Outstanding limitations
+
+- Rendered browser QA at 375 / 768 / 1440 — not performed.
+- Live `Image.onload` timing, LCP measurement, and cumulative-layout-shift measurement — not collected.
+- Live chat behavior in a real browser (focus, keyboard, iOS safe-area) — not visually verified.
+- Legal pages continue to require a legal-counsel pass before launch (intentionally retained demo chip).
+
+## Sprint 5.7.1 — Offer popup hardening / real-browser QA pass (2026-10-22)
+
+### Environment used
+
+- Node tooling only: `npm run lint`, `npm run typecheck`, `npm test` (Vitest + jsdom), `npm run build` (Vite).
+- **Browser automation: not available.** `package.json` lists no Playwright / Puppeteer / Cypress; no Chrome DevTools MCP / in-app browser pane / Chrome extension is enabled in this session. No dependency was added. **No real browser was launched.**
+
+### Automated results
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **451/451** across 25 files (+3 regression tests vs Sprint 5.7's 448) |
+| `npm run build` | pass — 235 supported static route entries + 404 (unchanged) |
+
+### Verified source-level defects + fixes
+
+| Defect | Fix | Regression test |
+|---|---|---|
+| Tab focus skipped the middle "No thanks" button; Shift+Tab from "No thanks" leaked outside the dialog | Rewrote focus containment to enumerate all focusable descendants and wrap at boundaries | "Tab from last wraps to first" + "Shift+Tab from first wraps to last" |
+| No body scroll-lock while open — page beneath could scroll under keyboard navigation | Save prior `document.body.style.overflow`, set to "hidden" on open, restore on cleanup | "locks body scroll while open and restores on dismiss" |
+
+### Scenario-by-scenario results (jsdom only — not a real browser)
+
+| Scenario | Result | Note |
+|---|---|---|
+| Hidden before delay elapses | pass (jsdom, fake timers) | — |
+| Appears exactly after delay | pass (jsdom, fake timers) | real-browser timing tolerance not exercised |
+| Close button / backdrop / Escape / "No thanks" dismiss | pass (jsdom) | — |
+| Primary CTA → `/special-offers` + dismisses on click | pass (jsdom) | — |
+| Session dismissal persists across remount in same session | pass (jsdom via `sessionStorage`) | — |
+| sessionStorage access throws → popup still renders | pass (jsdom via mocked `getItem` throw) | simulated failure, **not** an actual private-window test |
+| Preexisting `sessionStorage` dismiss flag suppresses open | pass (jsdom) | — |
+| Focus moves into dialog on open | source-level implemented | not captured in a real browser |
+| Tab wraps forward across all 3 focusable controls | pass (jsdom) | real-browser Tab chord not exercised |
+| Shift+Tab wraps backward across all 3 focusable controls | pass (jsdom) | real-browser Tab chord not exercised |
+| Body scroll locked while open; restored on dismiss | pass (jsdom) | — |
+
+### Not tested (requires a real browser)
+
+- Live timing of the 6-second delay in a running browser.
+- Private-mode `sessionStorage` behavior in an actual private window.
+- Visual stacking against the Live Chat widget while both are open; chat launcher accessibility after dismissal.
+- Rendered QA at 375 / 768 / 1440 widths — clipping, overflow, iOS safe-area padding, tap-target comfort.
+- Browser-console errors during open/close transitions and failed local-asset requests.
+- Keyboard navigation visible-focus verification against the brand palette in a real viewer.
+
+## Sprint 5.7 — Site-wide offer popup (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **448/448** across 25 files (new file: `OfferPopup.test.tsx` with 9 assertions) |
+| `npm run build` | pass — 235 supported static route entries + 404 (unchanged; popup is a global component, not a route) |
+| Delayed display | asserted — hidden at `delay − 1`, visible at `delay` |
+| No fabricated values in dialog text | asserted — no `$amount`, no `N%`, no uppercase promo-code pattern, no month-day expiry |
+| Primary CTA → `/special-offers` + dismisses on click | asserted |
+| Session dismissal persists across remount | asserted via `sessionStorage` check and a second mount |
+| Escape closes + backdrop click + close button | asserted |
+| Dialog semantics (`role="dialog"` + `aria-modal` + `aria-labelledby` + `aria-describedby`) | asserted via role lookup |
+| Focus moved to primary CTA on open; previous focus restored on close | implemented, source-level only |
+| Reduced-motion handling | every animated element behind `motion-safe:` |
+| `sessionStorage` access resilience | `getItem` mocked to throw — popup still renders |
+| Rendered browser QA (desktop/mobile) | **unverified** — no dev server or automation launched |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+### Not verified in a real browser this session
+
+- Live timing of the 6-second delay in a real browser.
+- Private-mode `sessionStorage` throwing in an actual private window.
+- Visual stacking against the Live Chat widget while open and after dismissal.
+- Mobile 375 / tablet 768 / desktop 1440 rendered QA of the dialog's responsive geometry.
+
+## Sprint 5.6.1 — Live chat polish pass (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — via `tsc -b --noEmit` (and `npm run build` TS pass) |
+| `npm test` | pass — **439/439** across 24 files (unchanged count — polish only) |
+| `npm run build` | pass — 235 supported static route entries + 404 (unchanged — polish-only visual change) |
+| Dialog semantics | `role="dialog"` + `aria-labelledby` + `aria-describedby`; preserved |
+| Escape closes panel; focus restored to launcher | asserted |
+| Composer: disabled Send when empty; form submit still raises inline error | asserted via direct form submit |
+| Visitor echo + "NOT delivered" system reply | asserted |
+| No "online now" / "message sent" / "agent is available" strings in the dialog | asserted |
+| Design tokens used | `--color-brand-primary`, `--color-brand-accent`, `--color-border`, `--color-surface`, `--color-surface-alt`, `--radius-lg`, `--radius-md`, `--color-focus` |
+| Reduced-motion handling | every animated/transformed element uses `motion-safe:` guards |
+| iOS safe-area | container paddings read `env(safe-area-inset-bottom/right)` |
+| Rendered browser QA (desktop 1440 / tablet 768 / mobile 375) | **unverified** — no browser or automation launched |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+## Sprint 5.6 — Live chat demo widget (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **439/439** across 24 files (+7 new in `LiveChatWidget.test.tsx`) |
+| `npm run build` | pass — 235 supported static route entries + 404 (unchanged — widget mounts globally) |
+| Launcher labelled + collapsed by default | asserted |
+| Dialog opens on click; demo disclosure visible | asserted |
+| Close button restores aria-expanded="false" | asserted |
+| Escape closes the panel | asserted |
+| Empty-draft submit raises inline error | asserted |
+| Visitor message echoed locally + "NOT delivered" system reply | asserted |
+| No "online now" / "message sent" / "agent is available" copy | asserted |
+| Provider / backend | **none configured** — frontend-only demo |
+| Rendered browser QA | **unverified** — no dev server or automation launched |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+### Remaining integration requirements
+
+- Chat provider contract and credentials (Intercom / Crisp / Drift / Zendesk / LiveChat / etc.) — not supplied in this session.
+- Replace the local send handler with the provider's send API, gated by a build-flag or env var.
+- Remove / gate the "nothing is sent" disclosures once real delivery is wired.
+
+## Sprint 5.5.15 — Ann Arbor service-area child pages (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **432/432** across 23 files (+47 vs Sprint 5.5.14: 45 per-slug + 1 CTA + 1 static-generation parameter + invariant move) |
+| `npm run build` | pass — **235** supported static route entries + 404 (193 → 235, +42) |
+| Generated-route verification | `dist/ann-arbor/service-area/` → 45 city entries + `index.html` (46 total); `dist/404.html` preserved |
+| Duplicate paths | none — `staticRoutes()` set size equals array length (asserted) |
+| H1 per child | 45 Ann Arbor new H1 checks; previously-added Nashville 15, Lansing 6, Cincinnati 12, Cleveland 27, Grand Rapids 25 preserved |
+| CTA routing | Ann Arbor child → `/free-estimate` (fallback — Ann Arbor has no `hasFreeEstimate` capability) |
+| 404 behavior | unknown child slug + market without `hasServiceAreaIndex` continue to resolve to Not Found |
+| Rendered browser QA (desktop/mobile) | **unverified** — no dev server or automation launched |
+| Live reference inspection | **not performed** — route inventory remains data-derived from `serviceAreas.ts` |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+## Sprint 5.5.14 — Cincinnati, Cleveland & Grand Rapids child pages (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **385/385** across 23 files (+71 vs Sprint 5.5.13: 11+25+22 per-slug + 3 CTA + 3 static-generation parameters, plus the invariant-move) |
+| `npm run build` | pass — **193** supported static route entries + 404 (135 → 193, +58 total) |
+| Generated-route verification | `dist/cincinnati/service-area/` → 12 cities + index; `dist/cleveland/service-area/` → 27 cities + index; `dist/grand-rapids/service-area/` → 25 cities + index |
+| Duplicate paths | none — `staticRoutes()` set size equals array length (asserted) |
+| H1 per child | 11 Cincinnati + 25 Cleveland + 22 Grand Rapids new H1 checks via `it.each`; existing Nashville 15 + Lansing 6 preserved |
+| CTA routing | Cincinnati → `/cincinnati/free-estimate`; Cleveland → `/cleveland/free-estimate`; Grand Rapids fallback → `/free-estimate` |
+| 404 behavior | unknown child slug + market without `hasServiceAreaIndex` continue to resolve to Not Found |
+| Rendered browser QA (desktop/mobile) | **unverified** — no dev server or automation launched |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+## Sprint 5.5.13 — Lansing + Nashville service-area child pages (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — **314/314** across 23 files (new file: `ServiceAreaChildPage.test.tsx` with 25 assertions; `LocationServiceAreaPage.test.tsx` updated to reflect expanded `serviceAreaChildren`) |
+| `npm run build` | pass — **135** supported static route entries + 404 (120 → 135: +12 Nashville + 3 Lansing child routes) |
+| Generated-route verification | `dist/nashville/service-area/{15 slugs}/index.html` present; `dist/lansing/service-area/{6 slugs}/index.html` present; no duplicate paths |
+| H1 per child | asserted per slug via `it.each`: Nashville 15 + Lansing 6 = 21 H1 checks |
+| Breadcrumb navigation | parent service-area index and location hub links assert against `/nashville/service-area/` and `/nashville/` |
+| CTA routing | Nashville child → `/nashville/free-estimate` (has `hasFreeEstimate`); Lansing child → `/free-estimate` fallback |
+| Service list | all five global service slugs (`roofing`, `gutters`, `siding`, `windows`, `masonry`) link out as `/${slug}` |
+| 404 behavior | unknown child slug and market without `hasServiceAreaIndex` both resolve to Not Found |
+| Rendered browser QA (desktop/mobile) | **unverified** — no dev server or automation launched |
+| Deploy preview / Pages | **not run** — sprint explicitly forbids commit, push, deploy |
+
+## Sprint 8.5 — Full UX / Responsive / Functional QA (2026-10-22)
+
+### 1. Verified pass (automated or source audit)
+
+| Check | How verified | Result |
+|---|---|---|
+| `npm run lint` | ran | pass — no warnings |
+| `npm run typecheck` | ran — `tsc -b --noEmit` | pass |
+| `npm test` | ran | pass — **285/285** across 22 files (+2 vs Sprint 8: new `navigation-integrity.test.ts`) |
+| `npm run build` | ran | pass — 120 supported static route entries + 404 (unchanged from Sprint 8) |
+| No `href="#"` placeholders | `rg 'href="#"\|to="#"' src` | zero matches |
+| No raw `<a href="/…">` to internal paths (should be `<Link>`) | `rg '<a href="/[a-z]' src` | zero matches |
+| Primary nav → static-route coverage | `navigation-integrity.test.ts` | every non-external nav path matches `staticRoutes()` |
+| Utility/legal route coverage | `navigation-integrity.test.ts` | all 17 expected paths enumerated |
+| Static-route uniqueness | `UtilityAndLegalPages.test.tsx` | no duplicates |
+| Blog dynamic routing | `BlogPages.test.tsx` | valid slug renders; unknown slug → 404 |
+| `/billpay` renders no payment form or card/bank inputs | `UtilityAndLegalPages.test.tsx` | passes |
+| `/visualizer` declares no hosted tool | `UtilityAndLegalPages.test.tsx` | passes |
+| Legal pages carry demo chip + legal-counsel disclaimer | `UtilityAndLegalPages.test.tsx` | passes |
+| Form validation (estimate, referral) | existing tests | passes |
+| MobileNav drawer | existing tests | passes |
+| Reviews carousel keyboard / swipe / autoplay / reduced-motion | existing tests | passes |
+
+### 2. Verified failure and fix
+
+None in this sprint — the audit surfaced no source-visible defects that warranted a code fix. New automated coverage was added for the navigation-integrity audit itself.
+
+### 3. Not tested / unavailable
+
+| Area | Reason |
+|---|---|
+| Rendered browser QA at 375 / 768 / 1440 widths | no browser automation (Playwright, Chrome DevTools MCP, built-in browser pane, Chrome extension) available in this session |
+| Runtime console errors / failed network requests | would require a running browser; not collected |
+| Lighthouse / performance scores | not collected; no claim made |
+| Color-contrast measurement | not measured; design-token work tracked in `DESIGN_TOKENS.md` |
+| Keyboard-focus visual trace | focus styles exist on `<Button>` and `<SmartLink>` but not visually captured this session |
+
+### 4. Remaining product / content limitations (not visual bugs)
+
+- Legal pages (`/privacy-policy`, `/terms-and-conditions`) are non-final demo placeholders; must be reviewed and replaced by the client's legal counsel before production.
+- Blog articles are demonstration content (each flagged with a "Demo article" chip and body disclaimer); replace with real editorial content before launch.
+- `/billpay` payment-processor URL and `/visualizer` tool URL are intentionally not fabricated; they show an "awaiting client-supplied destination" state until the client supplies verified URLs.
+- `/crew` remains an `ExternalEntryPage` with no verified portal URL, and is `noindex`.
+- Free-estimate and referral forms are frontend-only; UI states this explicitly.
+- Reference content fidelity: no reference pages were fetched in this session, so no page claims exact-text reference parity. Prior sprints' typed content (reviews, service pages, roofing details) was reused unchanged.
+
+## Sprint 8 — Utility, Legal & Missing-Route Audit (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — 283/283 across 21 files (new file: `UtilityAndLegalPages.test.tsx` with 7 assertions) |
+| `npm run build` | pass — 120 supported static route entries + 404 (119 → 120: +1 for `/terms-and-conditions`) |
+| Pay My Bill | H1 renders; no `<form>` element on the page; no inputs match `card / cc- / cvc / cvv / routing / account`; "awaiting client-supplied destination" status visible; shared demo contact exposed |
+| Visualizer | H1 renders; "does not host or integrate one" declaration visible; "awaiting client-supplied destination" status visible; Free Estimate CTA → `/free-estimate` |
+| Privacy Policy | H1 renders with "Demo placeholder — not legal advice" chip; "must be reviewed and replaced by the client's legal counsel" disclaimer visible; `noindex` |
+| Terms and Conditions | H1 renders with "Demo placeholder — not legal advice" chip; same legal-counsel disclaimer; `noindex`; route newly added |
+| Static-route audit | `staticRoutes()` includes all audited utility + legal + company routes; no duplicates; previously-tested `/blog/placeholder-article-1` still present |
+| Internal-link audit | footer bottom bar now lists both Privacy Policy and Terms & Conditions; nav/footer existing links to `/billpay`, `/visualizer`, `/privacy-policy` all resolve to completed pages |
+| Rendered browser QA (desktop/mobile) | **unverified** — no dev server or automation launched |
+| Deploy preview / Pages | **not run** — Sprint 8 explicitly forbids commit, push, deploy |
+
+## Sprint 7.5 — Blog & Article Pages (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — 276/276 across 20 files (new file: `BlogPages.test.tsx` with 8 assertions) |
+| `npm run build` | pass — 119 supported static route entries + 404 (115 → 119: +4 article data entries, same template) |
+| Blog listing | single H1, one card per `listArticleSummaries()` entry, each chip-flagged "Demo article", "Read more" → `/blog/${slug}` |
+| Blog article | title + category + formatted date, demo chip, non-advice disclaimer, breadcrumb back → `/blog`, related posts render, unknown slug → 404 |
+| Internal links | all article `href`s resolve to typed slugs; no `#` placeholders; no external `http(s)` links introduced |
+| Rendered browser QA (desktop/mobile) | **unverified** — no dev server or automation launched |
+| Deploy preview / Pages | **not run** — Sprint 7.5 explicitly forbids commit, push, deploy |
+
+## Sprint 7 — Commercial Projects & Sales Careers (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — 268/268 across 19 files (new file: `CommercialAndCareersPages.test.tsx` with 9 assertions) |
+| `npm run build` | pass — 115 supported static route entries + 404 (unchanged; both routes were upgrades) |
+| Commercial Projects | single H1; honest-empty-state gallery disclaimer visible; links to `/roofing/commercial-roofing` + `/free-estimate`; no `http(s)` external hrefs |
+| Sales Careers | single H1; "no openings listed" + "no application accepted" disclaimers visible; "no specific salary ... benefits package" statement present; Contact Us CTA → `/contact-us`; no external ATS links |
+| Static-route count | 115 + 404 — unchanged (routes were in-place upgrades of existing scaffolds) |
+| Rendered browser QA (desktop/mobile) | **unverified** — no dev server or automation launched |
+| Deploy preview / Pages | **not run** — Sprint 7 explicitly forbids commit, push, deploy |
+
+## Sprint 6.5 — Company & Customer Pages (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — 259/259 across 18 files (new file: `CompanyPages.test.tsx` with 15 assertions) |
+| `npm run build` | pass — 115 supported static route entries + 404 (unchanged from Sprint 6; routes were upgrades) |
+| About | single H1, services callout links to `/${service.slug}` hubs, Free Estimate CTAs resolve to `/free-estimate` |
+| Special Offers | single H1, "have not been independently verified" disclaimer visible, every offer card chip-labelled "Demo placeholder", "does not operate" notice present |
+| Financing | single H1, three-step overview rendered, "No live application" + "does not quote rates" disclosures visible, no APR / lender name presented |
+| Warranties | single H1, "Manufacturer warranties" and "Workmanship" category headings present, "does not quote a coverage duration" + "does not issue coverage" disclaimers visible |
+| Reviews | single H1, 9 star-rating images render (one per `reviews` entry), "does not aggregate reviews" + "external review platforms ... omitted" notices visible, no external `http(s)` links on the page |
+| Static-route count | 115 + 404 — unchanged (routes were in-place upgrades of existing scaffolds) |
+| Internal-link audit | All page CTAs resolve to `/free-estimate`; About services callout resolves to `/${service.slug}` hubs; no broken `#` placeholders |
+| Rendered browser QA (desktop/mobile) | **unverified** — no dev server or automation launched |
+| Deploy preview / Pages | **not run** — Sprint 6.5 explicitly forbids commit, push, deploy |
+
+## Sprint 6 — Contact Us + Refer a Friend (2026-10-22)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — no warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — 244 tests across 17 files (new: `ContactUsPage.test.tsx` 5, `ReferAFriendPage.test.tsx` 8) |
+| `npm run build` | pass — 115 supported static route entries + 404 (previously 114) |
+| ContactUsPage tests | single H1; demo phone+email `tel:`/`mailto:`; Free Estimate CTA → `/free-estimate`; demo-contact disclaimer visible; service-area list links to `/{slug}/` |
+| ReferAFriendPage tests | single H1; three-step headings; reward/terms disclaimer; Free Estimate CTA → `/free-estimate`; empty-submit raises required-field errors on all required fields; invalid email rejected; demo disclaimer visible; valid submit → "referral captured" success state with no-transmission notice |
+| Rendered browser QA (desktop/mobile) | **unverified** — no dev server or automation launched in this session |
+| Deploy preview / Pages | **not run** — Sprint 6 explicitly forbids commit, push, deploy |
+
 ## Sprint 5.5.12 — Location service-area index pages (2026-10-21)
 
 Lint, typecheck, 231 tests across 15 files and production build (114 static entries + 404) all passed after implementation. New `LocationServiceAreaPage.test.tsx` adds data-coverage, body-rendering (×6), compass-direction heading (×6), final-CTA resolution per availability (scoped free-estimate vs `#estimate` anchor), child-link vs plain-text policy, and Not-Found guards. Rendered browser verification is not available in this session; HTTP 200 and bundle-string probes are not substituted. Deployment pending explicit approval per the Sprint 5.5.12 workflow. See `docs/ROUTE_INVENTORY.md` Sprint 5.5.12 block.
