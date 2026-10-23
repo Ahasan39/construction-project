@@ -39,6 +39,33 @@ const PayMyBillPage = lazy(() => import("@/pages/PayMyBillPage"));
 const VisualizerPage = lazy(() => import("@/pages/VisualizerPage"));
 const GalleryPage = lazy(() => import("@/pages/GalleryPage"));
 
+/* -------------------------------------------------------------------------
+ * Admin area (Sprint 6.1). Mounted at /admin with its own layout — does NOT
+ * inherit the public AppShell. All admin pages apply <meta name="robots"
+ * content="noindex,nofollow"> via useNoIndex() and are excluded from
+ * staticRoutes(), so GitHub Pages ships no admin HTML entries for crawlers.
+ * No real backend, no real auth: the UI is a review-ready preview of the
+ * CMS that the Laravel + MySQL sprint will wire up.
+ * ------------------------------------------------------------------------- */
+const AdminLayout = lazy(() => import("@/admin/AdminLayout"));
+const AdminDashboard = lazy(() => import("@/admin/pages/DashboardPage"));
+const AdminPagesList = lazy(() => import("@/admin/pages/PagesListPage"));
+const AdminHomepageEditor = lazy(() => import("@/admin/pages/HomepageEditorPage"));
+const AdminServices = lazy(() => import("@/admin/pages/ServicesPage"));
+const AdminLocations = lazy(() => import("@/admin/pages/LocationsPage"));
+const AdminGallery = lazy(() => import("@/admin/pages/GalleryPage"));
+const AdminBlog = lazy(() => import("@/admin/pages/BlogPage"));
+const AdminTestimonials = lazy(() => import("@/admin/pages/TestimonialsPage"));
+const AdminNavigation = lazy(() => import("@/admin/pages/NavigationPage"));
+const AdminLeads = lazy(() => import("@/admin/pages/LeadsPage"));
+const AdminSeo = lazy(() => import("@/admin/pages/SeoPage"));
+const AdminMarketing = lazy(() => import("@/admin/pages/MarketingPage"));
+const AdminSettings = lazy(() => import("@/admin/pages/SettingsPages").then((m) => ({ default: m.SettingsGeneralPage })));
+const AdminSettingsBranding = lazy(() => import("@/admin/pages/SettingsPages").then((m) => ({ default: m.SettingsBrandingPage })));
+const AdminSettingsContact = lazy(() => import("@/admin/pages/SettingsPages").then((m) => ({ default: m.SettingsContactPage })));
+const AdminSettingsNotifications = lazy(() => import("@/admin/pages/SettingsPages").then((m) => ({ default: m.SettingsNotificationsPage })));
+const AdminSettingsUsers = lazy(() => import("@/admin/pages/SettingsPages").then((m) => ({ default: m.SettingsUsersPage })));
+
 /**
  * Dev-only preview. Guarded by `import.meta.env.DEV`, which Vite rewrites to a
  * literal `false` in production — the branch and the dynamic import both get
@@ -64,6 +91,35 @@ function L({ children }: { children: ReactNode }) {
  * `/:a/:b`.
  */
 export const router = createBrowserRouter([
+  /* Admin — Sprint 6.1. A top-level sibling of "/" so it does NOT inherit the
+     public AppShell (SiteHeader/SiteFooter/LiveChat/etc.). All admin pages add
+     <meta name="robots" content="noindex,nofollow"> via useNoIndex() and are
+     excluded from staticRoutes(), so GitHub Pages ships no admin HTML entries
+     for crawlers to find. */
+  {
+    path: "/admin",
+    element: <L><AdminLayout /></L>,
+    children: [
+      { index: true, element: <L><AdminDashboard /></L> },
+      { path: "pages", element: <L><AdminPagesList /></L> },
+      { path: "pages/homepage", element: <L><AdminHomepageEditor /></L> },
+      { path: "services", element: <L><AdminServices /></L> },
+      { path: "locations", element: <L><AdminLocations /></L> },
+      { path: "gallery", element: <L><AdminGallery /></L> },
+      { path: "blog", element: <L><AdminBlog /></L> },
+      { path: "testimonials", element: <L><AdminTestimonials /></L> },
+      { path: "navigation", element: <L><AdminNavigation /></L> },
+      { path: "leads", element: <L><AdminLeads /></L> },
+      { path: "seo", element: <L><AdminSeo /></L> },
+      { path: "marketing", element: <L><AdminMarketing /></L> },
+      { path: "settings/general", element: <L><AdminSettings /></L> },
+      { path: "settings/branding", element: <L><AdminSettingsBranding /></L> },
+      { path: "settings/contact", element: <L><AdminSettingsContact /></L> },
+      { path: "settings/notifications", element: <L><AdminSettingsNotifications /></L> },
+      { path: "settings/users", element: <L><AdminSettingsUsers /></L> },
+      { path: "*", element: <L><AdminDashboard /></L> },
+    ],
+  },
   {
     path: "/",
     element: <AppShell />,

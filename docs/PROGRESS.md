@@ -1,5 +1,166 @@
 # Progress Log
 
+## Sprint 6.3 — Admin Panel Audit, Responsive QA & Final Polish (2026-10-23)
+
+Audit sweep of the Sprint 6.2 admin panel. No new routes, no new deps, no restructuring. Fixes only where a genuine issue existed, plus a documented backend-readiness report.
+
+### Audit findings & fixes
+
+- **SearchFilterBar wrapping** ([src/admin/components.tsx](../src/admin/components.tsx)): with ≥ 3 filters (as on `/admin/leads`) the row crammed on `sm` widths and clipped select labels. Added `sm:flex-wrap`, gave the search input a `min-w-[200px]` and `sm:basis-64` so it doesn't collapse, capped filter selects at `max-w-[180px]`, and bumped the toolbar to match other surfaces (`rounded-xl shadow-sm`).
+- **Mobile nav aria-expanded** ([src/admin/AdminTopbar.tsx](../src/admin/AdminTopbar.tsx)): the trigger button previously hard-coded `aria-expanded={false}`. Now receives the live `navOpen` state and declares `aria-controls="admin-sidebar-nav"` pointing at the drawer's `<nav>` element, so assistive tech knows the trigger controls the drawer and whether it is open.
+- Confirmed every listing page (`/admin/pages`, `/admin/services`, `/admin/locations`, `/admin/gallery`, `/admin/blog`, `/admin/testimonials`, `/admin/leads`, `/admin/seo`) wraps its table in `DataTable`'s `overflow-x-auto` container, so no page-wide horizontal scroll is possible — the table scrolls internally. Long cell content is bounded with `max-w-*` + `truncate` / `line-clamp` where it matters.
+- Confirmed modal body-scroll-lock + `max-h-[92dvh]` from Sprint 6.2 covers every create/edit/delete dialog across all modules.
+- Confirmed admin routes stay excluded from `staticRoutes()`, `useNoIndex` still runs on every admin page, and `robots.txt` still carries `Disallow: /admin/`. The existing `admin.test.tsx` asserts the staticRoutes exclusion.
+
+### Backend-readiness documentation
+
+- New: [docs/BACKEND_READINESS.md](BACKEND_READINESS.md) — single-page map of every admin collection → where it lives today → what the Laravel/MySQL sprint needs to replace. Covers the context seam, per-module persistence gaps, lead ingestion path, image pipeline, auth/authz, marketing boundary (hard rule: no script injection from user input), SEO ownership, and the frontend surfaces the backend swap must *not* touch.
+
+### Verification
+
+- `npm run lint` — clean (0 errors, 0 warnings).
+- `npm run typecheck` — clean.
+- `npm test` — **497/497 passed** across 29 files. No tests weakened; the Sprint 6.2 responsive-navigation tests continue to exercise the Escape-closes + focus-restore + topbar-title path.
+- `npm run build` — clean, 236 static route entries + 404.html, **no `dist/admin/` directory emitted**.
+
+### Browser QA — honest status
+
+**Not performed in this run.** No browser automation framework is installed in this environment and I did not install one (the sprint instructions require approval for new deps). Code-level and jsdom tests cover the behaviours they can — route rendering, Escape-close + focus-restore, noindex meta injection, lead filtering, hex-colour validation, services taxonomy, absence of marketing script injection, staticRoutes isolation. A visual pass across 1920 × 1080 / 1440 × 900 / 1366 × 768 / 1024 × 768 / 768 × 1024 / 390 × 844 / 375 × 812 is still required before sign-off, and the Backend-Readiness doc flags this explicitly.
+
+### Files modified
+
+- `src/admin/components.tsx` — SearchFilterBar wrap behaviour.
+- `src/admin/AdminTopbar.tsx` — `navOpen`, `aria-expanded`, `aria-controls`.
+- `src/admin/AdminLayout.tsx` — passes `navOpen` to topbar.
+- `src/admin/AdminSidebar.tsx` — adds `id="admin-sidebar-nav"` for the `aria-controls` target.
+- `docs/BACKEND_READINESS.md` — new.
+- `docs/PROGRESS.md`, `docs/QA_REPORT.md` — updated.
+
+### Final git state
+
+Branch `main`, HEAD `eed7e2b` (unchanged). Working tree holds forward-moving edits only; no commit, push, reset, stash, or destructive op performed.
+
+## Sprint 6.2 — Admin Panel UI/UX Refinement & Responsive Optimization (2026-10-23)
+
+Visual refinement of the Sprint 6.1 admin panel into a more polished, premium SaaS CMS. No new routes, no new dependencies, no backend work.
+
+### Shell polish
+
+- `src/admin/AdminLayout.tsx`:
+  - Centered the admin workspace under a shared `max-w-[1400px]` container that matches the topbar; adds breathing room on 1920 × 1080 without over-stretching cards or forms.
+  - Added mobile body-scroll-lock while the drawer is open (gated on `matchMedia("(min-width: 1024px)")` so desktop keeps its usual behaviour and jsdom-safe).
+  - Added Escape-closes-drawer behaviour that restores focus to the sidebar trigger button (`#admin-nav-trigger`).
+  - Toast host raised to `z-[60]` so it sits above the drawer/modal stack.
+- `src/admin/AdminSidebar.tsx`:
+  - Reworked the brand block with an "MR" badge chip + consistent navy/accent palette.
+  - Active route is now indicated with both a brand-red background pill AND a left accent bar, so status does not depend on colour alone.
+  - Added a profile footer labelled "Mock" to make the no-real-auth state unmistakable.
+  - Reduced-motion safe transitions (`motion-reduce:transition-none`); overlay uses a subtle backdrop blur.
+- `src/admin/AdminTopbar.tsx`:
+  - Introduces a route-title map that surfaces the current page in the topbar (e.g. "Estimate leads", "Branding"); this doubles as a landmark for mobile where the page `<h1>` has scrolled off.
+  - Trigger button exposes `id="admin-nav-trigger"` so the Escape handler can restore focus to it.
+  - Hidden search on narrow viewports, visible user chip only ≥ md to stop crowding the mobile bar.
+
+### Component system
+
+- `components.tsx`:
+  - `PageHeader` wraps actions on narrow viewports and keeps them right-aligned on `lg+`.
+  - `StatCard` gained an optional small icon slot (brand-neutral SVG, tone-coloured chip) and an optional trend indicator; icon colour reflects the card tone so warning/success/accent cards stay visually consistent.
+  - `DataTable` tightened header typography, kept header cells `whitespace-nowrap` to avoid awkward wrapping, raised row corners to `rounded-xl` to match other surfaces.
+  - `Modal` now locks body scroll while open and caps height at `92dvh` so tall edit dialogs stay fully usable on short mobile viewports.
+- `pages/DashboardPage.tsx`: KPI cards now carry icons, use consistent tone pairings, and the hint lines stay compact on `sm` sizes.
+- `pages/LeadsPage.tsx`: duplicated the table into a stacked card list for `< sm`; the data table is only rendered at `sm+`. Prevents horizontal overflow on 375 × 812.
+
+### Public-site preservation
+
+- `/admin` is still excluded from `staticRoutes()`; the production build generates no `dist/admin/` folder (verified by `admin.test.tsx` and by inspecting `dist/`).
+- `useNoIndex` continues to inject `<meta name="robots" content="noindex,nofollow">` for every admin page.
+- `public/robots.txt` continues to carry `Disallow: /admin/`.
+- No public component, test, data file, route, or SEO behaviour was changed.
+
+### Verification
+
+- `npm run lint` — clean (0 errors, 0 warnings).
+- `npm run typecheck` — clean.
+- `npm test` — **497/497 passed** across 29 files; 2 new admin responsive-navigation tests added (Escape-close + focus restore, topbar route title).
+- `npm run build` — clean, 236 static route entries + 404.html, no admin HTML entries generated.
+- Browser QA with a real browser: **not performed in this run** — no browser automation is installed in this environment. Code-level checks and jsdom tests substitute where possible; a visual pass across 1920×1080 / 1440×900 / 1366×768 / 1024×768 / 768×1024 / 390×844 / 375×812 is still required before sign-off. The responsive design was built against those viewports but has not been visually confirmed.
+
+### Files modified
+
+- `src/admin/AdminLayout.tsx`
+- `src/admin/AdminSidebar.tsx`
+- `src/admin/AdminTopbar.tsx`
+- `src/admin/components.tsx`
+- `src/admin/pages/DashboardPage.tsx`
+- `src/admin/pages/LeadsPage.tsx`
+- `src/admin/admin.test.tsx`
+- `docs/PROGRESS.md`, `docs/QA_REPORT.md`
+
+### Known limitations carried forward
+
+- Still mock data only; no persistence across reloads.
+- Real authentication, image upload, lead ingestion, and tracking-script loading remain for the Laravel/MySQL sprint.
+- Visual browser QA has not been performed; the ten listed viewports should be inspected manually before sign-off.
+
+## Sprint 6.1 — Admin Panel UI/UX for Mr. Roof Website CMS (2026-10-23)
+
+Frontend-only build of the website CMS admin dashboard. Mock data, local in-memory state, no Laravel or MySQL yet.
+
+### Scope delivered
+
+- **AdminLayout, AdminSidebar, AdminTopbar** at `src/admin/`. Mounted as a top-level `/admin` route (sibling of the public `AppShell`) so admin pages never inherit the public header, footer, offer popup, or live-chat widget.
+- 17 admin page components across all required modules:
+  - `/admin` — Dashboard with stat cards, recent enquiries, setup checklist, quick actions.
+  - `/admin/pages` — Page list; `/admin/pages/homepage` — Homepage editor with validation, preview, and in-memory hero image preview.
+  - `/admin/services` — Service CRUD UI.
+  - `/admin/locations` — Service location management UI (edit SEO fields, preview link).
+  - `/admin/gallery` — Project gallery with grid/list toggle, create/edit/delete, featured flag.
+  - `/admin/blog` — Post management (create/edit/delete with validation).
+  - `/admin/testimonials` — Testimonial management with sample-content labelling.
+  - `/admin/navigation` — Header/About/footer link editor.
+  - `/admin/leads` — Estimate enquiries with filters, pagination, status updates, detail drawer.
+  - `/admin/seo` — Global SEO defaults, per-page SEO editor.
+  - `/admin/marketing` — Meta Pixel, GTM, GA4, Search Console configuration cards.
+  - `/admin/settings/general|branding|contact|notifications|users` — Site-wide settings.
+- Reusable admin UI (`src/admin/components.tsx`): `PageHeader`, `Breadcrumbs`, `StatCard`, `DataTable` (sortable), `SearchFilterBar`, `StatusBadge`, `FormField`, `Modal`, `ConfirmDialog`, `EmptyState`, `IntegrationCard`, `ImagePreview`, `Toggle`, `Pagination`, `AdminButton`, `TextInput`, `TextArea`, `SelectInput`, `FileInput`. Toast feedback is rendered globally by the layout.
+- Context-based mock store in `src/admin/store.tsx` seeded from live project data (`src/data/services`, `src/data/locations`, `src/data/galleryProjects`, `src/data/brand`). Writes persist for the current session only.
+
+### Public SEO & safety
+
+- Admin routes are **not** added to `staticRoutes()` — no `/admin/` HTML entries are emitted by the build. On GitHub Pages the SPA shell at `404.html` boots the admin UI for direct `/construction-project/admin/*` requests.
+- `useNoIndex` injects `<meta name="robots" content="noindex,nofollow">` at runtime for every admin page and restores the public state on unmount.
+- `public/robots.txt` now carries an explicit `Disallow: /admin/`.
+- Marketing module never injects `<script>` tags, never evaluates user input, never fires real tracking events. Configuration is saved as a visibly labelled draft, not a verified live connection.
+- No real authentication is implied; the Users page carries a sticky banner stating "no authentication yet".
+- Branding, logo, and favicon uploads are **in-memory data URLs only** — nothing is sent to a server.
+
+### Verification
+
+- `npm run lint` — clean (0 errors, 0 warnings).
+- `npm run typecheck` — clean (`tsc -b --noEmit`).
+- `npm test` — **495/495 passed** across 29 files, including 8 new admin-area tests covering routing, noindex meta, form validation, lead filtering, marketing-script absence, hex-color validation, and public SEO isolation.
+- `npm run build` — clean, 236 static route entries + 404.html; **no admin entries** generated in `dist/`.
+
+### Known limitations
+
+- All admin data is sprint-6.1 mock state. Edits do not update the public site and do not persist across page reloads.
+- No real authentication, authorization, or audit log.
+- Marketing/Search Console integrations save draft intent only — no scripts load, no handshake with external services.
+- Browser QA not performed in this run; the admin layout is designed to work at 375 × 812, 768 × 1024, 1024 × 768, and 1440 × 900 and should be verified visually before sign-off.
+- Future Laravel/MySQL phase must provide: persistence API behind the existing store seams, authenticated admin sign-in, image upload + CDN, real lead ingestion, live tracking script loading with consent gating, and sitemap/robots regeneration based on CMS state.
+
+### Files added
+
+- `src/admin/{types,mockData,store,useNoIndex,components,AdminLayout,AdminSidebar,AdminTopbar}.(ts|tsx)`
+- `src/admin/pages/{DashboardPage,PagesListPage,HomepageEditorPage,ServicesPage,LocationsPage,GalleryPage,BlogPage,TestimonialsPage,NavigationPage,LeadsPage,SeoPage,MarketingPage,SettingsPages}.tsx`
+- `src/admin/admin.test.tsx`
+
+### Files modified
+
+- `src/app/router.tsx` — added `/admin` top-level route with 17 child entries.
+- `public/robots.txt` — explicit `Disallow: /admin/`.
+
 ## Sprint 5.22 — Simplify Main Header and Improve Navigation Balance (2026-10-22)
 
 - Baseline: branch `main` at `1dcd63f`; all prior uncommitted sprint modifications (Sprints 5.10–5.21) preserved. Strictly no commit, push, deploy, reset, stash, or destructive cleanup.

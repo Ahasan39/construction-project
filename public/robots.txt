@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
 # Public demo: every HTML entry and client route has noindex,nofollow metadata.
 # Allow crawling so compliant crawlers can read that metadata. This file is
 # served below the repository base; it is not an origin-wide indexing control.
+# /admin/ hosts the Sprint 6.1 CMS UI (no backend, mock data only); no HTML
+# entry is generated for it, and all admin routes set noindex at runtime.

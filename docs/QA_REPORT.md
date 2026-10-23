@@ -2,6 +2,73 @@
 
 A living record of every verification performed. Checks are not marked passed unless they were actually run.
 
+## Sprint 6.3 — Admin Panel Audit, Responsive QA & Final Polish (2026-10-23)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — 0 errors, 0 warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — 497/497 across 29 files; no tests weakened or removed |
+| `npm run build` | pass — 236 static entries + 404.html, no `dist/admin/` emitted |
+| Admin excluded from `staticRoutes()` | verified by existing `admin.test.tsx` assertion |
+| `useNoIndex` meta injection | preserved |
+| `robots.txt` `Disallow: /admin/` | preserved |
+| SearchFilterBar wrapping on narrow with ≥ 3 filters | fixed and re-tested (filters wrap, search keeps min-width) |
+| Mobile nav trigger `aria-expanded` reflects state | fixed — `AdminTopbar` now receives live `navOpen` |
+| `aria-controls` wired from topbar trigger to sidebar `<nav>` | added — `admin-sidebar-nav` |
+| Modal body-scroll-lock + `max-h-[92dvh]` | still in place from Sprint 6.2, applies across all modules |
+| Table page-wide horizontal overflow | not possible: `DataTable` wraps in `overflow-x-auto`; long cell content bounded with `max-w-*` + truncate/line-clamp |
+| Backend-readiness doc | added — [docs/BACKEND_READINESS.md](BACKEND_READINESS.md) |
+| Browser QA at 1920×1080 / 1440×900 / 1366×768 / 1024×768 / 768×1024 / 390×844 / 375×812 | **not performed** — no browser automation installed; a manual visual pass is still required before sign-off |
+
+### Known limitations carried forward
+
+- Visual browser QA has not been performed in this environment.
+- Mock data only; no persistence across reloads.
+- No real auth, lead ingestion, upload pipeline, or tracking-script loading. [docs/BACKEND_READINESS.md](BACKEND_READINESS.md) documents what the Laravel/MySQL sprint will need to wire.
+
+## Sprint 6.2 — Admin Panel UI/UX Refinement (2026-10-23)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — 0 errors, 0 warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — 497/497 across 29 files (two new responsive-nav tests) |
+| `npm run build` | pass — 236 static entries + 404.html, no `dist/admin/` emitted |
+| Public SEO safeguards | preserved — `staticRoutes()` excludes `/admin/*` (asserted by `admin.test.tsx`); `useNoIndex` and `robots.txt` unchanged |
+| Mobile drawer: body-scroll-lock | implemented and verified in jsdom via `admin.test.tsx` (Escape closes, focus restored to `#admin-nav-trigger`) |
+| Topbar route-aware title | asserted in `admin.test.tsx` ("Estimate leads" surfaces at `/admin/leads`) |
+| Mobile card view for Leads | implemented at `< sm`; `sm+` keeps the full data table — verified both render in tests |
+| Browser QA at 1920×1080 / 1440×900 / 1366×768 / 1024×768 / 768×1024 / 390×844 / 375×812 | **not performed** — no browser automation installed in this environment. Visual confirmation still required before sign-off |
+
+### Known limitations carried into QA
+
+- Visual browser QA has not been performed in this environment. The listed viewports should be inspected manually with the dev server before approval.
+- Mock data only; nothing persists across reloads.
+- No real auth, lead ingestion, upload pipeline, or tracking-script loading.
+
+## Sprint 6.1 — Admin Panel UI/UX for Mr. Roof Website CMS (2026-10-23)
+
+| Check | Result |
+|---|---|
+| `npm run lint` | pass — clean, 0 errors, 0 warnings |
+| `npm run typecheck` | pass — `tsc -b --noEmit` clean |
+| `npm test` | pass — 495/495 across 29 files, including 8 new admin tests |
+| `npm run build` | pass — 236 static route entries + 404.html, no `dist/admin/` emitted |
+| Admin routes rendered | `/admin`, `/admin/pages`, `/admin/pages/homepage`, `/admin/services`, `/admin/locations`, `/admin/gallery`, `/admin/blog`, `/admin/testimonials`, `/admin/navigation`, `/admin/leads`, `/admin/seo`, `/admin/marketing`, `/admin/settings/{general,branding,contact,notifications,users}` |
+| Public routes unchanged | `src/app/navigation-integrity.test.ts` still green; `staticRoutes()` carries zero `/admin/*` entries (asserted by `admin.test.tsx`) |
+| noindex meta on admin pages | asserted at runtime by `useNoIndex` hook and verified in `admin.test.tsx` |
+| robots.txt | updated — `Disallow: /admin/` added |
+| Marketing script injection | asserted absent — no `<script src>` for pixel/gtm/ga is added by the UI |
+| Browser QA at 1440×900 / 1024×768 / 768×1024 / 375×812 | **not performed in this run** — layout designed for these viewports but requires a visual pass before sign-off |
+
+### Known limitations carried into QA
+
+- Mock data only; no persistence across reloads.
+- No authentication — Users page is a visual preview.
+- Marketing/Search Console save draft intent only; no verified live connection.
+- Branding uploads are in-memory data URLs; nothing is sent to a server.
+
 ## Sprint 5.22 — Simplify Main Header and Improve Navigation Balance (2026-10-22)
 
 | Check | Result |
