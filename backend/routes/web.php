@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Web\AuthController;
+use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\MediaController;
+use App\Http\Controllers\Web\ProfileController;
 use App\Http\Controllers\Web\SettingsController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -25,9 +27,13 @@ Route::middleware('auth')->group(function (): void {
 });
 
 Route::middleware(['auth', 'active'])->prefix('admin')->group(function (): void {
-    Route::get('/', function () {
-        return Inertia::render('Admin/Dashboard');
-    })->name('admin.dashboard');
+    Route::get('/', DashboardController::class)->name('admin.dashboard');
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('admin.profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('admin.profile.update');
+    Route::put('/profile/password', [ProfileController::class, 'updatePassword'])
+        ->middleware('throttle:login')
+        ->name('admin.profile.password.update');
 
     Route::get('/users', function () {
         return Inertia::render('Admin/Users');

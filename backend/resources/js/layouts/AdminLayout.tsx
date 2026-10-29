@@ -1,5 +1,5 @@
 import { Link, router, usePage } from '@inertiajs/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 
 type SharedProps = {
@@ -60,6 +60,7 @@ const pageTitles: Array<{ match: RegExp; title: string }> = [
     { match: /^\/admin\/?$/, title: 'Dashboard' },
     { match: /^\/admin\/settings\/general$/, title: 'General settings' },
     { match: /^\/admin\/users$/, title: 'Users' },
+    { match: /^\/admin\/profile$/, title: 'Your profile' },
 ];
 
 const roleLabels: Record<string, string> = {
@@ -149,6 +150,39 @@ export function AdminLayout({ children }: { children: ReactNode }) {
         .filter((group) => group.items.length > 0);
 
     const userInitials = user ? initials(user.name) : 'AD';
+
+    const [menuOpen, setMenuOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement | null>(null);
+    const menuTriggerRef = useRef<HTMLButtonElement | null>(null);
+
+    useEffect(() => {
+        setMenuOpen(false);
+    }, [pathname]);
+
+    useEffect(() => {
+        if (!menuOpen) return;
+
+        const handleClick = (event: MouseEvent) => {
+            if (!menuRef.current?.contains(event.target as Node)) {
+                setMenuOpen(false);
+            }
+        };
+
+        const handleKey = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                setMenuOpen(false);
+                menuTriggerRef.current?.focus();
+            }
+        };
+
+        document.addEventListener('mousedown', handleClick);
+        document.addEventListener('keydown', handleKey);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClick);
+            document.removeEventListener('keydown', handleKey);
+        };
+    }, [menuOpen]);
 
     return (
         <div className="admin-root min-h-screen bg-slate-50 font-sans text-slate-800">
@@ -274,25 +308,111 @@ export function AdminLayout({ children }: { children: ReactNode }) {
                             {pageTitle(pathname)}
                         </p>
 
-                        <div className="hidden items-center gap-3 sm:flex">
-                            <div className="text-right text-xs leading-tight">
-                                <p className="font-semibold text-slate-800">{user?.name ?? 'Admin user'}</p>
-                                <p className="text-slate-500">
-                                    {user ? roleLabels[user.role] ?? user.role : 'Signed in'}
-                                </p>
-                            </div>
-                            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0f2231] text-xs font-semibold text-white">
-                                {userInitials}
-                            </span>
-                        </div>
+                        <div className="relative" ref={menuRef}>
+                            <button
+                                ref={menuTriggerRef}
+                                type="button"
+                                onClick={() => setMenuOpen((v) => !v)}
+                                aria-haspopup="menu"
+                                aria-expanded={menuOpen}
+                                aria-controls="admin-profile-menu"
+                                className="flex items-center gap-2 rounded-full border border-slate-200 bg-white py-1 pl-1 pr-3 text-left transition hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)]"
+                            >
+                                <span
+                                    aria-hidden="true"
+                                    className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0f2231] text-xs font-semibold text-white"
+                                >
+                                    {userInitials}
+                                </span>
+                                <span className="hidden text-xs leading-tight sm:block">
+                                    <span className="block max-w-[10rem] truncate font-semibold text-slate-800">
+                                        {user?.name ?? 'Admin user'}
+                                    </span>
+                                    <span className="block max-w-[10rem] truncate text-slate-500">
+                                        {user ? roleLabels[user.role] ?? user.role : 'Signed in'}
+                                    </span>
+                                </span>
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="1.75"
+                                    className="h-4 w-4 text-slate-500"
+                                    aria-hidden="true"
+                                >
+                                    <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </button>
 
-                        <button
-                            type="button"
-                            onClick={() => router.post('/admin/logout')}
-                            className="rounded-md border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)]"
-                        >
-                            Sign out
-                        </button>
+                            {menuOpen && (
+                                <div
+                                    id="admin-profile-menu"
+                                    role="menu"
+                                    aria-label="Account menu"
+                                    className="absolute right-0 top-[calc(100%+8px)] z-30 w-60 rounded-lg border border-slate-200 bg-white p-1.5 shadow-lg"
+                                >
+                                    <div className="rounded-md px-3 py-2">
+                                        <p className="truncate text-sm font-semibold text-slate-900">
+                                            {user?.name ?? 'Admin user'}
+                                        </p>
+                                        <p className="truncate text-xs text-slate-500">
+                                            {user?.email ?? ''}
+                                        </p>
+                                        <p className="mt-1 text-xs font-medium text-slate-500">
+                                            {user ? roleLabels[user.role] ?? user.role : ''}
+                                        </p>
+                                    </div>
+                                    <div className="my-1 border-t border-slate-100" />
+                                    <Link
+                                        href="/admin/profile"
+                                        role="menuitem"
+                                        onClick={() => setMenuOpen(false)}
+                                        className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)]"
+                                    >
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="1.75"
+                                            className="h-4 w-4 text-slate-500"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                d="M16 11a4 4 0 10-8 0 4 4 0 008 0z M4 20v-1a7 7 0 0116 0v1"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
+                                        Your profile
+                                    </Link>
+                                    <button
+                                        type="button"
+                                        role="menuitem"
+                                        onClick={() => {
+                                            setMenuOpen(false);
+                                            router.post('/admin/logout');
+                                        }}
+                                        className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm text-slate-700 hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)]"
+                                    >
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="1.75"
+                                            className="h-4 w-4 text-slate-500"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                d="M15 12H4 M8 8l-4 4 4 4 M14 4h4a2 2 0 012 2v12a2 2 0 01-2 2h-4"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
+                                        Sign out
+                                    </button>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </header>
 

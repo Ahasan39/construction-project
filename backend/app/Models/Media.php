@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\Storage;
 
 class Media extends Model
@@ -49,6 +50,9 @@ class Media extends Model
 
     public function getUrlAttribute(): string
     {
-        return Storage::disk($this->disk)->url($this->path);
+        /** @var FilesystemAdapter $disk */
+        $disk = Storage::disk($this->disk);
+
+        return $disk->url($this->path);
     }
 }

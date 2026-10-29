@@ -26,6 +26,8 @@ class SettingsController extends Controller
     {
         $this->settings->update($request->validated());
 
-        return back()->with('status', 'General settings saved.');
+        return redirect()
+            ->route('admin.settings.general.edit')
+            ->with('status', 'General settings saved.');
     }
 }

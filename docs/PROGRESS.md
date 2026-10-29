@@ -1,5 +1,36 @@
 # Progress Log
 
+## Sprint 7.7 (Backend) — Admin Login Polish & Profile Experience (2026-10-29)
+
+- Redesigned `/admin/login` as a two-column premium CMS layout: navy brand panel with the red accent and a slogan on desktop, compact brand lockup on mobile, refined form with inline validation styles, show/hide password toggle, loading spinner inside the submit button, double-submit guard, and an explicit note that password recovery is not available from this screen. Preserved CSRF, `throttle:login`, `redirect()->intended()`, and the existing `remember` boolean path through `Auth::attempt`.
+- Added `/admin/profile` (`GET`), `PATCH /admin/profile`, and `PUT /admin/profile/password` under `auth` + `active`. Only the user's display name is editable; email, role, permissions, `is_active`, and `email_verified_at` are read-only on the server (dedicated `UpdateProfileRequest` validates `name` only). Password change requires `current_password`, enforces `Password::defaults()` with confirmation, and is throttled with the shared `login` rate limiter.
+- Audit entries added: `profile.updated` (records only the names of the fields that changed) and `profile.password_changed` (no password material). Both reuse `AuditLogger`, which already redacts password/token keys defensively.
+- Rebuilt the Inertia Profile page with two cards: profile details (editable name; read-only email/role/status/last sign-in) and change-password (current + new + confirm, each with a show/hide eye toggle and `aria-invalid` wiring). Success feedback uses the existing shared `flash.status` channel surfaced by `AdminLayout`.
+- Polished the authenticated header: replaced the plain avatar + sign-out button with an accessible profile dropdown — initials-only avatar, name, role, email preview, Your profile link, and sign-out item. Dropdown closes on outside click, Escape, and route change; focus returns to the trigger on Escape.
+- Added `WebProfileTest` with 8 cases: guest redirects, own-data isolation, valid update + audit, invalid name rejection, mass-assignment protection on role/is_active/email, wrong current password rejection, confirmation mismatch rejection, and successful password change + audit.
+- Also fixed an Intelephense "Undefined method 'url'" warning on the `Media` model by hinting `Storage::disk()` as a `FilesystemAdapter`. No behaviour change.
+
+### Verification
+
+- Backend: `php artisan test` — **69 passed, 418 assertions** (was 61/363; +8 new profile tests).
+- Backend: `vendor/bin/pint --test` — clean.
+- Backend: `npm run build` — clean, 609 modules; manifest adds `Profile` chunk; `AdminLayout`/`Login` chunks regenerated.
+- Root frontend untouched; no root checks needed. No DB schema changes. GitHub Pages demo unaffected.
+- Browser QA: not performed; no browser automation available in this environment.
+
+## Sprint 7.6 (Backend) — Admin Dashboard UI Parity (2026-10-29)
+
+- Replaced the placeholder `/admin` Inertia closure with an invokable `DashboardController` that gathers summaries only for permissions the signed-in user actually holds: user counts (`users.view`), media count (`media.upload`), audit totals + 6 most recent entries (`audit.view`), and a General Settings completion checklist (`settings.view`). Session panel surfaces `last_login_at`.
+- Rebuilt the Dashboard Inertia page with a 4-up stat row (icon tiles with brand red/muted tones), a two-column body (recent activity + truthful module-status checklist on the left; session, setup checklist, and quick links on the right). Unfinished modules render an amber "Coming in a later sprint" badge rather than a tempting dead link.
+- Added `WebDashboardTest` covering admin, viewer, and editor payload-shape expectations.
+
+### Verification
+
+- Backend: `php artisan test` — 61 passed, 363 assertions.
+- Backend: `vendor/bin/pint --test` — clean.
+- Backend: `npm run build` — clean.
+- Browser QA: not performed; manual QA steps supplied with the sprint report.
+
 ## Sprint 7.5 (Backend) — Inertia Admin Layout & General Settings (2026-10-29)
 
 - Replaced the minimal authenticated Inertia shell with a responsive admin layout: fixed desktop sidebar, mobile drawer with body-scroll lock and Escape/focus restore, permission-aware navigation, sticky topbar, user/role chip, CSRF-protected sign-out, and shared flash messages.
