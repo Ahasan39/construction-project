@@ -65,13 +65,21 @@ A real pipeline needs:
 
 ## 5. Authentication & authorisation
 
-The admin UI assumes **no auth** and renders a visible "Mock" badge in the sidebar footer and a sticky banner on `/admin/settings/users`. Required for production:
+The public GitHub Pages admin still assumes **no auth** and renders a visible "Mock" badge in the sidebar footer and a sticky banner on `/admin/settings/users`. The Laravel-served admin foundation now has:
 
-- Session-backed login (admin only).
-- CSRF protection on every mutating endpoint.
-- Role model (owner / editor / viewer) matching the Users page preview.
-- Audit log of every write (page edit, lead status change, marketing config change).
-- Route guard on both server and client. The current route-level `useNoIndex` is defence-in-depth, not an auth boundary.
+- Session-backed login at `/admin/login` with CSRF protection and login rate limiting.
+- Server-side active-user and permission checks on protected admin routes.
+- Role model `super_admin`, `admin`, `editor`, and `viewer`.
+- Audit entries for web login and logout; API writes are already audited.
+- Responsive Inertia admin layout with permission-aware navigation.
+- Database-backed General Settings at `/admin/settings/general` with server validation, audited saves, and logo/favicon uploads through `/admin/media`.
+
+Still required for production:
+
+- Migrate the remaining admin modules from the mock store to Laravel/Inertia.
+- Add a server-side route guard for every remaining migrated admin page.
+- Verify production mail delivery before adding web password recovery.
+- Keep client-side `useNoIndex` as defence-in-depth, not an auth boundary.
 
 ## 6. Marketing / tracking boundary
 

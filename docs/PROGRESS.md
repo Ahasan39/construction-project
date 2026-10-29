@@ -1,5 +1,24 @@
 # Progress Log
 
+## Sprint 7.5 (Backend) — Inertia Admin Layout & General Settings (2026-10-29)
+
+- Replaced the minimal authenticated Inertia shell with a responsive admin layout: fixed desktop sidebar, mobile drawer with body-scroll lock and Escape/focus restore, permission-aware navigation, sticky topbar, user/role chip, CSRF-protected sign-out, and shared flash messages.
+- Added a database-backed General Settings module at `GET|PUT /admin/settings/general`, backed by the existing `site_settings` singleton. It covers identity, website/locale/timezone, CTA and estimate destination, contact details, address, business hours, social profiles, logo/favicon media references, and brand colors.
+- Extracted `SiteSettingService` so the Sanctum API and web admin share the same validation, media-purpose checks, transaction, singleton handling, and `settings.updated` audit behaviour.
+- Added `POST /admin/media` for authenticated logo/favicon uploads using the existing GD re-encoding media service and `media.upload` permission.
+- Added `WebSettingsTest` coverage for guest redirects, viewer read-only access, admin persistence/audit, validation errors, and web media upload permissions.
+- Preserved the independent GitHub Pages build and existing `/api/v1` endpoints. No commit, push, deploy, production migration, or destructive Git operation performed.
+
+### Verification
+
+- Backend: `php artisan test` — **58 passed, 310 assertions**.
+- Backend: `vendor/bin/pint --test` — clean.
+- Backend: `npm run build` — clean, 609 modules; manifest includes `AdminLayout`, `Dashboard`, `Users`, `General`, `Login`, and `InertiaCheck`.
+- Root: `npm run lint`, `npm run typecheck`, `npm test` — clean; **497/497 tests** across 29 files.
+- Root: `npm run build` — clean, 236 static entries + `404.html`; no `dist/admin/`.
+- Config/view cache checks passed and caches were cleared.
+- Browser QA: not performed; no browser automation is installed in this environment.
+
 ## Sprint 6.3 — Admin Panel Audit, Responsive QA & Final Polish (2026-10-23)
 
 Audit sweep of the Sprint 6.2 admin panel. No new routes, no new deps, no restructuring. Fixes only where a genuine issue existed, plus a documented backend-readiness report.
