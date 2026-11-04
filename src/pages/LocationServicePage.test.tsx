@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import TwoSegmentPage from "./TwoSegmentPage";
+import ThreeSegmentLocationPage from "./ThreeSegmentLocationPage";
 import NotFoundPage from "./NotFoundPage";
 import {
   locationServicePages,
@@ -14,6 +15,10 @@ function renderAt(path: string) {
     <MemoryRouter initialEntries={[path]}>
       <Routes>
         <Route path=":a/:b" element={<TwoSegmentPage />} />
+        <Route
+          path=":locationSlug/:serviceSlug/:variantSlug"
+          element={<ThreeSegmentLocationPage />}
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </MemoryRouter>
@@ -328,11 +333,25 @@ describe("Unsupported location-service combinations stay Not Found", () => {
     expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
   });
 
-  // Nashville/insulation is available in the table but is NOT a ServiceHubKey
-  // (no servicePages entry); it must keep the Sprint 1 scaffold rather than
-  // claim to be a completed page.
-  it("keeps the Sprint 1 scaffold for /nashville/insulation", () => {
+  it("renders Not Found for /nashville/insulation and /ann-arbor/roofing", () => {
     renderAt("/nashville/insulation");
-    expect(screen.getByText(/scaffold — sprint 1/i)).toBeTruthy();
+    expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
+    cleanup();
+    renderAt("/ann-arbor/roofing");
+    expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
   });
+
+  it.each([
+    ["nashville", "Nashville"],
+    ["dayton", "Dayton"],
+    ["cincinnati", "Cincinnati"],
+  ])(
+    "renders a completed commercial roofing variant page for /%s/roofing/commercial-roofing",
+    (slug, city) => {
+      renderAt(`/${slug}/roofing/commercial-roofing`);
+      const h1 = screen.getByRole("heading", { level: 1 });
+      expect(h1.textContent).toContain(`${city} Commercial Roofing Contractors`);
+      expect(screen.queryByText(/scaffold — sprint 1/i)).toBeNull();
+    }
+  );
 });

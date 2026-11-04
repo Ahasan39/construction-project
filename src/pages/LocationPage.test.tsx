@@ -109,4 +109,11 @@ describe("LocationPage composition (every completed slug renders)", () => {
     expect(link.getAttribute("href")).toBe(`/${masonry.slug}/`);
     expect(isLocationServiceAvailable("cleveland", masonry.key)).toBe(false);
   });
+
+  it("Ann Arbor Roofing card routes directly to the global /roofing/ hub", () => {
+    renderLocation("ann-arbor");
+    const link = screen.getByRole("link", { name: /visit roofing hub/i });
+    expect(link.getAttribute("href")).toBe("/roofing/");
+    expect(isLocationServiceAvailable("ann-arbor", "roofing")).toBe(false);
+  });
 });

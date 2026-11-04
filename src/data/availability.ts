@@ -4,6 +4,55 @@ import type {
   Slug,
 } from "@/types";
 
+export type LocationCapability =
+  | "hasFreeEstimate"
+  | "hasFinancing"
+  | "hasServiceAreaIndex";
+
+/**
+ * Location-level capability flags for routes such as /:locationSlug/free-estimate/,
+ * /:locationSlug/financing/, and /:locationSlug/service-area/. Keeping this
+ * decoupled from `locationServiceAvailability` allows hubs like Ann Arbor to
+ * expose `/ann-arbor/service-area/` without mounting an unintended
+ * `/ann-arbor/roofing/` scaffold.
+ */
+const locationCapabilities: Partial<
+  Record<Slug, Partial<Record<LocationCapability, boolean>>>
+> = {
+  nashville: {
+    hasFreeEstimate: true,
+    hasFinancing: true,
+    hasServiceAreaIndex: true,
+  },
+  dayton: {
+    hasFreeEstimate: true,
+  },
+  cincinnati: {
+    hasFreeEstimate: true,
+    hasFinancing: true,
+    hasServiceAreaIndex: true,
+  },
+  louisville: {
+    hasFreeEstimate: true,
+    hasFinancing: true,
+  },
+  cleveland: {
+    hasFreeEstimate: true,
+    hasFinancing: true,
+    hasServiceAreaIndex: true,
+  },
+  "grand-rapids": {
+    hasFinancing: true,
+    hasServiceAreaIndex: true,
+  },
+  "ann-arbor": {
+    hasServiceAreaIndex: true,
+  },
+  lansing: {
+    hasServiceAreaIndex: true,
+  },
+};
+
 /**
  * Explicit (location × service) availability, mirroring the subset of pages
  * observed on the reference site. The reference does NOT publish every
@@ -26,13 +75,11 @@ export const locationServiceAvailability: LocationServiceAvailability[] = [
   { locationSlug: "nashville", serviceKey: "windows" },
   { locationSlug: "nashville", serviceKey: "gutters" },
   { locationSlug: "nashville", serviceKey: "masonry" },
-  { locationSlug: "nashville", serviceKey: "insulation" },
 
   // Dayton — commercial roofing + estimate observed; also four scoped
   // service hubs linked from the reference Dayton homepage (verified
   // 2026-10-20). Masonry and Insulation tiles on the reference Dayton page
-  // link to the GLOBAL /masonry/ and /insulation/ routes, so they are
-  // intentionally absent here.
+  // link to the GLOBAL /masonry/ route, so they are intentionally absent here.
   {
     locationSlug: "dayton",
     serviceKey: "roofing",
@@ -74,10 +121,9 @@ export const locationServiceAvailability: LocationServiceAvailability[] = [
 
   // Cleveland — estimate + financing + service-area index observed on the
   // reference roofing hub, plus the four scoped service hubs linked from the
-  // reference Cleveland homepage (verified 2026-10-20). Masonry and Insulation
-  // tiles on the reference Cleveland page link to the GLOBAL /masonry/ and
-  // /insulation/ routes, not scoped Cleveland URLs, so they are intentionally
-  // absent here.
+  // reference Cleveland homepage (verified 2026-10-20). Masonry tile on the
+  // reference Cleveland page links to the GLOBAL /masonry/ route, not a
+  // scoped Cleveland URL, so it is intentionally absent here.
   {
     locationSlug: "cleveland",
     serviceKey: "roofing",
@@ -103,17 +149,13 @@ export const locationServiceAvailability: LocationServiceAvailability[] = [
   { locationSlug: "grand-rapids", serviceKey: "gutters" },
   { locationSlug: "grand-rapids", serviceKey: "masonry" },
 
-  // Ann Arbor — service-area index only.
-  {
-    locationSlug: "ann-arbor",
-    serviceKey: "roofing",
-    hasServiceAreaIndex: true,
-  },
+  // Ann Arbor — no scoped local service sub-routes on the reference site;
+  // all service tiles route to the global service hubs while
+  // `/ann-arbor/service-area/` is enabled via `locationCapabilities`.
 
-  // Lansing — service-area index on roofing, plus four scoped service hubs
+  // Lansing — service-area index on roofing, plus five scoped service hubs
   // linked from the reference Lansing header navigation (verified
-  // 2026-10-21; the grid tiles on the reference page redirect to
-  // /ann-arbor/, but the scoped Lansing URLs themselves resolve).
+  // 2026-10-21).
   {
     locationSlug: "lansing",
     serviceKey: "roofing",
@@ -124,22 +166,14 @@ export const locationServiceAvailability: LocationServiceAvailability[] = [
   { locationSlug: "lansing", serviceKey: "gutters" },
   { locationSlug: "lansing", serviceKey: "masonry" },
 
-  // Lexington — Sprint 5.1 called this "hub only", but live inspection on
-  // 2026-10-20 shows all six service-grid tiles on the reference Lexington
-  // homepage link to scoped /lexington/<service>/ URLs. Mount the five
-  // ServiceHubKey routes; insulation remains unmounted.
+  // Lexington — five scoped ServiceHubKey routes.
   { locationSlug: "lexington", serviceKey: "roofing" },
   { locationSlug: "lexington", serviceKey: "siding" },
   { locationSlug: "lexington", serviceKey: "windows" },
   { locationSlug: "lexington", serviceKey: "gutters" },
   { locationSlug: "lexington", serviceKey: "masonry" },
 
-  // Detroit — correction: Sprint 5.1 called this "hub only," but live
-  // inspection on 2026-10-21 shows the reference Detroit header navigation
-  // links scoped /detroit/<service>/ URLs for roofing, siding, windows,
-  // gutters and masonry (the grid tiles happen to redirect to Ann Arbor,
-  // but the scoped Detroit pages themselves resolve). Insulation remains
-  // unmounted (no `ServiceHubKey`).
+  // Detroit — five scoped ServiceHubKey routes.
   { locationSlug: "detroit", serviceKey: "roofing" },
   { locationSlug: "detroit", serviceKey: "siding" },
   { locationSlug: "detroit", serviceKey: "windows" },
@@ -167,8 +201,11 @@ export function getLocationServiceAvailability(
 
 export function hasLocationCapability(
   locationSlug: Slug,
-  capability: "hasFreeEstimate" | "hasFinancing" | "hasServiceAreaIndex"
+  capability: LocationCapability
 ): boolean {
+  if (locationCapabilities[locationSlug]?.[capability] === true) {
+    return true;
+  }
   return locationServiceAvailability.some(
     (a) => a.locationSlug === locationSlug && a[capability] === true
   );

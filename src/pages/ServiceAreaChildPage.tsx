@@ -3,7 +3,10 @@ import { Link, useParams } from "react-router-dom";
 import { applyRouteMeta } from "@/app/seo";
 import { Container } from "@/components/ui";
 import { findLocation } from "@/data/locations";
-import { hasLocationCapability } from "@/data/availability";
+import {
+  hasLocationCapability,
+  isLocationServiceAvailable,
+} from "@/data/availability";
 import { services } from "@/data/services";
 import { brand } from "@/data/brand";
 import NotFoundPage from "./NotFoundPage";
@@ -82,21 +85,26 @@ export default function ServiceAreaChildPage() {
             to {child.name}.
           </p>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
-              <li key={s.slug}>
-                <Link
-                  to={`/${s.slug}`}
-                  className="block rounded-sm border border-slate-200 bg-[#F4F6F8] hover:bg-white hover:border-slate-300 px-4 py-3 transition-colors"
-                >
-                  <span className="font-semibold text-[var(--color-brand-primary)]">
-                    {s.title}
-                  </span>
-                  <span className="block text-sm text-slate-600 mt-1">
-                    {s.tagline}
-                  </span>
-                </Link>
-              </li>
-            ))}
+            {services.map((s) => {
+              const serviceTo = isLocationServiceAvailable(location.slug, s.key)
+                ? `/${location.slug}/${s.slug}`
+                : `/${s.slug}`;
+              return (
+                <li key={s.slug}>
+                  <Link
+                    to={serviceTo}
+                    className="block rounded-sm border border-slate-200 bg-[#F4F6F8] hover:bg-white hover:border-slate-300 px-4 py-3 transition-colors"
+                  >
+                    <span className="font-semibold text-[var(--color-brand-primary)]">
+                      {s.title}
+                    </span>
+                    <span className="block text-sm text-slate-600 mt-1">
+                      {s.tagline}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </Container>
       </section>
@@ -132,7 +140,7 @@ export default function ServiceAreaChildPage() {
               to={
                 hasLocationCapability(location.slug, "hasFreeEstimate")
                   ? `/${location.slug}/free-estimate`
-                  : "/free-estimate"
+                  : `/${location.slug}/#estimate`
               }
               className="inline-flex items-center justify-center h-12 rounded-sm bg-[#d9232a] hover:bg-[#b81b22] text-white font-extrabold uppercase tracking-wider px-6 shadow-md transition-colors"
             >

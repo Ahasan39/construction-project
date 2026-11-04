@@ -1,7 +1,9 @@
 import { afterEach, describe, expect, it } from "vitest";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
+import FreeEstimatePage from "./FreeEstimatePage";
 import LocationFreeEstimatePage from "./LocationFreeEstimatePage";
+import LocationFinancingPage from "./LocationFinancingPage";
 import NotFoundPage from "./NotFoundPage";
 
 function renderAt(path: string) {
@@ -101,6 +103,64 @@ describe("Not Found guards", () => {
 
   it("renders Not Found when the location has no hasFreeEstimate capability", () => {
     renderAt("/ann-arbor/free-estimate");
+    expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
+  });
+});
+
+describe("Global FreeEstimatePage (/free-estimate/)", () => {
+  it("renders a completed estimate form with both location and service selectors and no scaffold badge", () => {
+    render(
+      <MemoryRouter initialEntries={["/free-estimate"]}>
+        <FreeEstimatePage />
+      </MemoryRouter>
+    );
+    expect(
+      screen.getByRole("heading", { level: 1, name: /free estimate/i })
+    ).toBeTruthy();
+    expect(screen.queryByText(/scaffold — sprint 1/i)).toBeNull();
+    expect(screen.queryByText(/lead form will be built/i)).toBeNull();
+    expect(
+      screen.getByRole("combobox", { name: /select location/i })
+    ).toBeTruthy();
+    expect(
+      screen.getByRole("combobox", { name: /select service/i })
+    ).toBeTruthy();
+  });
+});
+
+describe("LocationFinancingPage (/{nashville,grand-rapids,cleveland,cincinnati,louisville}/financing)", () => {
+  function renderFinancing(path: string) {
+    return render(
+      <MemoryRouter initialEntries={[path]}>
+        <Routes>
+          <Route path=":locationSlug/financing" element={<LocationFinancingPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </MemoryRouter>
+    );
+  }
+
+  it.each([
+    ["nashville", "Nashville", "/nashville/free-estimate/"],
+    ["grand-rapids", "Grand Rapids", "/grand-rapids/#estimate"],
+    ["cleveland", "Cleveland", "/cleveland/free-estimate/"],
+    ["cincinnati", "Cincinnati", "/cincinnati/free-estimate/"],
+    ["louisville", "Louisville", "/louisville/free-estimate/"],
+  ])(
+    "renders a completed financing page for /%s/financing with working estimate CTAs",
+    (slug, city, expectedCta) => {
+      renderFinancing(`/${slug}/financing`);
+      const h1 = screen.getByRole("heading", { level: 1 });
+      expect(h1.textContent).toContain(`${city} Financing Options`);
+      expect(screen.queryByText(/scaffold — sprint 1/i)).toBeNull();
+      const ctas = screen.getAllByRole("link", { name: /get a free estimate/i });
+      expect(ctas.length).toBeGreaterThan(0);
+      expect(ctas[0].getAttribute("href")).toBe(expectedCta);
+    }
+  );
+
+  it("renders Not Found for a location without hasFinancing", () => {
+    renderFinancing("/ann-arbor/financing");
     expect(screen.getByRole("heading", { name: /page not found/i })).toBeTruthy();
   });
 });

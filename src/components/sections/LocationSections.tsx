@@ -252,10 +252,12 @@ export function LocationServiceGrid({
             const service = services.find((s) => s.key === key);
             const title = service?.title ?? key;
             const image = serviceImages[key];
-            const to = isServiceAvailable(key)
-              ? `/${location.slug}/${key}/`
-              : `/${key}/`;
-            const scoped = isServiceAvailable(key);
+            const scoped = Boolean(service) && isServiceAvailable(key);
+            const to = !service
+              ? "/free-estimate/"
+              : scoped
+                ? `/${location.slug}/${service.slug}/`
+                : `/${service.slug}/`;
             return (
               <li
                 key={key}

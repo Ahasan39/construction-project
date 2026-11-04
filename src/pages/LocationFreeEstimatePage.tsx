@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { applyRouteMeta } from "@/app/seo";
-import { PageShell } from "@/components/layout/PageShell";
 import { Container } from "@/components/ui";
 import { findLocation } from "@/data/locations";
 import { findLocationPage } from "@/data/locationPages";
@@ -11,18 +10,6 @@ import { EstimateForm } from "@/features/estimate/EstimateForm";
 import type { Location } from "@/types";
 import NotFoundPage from "./NotFoundPage";
 
-/**
- * Locations whose /free-estimate/ route is a complete demo page. Every
- * location with `hasFreeEstimate` in availability is now implemented.
- */
-const COMPLETED_SLUGS = new Set<string>([
-  "nashville",
-  "cleveland",
-  "cincinnati",
-  "louisville",
-  "dayton",
-]);
-
 export default function LocationFreeEstimatePage() {
   const { locationSlug } = useParams();
   const location = locationSlug ? findLocation(locationSlug) : undefined;
@@ -30,21 +17,7 @@ export default function LocationFreeEstimatePage() {
   if (!hasLocationCapability(location.slug, "hasFreeEstimate"))
     return <NotFoundPage />;
 
-  if (COMPLETED_SLUGS.has(location.slug)) {
-    return <EstimateBody location={location} />;
-  }
-
-  return (
-    <PageShell
-      meta={{
-        title: `Free estimate — ${location.city} — scaffold`,
-        description: `Request a free estimate for ${location.city}, ${location.state}.`,
-        canonicalPath: `/${location.slug}/free-estimate/`,
-      }}
-      title={`Free estimate — ${location.city}`}
-      intro="Lead form will be built in a later sprint."
-    />
-  );
+  return <EstimateBody location={location} />;
 }
 
 function EstimateBody({ location }: { location: Location }) {

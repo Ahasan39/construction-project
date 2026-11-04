@@ -5,6 +5,7 @@ import PayMyBillPage from "./PayMyBillPage";
 import VisualizerPage from "./VisualizerPage";
 import PrivacyPolicyPage from "./PrivacyPolicyPage";
 import TermsPage from "./TermsPage";
+import ExternalEntryPage from "./ExternalEntryPage";
 import { staticRoutes } from "@/app/staticRoutes";
 
 afterEach(() => cleanup());
@@ -114,5 +115,31 @@ describe("Static-route inventory audit (Sprint 8)", () => {
   it("emits no duplicate paths", () => {
     const routes = staticRoutes();
     expect(new Set(routes).size).toBe(routes.length);
+  });
+});
+
+describe("ExternalEntryPage (/crew/)", () => {
+  it("renders a completed Crew Portal page without the Sprint 1 scaffold badge", () => {
+    render(
+      <MemoryRouter initialEntries={["/crew"]}>
+        <ExternalEntryPage
+          meta={{
+            title: "Crew Portal",
+            description: "External crew/employee portal entry point.",
+            canonicalPath: "/crew/",
+            noindex: true,
+          }}
+          title="Crew Portal"
+          intro="Internal portal — external authentication required."
+          outboundLabel="Open crew portal"
+          outboundHref={null}
+        />
+      </MemoryRouter>
+    );
+    expect(
+      screen.getByRole("heading", { level: 1, name: /crew portal/i })
+    ).toBeTruthy();
+    expect(screen.queryByText(/scaffold — sprint 1/i)).toBeNull();
+    expect(screen.getByRole("status")).toBeTruthy();
   });
 });

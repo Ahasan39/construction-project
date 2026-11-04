@@ -98,7 +98,7 @@ export function SidingStyleCarousel() {
 }
 
 export function ServiceLocations({ service }: { service: ServiceHubKey }) {
-  return <ul className="service-location-links">{serviceLocationLinks(service).filter(l => !l.to.startsWith("/lexington")).map(l => <li key={l.to}><Link to={l.to}>{l.label}{l.isService ? " — Windows" : " — Regional services"}</Link></li>)}</ul>;
+  return <ul className="service-location-links">{serviceLocationLinks(service).map(l => <li key={l.to}><Link to={l.to}>{l.label}{l.isService ? " — Windows" : " — Regional services"}</Link></li>)}</ul>;
 }
 
 export function ServiceRelated({ service, list = false }: { service: ServiceHubKey; list?: boolean }) {

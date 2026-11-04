@@ -87,10 +87,10 @@ describe("ServiceAreaChildPage — Nashville & Lansing", () => {
     }
   );
 
-  it("Ann Arbor falls back to global /free-estimate (no scoped form)", () => {
+  it("Ann Arbor falls back to /ann-arbor/#estimate (no scoped form)", () => {
     renderAt("/ann-arbor/service-area/novi");
     const cta = screen.getByRole("link", { name: /get a free estimate/i });
-    expect(cta.getAttribute("href")).toBe("/free-estimate");
+    expect(cta.getAttribute("href")).toBe("/ann-arbor/#estimate");
   });
 
   it("Cincinnati Free Estimate CTA points to /cincinnati/free-estimate", () => {
@@ -105,10 +105,10 @@ describe("ServiceAreaChildPage — Nashville & Lansing", () => {
     expect(cta.getAttribute("href")).toBe("/cleveland/free-estimate");
   });
 
-  it("Grand Rapids falls back to global /free-estimate (no scoped form)", () => {
+  it("Grand Rapids falls back to /grand-rapids/#estimate (no scoped form)", () => {
     renderAt("/grand-rapids/service-area/kentwood");
     const cta = screen.getByRole("link", { name: /get a free estimate/i });
-    expect(cta.getAttribute("href")).toBe("/free-estimate");
+    expect(cta.getAttribute("href")).toBe("/grand-rapids/#estimate");
   });
 
   it("breadcrumb links back to the parent service-area index and location hub", () => {
@@ -126,17 +126,26 @@ describe("ServiceAreaChildPage — Nashville & Lansing", () => {
     expect(cta.getAttribute("href")).toBe("/nashville/free-estimate");
   });
 
-  it("Free Estimate CTA falls back to global /free-estimate when location has no scoped form (Lansing)", () => {
+  it("Free Estimate CTA falls back to /lansing/#estimate when location has no scoped form (Lansing)", () => {
     renderAt("/lansing/service-area/dewitt");
     const cta = screen.getByRole("link", { name: /get a free estimate/i });
-    expect(cta.getAttribute("href")).toBe("/free-estimate");
+    expect(cta.getAttribute("href")).toBe("/lansing/#estimate");
   });
 
-  it("lists every global service as an internal link", () => {
+  it("links every service to the scoped location-service route when available, or global hub otherwise", () => {
     renderAt("/nashville/service-area/gallatin");
     const section = screen.getByRole("region", { name: /services available/i });
     for (const slug of ["roofing", "gutters", "siding", "windows", "masonry"]) {
       const link = within(section).getByRole("link", {
+        name: new RegExp(`^${slug}`, "i"),
+      });
+      expect(link.getAttribute("href")).toBe(`/nashville/${slug}`);
+    }
+    cleanup();
+    renderAt("/ann-arbor/service-area/novi");
+    const annArborSection = screen.getByRole("region", { name: /services available/i });
+    for (const slug of ["roofing", "gutters", "siding", "windows", "masonry"]) {
+      const link = within(annArborSection).getByRole("link", {
         name: new RegExp(`^${slug}`, "i"),
       });
       expect(link.getAttribute("href")).toBe(`/${slug}`);

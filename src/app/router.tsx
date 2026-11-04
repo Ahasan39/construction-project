@@ -157,7 +157,7 @@ export const router = createBrowserRouter([
         element: (
           <L>
             <ExternalEntryPage
-              meta={{ title: "Crew portal — scaffold", description: "External crew/employee portal entry point.", canonicalPath: "/crew/", noindex: true }}
+              meta={{ title: "Crew Portal", description: "External crew/employee portal entry point.", canonicalPath: "/crew/", noindex: true }}
               title="Crew portal"
               intro="Internal portal — external authentication required."
               outboundLabel="Open crew portal"
