@@ -23,6 +23,7 @@ class ExampleTest extends TestCase
                 ->has('testimonials')
                 ->has('articles')
                 ->has('contact')
+                ->has('settings')
             );
     }
 }

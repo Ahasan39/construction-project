@@ -47,16 +47,17 @@ type CmsArticleItem = {
 };
 
 type WelcomeProps = {
-    appName?: string;
-    services?: CmsServiceItem[];
-    locations?: CmsLocationItem[];
-    testimonials?: CmsTestimonialItem[];
-    articles?: CmsArticleItem[];
+    appName?: string | null;
+    services?: CmsServiceItem[] | null;
+    locations?: CmsLocationItem[] | null;
+    testimonials?: CmsTestimonialItem[] | null;
+    articles?: CmsArticleItem[] | null;
     contact?: {
-        phone?: string;
-        email?: string;
-        address?: string;
-    };
+        phone?: string | null;
+        email?: string | null;
+        address?: string | null;
+    } | null;
+    settings?: Record<string, unknown> | null;
 };
 
 const renderRatingStars = (rating: unknown): string => {
@@ -104,22 +105,13 @@ const defaultServices = [
     },
 ];
 
-export default function Welcome({
-    appName = 'Mr. Roof',
-    services = [],
-    locations = [],
-    testimonials = [],
-    articles = [],
-    contact = {
-        phone: '1-800-4-MR-ROOF',
-        email: 'contact@mrroof.com',
-        address: '123 Construction Way, Suite 100',
-    },
-}: WelcomeProps = {}) {
-    const safeServices = Array.isArray(services) ? services : [];
-    const safeLocations = Array.isArray(locations) ? locations : [];
-    const safeTestimonials = Array.isArray(testimonials) ? testimonials : [];
-    const safeArticles = Array.isArray(articles) ? articles : [];
+export default function Welcome(props: WelcomeProps = {}) {
+    const appName = props?.appName || 'Mr. Roof';
+    const safeServices = Array.isArray(props?.services) ? props.services : [];
+    const safeLocations = Array.isArray(props?.locations) ? props.locations : [];
+    const safeTestimonials = Array.isArray(props?.testimonials) ? props.testimonials : [];
+    const safeArticles = Array.isArray(props?.articles) ? props.articles : [];
+    const contact = props?.contact ?? {};
     const safeContact = {
         phone: contact?.phone || '1-800-4-MR-ROOF',
         email: contact?.email || 'contact@mrroof.com',
@@ -179,8 +171,7 @@ export default function Welcome({
 
     return (
         <div className="min-h-screen bg-slate-50 text-slate-800 antialiased selection:bg-red-500 selection:text-white">
-            <Head>
-                <title>{appName} — Residential & Commercial Exterior Specialists</title>
+            <Head title={`${appName} — Residential & Commercial Exterior Specialists`}>
                 <meta
                     name="description"
                     content="America's premier exterior contractor for roofing, siding, windows, and gutters. Lifetime warranty protection and same-day estimates."

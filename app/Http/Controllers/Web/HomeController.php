@@ -93,6 +93,12 @@ class HomeController extends Controller
                 'email' => (string) ($settings?->email ?: 'contact@mrroof.com'),
                 'address' => (string) ($settings?->address ?: '123 Construction Way, Suite 100'),
             ],
+            'settings' => $settings ? [
+                'company_name' => (string) $settings->company_name,
+                'contact_number' => (string) $settings->contact_number,
+                'email' => (string) $settings->email,
+                'address' => (string) $settings->address,
+            ] : (object) [],
         ]);
     }
 }

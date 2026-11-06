@@ -3,7 +3,9 @@ import { describe, expect, it, vi } from 'vitest';
 import Welcome from './Welcome';
 
 vi.mock('@inertiajs/react', () => ({
-    Head: ({ children }: { children?: React.ReactNode }) => <div data-testid="head">{children}</div>,
+    Head: ({ children, title }: { children?: React.ReactNode; title?: string }) => (
+        <div data-testid="head" data-title={title}>{children}</div>
+    ),
     Link: ({ children, href, ...props }: { children?: React.ReactNode; href?: string }) => (
         <a href={href} {...props}>{children}</a>
     ),
@@ -32,6 +34,22 @@ describe('Welcome Landing Page', () => {
 
     it('renders safely when all props are empty or undefined', () => {
         const { container } = render(<Welcome />);
+        expect(container).toBeTruthy();
+        expect(screen.getAllByText(/Mr. Roof/i).length).toBeGreaterThan(0);
+    });
+
+    it('renders safely when props contain explicit null values', () => {
+        const { container } = render(
+            <Welcome
+                appName={null}
+                services={null}
+                locations={null}
+                testimonials={null}
+                articles={null}
+                contact={null}
+                settings={null}
+            />
+        );
         expect(container).toBeTruthy();
         expect(screen.getAllByText(/Mr. Roof/i).length).toBeGreaterThan(0);
     });
