@@ -29,8 +29,13 @@ const STEPS = [
   },
 ];
 
-export default function LocationFinancingPage() {
-  const { locationSlug } = useParams();
+export interface LocationFinancingPageProps {
+  locationSlug?: string;
+}
+
+export default function LocationFinancingPage(props?: LocationFinancingPageProps) {
+  const params = useParams();
+  const locationSlug = props?.locationSlug ?? params.locationSlug;
   const location = locationSlug ? findLocation(locationSlug) : undefined;
   const hasFinancing = location
     ? hasLocationCapability(location.slug, "hasFinancing")

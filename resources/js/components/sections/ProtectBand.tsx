@@ -16,6 +16,9 @@ export function ProtectBand() {
       className="bg-white border-b border-[var(--color-border)]"
     >
       <Container className="py-12 sm:py-16 md:py-20 text-center">
+        <p className="text-xs font-bold uppercase tracking-wider text-[#0284c7] mb-2">
+          Built to Protect
+        </p>
         <p className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug tracking-tight text-[var(--color-brand-primary)] max-w-4xl mx-auto">
           Protect your home with{" "}
           <span className="text-[#0284c7] font-black">

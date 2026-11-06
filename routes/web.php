@@ -14,6 +14,7 @@ use App\Http\Controllers\Web\InertiaCheckController;
 use App\Http\Controllers\Web\LeadController;
 use App\Http\Controllers\Web\MediaController;
 use App\Http\Controllers\Web\ProfileController;
+use App\Http\Controllers\Web\PublicContentController;
 use App\Http\Controllers\Web\SettingsController;
 use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
@@ -114,3 +115,56 @@ Route::middleware(['auth', 'active'])->prefix('admin')->group(function (): void 
 });
 
 Route::get('/', HomeController::class)->name('home');
+
+// Public Static & Informational Pages
+Route::get('/free-estimate', [PublicContentController::class, 'freeEstimate'])->name('public.free-estimate');
+Route::get('/about', [PublicContentController::class, 'about'])->name('public.about');
+Route::get('/special-offers', [PublicContentController::class, 'specialOffers'])->name('public.special-offers');
+Route::get('/financing', [PublicContentController::class, 'financing'])->name('public.financing');
+Route::get('/warranties', [PublicContentController::class, 'warranties'])->name('public.warranties');
+Route::get('/refer-a-friend', [PublicContentController::class, 'referAFriend'])->name('public.refer-a-friend');
+Route::get('/contact-us', [PublicContentController::class, 'contactUs'])->name('public.contact-us');
+Route::get('/reviews', [PublicContentController::class, 'reviews'])->name('public.reviews');
+Route::get('/gallery', [PublicContentController::class, 'gallery'])->name('public.gallery');
+Route::get('/commercial-projects', [PublicContentController::class, 'commercialProjects'])->name('public.commercial-projects');
+Route::get('/careers/sales', [PublicContentController::class, 'salesCareers'])->name('public.careers.sales');
+Route::get('/privacy-policy', [PublicContentController::class, 'privacyPolicy'])->name('public.privacy-policy');
+Route::get('/terms-and-conditions', [PublicContentController::class, 'terms'])->name('public.terms');
+Route::get('/billpay', [PublicContentController::class, 'billpay'])->name('public.billpay');
+Route::get('/visualizer', [PublicContentController::class, 'visualizer'])->name('public.visualizer');
+Route::get('/crew', [PublicContentController::class, 'crew'])->name('public.crew');
+
+// Public Blog
+Route::get('/blog', [PublicContentController::class, 'blog'])->name('public.blog.index');
+Route::get('/blog/{slug}', [PublicContentController::class, 'blogArticle'])
+    ->where('slug', '^(?!admin|api|storage|build|_vite)[a-zA-Z0-9_-]+$')
+    ->name('public.blog.article');
+
+// Public Location Scoped Capability Routes
+Route::get('/{locationSlug}/free-estimate', [PublicContentController::class, 'locationFreeEstimate'])
+    ->where('locationSlug', '^(?!admin|api|storage|build|_vite)[a-zA-Z0-9_-]+$')
+    ->name('public.location.free-estimate');
+Route::get('/{locationSlug}/financing', [PublicContentController::class, 'locationFinancing'])
+    ->where('locationSlug', '^(?!admin|api|storage|build|_vite)[a-zA-Z0-9_-]+$')
+    ->name('public.location.financing');
+Route::get('/{locationSlug}/service-area', [PublicContentController::class, 'locationServiceArea'])
+    ->where('locationSlug', '^(?!admin|api|storage|build|_vite)[a-zA-Z0-9_-]+$')
+    ->name('public.location.service-area');
+Route::get('/{locationSlug}/service-area/{childSlug}', [PublicContentController::class, 'locationServiceAreaChild'])
+    ->where('locationSlug', '^(?!admin|api|storage|build|_vite)[a-zA-Z0-9_-]+$')
+    ->name('public.location.service-area-child');
+
+// 3-Segment Dynamic Route: {locationSlug}/{serviceSlug}/{variantSlug}
+Route::get('/{locationSlug}/{serviceSlug}/{variantSlug}', [PublicContentController::class, 'locationServiceVariant'])
+    ->where('locationSlug', '^(?!admin|api|storage|build|_vite)[a-zA-Z0-9_-]+$')
+    ->name('public.location.service-variant');
+
+// 2-Segment Dispatcher: {service}/{variant} or {location}/{service}
+Route::get('/{a}/{b}', [PublicContentController::class, 'twoSegment'])
+    ->where('a', '^(?!admin|api|storage|build|_vite)[a-zA-Z0-9_-]+$')
+    ->name('public.two-segment');
+
+// 1-Segment Dispatcher: {service} or {location}
+Route::get('/{slug}', [PublicContentController::class, 'topLevelSlug'])
+    ->where('slug', '^(?!admin|api|storage|build|_vite)[a-zA-Z0-9_-]+$')
+    ->name('public.top-level-slug');

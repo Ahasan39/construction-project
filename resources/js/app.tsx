@@ -4,6 +4,7 @@ import type { ComponentType, ReactNode } from 'react';
 import React, { Component } from 'react';
 import { createRoot } from 'react-dom/client';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
+import { PublicLayout } from './layouts/PublicLayout';
 
 class RootErrorBoundary extends Component<
     { children: ReactNode },
@@ -53,7 +54,17 @@ createInertiaApp({
             `./pages/${name}.tsx`,
             import.meta.glob('./pages/**/*.tsx')
         );
-        return ((page as { default?: ComponentType }).default ?? page) as ComponentType;
+        const component = ((page as { default?: ComponentType }).default ?? page) as any;
+        if (
+            component.layout === undefined &&
+            !name.startsWith('Admin/') &&
+            name !== 'InertiaCheck' &&
+            name !== 'Welcome' &&
+            !name.endsWith('.test')
+        ) {
+            component.layout = (pageContent: ReactNode) => <PublicLayout>{pageContent}</PublicLayout>;
+        }
+        return component;
     },
     setup({ el, App, props }) {
         if (!el) {

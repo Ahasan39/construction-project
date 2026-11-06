@@ -9,8 +9,13 @@ import { findServiceArea, type ServiceAreaContent } from "@/data/serviceAreas";
 import type { Location } from "@/types";
 import NotFoundPage from "./NotFoundPage";
 
-export default function LocationServiceAreaPage() {
-  const { locationSlug } = useParams();
+export interface LocationServiceAreaPageProps {
+  locationSlug?: string;
+}
+
+export default function LocationServiceAreaPage(props?: LocationServiceAreaPageProps) {
+  const params = useParams();
+  const locationSlug = props?.locationSlug ?? params.locationSlug;
   const location = locationSlug ? findLocation(locationSlug) : undefined;
   if (!location) return <NotFoundPage />;
   if (!hasLocationCapability(location.slug, "hasServiceAreaIndex"))

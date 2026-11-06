@@ -10,8 +10,13 @@ import { EstimateForm } from "@/features/estimate/EstimateForm";
 import type { Location } from "@/types";
 import NotFoundPage from "./NotFoundPage";
 
-export default function LocationFreeEstimatePage() {
-  const { locationSlug } = useParams();
+export interface LocationFreeEstimatePageProps {
+  locationSlug?: string;
+}
+
+export default function LocationFreeEstimatePage(props?: LocationFreeEstimatePageProps) {
+  const params = useParams();
+  const locationSlug = props?.locationSlug ?? params.locationSlug;
   const location = locationSlug ? findLocation(locationSlug) : undefined;
   if (!location) return <NotFoundPage />;
   if (!hasLocationCapability(location.slug, "hasFreeEstimate"))

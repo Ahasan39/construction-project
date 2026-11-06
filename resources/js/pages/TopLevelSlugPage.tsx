@@ -5,12 +5,17 @@ import NotFoundPage from "./NotFoundPage";
 import { findService } from "@/data/services";
 import { findLocation } from "@/data/locations";
 
+export interface TopLevelSlugPageProps {
+  slug?: string;
+}
+
 /**
  * Dispatcher for `/:slug` — services and locations publish at the same depth
  * on the reference. Resolve by looking up typed data; unknown → 404.
  */
-export default function TopLevelSlugPage() {
-  const { slug } = useParams();
+export default function TopLevelSlugPage(props?: TopLevelSlugPageProps) {
+  const params = useParams();
+  const slug = props?.slug ?? params.slug;
   if (!slug) return <NotFoundPage />;
 
   const service = findService(slug);

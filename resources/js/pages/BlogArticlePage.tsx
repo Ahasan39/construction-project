@@ -22,8 +22,13 @@ type State =
   | { status: "found"; article: Article }
   | { status: "missing" };
 
-export default function BlogArticlePage() {
-  const { slug } = useParams();
+export interface BlogArticlePageProps {
+  slug?: string;
+}
+
+export default function BlogArticlePage(props?: BlogArticlePageProps) {
+  const params = useParams();
+  const slug = props?.slug ?? params.slug;
   const [state, setState] = useState<State>({ status: "loading" });
   const [related, setRelated] = useState<ArticleSummary[]>([]);
 

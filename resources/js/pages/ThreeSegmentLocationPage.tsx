@@ -9,13 +9,22 @@ import {
 } from "@/data/availability";
 import type { ServiceKey } from "@/types";
 
+export interface ThreeSegmentLocationPageProps {
+  locationSlug?: string;
+  serviceSlug?: string;
+  variantSlug?: string;
+}
+
 /**
  * Dispatcher for `/:locationSlug/:serviceSlug/:variantSlug`. The variant must
  * be explicitly listed in the (location, service) availability record;
  * anything else → NotFound.
  */
-export default function ThreeSegmentLocationPage() {
-  const { locationSlug, serviceSlug, variantSlug } = useParams();
+export default function ThreeSegmentLocationPage(props?: ThreeSegmentLocationPageProps) {
+  const params = useParams();
+  const locationSlug = props?.locationSlug ?? params.locationSlug;
+  const serviceSlug = props?.serviceSlug ?? params.serviceSlug;
+  const variantSlug = props?.variantSlug ?? params.variantSlug;
   if (!locationSlug || !serviceSlug || !variantSlug) return <NotFoundPage />;
 
   const location = findLocation(locationSlug);

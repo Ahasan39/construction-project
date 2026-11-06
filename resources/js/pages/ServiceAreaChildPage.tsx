@@ -11,8 +11,15 @@ import { services } from "@/data/services";
 import { brand } from "@/data/brand";
 import NotFoundPage from "./NotFoundPage";
 
-export default function ServiceAreaChildPage() {
-  const { locationSlug, childSlug } = useParams();
+export interface ServiceAreaChildPageProps {
+  locationSlug?: string;
+  childSlug?: string;
+}
+
+export default function ServiceAreaChildPage(props?: ServiceAreaChildPageProps) {
+  const params = useParams();
+  const locationSlug = props?.locationSlug ?? params.locationSlug;
+  const childSlug = props?.childSlug ?? params.childSlug;
   const location = locationSlug ? findLocation(locationSlug) : undefined;
   const child = location?.serviceAreaChildren.find((c) => c.slug === childSlug);
 

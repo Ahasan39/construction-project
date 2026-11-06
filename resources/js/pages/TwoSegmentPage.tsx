@@ -7,14 +7,21 @@ import { findLocation } from "@/data/locations";
 import { isLocationServiceAvailable } from "@/data/availability";
 import type { ServiceKey } from "@/types";
 
+export interface TwoSegmentPageProps {
+  a?: string;
+  b?: string;
+}
+
 /**
  * Dispatcher for `/:a/:b`:
  *   - service + variant     → ServiceVariantPage
  *   - location + service    → LocationServicePage (only when availability is explicit)
  *   - anything else         → NotFoundPage
  */
-export default function TwoSegmentPage() {
-  const { a, b } = useParams();
+export default function TwoSegmentPage(props?: TwoSegmentPageProps) {
+  const params = useParams();
+  const a = props?.a ?? params.a;
+  const b = props?.b ?? params.b;
   if (!a || !b) return <NotFoundPage />;
 
   const service = findService(a);
