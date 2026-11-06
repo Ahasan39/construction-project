@@ -22,11 +22,11 @@
     "exactOptionalPropertyTypes": false,
 
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./resources/js/*"]
     },
 
     "types": ["vite/client", "vitest/globals"]
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["resources/js"],
+  "exclude": ["node_modules", "dist", "public/build", "storage", "vendor"]
 }

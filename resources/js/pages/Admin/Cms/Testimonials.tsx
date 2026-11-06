@@ -51,7 +51,7 @@ export type TestimonialsProps = {
 
 export default function Testimonials({ testimonials, filters, canManage }: TestimonialsProps) {
     const [search, setSearch] = useState(filters?.search ?? '');
-    const [serviceFilter, setServiceFilter] = useState(filters?.service ?? '');
+    const [serviceFilter] = useState(filters?.service ?? '');
     const [isCreateOpen, setIsCreateOpen] = useState(false);
     const [editingItem, setEditingItem] = useState<CmsTestimonialItem | null>(null);
 

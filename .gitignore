@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+/vendor
 .pnp
 .pnp.js
 
@@ -7,6 +8,9 @@ node_modules/
 dist/
 dist-ssr/
 build/
+/public/build
+/public/hot
+/public/storage
 .vite/
 .cache/
 
@@ -22,6 +26,10 @@ logs/
 .env
 .env.*
 !.env.example
+.env.backup
+.env.production
+/storage/*.key
+/storage/pail
 
 # Editor
 .vscode/*
@@ -30,6 +38,11 @@ logs/
 .idea/
 *.swp
 *.swo
+.phpactor.json
+/.fleet
+/.nova
+/.zed
+/auth.json
 
 # OS
 .DS_Store
@@ -39,11 +52,15 @@ desktop.ini
 # Testing
 coverage/
 .nyc_output/
+.phpunit.result.cache
+/.phpunit.cache
 
 # Misc
 *.local
 tsconfig.tsbuildinfo
 *.tsbuildinfo
+Homestead.json
+Homestead.yaml
 
 # Project-local Claude instructions and attribution preferences
 /CLAUDE.md

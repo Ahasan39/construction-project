@@ -9,7 +9,6 @@ import {
     SelectInput,
     TextArea,
     TextInput,
-    inputClass,
 } from '../../../components/AdminUI';
 import { AdminLayout } from '../../../layouts/AdminLayout';
 

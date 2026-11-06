@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../js/styles/globals.css";
 
 :root {
     --color-focus: #00a3e0;
