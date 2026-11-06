@@ -16,42 +16,84 @@ class HomeController extends Controller
 {
     public function __invoke(): Response
     {
-        $services = Schema::hasTable('cms_services')
-            ? CmsService::where('is_active', true)->orderBy('display_order')->take(6)->get()
-            : collect();
+        $services = [];
+        try {
+            if (Schema::hasTable('cms_services')) {
+                $services = CmsService::where('is_active', true)
+                    ->orderBy('display_order')
+                    ->take(6)
+                    ->get()
+                    ->values()
+                    ->all();
+            }
+        } catch (\Throwable) {
+            $services = [];
+        }
 
-        $locations = Schema::hasTable('cms_locations')
-            ? CmsLocation::where('is_active', true)->orderBy('city')->take(8)->get()
-            : collect();
+        $locations = [];
+        try {
+            if (Schema::hasTable('cms_locations')) {
+                $locations = CmsLocation::where('is_active', true)
+                    ->orderBy('city')
+                    ->take(8)
+                    ->get()
+                    ->values()
+                    ->all();
+            }
+        } catch (\Throwable) {
+            $locations = [];
+        }
 
-        $testimonials = Schema::hasTable('cms_testimonials')
-            ? CmsTestimonial::where('is_published', true)->where('is_featured', true)->orderBy('display_order')->take(3)->get()
-            : collect();
+        $testimonials = [];
+        try {
+            if (Schema::hasTable('cms_testimonials')) {
+                $testimonials = CmsTestimonial::where('is_published', true)
+                    ->where('is_featured', true)
+                    ->orderBy('display_order')
+                    ->take(3)
+                    ->get()
+                    ->values()
+                    ->all();
+            }
+        } catch (\Throwable) {
+            $testimonials = [];
+        }
 
-        $articles = Schema::hasTable('cms_articles')
-            ? CmsArticle::where('is_published', true)->latest()->take(3)->get()
-            : collect();
+        $articles = [];
+        try {
+            if (Schema::hasTable('cms_articles')) {
+                $articles = CmsArticle::where('is_published', true)
+                    ->latest()
+                    ->take(3)
+                    ->get()
+                    ->values()
+                    ->all();
+            }
+        } catch (\Throwable) {
+            $articles = [];
+        }
 
         $settings = null;
-        if (Schema::hasTable('site_settings')) {
-            try {
+        try {
+            if (Schema::hasTable('site_settings')) {
                 $settings = SiteSetting::current();
-            } catch (\Throwable) {
-                $settings = null;
             }
+        } catch (\Throwable) {
+            $settings = null;
         }
 
         return Inertia::render('Welcome', [
-            'appName' => $settings?->company_name ?: config('app.name', 'Mr Roof Construction Project'),
+            'appName' => (string) ($settings?->company_name ?: config('app.name', 'Mr Roof Construction Project')),
             'services' => $services,
             'locations' => $locations,
             'testimonials' => $testimonials,
             'articles' => $articles,
             'contact' => [
-                'phone' => $settings?->contact_number ?: '1-800-4-MR-ROOF',
-                'email' => $settings?->email ?: 'contact@mrroof.com',
-                'address' => $settings?->address ?: '123 Construction Way, Suite 100',
+                'phone' => (string) ($settings?->contact_number ?: '1-800-4-MR-ROOF'),
+                'email' => (string) ($settings?->email ?: 'contact@mrroof.com'),
+                'address' => (string) ($settings?->address ?: '123 Construction Way, Suite 100'),
             ],
         ]);
     }
 }
+

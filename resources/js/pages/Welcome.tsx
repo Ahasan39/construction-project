@@ -47,16 +47,22 @@ type CmsArticleItem = {
 };
 
 type WelcomeProps = {
-    appName: string;
-    services: CmsServiceItem[];
-    locations: CmsLocationItem[];
-    testimonials: CmsTestimonialItem[];
-    articles: CmsArticleItem[];
-    contact: {
-        phone: string;
-        email: string;
-        address: string;
+    appName?: string;
+    services?: CmsServiceItem[];
+    locations?: CmsLocationItem[];
+    testimonials?: CmsTestimonialItem[];
+    articles?: CmsArticleItem[];
+    contact?: {
+        phone?: string;
+        email?: string;
+        address?: string;
     };
+};
+
+const renderRatingStars = (rating: unknown): string => {
+    const numeric = typeof rating === 'number' ? rating : Number(rating);
+    const count = Number.isFinite(numeric) ? Math.max(1, Math.min(5, Math.floor(numeric))) : 5;
+    return '★'.repeat(count);
 };
 
 const defaultServices = [
@@ -98,7 +104,28 @@ const defaultServices = [
     },
 ];
 
-export default function Welcome({ appName, services, locations, testimonials, articles, contact }: WelcomeProps) {
+export default function Welcome({
+    appName = 'Mr. Roof',
+    services = [],
+    locations = [],
+    testimonials = [],
+    articles = [],
+    contact = {
+        phone: '1-800-4-MR-ROOF',
+        email: 'contact@mrroof.com',
+        address: '123 Construction Way, Suite 100',
+    },
+}: WelcomeProps = {}) {
+    const safeServices = Array.isArray(services) ? services : [];
+    const safeLocations = Array.isArray(locations) ? locations : [];
+    const safeTestimonials = Array.isArray(testimonials) ? testimonials : [];
+    const safeArticles = Array.isArray(articles) ? articles : [];
+    const safeContact = {
+        phone: contact?.phone || '1-800-4-MR-ROOF',
+        email: contact?.email || 'contact@mrroof.com',
+        address: contact?.address || '123 Construction Way, Suite 100',
+    };
+
     const [leadName, setLeadName] = useState('');
     const [leadPhone, setLeadPhone] = useState('');
     const [leadEmail, setLeadEmail] = useState('');
@@ -113,7 +140,9 @@ export default function Welcome({ appName, services, locations, testimonials, ar
         setLeadMessage('');
 
         try {
-            const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+            const csrfToken = typeof document !== 'undefined'
+                ? document.querySelector('meta[name="csrf-token"]')?.getAttribute('content')
+                : null;
             const res = await fetch('/api/v1/leads', {
                 method: 'POST',
                 headers: {
@@ -144,7 +173,7 @@ export default function Welcome({ appName, services, locations, testimonials, ar
             }
         } catch {
             setLeadStatus('error');
-            setLeadMessage('Unable to reach server. Please call us directly at ' + (contact?.phone || '1-800-4-MR-ROOF'));
+            setLeadMessage('Unable to reach server. Please call us directly at ' + (safeContact.phone || '1-800-4-MR-ROOF'));
         }
     }
 
@@ -170,8 +199,8 @@ export default function Welcome({ appName, services, locations, testimonials, ar
                         <span className="hidden sm:inline">Certified Master Elite Installers</span>
                     </div>
                     <div className="flex items-center space-x-6">
-                        <a href={`tel:${contact?.phone || '1-800-467-7663'}`} className="font-semibold text-white hover:text-red-400 transition">
-                            📞 {contact?.phone || '1-800-4-MR-ROOF'}
+                        <a href={`tel:${safeContact.phone}`} className="font-semibold text-white hover:text-red-400 transition">
+                            📞 {safeContact.phone}
                         </a>
                         <Link
                             href="/admin"
@@ -408,26 +437,26 @@ export default function Welcome({ appName, services, locations, testimonials, ar
                     </div>
 
                     <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                        {services && services.length > 0 ? (
-                            services.map((item) => (
+                        {safeServices.length > 0 ? (
+                            safeServices.map((item, index) => (
                                 <div
-                                    key={item.id}
+                                    key={item?.id ?? `service-${index}`}
                                     className="group relative flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:border-slate-300 hover:shadow-md transition"
                                 >
                                     <div>
                                         <div className="flex items-center justify-between">
                                             <span className="text-2xl">🔨</span>
-                                            {(item.category || item.tagline) && (
+                                            {(item?.category || item?.tagline) && (
                                                 <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-700">
-                                                    {item.category || item.tagline}
+                                                    {item?.category || item?.tagline}
                                                 </span>
                                             )}
                                         </div>
                                         <h3 className="mt-4 text-xl font-bold text-[#0f2231] group-hover:text-[#d9232a] transition">
-                                            {item.name || item.title}
+                                            {item?.name || item?.title || 'Exterior Service'}
                                         </h3>
                                         <p className="mt-2 text-sm leading-6 text-slate-600">
-                                            {item.description}
+                                            {item?.description || 'Professional exterior installation, repair, and replacement services.'}
                                         </p>
                                     </div>
                                     <div className="mt-6 border-t border-slate-100 pt-4 flex items-center justify-between text-xs font-semibold text-[#d9232a]">
@@ -525,11 +554,11 @@ export default function Welcome({ appName, services, locations, testimonials, ar
                                 Proudly serving homeowners across multiple states and regional service territories:
                             </p>
                             <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
-                                {locations && locations.length > 0 ? (
-                                    locations.map((loc) => (
-                                        <div key={loc.id} className="rounded-lg bg-slate-800 p-3 border border-slate-700">
-                                            <p className="font-bold text-white">{loc.city}, {loc.state}</p>
-                                            <p className="text-xs text-slate-400">{loc.phone || contact?.phone || '1-800-4-MR-ROOF'}</p>
+                                {safeLocations.length > 0 ? (
+                                    safeLocations.map((loc, index) => (
+                                        <div key={loc?.id ?? `location-${index}`} className="rounded-lg bg-slate-800 p-3 border border-slate-700">
+                                            <p className="font-bold text-white">{loc?.city || 'City'}{loc?.state ? `, ${loc.state}` : ''}</p>
+                                            <p className="text-xs text-slate-400">{loc?.phone || safeContact.phone}</p>
                                         </div>
                                     ))
                                 ) : (
@@ -567,18 +596,18 @@ export default function Welcome({ appName, services, locations, testimonials, ar
                     </div>
 
                     <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                        {testimonials && testimonials.length > 0 ? (
-                            testimonials.map((t) => (
-                                <div key={t.id} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                        {safeTestimonials.length > 0 ? (
+                            safeTestimonials.map((t, index) => (
+                                <div key={t?.id ?? `testimonial-${index}`} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                                     <div className="flex text-amber-400">
-                                        {'★'.repeat(t.rating || 5)}
+                                        {renderRatingStars(t?.rating)}
                                     </div>
                                     <p className="mt-3 text-sm leading-6 text-slate-700 italic">
-                                        "{t.body}"
+                                        "{t?.body || 'Exceptional craftsmanship and professional service.'}"
                                     </p>
                                     <div className="mt-6 border-t border-slate-100 pt-3">
-                                        <p className="text-sm font-bold text-[#0f2231]">{t.author}</p>
-                                        <p className="text-xs text-slate-500">{t.city_state || 'Verified Customer'}</p>
+                                        <p className="text-sm font-bold text-[#0f2231]">{t?.author || 'Verified Customer'}</p>
+                                        <p className="text-xs text-slate-500">{t?.city_state || 'Verified Customer'}</p>
                                     </div>
                                 </div>
                             ))
@@ -617,7 +646,7 @@ export default function Welcome({ appName, services, locations, testimonials, ar
             </section>
 
             {/* Articles / Blog Section */}
-            {articles && articles.length > 0 && (
+            {safeArticles.length > 0 && (
                 <section className="bg-slate-100 py-16 border-t border-slate-200">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="flex items-center justify-between mb-8">
@@ -628,16 +657,16 @@ export default function Welcome({ appName, services, locations, testimonials, ar
                         </div>
 
                         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                            {articles.map((art) => (
-                                <div key={art.id} className="rounded-lg bg-white p-5 border border-slate-200 shadow-sm flex flex-col justify-between">
+                            {safeArticles.map((art, index) => (
+                                <div key={art?.id ?? `article-${index}`} className="rounded-lg bg-white p-5 border border-slate-200 shadow-sm flex flex-col justify-between">
                                     <div>
-                                        <span className="text-xs font-semibold text-[#d9232a] uppercase">{art.category || 'Article'}</span>
-                                        <h3 className="mt-2 text-base font-bold text-slate-900">{art.title}</h3>
-                                        {art.excerpt && <p className="mt-2 text-xs text-slate-600 line-clamp-2">{art.excerpt}</p>}
+                                        <span className="text-xs font-semibold text-[#d9232a] uppercase">{art?.category || 'Article'}</span>
+                                        <h3 className="mt-2 text-base font-bold text-slate-900">{art?.title || 'Roofing & Exterior Maintenance'}</h3>
+                                        {art?.excerpt && <p className="mt-2 text-xs text-slate-600 line-clamp-2">{art.excerpt}</p>}
                                     </div>
                                     <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                                        <span>{art.author_name || art.author || 'Editorial Team'}</span>
-                                        <span>{art.read_time || '4 min read'}</span>
+                                        <span>{art?.author_name || art?.author || 'Editorial Team'}</span>
+                                        <span>{art?.read_time || '4 min read'}</span>
                                     </div>
                                 </div>
                             ))}
@@ -659,7 +688,7 @@ export default function Welcome({ appName, services, locations, testimonials, ar
                                 Trusted residential and commercial exterior contractor specializing in lifetime roof replacements, siding, windows, and seamless gutters.
                             </p>
                             <p className="mt-4 text-xs font-semibold text-white">
-                                Emergency Contact: {contact?.phone || '1-800-4-MR-ROOF'}
+                                Emergency Contact: {safeContact.phone}
                             </p>
                         </div>
 
@@ -697,10 +726,10 @@ export default function Welcome({ appName, services, locations, testimonials, ar
                         <div>
                             <h4 className="text-sm font-bold text-white uppercase tracking-wider">Office Details</h4>
                             <p className="mt-3 text-xs text-slate-400">
-                                {contact?.address || '123 Construction Way, Suite 100'}
+                                {safeContact.address}
                             </p>
                             <p className="mt-1 text-xs text-slate-400">
-                                Email: {contact?.email || 'contact@mrroof.com'}
+                                Email: {safeContact.email}
                             </p>
                             <p className="mt-3 text-[11px] text-slate-500">
                                 Licensed, Bonded & Insured. All rights reserved.
