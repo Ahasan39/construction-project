@@ -52,6 +52,12 @@ const navGroups: Array<{ heading: string; items: NavItem[] }> = [
                 icon: 'M16 11a4 4 0 10-8 0 4 4 0 008 0z M3 21v-1a7 7 0 0114 0v1',
                 permission: 'users.view',
             },
+            {
+                href: '/admin/audit-logs',
+                label: 'Audit logs',
+                icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+                permission: 'audit.view',
+            },
         ],
     },
 ];
@@ -60,6 +66,7 @@ const pageTitles: Array<{ match: RegExp; title: string }> = [
     { match: /^\/admin\/?$/, title: 'Dashboard' },
     { match: /^\/admin\/settings\/general$/, title: 'General settings' },
     { match: /^\/admin\/users$/, title: 'Users' },
+    { match: /^\/admin\/audit-logs$/, title: 'Audit logs' },
     { match: /^\/admin\/profile$/, title: 'Your profile' },
 ];
 

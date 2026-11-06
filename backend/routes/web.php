@@ -1,19 +1,17 @@
 <?php
 
+use App\Http\Controllers\Web\AuditLogController;
 use App\Http\Controllers\Web\AuthController;
 use App\Http\Controllers\Web\DashboardController;
+use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\InertiaCheckController;
 use App\Http\Controllers\Web\MediaController;
 use App\Http\Controllers\Web\ProfileController;
 use App\Http\Controllers\Web\SettingsController;
+use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
-Route::get('/inertia-check', function () {
-    return Inertia::render('InertiaCheck', [
-        'message' => 'Laravel + Inertia + React are wired up.',
-        'checkedAt' => now()->toIso8601String(),
-    ]);
-})->name('inertia.check');
+Route::get('/inertia-check', InertiaCheckController::class)->name('inertia.check');
 
 Route::middleware('guest')->group(function (): void {
     Route::get('/admin/login', [AuthController::class, 'create'])->name('login');
@@ -35,9 +33,21 @@ Route::middleware(['auth', 'active'])->prefix('admin')->group(function (): void 
         ->middleware('throttle:login')
         ->name('admin.profile.password.update');
 
-    Route::get('/users', function () {
-        return Inertia::render('Admin/Users');
-    })->middleware('permission:users.view')->name('admin.users.index');
+    Route::get('/users', [UserController::class, 'index'])
+        ->middleware('permission:users.view')
+        ->name('admin.users.index');
+
+    Route::post('/users', [UserController::class, 'store'])
+        ->middleware('permission:users.manage')
+        ->name('admin.users.store');
+
+    Route::patch('/users/{user}', [UserController::class, 'update'])
+        ->middleware('permission:users.manage')
+        ->name('admin.users.update');
+
+    Route::get('/audit-logs', [AuditLogController::class, 'index'])
+        ->middleware('permission:audit.view')
+        ->name('admin.audit-logs.index');
 
     Route::get('/settings/general', [SettingsController::class, 'edit'])
         ->middleware('permission:settings.view')
@@ -52,10 +62,4 @@ Route::middleware(['auth', 'active'])->prefix('admin')->group(function (): void 
         ->name('admin.media.store');
 });
 
-Route::get('/', function () {
-    return response()->json([
-        'name' => config('app.name'),
-        'status' => 'ok',
-        'health' => url('/api/v1/health'),
-    ]);
-});
+Route::get('/', HomeController::class)->name('home');
