@@ -5,6 +5,7 @@ use App\Http\Controllers\Web\AuthController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\InertiaCheckController;
+use App\Http\Controllers\Web\LeadController;
 use App\Http\Controllers\Web\MediaController;
 use App\Http\Controllers\Web\ProfileController;
 use App\Http\Controllers\Web\SettingsController;
@@ -44,6 +45,18 @@ Route::middleware(['auth', 'active'])->prefix('admin')->group(function (): void 
     Route::patch('/users/{user}', [UserController::class, 'update'])
         ->middleware('permission:users.manage')
         ->name('admin.users.update');
+
+    Route::get('/leads', [LeadController::class, 'index'])
+        ->middleware('permission:leads.view')
+        ->name('admin.leads.index');
+
+    Route::get('/leads/export', [LeadController::class, 'exportCsv'])
+        ->middleware('permission:leads.view')
+        ->name('admin.leads.export');
+
+    Route::patch('/leads/{lead}', [LeadController::class, 'update'])
+        ->middleware('permission:leads.manage')
+        ->name('admin.leads.update');
 
     Route::get('/audit-logs', [AuditLogController::class, 'index'])
         ->middleware('permission:audit.view')

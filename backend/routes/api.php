@@ -6,12 +6,16 @@ use App\Http\Controllers\Api\V1\Admin\SettingsController;
 use App\Http\Controllers\Api\V1\Admin\UserController;
 use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\HealthController;
+use App\Http\Controllers\Api\V1\LeadSubmissionController;
 use App\Http\Controllers\Api\V1\PublicSettingsController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->middleware('throttle:api')->group(function (): void {
     Route::get('health', [HealthController::class, 'show'])->name('api.health');
     Route::get('settings/public', [PublicSettingsController::class, 'show'])->name('api.settings.public');
+    Route::post('leads', [LeadSubmissionController::class, 'store'])
+        ->middleware('throttle:10,1')
+        ->name('api.leads.store');
 
     Route::prefix('auth')->group(function (): void {
         Route::post('login', [AuthController::class, 'login'])

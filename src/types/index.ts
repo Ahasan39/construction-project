@@ -170,7 +170,7 @@ export interface LeadFormPayload {
 }
 
 export type LeadFormResult =
-  | { status: "success"; demo: true; message: string }
+  | { status: "success"; demo?: boolean; message: string }
   | { status: "error"; message: string };
 
 /* -------------------------------------------------------------------------
