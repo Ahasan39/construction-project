@@ -44,6 +44,47 @@ const navGroups: Array<{ heading: string; items: NavItem[] }> = [
         ],
     },
     {
+        heading: 'Content (CMS)',
+        items: [
+            {
+                href: '/admin/cms/services',
+                label: 'Services',
+                icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+                permission: 'content.view',
+            },
+            {
+                href: '/admin/cms/locations',
+                label: 'Locations',
+                icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z',
+                permission: 'content.view',
+            },
+            {
+                href: '/admin/cms/gallery',
+                label: 'Gallery',
+                icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z',
+                permission: 'content.view',
+            },
+            {
+                href: '/admin/cms/blog',
+                label: 'Blog articles',
+                icon: 'M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z',
+                permission: 'content.view',
+            },
+            {
+                href: '/admin/cms/testimonials',
+                label: 'Testimonials',
+                icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z',
+                permission: 'content.view',
+            },
+            {
+                href: '/admin/cms/seo',
+                label: 'SEO & Metadata',
+                icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+                permission: 'content.view',
+            },
+        ],
+    },
+    {
         heading: 'Administration',
         items: [
             {
@@ -71,6 +112,12 @@ const navGroups: Array<{ heading: string; items: NavItem[] }> = [
 const pageTitles: Array<{ match: RegExp; title: string }> = [
     { match: /^\/admin\/?$/, title: 'Dashboard' },
     { match: /^\/admin\/leads(\/.*)?$/, title: 'Leads & Enquiries' },
+    { match: /^\/admin\/cms\/services(\/.*)?$/, title: 'Services' },
+    { match: /^\/admin\/cms\/locations(\/.*)?$/, title: 'Locations' },
+    { match: /^\/admin\/cms\/gallery(\/.*)?$/, title: 'Gallery' },
+    { match: /^\/admin\/cms\/blog(\/.*)?$/, title: 'Blog articles' },
+    { match: /^\/admin\/cms\/testimonials(\/.*)?$/, title: 'Testimonials' },
+    { match: /^\/admin\/cms\/seo(\/.*)?$/, title: 'SEO & Metadata' },
     { match: /^\/admin\/settings\/general$/, title: 'General settings' },
     { match: /^\/admin\/users$/, title: 'Users' },
     { match: /^\/admin\/audit-logs$/, title: 'Audit logs' },

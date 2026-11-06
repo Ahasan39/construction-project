@@ -2,6 +2,12 @@
 
 use App\Http\Controllers\Web\AuditLogController;
 use App\Http\Controllers\Web\AuthController;
+use App\Http\Controllers\Web\Cms\CmsArticleController;
+use App\Http\Controllers\Web\Cms\CmsGalleryController;
+use App\Http\Controllers\Web\Cms\CmsLocationController;
+use App\Http\Controllers\Web\Cms\CmsSeoController;
+use App\Http\Controllers\Web\Cms\CmsServiceController;
+use App\Http\Controllers\Web\Cms\CmsTestimonialController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\InertiaCheckController;
@@ -61,6 +67,38 @@ Route::middleware(['auth', 'active'])->prefix('admin')->group(function (): void 
     Route::get('/audit-logs', [AuditLogController::class, 'index'])
         ->middleware('permission:audit.view')
         ->name('admin.audit-logs.index');
+
+    Route::prefix('cms')->group(function (): void {
+        Route::get('/services', [CmsServiceController::class, 'index'])->name('admin.cms.services.index');
+        Route::post('/services', [CmsServiceController::class, 'store'])->name('admin.cms.services.store');
+        Route::patch('/services/{service}', [CmsServiceController::class, 'update'])->name('admin.cms.services.update');
+        Route::delete('/services/{service}', [CmsServiceController::class, 'destroy'])->name('admin.cms.services.destroy');
+
+        Route::get('/locations', [CmsLocationController::class, 'index'])->name('admin.cms.locations.index');
+        Route::post('/locations', [CmsLocationController::class, 'store'])->name('admin.cms.locations.store');
+        Route::patch('/locations/{location}', [CmsLocationController::class, 'update'])->name('admin.cms.locations.update');
+        Route::delete('/locations/{location}', [CmsLocationController::class, 'destroy'])->name('admin.cms.locations.destroy');
+
+        Route::get('/gallery', [CmsGalleryController::class, 'index'])->name('admin.cms.gallery.index');
+        Route::post('/gallery', [CmsGalleryController::class, 'store'])->name('admin.cms.gallery.store');
+        Route::patch('/gallery/{gallery}', [CmsGalleryController::class, 'update'])->name('admin.cms.gallery.update');
+        Route::delete('/gallery/{gallery}', [CmsGalleryController::class, 'destroy'])->name('admin.cms.gallery.destroy');
+
+        Route::get('/blog', [CmsArticleController::class, 'index'])->name('admin.cms.blog.index');
+        Route::post('/blog', [CmsArticleController::class, 'store'])->name('admin.cms.blog.store');
+        Route::patch('/blog/{article}', [CmsArticleController::class, 'update'])->name('admin.cms.blog.update');
+        Route::delete('/blog/{article}', [CmsArticleController::class, 'destroy'])->name('admin.cms.blog.destroy');
+
+        Route::get('/testimonials', [CmsTestimonialController::class, 'index'])->name('admin.cms.testimonials.index');
+        Route::post('/testimonials', [CmsTestimonialController::class, 'store'])->name('admin.cms.testimonials.store');
+        Route::patch('/testimonials/{testimonial}', [CmsTestimonialController::class, 'update'])->name('admin.cms.testimonials.update');
+        Route::delete('/testimonials/{testimonial}', [CmsTestimonialController::class, 'destroy'])->name('admin.cms.testimonials.destroy');
+
+        Route::get('/seo', [CmsSeoController::class, 'index'])->name('admin.cms.seo.index');
+        Route::post('/seo', [CmsSeoController::class, 'store'])->name('admin.cms.seo.store');
+        Route::patch('/seo/{seoSetting}', [CmsSeoController::class, 'update'])->name('admin.cms.seo.update');
+        Route::delete('/seo/{seoSetting}', [CmsSeoController::class, 'destroy'])->name('admin.cms.seo.destroy');
+    });
 
     Route::get('/settings/general', [SettingsController::class, 'edit'])
         ->middleware('permission:settings.view')

@@ -30,6 +30,13 @@ class AppServiceProvider extends ServiceProvider
             return $user->isSuperAdmin() ? true : null;
         });
 
+        Gate::policy(\App\Models\CmsService::class, \App\Policies\ContentPolicy::class);
+        Gate::policy(\App\Models\CmsLocation::class, \App\Policies\ContentPolicy::class);
+        Gate::policy(\App\Models\CmsGallery::class, \App\Policies\ContentPolicy::class);
+        Gate::policy(\App\Models\CmsArticle::class, \App\Policies\ContentPolicy::class);
+        Gate::policy(\App\Models\CmsTestimonial::class, \App\Policies\ContentPolicy::class);
+        Gate::policy(\App\Models\CmsSeoSetting::class, \App\Policies\SeoPolicy::class);
+
         foreach (Permission::cases() as $permission) {
             Gate::define(
                 $permission->value,
