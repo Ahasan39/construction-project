@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function __invoke(): Response
     {
         $services = Schema::hasTable('cms_services')
-            ? CmsService::where('is_active', true)->orderBy('order')->take(6)->get()
+            ? CmsService::where('is_active', true)->orderBy('display_order')->take(6)->get()
             : collect();
 
         $locations = Schema::hasTable('cms_locations')
@@ -25,27 +25,32 @@ class HomeController extends Controller
             : collect();
 
         $testimonials = Schema::hasTable('cms_testimonials')
-            ? CmsTestimonial::where('is_published', true)->where('is_featured', true)->take(3)->get()
+            ? CmsTestimonial::where('is_published', true)->where('is_featured', true)->orderBy('display_order')->take(3)->get()
             : collect();
 
         $articles = Schema::hasTable('cms_articles')
             ? CmsArticle::where('is_published', true)->latest()->take(3)->get()
             : collect();
 
-        $settings = Schema::hasTable('site_settings')
-            ? SiteSetting::pluck('value', 'key')->all()
-            : [];
+        $settings = null;
+        if (Schema::hasTable('site_settings')) {
+            try {
+                $settings = SiteSetting::current();
+            } catch (\Throwable) {
+                $settings = null;
+            }
+        }
 
         return Inertia::render('Welcome', [
-            'appName' => config('app.name', 'Mr Roof Construction Project'),
+            'appName' => $settings?->company_name ?: config('app.name', 'Mr Roof Construction Project'),
             'services' => $services,
             'locations' => $locations,
             'testimonials' => $testimonials,
             'articles' => $articles,
             'contact' => [
-                'phone' => $settings['company_phone'] ?? '1-800-4-MR-ROOF',
-                'email' => $settings['company_email'] ?? 'contact@mrroof.com',
-                'address' => $settings['company_address'] ?? '123 Construction Way, Suite 100',
+                'phone' => $settings?->contact_number ?: '1-800-4-MR-ROOF',
+                'email' => $settings?->email ?: 'contact@mrroof.com',
+                'address' => $settings?->address ?: '123 Construction Way, Suite 100',
             ],
         ]);
     }

@@ -4,10 +4,12 @@ import type { FormEvent } from 'react';
 
 type CmsServiceItem = {
     id: number;
-    title: string;
+    name?: string;
+    title?: string;
     slug: string;
     category?: string;
-    description: string;
+    tagline?: string;
+    description?: string;
     features?: string[];
     price_starting?: string;
     is_active: boolean;
@@ -38,6 +40,7 @@ type CmsArticleItem = {
     slug: string;
     excerpt?: string;
     category?: string;
+    author_name?: string;
     author?: string;
     read_time?: string;
     published_at?: string;
@@ -414,14 +417,14 @@ export default function Welcome({ appName, services, locations, testimonials, ar
                                     <div>
                                         <div className="flex items-center justify-between">
                                             <span className="text-2xl">🔨</span>
-                                            {item.category && (
+                                            {(item.category || item.tagline) && (
                                                 <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-700">
-                                                    {item.category}
+                                                    {item.category || item.tagline}
                                                 </span>
                                             )}
                                         </div>
                                         <h3 className="mt-4 text-xl font-bold text-[#0f2231] group-hover:text-[#d9232a] transition">
-                                            {item.title}
+                                            {item.name || item.title}
                                         </h3>
                                         <p className="mt-2 text-sm leading-6 text-slate-600">
                                             {item.description}
@@ -633,7 +636,7 @@ export default function Welcome({ appName, services, locations, testimonials, ar
                                         {art.excerpt && <p className="mt-2 text-xs text-slate-600 line-clamp-2">{art.excerpt}</p>}
                                     </div>
                                     <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                                        <span>{art.author || 'Editorial Team'}</span>
+                                        <span>{art.author_name || art.author || 'Editorial Team'}</span>
                                         <span>{art.read_time || '4 min read'}</span>
                                     </div>
                                 </div>
@@ -713,3 +716,4 @@ export default function Welcome({ appName, services, locations, testimonials, ar
         </div>
     );
 }
+
