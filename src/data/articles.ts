@@ -16,7 +16,7 @@ const articles: Article[] = [
     publishedAt: "2026-01-05",
     category: "Roofing",
     thumbnailSrc: "/images/services/photos/benefit-crew-working-900.webp",
-    isPlaceholder: true,
+    isPlaceholder: false,
     bodyHtml:
       "<p>After a severe storm, the first assessment can usually be done from the ground. Walk the perimeter of the house and look for granules in gutters or along the drip line, loose or missing shingles visible against the sky, bent or detached gutters, dented vent covers, cracked or dislodged siding panels, and broken window screens.</p>" +
       "<p>Document what you find with dated photographs. If the damage looks structural or is visible from the ground, call a contractor to confirm whether a full roof inspection is appropriate. If you suspect an insurance claim is involved, contact your insurer separately — a contractor's estimate is not a coverage decision.</p>" +
@@ -30,7 +30,7 @@ const articles: Article[] = [
     publishedAt: "2026-01-12",
     category: "Roofing",
     thumbnailSrc: "/images/services/photos/benefit-consultant-homeowner-900.webp",
-    isPlaceholder: true,
+    isPlaceholder: false,
     bodyHtml:
       "<p>A written estimate for a roof replacement should name the shingle product and tier, the underlayment, flashing details at penetrations, ventilation changes if any, cleanup plan, and warranty terms. It should also indicate how the schedule will work and who the point of contact is on the project.</p>" +
       "<p>Compare estimates on scope first, then on price. Two estimates at different prices often cover different work. If something is unclear, ask the contractor to clarify in writing before signing.</p>" +
@@ -44,7 +44,7 @@ const articles: Article[] = [
     publishedAt: "2026-02-02",
     category: "Gutters",
     thumbnailSrc: "/images/services/photos/promo-inspector-gutters-900.webp",
-    isPlaceholder: true,
+    isPlaceholder: false,
     bodyHtml:
       "<p>In cold climates, ice can collect at the eave and block the normal flow of melt water out of the gutter. Water then backs up under the shingles at the lower courses and finds its way into the attic or exterior walls.</p>" +
       "<p>Attic insulation, soffit and ridge ventilation, and gutter condition all play a part. A contractor who looks only at the gutter without checking ventilation is often missing the real cause.</p>" +
@@ -58,7 +58,7 @@ const articles: Article[] = [
     publishedAt: "2026-02-20",
     category: "Siding",
     thumbnailSrc: "/images/services/photos/benefit-exterior-renovation-900.webp",
-    isPlaceholder: true,
+    isPlaceholder: false,
     bodyHtml:
       "<p>Modern residential siding usually falls into one of three broad categories: vinyl, fiber-cement, and engineered wood. Each has different installation detail, maintenance expectations, and lifetime range. Pick the category first, then the product within it.</p>" +
       "<p>Local climate, exposure, and the look you want all matter. A good estimate will walk through the differences for your specific house rather than quoting a single product up front.</p>" +
@@ -72,7 +72,7 @@ const articles: Article[] = [
     publishedAt: "2026-03-05",
     category: "Windows",
     thumbnailSrc: "/images/services/photos/hero-suburban-home-900.webp",
-    isPlaceholder: true,
+    isPlaceholder: false,
     bodyHtml:
       "<p>Replacement windows sold in the United States carry an NFRC label with four performance numbers: U-factor, Solar Heat Gain Coefficient, Visible Transmittance, and Air Leakage. U-factor measures heat flow through the window — lower is better in a cold climate. SHGC measures how much solar heat the window admits — the right value depends on climate and orientation.</p>" +
       "<p>Compare like-for-like products on these numbers rather than on brand name alone. Installation quality matters just as much as the sticker, and a good estimate addresses both.</p>" +
@@ -86,7 +86,7 @@ const articles: Article[] = [
     publishedAt: "2026-03-18",
     category: "Masonry",
     thumbnailSrc: "/images/services/photos/benefit-roofer-install-900.webp",
-    isPlaceholder: true,
+    isPlaceholder: false,
     bodyHtml:
       "<p>Water staining in a ceiling near a chimney often turns out to be a flashing or masonry issue rather than a shingle failure. The flashing at the chimney base can lift, the brick itself can be spalling, and the crown at the top can crack.</p>" +
       "<p>A roofer and a mason look at the same chimney differently. On older homes, having both on-site at the estimate stage saves a return trip later.</p>" +

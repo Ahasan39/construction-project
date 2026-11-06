@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { assetUrl } from "@/app/assets";
 import { applyRouteMeta } from "@/app/seo";
+import { getRouteSeo } from "@/app/routeSeo";
 import {
   ServiceAction,
   ServiceEstimate,
@@ -218,12 +219,9 @@ function LocationVariantBody({
     : `/${location.slug}/#estimate`;
 
   useEffect(() => {
-    applyRouteMeta({
-      title: heading,
-      description: intro,
-      canonicalPath,
-    });
-  }, [heading, intro, canonicalPath]);
+    const meta = getRouteSeo(canonicalPath);
+    applyRouteMeta(meta);
+  }, [canonicalPath]);
 
   const heroPhoto = detail?.hero ?? detailPhotos.commercial;
 
@@ -421,12 +419,9 @@ function LocationServiceBody({
   const canonicalPath = `/${location.slug}/${service.slug}/`;
 
   useEffect(() => {
-    applyRouteMeta({
-      title: content.title,
-      description: content.intro,
-      canonicalPath,
-    });
-  }, [content.title, content.intro, canonicalPath]);
+    const meta = getRouteSeo(canonicalPath);
+    applyRouteMeta(meta);
+  }, [canonicalPath]);
 
   const estimateTo =
     content.finalCtaTo ??

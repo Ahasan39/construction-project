@@ -130,7 +130,7 @@ export interface ArticleSummary {
 
 export interface Article extends ArticleSummary {
   bodyHtml: string;
-  isPlaceholder: true;
+  isPlaceholder?: boolean;
 }
 
 /* -------------------------------------------------------------------------
@@ -183,4 +183,7 @@ export interface RouteMeta {
   /** Path component appended to the canonical origin; starts with "/". */
   canonicalPath: string;
   noindex?: boolean;
+  ogType?: "website" | "article";
+  ogImage?: string;
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }

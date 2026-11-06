@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
+Sitemap: https://ahasan39.github.io/construction-project/sitemap.xml
 # Public demo: every HTML entry and client route has noindex,nofollow metadata.
 # Allow crawling so compliant crawlers can read that metadata. This file is
 # served below the repository base; it is not an origin-wide indexing control.

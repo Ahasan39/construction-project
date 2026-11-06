@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { applyRouteMeta } from "@/app/seo";
+import { getRouteSeo } from "@/app/routeSeo";
 import { PageShell } from "@/components/layout/PageShell";
 import { ReviewsStrip } from "@/components/sections/ReviewsStrip";
 import { AwardsStrip } from "@/components/sections/AwardsStrip";
@@ -30,11 +31,8 @@ export default function LocationPage({ location }: LocationPageProps) {
 
   useEffect(() => {
     if (!content) return;
-    applyRouteMeta({
-      title: `${location.city}, ${location.state} roofing & home exterior`,
-      description: content.hero.description,
-      canonicalPath: `/${location.slug}/`,
-    });
+    const meta = getRouteSeo(`/${location.slug}`);
+    applyRouteMeta(meta);
   }, [content, location]);
 
   if (!content) return <LocationScaffold location={location} />;

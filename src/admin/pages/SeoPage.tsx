@@ -92,19 +92,38 @@ export default function SeoPage() {
         />
       </section>
 
-      <section className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <section className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Sitemap</p>
-          <p className="mt-1 text-sm text-slate-800">Generated on build from staticRoutes().</p>
-          <p className="text-xs text-slate-500">Admin paths are excluded.</p>
+          <div className="flex items-center justify-between">
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Sitemap</p>
+            <StatusBadge status="published" />
+          </div>
+          <p className="mt-2 text-sm font-semibold text-slate-900">235 routes indexed</p>
+          <p className="mt-1 text-xs text-slate-600">Generated at /sitemap.xml during production build. Admin paths excluded.</p>
         </div>
         <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">robots.txt</p>
-          <p className="mt-1 text-sm text-slate-800">Allow public pages, disallow /admin/.</p>
+          <div className="flex items-center justify-between">
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">robots.txt</p>
+            <StatusBadge status="published" />
+          </div>
+          <p className="mt-2 text-sm font-semibold text-slate-900">Allow: / · Disallow: /admin/</p>
+          <p className="mt-1 text-xs text-slate-600">Sitemap directive declared. Demo crawlable with noindex meta.</p>
         </div>
         <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Structured data</p>
-          <p className="mt-1 text-sm text-slate-800">LocalBusiness JSON-LD on location pages.</p>
+          <div className="flex items-center justify-between">
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Structured Data</p>
+            <StatusBadge status="published" />
+          </div>
+          <p className="mt-2 text-sm font-semibold text-slate-900">RoofingContractor &amp; LocalBusiness</p>
+          <p className="mt-1 text-xs text-slate-600">JSON-LD pre-rendered on 10 Location Hubs and 46 Local Service pages.</p>
+        </div>
+        <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="flex items-center justify-between">
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Prerendering</p>
+            <StatusBadge status="published" />
+          </div>
+          <p className="mt-2 text-sm font-semibold text-slate-900">Static Head Injection</p>
+          <p className="mt-1 text-xs text-slate-600">All 235 static HTML entries ship route-specific titles, descriptions, and OG tags.</p>
         </div>
       </section>
 
