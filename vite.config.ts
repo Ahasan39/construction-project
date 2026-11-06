@@ -144,7 +144,14 @@ export default defineConfig(({ command, isPreview }) => ({
   },
   build: {
     target: "es2022",
-    sourcemap: true,
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router-dom"],
+        },
+      },
+    },
   },
   test: {
     globals: true,

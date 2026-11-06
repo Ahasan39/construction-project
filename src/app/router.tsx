@@ -2,9 +2,9 @@ import { lazy, Suspense } from "react";
 import type { ReactNode } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { AppShell } from "@/components/layout/AppShell";
-import NotFoundPage from "@/pages/NotFoundPage";
 
-import HomePage from "@/pages/HomePage";
+const HomePage = lazy(() => import("@/pages/HomePage"));
+const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
 const TopLevelSlugPage = lazy(() => import("@/pages/TopLevelSlugPage"));
 const TwoSegmentPage = lazy(() => import("@/pages/TwoSegmentPage"));
 const LocationFreeEstimatePage = lazy(
@@ -124,7 +124,7 @@ export const router = createBrowserRouter([
     path: "/",
     element: <AppShell />,
     children: [
-      { index: true, element: <HomePage /> },
+      { index: true, element: <L><HomePage /></L> },
 
       /* Lead form */
       { path: "free-estimate", element: <L><FreeEstimatePage /></L> },
@@ -205,7 +205,7 @@ export const router = createBrowserRouter([
         : []),
 
       /* Catch-all */
-      { path: "*", element: <NotFoundPage /> },
+      { path: "*", element: <L><NotFoundPage /></L> },
     ],
   },
 ], { basename: import.meta.env.BASE_URL });

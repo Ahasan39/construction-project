@@ -28,11 +28,13 @@ function renderArticle(path: string) {
 }
 
 describe("BlogIndexPage", () => {
-  it("renders a single News & Resources H1", () => {
+  it("renders a single News & Resources H1", async () => {
     renderIndex();
-    const h1s = screen.getAllByRole("heading", { level: 1 });
-    expect(h1s).toHaveLength(1);
-    expect(h1s[0].textContent).toMatch(/news & resources/i);
+    const h1 = await screen.findByRole("heading", { level: 1 });
+    expect(h1.textContent).toMatch(/news & resources/i);
+    await waitFor(() => {
+      expect(screen.queryByRole("status")).toBeNull();
+    });
   });
 
   it("renders one card per article with a relevant image and alt text", async () => {
@@ -67,10 +69,13 @@ describe("BlogIndexPage", () => {
     }
   });
 
-  it("Free Estimate CTA resolves to /free-estimate", () => {
+  it("Free Estimate CTA resolves to /free-estimate", async () => {
     renderIndex();
-    const cta = screen.getByRole("link", { name: /get a free estimate/i });
+    const cta = await screen.findByRole("link", { name: /get a free estimate/i });
     expect(cta.getAttribute("href")).toBe("/free-estimate");
+    await waitFor(() => {
+      expect(screen.queryByRole("status")).toBeNull();
+    });
   });
 });
 
